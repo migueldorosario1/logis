@@ -1,0 +1,50 @@
+---
+import { type Lang, UI, langPath } from '../content/ui';
+import { PAGES } from '../content/pages';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+const { lang, slug } = Astro.props;
+const c = PAGES[slug][lang];
+const t = UI[lang];
+---
+
+<section class="hero">
+  <div class="container">
+    <span class="kicker">{c.hero.kicker}</span>
+    <h1>{c.hero.title}</h1>
+    <p class="sub">{c.hero.sub}</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    {c.paragrafos && (
+      <div class="prose" style="margin-bottom:28px;">
+        {c.paragrafos.map((p) => <p>{p}</p>)}
+      </div>
+    )}
+    {c.blocos && (
+      <div class="cards">
+        {c.blocos.map((b) => (
+          <div class="card">
+            <h3>{b.t}</h3>
+            <p>{b.x}</p>
+          </div>
+        ))}
+      </div>
+    )}
+    {c.nota && (
+      <div class="prose" style="margin-top:28px;">
+        <p class="nota">{c.nota}</p>
+      </div>
+    )}
+    {c.cta && (
+      <div style="margin-top:26px;">
+        <a class="btn solid" href={langPath(lang, c.cta.slug)}>{c.cta.label} →</a>
+      </div>
+    )}
+  </div>
+</section>

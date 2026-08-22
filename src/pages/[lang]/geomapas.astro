@@ -1,0 +1,159 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+import { HUBS, FLOWS, HUB_STYLE } from '../../data/hubs';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.geomapas[lang];
+const title = `${c.hero.title} — LOGOS`;
+
+const tipoLabel: Record<string, string> = {
+  porto: HUB_STYLE.porto.label[lang],
+  aeroporto: HUB_STYLE.aeroporto.label[lang],
+  ferrovia: HUB_STYLE.ferrovia.label[lang],
+  internacional: HUB_STYLE.internacional.label[lang],
+};
+const cores: Record<string, string> = {
+  porto: HUB_STYLE.porto.cor,
+  aeroporto: HUB_STYLE.aeroporto.cor,
+  ferrovia: HUB_STYLE.ferrovia.cor,
+  internacional: HUB_STYLE.internacional.cor,
+};
+const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
+---
+
+<Base lang={lang} slug="geomapas" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="map-frame">
+        <div id="mapa" role="application" aria-label="Mapa da logística"></div>
+        <div class="map-legend">
+          <strong>{legendTitle}:</strong>
+          {Object.entries(cores).map(([tipo, cor]) => (
+            <span><span class="dot" style={`background:${cor};`}></span>{tipoLabel[tipo]}</span>
+          ))}
+          <span><span class="dot" style="background:#0E3A5D; border-radius:2px; height:3px; margin-top:4px;"></span>{
+            { pt: 'Fluxo internacional', en: 'International flow', es: 'Flujo internacional' }[lang]
+          }</span>
+        </div>
+      </div>
+      <p class="map-note">© OpenStreetMap contributors · OpenFreeMap · IBGE (malhas). {
+        { pt: 'Traçados de fluxos são esquemáticos (referência O–D).', en: 'Flow lines are schematic (O–D reference).', es: 'Los trazados de flujos son esquemáticos (referencia O–D).' }[lang]
+      }</p>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="container">
+      <div class="cards">
+        {c.blocos!.map((b) => (
+          <div class="card">
+            <h3>{b.t}</h3>
+            <p>{b.x}</p>
+          </div>
+        ))}
+      </div>
+      <div class="prose" style="margin-top:26px;">
+        {c.paragrafos!.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css" is:inline />
+  <script is:inline src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+  <script is:inline define:vars={{ hubs: HUBS, flows: FLOWS, tipoLabel }}>
+    const map = new maplibregl.Map({
+      container: 'mapa',
+      style: 'https://tiles.openfreemap.org/styles/liberty',
+      center: [-48, -8],
+      zoom: 3.4,
+      minZoom: 2,
+      maxBounds: [[-115, -62], [155, 62]],
+    });
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+    map.on('load', async () => {
+      // Malha das UFs (IBGE) — v3 com fallback para v2
+      let uf = null;
+      const urls = [
+        'https://servicodados.ibge.gov.br/api/v3/malhas/estados?formato=application/vnd.geo+json&qualidade=minima',
+        'https://servicodados.ibge.gov.br/api/v2/malhas/estados?formato=json&qualidade=minima',
+      ];
+      for (const u of urls) {
+        try {
+          const r = await fetch(u);
+          if (r.ok) { uf = await r.json(); break; }
+        } catch (e) { /* tenta a próxima */ }
+      }
+      if (uf) {
+        map.addSource('ufs', { type: 'geojson', data: uf });
+        map.addLayer({ id: 'ufs-fill', type: 'fill', source: 'ufs', paint: { 'fill-color': '#1E8A66', 'fill-opacity': 0.05 } });
+        map.addLayer({ id: 'ufs-line', type: 'line', source: 'ufs', paint: { 'line-color': '#14664E', 'line-width': 1.1, 'line-opacity': 0.75 } });
+      }
+
+      // Fluxos internacionais (esquemáticos)
+      const byName = Object.fromEntries(hubs.map((h) => [h.nome, h]));
+      const flowFeatures = flows
+        .map((f) => {
+          const a = byName[f.de];
+          const b = byName[f.para];
+          if (!a || !b) return null;
+          return {
+            type: 'Feature',
+            properties: { nome: f.nome },
+            geometry: { type: 'LineString', coordinates: [[a.lon, a.lat], [b.lon, b.lat]] },
+          };
+        })
+        .filter(Boolean);
+      map.addSource('flows', { type: 'geojson', data: { type: 'FeatureCollection', features: flowFeatures } });
+      map.addLayer({
+        id: 'flows-line', type: 'line', source: 'flows',
+        paint: { 'line-color': '#0E3A5D', 'line-width': 1.7, 'line-dasharray': [2, 2], 'line-opacity': 0.7 },
+      });
+
+      // Hubs logísticos
+      map.addSource('hubs', {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: hubs.map((h) => ({
+            type: 'Feature',
+            properties: { nome: h.nome, tipo: h.tipo, uf: h.uf || '' },
+            geometry: { type: 'Point', coordinates: [h.lon, h.lat] },
+          })),
+        },
+      });
+      map.addLayer({
+        id: 'hubs-pt', type: 'circle', source: 'hubs',
+        paint: {
+          'circle-radius': 5.5,
+          'circle-color': ['match', ['get', 'tipo'], 'porto', '#0E3A5D', 'aeroporto', '#7C4DBC', 'ferrovia', '#B45309', '#1E8A66'],
+          'circle-stroke-color': '#ffffff',
+          'circle-stroke-width': 1.6,
+        },
+      });
+      map.on('click', 'hubs-pt', (e) => {
+        const f = e.features[0];
+        const ufTxt = f.properties.uf ? ' · ' + f.properties.uf : '';
+        new maplibregl.Popup({ offset: 8 })
+          .setLngLat(f.geometry.coordinates)
+          .setHTML('<strong>' + f.properties.nome + '</strong><br>' + (tipoLabel[f.properties.tipo] || '') + ufTxt)
+          .addTo(map);
+      });
+      map.on('mouseenter', 'hubs-pt', () => (map.getCanvas().style.cursor = 'pointer'));
+      map.on('mouseleave', 'hubs-pt', () => (map.getCanvas().style.cursor = ''));
+    });
+  </script>
+</Base>

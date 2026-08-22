@@ -1,0 +1,56 @@
+---
+import { LANGS, type Lang, NAV, UI, langPath, SITE_NAME, MAGAZINE_NAME } from '../content/ui';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+const { lang, slug } = Astro.props;
+const t = UI[lang];
+---
+
+<header class="site">
+  <div class="container">
+    <div class="header-top">
+      <a class="brand" href={langPath(lang)}>
+        <span class="mark">L</span>
+        <span>
+          {SITE_NAME}
+          <small>{t.tagline} · {MAGAZINE_NAME}</small>
+        </span>
+      </a>
+      <div class="lang-switch">
+        {LANGS.map((l) => (
+          <a href={langPath(l, slug)} class:list={{ active: l === lang }}>{l.toUpperCase()}</a>
+        ))}
+      </div>
+    </div>
+
+    <nav class="main" aria-label="Principal">
+      <ul>
+        {NAV.map((item) => (
+          <li>
+            <a
+              href={langPath(lang, item.slug)}
+              class:list={{ active: item.slug === slug }}
+            >{item.label[lang]}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <details class="menu-mobile">
+      <summary>{t.menu}</summary>
+      <ul>
+        {NAV.map((item) => (
+          <li>
+            <a
+              href={langPath(lang, item.slug)}
+              class:list={{ active: item.slug === slug }}
+            >{item.label[lang]}</a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </div>
+</header>

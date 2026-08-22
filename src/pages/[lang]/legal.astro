@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+import { LEGAL_BR, LEGAL_INTL } from '../../data/legal';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.legal[lang];
+const title = `${c.hero.title} — LOGOS`;
+
+const T = {
+  pt: { g1: 'Brasil', g2: 'Internacional', norma: 'Norma', tema: 'O que regula', link: 'Texto oficial' },
+  en: { g1: 'Brazil', g2: 'International', norma: 'Rule', tema: 'What it regulates', link: 'Official text' },
+  es: { g1: 'Brasil', g2: 'Internacional', norma: 'Norma', tema: 'Qué regula', link: 'Texto oficial' },
+}[lang];
+---
+
+<Base lang={lang} slug="legal" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="prose" style="margin-bottom:10px;">
+        {c.paragrafos!.map((p) => <p>{p}</p>)}
+      </div>
+
+      <h3 class="group-title">{T.g1}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.norma}</th><th>{T.tema}</th><th>{T.link}</th></tr></thead>
+          <tbody>
+            {LEGAL_BR.map((r) => (
+              <tr class:list={{ destaque: r.destaque }}>
+                <td><strong>{r.norma}</strong></td>
+                <td>{r.tema}</td>
+                <td><a href={r.url} target="_blank" rel="noopener noreferrer">planalto.gov.br ↗</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="group-title">{T.g2}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.norma}</th><th>{T.tema}</th><th>{T.link}</th></tr></thead>
+          <tbody>
+            {LEGAL_INTL.map((r) => (
+              <tr>
+                <td><strong>{r.norma}</strong></td>
+                <td>{r.tema}</td>
+                <td><a href={r.url} target="_blank" rel="noopener noreferrer">{new URL(r.url).hostname} ↗</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Base>

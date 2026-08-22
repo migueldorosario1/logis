@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.observatorio[lang];
+const title = `${c.hero.title} — LOGOS`;
+---
+
+<Base lang={lang} slug="observatorio" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="kpis light">
+        {c.kpis!.map((k) => (
+          <div class="kpi">
+            <div class="v">{k.v}</div>
+            <div class="l">{k.l}</div>
+            {k.fonte && <div class="fonte">{k.fonte}</div>}
+          </div>
+        ))}
+      </div>
+      <div class="prose" style="margin-top:30px;">
+        {c.paragrafos!.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+</Base>

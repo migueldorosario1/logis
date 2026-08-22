@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang, UI, langPath } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.home[lang];
+const t = UI[lang];
+const title = `LOGOS — ${t.tagline}`;
+---
+
+<Base lang={lang} slug="" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+      <div class="ctas">
+        <a class="btn primary" href={langPath(lang, c.cta!.slug)}>{c.cta!.label} →</a>
+        <a class="btn ghost" href={langPath(lang, 'revista')}>Logis</a>
+      </div>
+      <div class="kpis">
+        {c.kpis!.map((k) => (
+          <div class="kpi">
+            <div class="v">{k.v}</div>
+            <div class="l">{k.l}</div>
+            {k.fonte && <div class="fonte">{k.fonte}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="cards">
+        {c.blocos!.map((b) => (
+          <div class="card">
+            <h3>{b.t}</h3>
+            <p>{b.x}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

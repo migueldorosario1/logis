@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import { LANGS, type Lang, UI } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.sustentabilidade[lang];
+const title = `${c.hero.title} — LOGOS`;
+---
+
+<Base lang={lang} slug="sustentabilidade" title={title} description={c.hero.sub}>
+  <Section lang={lang} slug="sustentabilidade" />
+</Base>

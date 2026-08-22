@@ -1,0 +1,43 @@
+---
+import { type Lang, NAV, UI, langPath, SITE_NAME } from '../content/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = UI[lang];
+const ano = new Date().getFullYear();
+---
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="mark">L</span> {SITE_NAME}
+        </div>
+        <p>{t.rodape}</p>
+      </div>
+      <div>
+        <h4>{NAV[0].label[lang]}</h4>
+        <ul>
+          {NAV.slice(1, 7).map((item) => (
+            <li><a href={langPath(lang, item.slug)}>{item.label[lang]}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4>&nbsp;</h4>
+        <ul>
+          {NAV.slice(7).map((item) => (
+            <li><a href={langPath(lang, item.slug)}>{item.label[lang]}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {ano} {SITE_NAME}. {t.creditos}</p>
+      <p style="margin-top:6px;">{t.atualizadoEm}</p>
+    </div>
+  </div>
+</footer>

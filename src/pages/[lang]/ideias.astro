@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang, UI } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.ideias[lang];
+const t = UI[lang];
+const title = `${c.hero.title} — LOGOS`;
+---
+
+<Base lang={lang} slug="ideias" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+      <div class="kpis">
+        {c.kpis!.map((k) => (
+          <div class="kpi">
+            <div class="v">{k.v}</div>
+            <div class="l">{k.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="prose" style="margin-bottom:24px;">
+        <p class="nota">{t.avisoIdeias}</p>
+      </div>
+      <div class="cards">
+        {c.blocos!.map((b) => (
+          <div class="card">
+            <h3>{b.t}</h3>
+            <p>{b.x}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="container">
+      <div class="section-head">
+        <h2 style="font-size:22px;">2022 → 2029</h2>
+      </div>
+      <ul class="timeline">
+        {c.timeline!.map((item) => (
+          <li>
+            <div class="ano">{item.ano}</div>
+            <div class="t">{item.t}</div>
+          </li>
+        ))}
+      </ul>
+      <div class="prose" style="margin-top:30px;">
+        <p class="nota">{c.nota}</p>
+      </div>
+    </div>
+  </section>
+</Base>

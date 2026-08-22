@@ -1,0 +1,128 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+import { BASES, CENTROS_BR, CENTROS_MUNDO, REVISTAS_ALVO, ORGANISMOS_PESQUISA } from '../../data/pesquisa';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.pesquisa[lang];
+const title = `${c.hero.title} — LOGOS`;
+
+const T = {
+  pt: {
+    g1: 'Bancos públicos de artigos científicos', g2: 'Centros de pesquisa — Brasil', g3: 'Centros de pesquisa — mundo',
+    g4: 'Revistas científicas de referência', g5: 'Organismos que publicam pesquisa',
+    base: 'Base', acesso: 'Acesso', nota: 'Como usar', aberto: 'gratuito', pago: 'assinatura',
+    centro: 'Centro', foco: 'Especialidade', revista: 'Revista', organismo: 'Organismo', produto: 'Produto-chave',
+  },
+  en: {
+    g1: 'Public scientific article databases', g2: 'Research centers — Brazil', g3: 'Research centers — world',
+    g4: 'Reference scientific journals', g5: 'Organizations publishing research',
+    base: 'Database', acesso: 'Access', nota: 'How to use', aberto: 'free', pago: 'subscription',
+    centro: 'Center', foco: 'Specialty', revista: 'Journal', organismo: 'Organization', produto: 'Key product',
+  },
+  es: {
+    g1: 'Bancos públicos de artículos científicos', g2: 'Centros de investigación — Brasil', g3: 'Centros de investigación — mundo',
+    g4: 'Revistas científicas de referencia', g5: 'Organismos que publican investigación',
+    base: 'Base', acesso: 'Acceso', nota: 'Cómo usar', aberto: 'gratuito', pago: 'suscripción',
+    centro: 'Centro', foco: 'Especialidad', revista: 'Revista', organismo: 'Organismo', produto: 'Producto clave',
+  },
+}[lang];
+---
+
+<Base lang={lang} slug="pesquisa" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="prose" style="margin-bottom:10px;">
+        {c.paragrafos!.map((p) => <p>{p}</p>)}
+      </div>
+
+      <h3 class="group-title">{T.g1}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.base}</th><th>{T.acesso}</th><th>{T.nota}</th></tr></thead>
+          <tbody>
+            {BASES.map((b) => (
+              <tr>
+                <td><a href={b.url} target="_blank" rel="noopener noreferrer"><strong>{b.nome}</strong></a></td>
+                <td><span class:list={['badge', b.aberto ? 'ok' : 'pay']}>{b.aberto ? T.aberto : T.pago}</span></td>
+                <td>{b.nota}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="group-title">{T.g2}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.centro}</th><th>{T.foco}</th></tr></thead>
+          <tbody>
+            {CENTROS_BR.map((r) => (
+              <tr>
+                <td><a href={r.url} target="_blank" rel="noopener noreferrer"><strong>{r.nome}</strong></a></td>
+                <td>{r.foco}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="group-title">{T.g3}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.centro}</th><th>{T.foco}</th></tr></thead>
+          <tbody>
+            {CENTROS_MUNDO.map((r) => (
+              <tr>
+                <td><a href={r.url} target="_blank" rel="noopener noreferrer"><strong>{r.nome}</strong></a></td>
+                <td>{r.foco}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="group-title">{T.g4}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.revista}</th><th>{T.nota}</th></tr></thead>
+          <tbody>
+            {REVISTAS_ALVO.map((r) => (
+              <tr>
+                <td><a href={r.url} target="_blank" rel="noopener noreferrer"><strong>{r.nome}</strong></a></td>
+                <td>{r.nota}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="group-title">{T.g5}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.organismo}</th><th>{T.produto}</th></tr></thead>
+          <tbody>
+            {ORGANISMOS_PESQUISA.map((r) => (
+              <tr>
+                <td><a href={r.url} target="_blank" rel="noopener noreferrer"><strong>{r.nome}</strong></a></td>
+                <td>{r.produto}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Base>
