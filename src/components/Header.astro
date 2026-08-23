@@ -1,5 +1,5 @@
 ---
-import { LANGS, type Lang, NAV, UI, langPath, SITE_NAME, MAGAZINE_NAME } from '../content/ui';
+import { LANGS, type Lang, NAV_GROUPS, UI, langPath, SITE_NAME, MAGAZINE_NAME } from '../content/ui';
 import Flag from './Flag.astro';
 
 interface Props {
@@ -10,6 +10,8 @@ const { lang, slug } = Astro.props;
 const t = UI[lang];
 
 const LANG_NAMES: Record<Lang, string> = { pt: 'Português (Brasil)', en: 'English (USA)', es: 'Español (España)' };
+const groupActive = (g: { slug: string; children?: { slug: string }[] }) =>
+  g.slug === slug || (g.children?.some((ch) => ch.slug === slug) ?? false);
 ---
 
 <header class="site">
@@ -33,29 +35,49 @@ const LANG_NAMES: Record<Lang, string> = { pt: 'Português (Brasil)', en: 'Engli
 
     <nav class="main" aria-label="Principal">
       <ul>
-        {NAV.map((item) => (
-          <li>
-            <a
-              href={langPath(lang, item.slug)}
-              class:list={{ active: item.slug === slug }}
-            >{item.label[lang]}</a>
-          </li>
+        {NAV_GROUPS.map((g) => (
+          g.children ? (
+            <li class="has-sub">
+              <a
+                href={langPath(lang, g.children[0].slug)}
+                class:list={{ active: groupActive(g) }}
+                aria-haspopup="true"
+              >{g.label[lang]} <span class="caret">▾</span></a>
+              <ul class="sub">
+                {g.children.map((ch) => (
+                  <li><a href={langPath(lang, ch.slug)} class:list={{ active: ch.slug === slug }}>{ch.label[lang]}</a></li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <a href={langPath(lang, g.slug)} class:list={{ active: g.slug === slug }}>{g.label[lang]}</a>
+            </li>
+          )
         ))}
       </ul>
     </nav>
 
     <details class="menu-mobile">
       <summary>{t.menu}</summary>
-      <ul>
-        {NAV.map((item) => (
-          <li>
-            <a
-              href={langPath(lang, item.slug)}
-              class:list={{ active: item.slug === slug }}
-            >{item.label[lang]}</a>
-          </li>
-        ))}
-      </ul>
+      {NAV_GROUPS.map((g) => (
+        <div class="mm-group">
+          {g.children ? (
+            <>
+              <h4>{g.label[lang]}</h4>
+              <ul>
+                {g.children.map((ch) => (
+                  <li><a href={langPath(lang, ch.slug)} class:list={{ active: ch.slug === slug }}>{ch.label[lang]}</a></li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <ul>
+              <li><a href={langPath(lang, g.slug)} class:list={{ active: g.slug === slug }}>{g.label[lang]}</a></li>
+            </ul>
+          )}
+        </div>
+      ))}
     </details>
   </div>
 </header>

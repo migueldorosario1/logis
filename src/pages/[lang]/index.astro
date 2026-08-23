@@ -22,15 +22,6 @@ const title = `LOGIS — ${t.tagline}`;
         <a class="btn primary" href={langPath(lang, c.cta!.slug)}>{c.cta!.label} →</a>
         <a class="btn ghost" href={langPath(lang, 'revista')}>Logis</a>
       </div>
-      <div class="kpis">
-        {c.kpis!.map((k) => (
-          <div class="kpi">
-            <div class="v">{k.v}</div>
-            <div class="l">{k.l}</div>
-            {k.fonte && <div class="fonte">{k.fonte}</div>}
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -38,10 +29,10 @@ const title = `LOGIS — ${t.tagline}`;
     <div class="container">
       <div class="cards">
         {c.blocos!.map((b) => (
-          <div class="card">
+          <a class="card link" href={langPath(lang, b.slug ?? '')}>
             <h3>{b.t}</h3>
             <p>{b.x}</p>
-          </div>
+          </a>
         ))}
       </div>
     </div>

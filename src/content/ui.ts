@@ -20,6 +20,43 @@ export const NAV: { slug: string; label: Record<Lang, string> }[] = [
   { slug: 'institucional', label: { pt: 'Institucional', en: 'About', es: 'Institucional' } },
 ];
 
+// Navegação agrupada com submenus (hover/clique) — ordem Miguel 22/08 ~21:45
+export interface NavChild { slug: string; label: Record<Lang, string> }
+export interface NavGroup { slug: string; label: Record<Lang, string>; children?: NavChild[] }
+
+export const NAV_GROUPS: NavGroup[] = [
+  { slug: '', label: { pt: 'Início', en: 'Home', es: 'Inicio' } },
+  {
+    slug: 'mapas',
+    label: { pt: 'Mapas & Dados', en: 'Maps & Data', es: 'Mapas y Datos' },
+    children: [
+      { slug: 'geomapas', label: { pt: 'Geomapas do mundo', en: 'World geomaps', es: 'Geomapas del mundo' } },
+      { slug: 'observatorio', label: { pt: 'Observatório', en: 'Observatory', es: 'Observatorio' } },
+      { slug: 'pesquisa', label: { pt: 'Pesquisa & Dados', en: 'Research & Data', es: 'Investigación y Datos' } },
+    ],
+  },
+  {
+    slug: 'regulacao',
+    label: { pt: 'Regulação & Mercados', en: 'Regulation & Markets', es: 'Regulación y Mercados' },
+    children: [
+      { slug: 'reguladores', label: { pt: 'Reguladores', en: 'Regulators', es: 'Reguladores' } },
+      { slug: 'legal', label: { pt: 'Marco Legal', en: 'Legal Framework', es: 'Marco Legal' } },
+      { slug: 'contratos', label: { pt: 'Contratos', en: 'Contracts', es: 'Contratos' } },
+    ],
+  },
+  {
+    slug: 'temas',
+    label: { pt: 'Sustentabilidade & Segurança', en: 'Sustainability & Security', es: 'Sostenibilidad y Seguridad' },
+    children: [
+      { slug: 'sustentabilidade', label: { pt: 'Sustentabilidade', en: 'Sustainability', es: 'Sostenibilidad' } },
+      { slug: 'seguranca', label: { pt: 'Segurança Pública', en: 'Public Security', es: 'Seguridad Pública' } },
+      { slug: 'ideias', label: { pt: 'Ideias p/ o Desenvolvimento', en: 'Development Ideas', es: 'Ideas p/ el Desarrollo' } },
+    ],
+  },
+  { slug: 'revista', label: { pt: 'Revista Logis', en: 'Logis Journal', es: 'Revista Logis' } },
+  { slug: 'institucional', label: { pt: 'Institucional', en: 'About', es: 'Institucional' } },
+];
+
 export const UI: Record<Lang, Record<string, string>> = {
   pt: {
     tagline: 'Portal de logística sustentável',

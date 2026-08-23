@@ -1,7 +1,7 @@
 import type { Lang } from './ui';
 
 export interface KP { v: string; l: string; fonte?: string }
-export interface TI { t: string; x: string }
+export interface TI { t: string; x: string; slug?: string }
 export interface TL { ano: string; t: string }
 export interface PROG { pais: string; prog: string; como: string; url: string }
 
@@ -32,9 +32,11 @@ export const PAGES: Pages = {
         { v: '36º / 139', l: 'Brasil no LPI do Banco Mundial (2023)', fonte: 'World Bank — Logistics Performance Index' },
       ],
       blocos: [
-        { t: 'Conhecimento', x: 'A revista trimestral Logis, bases públicas de artigos científicos e os principais centros de pesquisa do Brasil e do mundo.' },
-        { t: 'Infraestrutura', x: 'Geomapas de rodovias, ferrovias, portos, hidrovias e fluxos internacionais de comércio — do Brasil para o mundo.' },
-        { t: 'Confiança', x: 'Segurança pública e controle logístico das fronteiras, reguladores por estado, marco legal nacional e internacional, contratos e ideias de desenvolvimento para a logística brasileira.' },
+        { t: 'Mapas & Dados', slug: 'geomapas', x: 'Mapa-múndi interativo com rotas navais, ferrovias, corredores aéreos, oleodutos e fibras ópticas submarinas — além do observatório de indicadores e da pesquisa.' },
+        { t: 'Regulação & Mercados', slug: 'reguladores', x: 'Reguladores do Brasil e do mundo, marco legal nacional e internacional e contratos.' },
+        { t: 'Sustentabilidade & Segurança', slug: 'sustentabilidade', x: 'Logística reversa e economia circular, segurança pública e controle das fronteiras, e ideias de desenvolvimento como o selo eletrônico fiscal.' },
+        { t: 'Revista Logis', slug: 'revista', x: 'Revista trimestral de logística sustentável — acesso aberto diamante e trilíngue, com edição demonstrativa para download.' },
+        { t: 'Institucional', slug: 'institucional', x: 'Sobre o portal LOGIS, metodologia e contato.' },
       ],
       cta: { label: 'Explorar os geomapas', slug: 'geomapas' },
     },
@@ -50,9 +52,11 @@ export const PAGES: Pages = {
         { v: '36th / 139', l: 'Brazil in the World Bank LPI (2023)', fonte: 'World Bank — Logistics Performance Index' },
       ],
       blocos: [
-        { t: 'Knowledge', x: 'The quarterly journal Logis, public scientific article databases and the leading research centers in Brazil and worldwide.' },
-        { t: 'Infrastructure', x: 'Geomaps of highways, railways, ports, waterways and international trade flows — from Brazil to the world.' },
-        { t: 'Trust', x: 'Public security and logistics control of borders, regulators by state, national and international legal frameworks, contracts and development ideas for Brazilian logistics.' },
+        { t: 'Maps & Data', slug: 'geomapas', x: 'Interactive world map with shipping lanes, railways, air corridors, oil pipelines and submarine fiber-optic cables — plus the indicators observatory and research.' },
+        { t: 'Regulation & Markets', slug: 'reguladores', x: 'Regulators from Brazil and the world, national and international legal frameworks and contracts.' },
+        { t: 'Sustainability & Security', slug: 'sustentabilidade', x: 'Reverse logistics and circular economy, public security and border control, and development ideas such as the electronic fiscal seal.' },
+        { t: 'Logis Journal', slug: 'revista', x: 'Quarterly journal of sustainable logistics — diamond open access and trilingual, with a demo edition available for download.' },
+        { t: 'About', slug: 'institucional', x: 'About the LOGIS portal, methodology and contact.' },
       ],
       cta: { label: 'Explore the geomaps', slug: 'geomapas' },
     },
@@ -68,9 +72,11 @@ export const PAGES: Pages = {
         { v: '36º / 139', l: 'Brasil en el LPI del Banco Mundial (2023)', fonte: 'World Bank — Logistics Performance Index' },
       ],
       blocos: [
-        { t: 'Conocimiento', x: 'La revista trimestral Logis, bases públicas de artículos científicos y los principales centros de investigación de Brasil y del mundo.' },
-        { t: 'Infraestructura', x: 'Geomapas de carreteras, ferrocarriles, puertos, hidrovías y flujos internacionales de comercio — de Brasil al mundo.' },
-        { t: 'Confianza', x: 'Seguridad pública y control logístico de fronteras, reguladores por estado, marco legal nacional e internacional, contratos e ideas de desarrollo para la logística brasileña.' },
+        { t: 'Mapas y Datos', slug: 'geomapas', x: 'Mapamundi interactivo con rutas navales, ferrocarriles, corredores aéreos, oleoductos y fibras ópticas submarinas — además del observatorio de indicadores y la investigación.' },
+        { t: 'Regulación y Mercados', slug: 'reguladores', x: 'Reguladores de Brasil y del mundo, marco legal nacional e internacional y contratos.' },
+        { t: 'Sostenibilidad y Seguridad', slug: 'sustentabilidade', x: 'Logística inversa y economía circular, seguridad pública y control de fronteras, e ideas de desarrollo como el sello electrónico fiscal.' },
+        { t: 'Revista Logis', slug: 'revista', x: 'Revista trimestral de logística sostenible — acceso abierto diamante y trilingüe, con edición demostrativa para descargar.' },
+        { t: 'Institucional', slug: 'institucional', x: 'Sobre el portal LOGIS, metodología y contacto.' },
       ],
       cta: { label: 'Explorar los geomapas', slug: 'geomapas' },
     },
@@ -79,53 +85,53 @@ export const PAGES: Pages = {
   geomapas: {
     pt: {
       hero: {
-        kicker: 'Infraestrutura em movimento',
-        title: 'Geomapas da logística',
-        sub: 'Rodovias, ferrovias, portos, aeroportos, dutos e fluxos internacionais de comércio — em mapas interativos e abertos.',
+        kicker: 'O mundo em movimento',
+        title: 'Geomapas do mundo',
+        sub: 'Rotas navais, ferrovias, corredores aéreos, oleodutos e gasodutos, fibras ópticas submarinas — e a malha logística brasileira — em mapas interativos e abertos.',
       },
       blocos: [
-        { t: 'Malha estadual (IBGE)', x: 'As 27 unidades da federação, direto da API pública de malhas do IBGE.' },
-        { t: 'Portos e hubs', x: 'Os grandes portos exportadores — Santos, Paranaguá, Itaqui, Suape, Rio Grande, Manaus, Salvador e Pecém — e hubs aéreos de carga.' },
-        { t: 'Ferrovias', x: 'Nós das principais ferrovias: Carajás, Vitória–Minas, Ferronorte, Norte-Sul, Transnordestina e FIOL.' },
-        { t: 'Fluxos internacionais', x: 'Rotas marítimas de referência: Santos–Roterdã, Santos–Xangai e Santos–Chancay, além do corredor bioceânico planejado Ilhéus–Chancay.' },
+        { t: 'Rotas navais', x: 'As grandes rotas do comércio marítimo: Ásia–Europa via Suez, transpacíficas, o novo corredor China–Chancay, o Atlântico Norte, a rota do Cabo e o estreito de Ormuz.' },
+        { t: 'Ferrovias do mundo', x: 'Transiberiana, transcontinentais da América do Norte, alta velocidade europeia, corredor do Lobito, Djibuti–Etiópia e a bioceânica Brasil–Bolívia–Peru (projeto).' },
+        { t: 'Aéreos, dutos e fibras', x: 'Corredores aéreos de carga, oleodutos e gasodutos (Druzhba, ESPO, BTC, Keystone, Gasbol) e os cabos submarinos que conectam os continentes (MAREA, EllaLink, SEA-ME-WE).' },
+        { t: 'Brasil', x: 'Malha das 27 UFs (IBGE), os grandes portos e hubs de carga, nós ferroviários e fluxos de referência — incluindo o corredor bioceânico Ilhéus–Chancay.' },
       ],
       paragrafos: [
         'Camadas de traçado completo de rodovias federais (DNIT), ferrovias (ANTT) e dutos chegam nas próximas fases do portal, com dados públicos atualizados no build.',
-        'Mapas abertos e gratuitos: OpenFreeMap + OpenStreetMap (contribuidores). Sem chaves de API, sem custo.',
+        'Mapas abertos e gratuitos: OpenFreeMap + OpenStreetMap (contribuidores). Sem chaves de API, sem custo. Rotas mundiais em traçado esquemático.',
       ],
     },
     en: {
       hero: {
-        kicker: 'Infrastructure in motion',
-        title: 'Logistics geomaps',
-        sub: 'Highways, railways, ports, airports, pipelines and international trade flows — on interactive, open maps.',
+        kicker: 'The world in motion',
+        title: 'World geomaps',
+        sub: 'Shipping lanes, railways, air corridors, oil and gas pipelines, submarine fiber-optic cables — and the Brazilian logistics mesh — on interactive, open maps.',
       },
       blocos: [
-        { t: 'State boundaries (IBGE)', x: 'All 27 federative units, straight from the IBGE public boundaries API.' },
-        { t: 'Ports and hubs', x: 'The great export ports — Santos, Paranaguá, Itaqui, Suape, Rio Grande, Manaus, Salvador and Pecém — and cargo airport hubs.' },
-        { t: 'Railways', x: 'Nodes of the main railways: Carajás, Vitória–Minas, Ferronorte, Norte-Sul, Transnordestina and FIOL.' },
-        { t: 'International flows', x: 'Reference shipping routes: Santos–Rotterdam, Santos–Shanghai and Santos–Chancay, plus the planned bioceanic corridor Ilhéus–Chancay.' },
+        { t: 'Shipping lanes', x: 'The great maritime trade routes: Asia–Europe via Suez, transpacific lanes, the new China–Chancay corridor, the North Atlantic, the Cape route and the Strait of Hormuz.' },
+        { t: 'World railways', x: 'Trans-Siberian, North American transcontinentals, European high-speed rail, the Lobito corridor, Djibouti–Ethiopia and the Brazil–Bolivia–Peru bioceanic railway (project).' },
+        { t: 'Air, pipelines and fiber', x: 'Air cargo corridors, oil and gas pipelines (Druzhba, ESPO, BTC, Keystone, Gasbol) and the submarine cables linking the continents (MAREA, EllaLink, SEA-ME-WE).' },
+        { t: 'Brazil', x: 'All 27 state boundaries (IBGE), the great ports and cargo hubs, railway nodes and reference flows — including the Ilhéus–Chancay bioceanic corridor.' },
       ],
       paragrafos: [
         'Full alignment layers for federal highways (DNIT), railways (ANTT) and pipelines arrive in the next phases, with public data refreshed at build time.',
-        'Free, open maps: OpenFreeMap + OpenStreetMap contributors. No API keys, no cost.',
+        'Free, open maps: OpenFreeMap + OpenStreetMap contributors. No API keys, no cost. World routes shown as schematic tracings.',
       ],
     },
     es: {
       hero: {
-        kicker: 'Infraestructura en movimiento',
-        title: 'Geomapas de la logística',
-        sub: 'Carreteras, ferrocarriles, puertos, aeropuertos, ductos y flujos internacionales de comercio — en mapas interactivos y abiertos.',
+        kicker: 'El mundo en movimiento',
+        title: 'Geomapas del mundo',
+        sub: 'Rutas navales, ferrocarriles, corredores aéreos, oleoductos y gasoductos, fibras ópticas submarinas — y la malla logística brasileña — en mapas interactivos y abiertos.',
       },
       blocos: [
-        { t: 'Malla estadual (IBGE)', x: 'Las 27 unidades federativas, directo de la API pública de mallas del IBGE.' },
-        { t: 'Puertos y hubs', x: 'Los grandes puertos exportadores — Santos, Paranaguá, Itaqui, Suape, Rio Grande, Manaus, Salvador y Pecém — y hubs aéreos de carga.' },
-        { t: 'Ferrocarriles', x: 'Nodos de los principales ferrocarriles: Carajás, Vitória–Minas, Ferronorte, Norte-Sul, Transnordestina y FIOL.' },
-        { t: 'Flujos internacionales', x: 'Rutas marítimas de referencia: Santos–Róterdam, Santos–Shanghái y Santos–Chancay, además del corredor bioceánico planificado Ilhéus–Chancay.' },
+        { t: 'Rutas navales', x: 'Las grandes rutas del comercio marítimo: Asia–Europa vía Suez, transpacíficas, el nuevo corredor China–Chancay, el Atlántico Norte, la ruta del Cabo y el estrecho de Ormuz.' },
+        { t: 'Ferrocarriles del mundo', x: 'Transiberiano, transcontinentales de Norteamérica, alta velocidad europea, corredor del Lobito, Yibuti–Etiopía y el bioceánico Brasil–Bolivia–Perú (proyecto).' },
+        { t: 'Aéreos, ductos y fibras', x: 'Corredores aéreos de carga, oleoductos y gasoductos (Druzhba, ESPO, BTC, Keystone, Gasbol) y los cables submarinos que conectan los continentes (MAREA, EllaLink, SEA-ME-WE).' },
+        { t: 'Brasil', x: 'Malla de las 27 UF (IBGE), los grandes puertos y hubs de carga, nodos ferroviarios y flujos de referencia — incluido el corredor bioceánico Ilhéus–Chancay.' },
       ],
       paragrafos: [
         'Las capas de trazado completo de carreteras federales (DNIT), ferrocarriles (ANTT) y ductos llegan en las próximas fases, con datos públicos actualizados en el build.',
-        'Mapas abiertos y gratuitos: OpenFreeMap + colaboradores de OpenStreetMap. Sin claves de API, sin costo.',
+        'Mapas abiertos y gratuitos: OpenFreeMap + colaboradores de OpenStreetMap. Sin claves de API, sin costo. Rutas mundiales en trazado esquemático.',
       ],
     },
   },

@@ -10,8 +10,38 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const c = PAGES.revista[lang];
 const title = `${c.hero.title} — LOGIS`;
+
+const T = {
+  pt: {
+    dlTitulo: 'Edição demonstrativa (boneca) — PDF',
+    dlTexto: 'Baixe a edição nº 0: 52 páginas diagramadas com capa, editorial, dossiê, estudos de caso, observatório regulatório, notas de dados e entrevista. Conteúdo integralmente fictício, para visualização do projeto gráfico.',
+    dlBtn: '⬇ Baixar PDF (264 KB)',
+  },
+  en: {
+    dlTitulo: 'Demo edition (dummy) — PDF',
+    dlTexto: 'Download issue #0: 52 laid-out pages with cover, editorial, dossier, case studies, regulatory observatory, data notes and an interview. Entirely fictional content, for graphic-project visualization.',
+    dlBtn: '⬇ Download PDF (264 KB)',
+  },
+  es: {
+    dlTitulo: 'Edición demostrativa (maqueta) — PDF',
+    dlTexto: 'Descargue la edición nº 0: 52 páginas diagramadas con portada, editorial, dosier, estudios de caso, observatorio regulatorio, notas de datos y entrevista. Contenido íntegramente ficticio, para visualización del proyecto gráfico.',
+    dlBtn: '⬇ Descargar PDF (264 KB)',
+  },
+}[lang];
 ---
 
 <Base lang={lang} slug="revista" title={title} description={c.hero.sub}>
   <Section lang={lang} slug="revista" />
+
+  <section class="block alt">
+    <div class="container">
+      <div class="download-box">
+        <div>
+          <h3>{T.dlTitulo}</h3>
+          <p>{T.dlTexto}</p>
+        </div>
+        <a class="btn primary" href="/downloads/logis-edicao-0-boneca.pdf" download>{T.dlBtn}</a>
+      </div>
+    </div>
+  </section>
 </Base>

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { LANGS, type Lang } from '../../content/ui';
 import { PAGES } from '../../content/pages';
 import { HUBS, FLOWS, HUB_STYLE } from '../../data/hubs';
+import { WORLD_ROUTES, CAT_STYLE, type Cat } from '../../data/worldLayers';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
@@ -24,6 +25,8 @@ const cores: Record<string, string> = {
   internacional: HUB_STYLE.internacional.cor,
 };
 const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
+const cats = Object.keys(CAT_STYLE) as Cat[];
+const brasilLabel = { pt: 'Brasil (UFs · hubs · fluxos)', en: 'Brazil (states · hubs · flows)', es: 'Brasil (UF · hubs · flujos)' }[lang];
 ---
 
 <Base lang={lang} slug="geomapas" title={title} description={c.hero.sub}>
@@ -38,19 +41,29 @@ const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
   <section class="block">
     <div class="container">
       <div class="map-frame">
-        <div id="mapa" role="application" aria-label="Mapa da logística"></div>
+        <div id="mapa" role="application" aria-label="Mapa mundial da logística"></div>
+        <div class="map-controls" id="map-controls">
+          {cats.map((cat) => (
+            <label><input type="checkbox" data-layer={`rotas-${cat}`} checked />
+              <span class="dot" style={`background:${CAT_STYLE[cat].cor}; border-radius:${CAT_STYLE[cat].dash ? '2px' : '50%'};`}></span>
+              {CAT_STYLE[cat].label[lang]}
+            </label>
+          ))}
+          <label><input type="checkbox" data-layer="brasil" checked />
+            <span class="dot" style="background:#1E8A66;"></span>
+            {brasilLabel}
+          </label>
+        </div>
         <div class="map-legend">
           <strong>{legendTitle}:</strong>
-          {Object.entries(cores).map(([tipo, cor]) => (
-            <span><span class="dot" style={`background:${cor};`}></span>{tipoLabel[tipo]}</span>
+          {cats.map((cat) => (
+            <span><span class="dot" style={`background:${CAT_STYLE[cat].cor}; border-radius:${CAT_STYLE[cat].dash ? '2px' : '50%'};`}></span>{CAT_STYLE[cat].label[lang]}</span>
           ))}
-          <span><span class="dot" style="background:#0E3A5D; border-radius:2px; height:3px; margin-top:4px;"></span>{
-            { pt: 'Fluxo internacional', en: 'International flow', es: 'Flujo internacional' }[lang]
-          }</span>
+          <span><span class="dot" style="background:#1E8A66;"></span>{brasilLabel}</span>
         </div>
       </div>
       <p class="map-note">© OpenStreetMap contributors · OpenFreeMap · IBGE (malhas). {
-        { pt: 'Traçados de fluxos são esquemáticos (referência O–D).', en: 'Flow lines are schematic (O–D reference).', es: 'Los trazados de flujos son esquemáticos (referencia O–D).' }[lang]
+        { pt: 'Rotas mundiais e fluxos são traçados esquemáticos (geografia aproximada, referência origem–destino).', en: 'World routes and flows are schematic tracings (approximate geography, origin–destination reference).', es: 'Las rutas mundiales y flujos son trazados esquemáticos (geografía aproximada, referencia origen–destino).' }[lang]
       }</p>
     </div>
   </section>
@@ -73,19 +86,54 @@ const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
 
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css" is:inline />
   <script is:inline src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
-  <script is:inline define:vars={{ hubs: HUBS, flows: FLOWS, tipoLabel }}>
+  <script is:inline define:vars={{ hubs: HUBS, flows: FLOWS, tipoLabel, routes: WORLD_ROUTES, catStyle: CAT_STYLE }}>
     const map = new maplibregl.Map({
       container: 'mapa',
       style: 'https://tiles.openfreemap.org/styles/liberty',
-      center: [-48, -8],
-      zoom: 3.4,
-      minZoom: 2,
-      maxBounds: [[-115, -62], [155, 62]],
+      center: [10, 15],
+      zoom: 1.35,
+      minZoom: 1,
     });
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
+    const setLayerVisible = (prefix, visible) => {
+      map.getStyle().layers.forEach((l) => {
+        if (l.id.startsWith(prefix)) map.setLayoutProperty(l.id, 'visibility', visible ? 'visible' : 'none');
+      });
+    };
+
     map.on('load', async () => {
-      // Malha das UFs (IBGE) — v3 com fallback para v2
+      // ——— Camadas mundiais (rotas esquemáticas por categoria) ———
+      const cats = Object.keys(catStyle);
+      const popupHtml = (p) => '<strong>' + p.nome + '</strong>' + (p.obs ? '<br><span style="color:#555">' + p.obs + '</span>' : '');
+      for (const cat of cats) {
+        const feats = routes
+          .filter((r) => r.cat === cat)
+          .map((r) => ({
+            type: 'Feature',
+            properties: { nome: r.nome, obs: r.obs || '' },
+            geometry: { type: 'LineString', coordinates: r.coords },
+          }));
+        map.addSource('rotas-' + cat, { type: 'geojson', data: { type: 'FeatureCollection', features: feats } });
+        map.addLayer({
+          id: 'rotas-' + cat + '-line', type: 'line', source: 'rotas-' + cat,
+          paint: {
+            'line-color': catStyle[cat].cor,
+            'line-width': cat === 'oleoduto' ? 2.2 : 1.8,
+            'line-opacity': 0.85,
+            ...(catStyle[cat].dash ? { 'line-dasharray': catStyle[cat].dash } : {}),
+          },
+        });
+        const layerId = 'rotas-' + cat + '-line';
+        map.on('click', layerId, (e) => {
+          const f = e.features[0];
+          new maplibregl.Popup({ offset: 6 }).setLngLat(e.lngLat).setHTML(popupHtml(f.properties)).addTo(map);
+        });
+        map.on('mouseenter', layerId, () => (map.getCanvas().style.cursor = 'pointer'));
+        map.on('mouseleave', layerId, () => (map.getCanvas().style.cursor = ''));
+      }
+
+      // ——— Brasil: malha das UFs (IBGE) — v3 com fallback v2 ———
       let uf = null;
       const urls = [
         'https://servicodados.ibge.gov.br/api/v3/malhas/estados?formato=application/vnd.geo+json&qualidade=minima',
@@ -103,7 +151,7 @@ const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
         map.addLayer({ id: 'ufs-line', type: 'line', source: 'ufs', paint: { 'line-color': '#14664E', 'line-width': 1.1, 'line-opacity': 0.75 } });
       }
 
-      // Fluxos internacionais (esquemáticos)
+      // Fluxos internacionais de referência (Brasil)
       const byName = Object.fromEntries(hubs.map((h) => [h.nome, h]));
       const flowFeatures = flows
         .map((f) => {
@@ -120,7 +168,7 @@ const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
       map.addSource('flows', { type: 'geojson', data: { type: 'FeatureCollection', features: flowFeatures } });
       map.addLayer({
         id: 'flows-line', type: 'line', source: 'flows',
-        paint: { 'line-color': '#0E3A5D', 'line-width': 1.7, 'line-dasharray': [2, 2], 'line-opacity': 0.7 },
+        paint: { 'line-color': '#374151', 'line-width': 1.5, 'line-dasharray': [2, 2], 'line-opacity': 0.65 },
       });
 
       // Hubs logísticos
@@ -138,10 +186,10 @@ const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
       map.addLayer({
         id: 'hubs-pt', type: 'circle', source: 'hubs',
         paint: {
-          'circle-radius': 5.5,
+          'circle-radius': 5,
           'circle-color': ['match', ['get', 'tipo'], 'porto', '#0E3A5D', 'aeroporto', '#7C4DBC', 'ferrovia', '#B45309', '#1E8A66'],
           'circle-stroke-color': '#ffffff',
-          'circle-stroke-width': 1.6,
+          'circle-stroke-width': 1.5,
         },
       });
       map.on('click', 'hubs-pt', (e) => {
@@ -154,6 +202,20 @@ const legendTitle = { pt: 'Legenda', en: 'Legend', es: 'Leyenda' }[lang];
       });
       map.on('mouseenter', 'hubs-pt', () => (map.getCanvas().style.cursor = 'pointer'));
       map.on('mouseleave', 'hubs-pt', () => (map.getCanvas().style.cursor = ''));
+
+      // ——— Controles de camada ———
+      document.getElementById('map-controls').addEventListener('change', (ev) => {
+        if (ev.target.tagName !== 'INPUT') return;
+        const layer = ev.target.dataset.layer;
+        if (layer === 'brasil') {
+          ['ufs-fill', 'ufs-line', 'flows-line', 'hubs-pt'].forEach((id) => {
+            if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', ev.target.checked ? 'visible' : 'none');
+          });
+        } else {
+          const id = layer + '-line';
+          if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', ev.target.checked ? 'visible' : 'none');
+        }
+      });
     });
   </script>
 </Base>
