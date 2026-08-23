@@ -53,11 +53,15 @@ header.site {
 .brand small { display: block; font-weight: 500; font-size: 11px; color: var(--cinza); letter-spacing: 0; }
 .lang-switch { display: flex; gap: 4px; }
 .lang-switch a {
-  font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 999px;
+  display: flex; align-items: center; padding: 4px 5px; border-radius: 8px;
   border: 1px solid var(--linha); color: var(--cinza);
 }
-.lang-switch a:hover { text-decoration: none; border-color: var(--verde-500); color: var(--verde-700); }
-.lang-switch a.active { background: var(--verde-900); border-color: var(--verde-900); color: #fff; }
+.lang-switch a:hover { text-decoration: none; border-color: var(--verde-500); }
+.lang-switch a.active { background: var(--verde-100); border-color: var(--verde-500); }
+.lang-switch .flag svg {
+  display: block; width: 24px; height: 16px; border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
 
 nav.main { border-top: 1px solid var(--linha); }
 nav.main ul { display: flex; flex-wrap: wrap; gap: 2px; list-style: none; padding: 4px 0 8px; }

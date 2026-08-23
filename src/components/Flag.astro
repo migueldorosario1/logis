@@ -1,0 +1,17 @@
+---
+import type { Lang } from '../content/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const FLAGS: Record<Lang, string> = {
+  // Brasil — verde, losango amarelo, círculo azul e faixa branca
+  pt: `<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="16" fill="#009B3A"/><polygon points="12,1.8 22,8 12,14.2 2,8" fill="#FEDF00"/><circle cx="12" cy="8" r="3.1" fill="#002776"/><path d="M8.9 7.5c1 1.1 5.2 1.1 6.2-.1" fill="none" stroke="#fff" stroke-width=".55"/></svg>`,
+  // EUA — 13 listras + cantão azul
+  en: `<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><g fill="#B22234"><rect width="24" height="1.23"/><rect y="2.46" width="24" height="1.23"/><rect y="4.92" width="24" height="1.23"/><rect y="7.39" width="24" height="1.23"/><rect y="9.85" width="24" height="1.23"/><rect y="12.31" width="24" height="1.23"/><rect y="14.77" width="24" height="1.23"/></g><rect width="9.6" height="8.6" fill="#3C3B6E"/></svg>`,
+  // Espanha — vermelho-amarelo-vermelho com marca do escudo
+  es: `<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="16" fill="#AA151B"/><rect y="4" width="24" height="8" fill="#F1BF00"/><rect x="5.6" y="6.2" width="1.6" height="3.6" rx=".4" fill="#AA151B"/></svg>`,
+};
+---
+
+<span class="flag" set:html={FLAGS[lang]} />
