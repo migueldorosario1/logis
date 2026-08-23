@@ -41,10 +41,13 @@ const T = {
       </figure>
 
       <article class="editorial">
-        {r.corpo[lang].map((p, i) => (
-          i === 0 ? <p class="lead">{p}</p> : <p>{p}</p>
-        ))}
+        {r.corpo[lang].map((p) => <p>{p}</p>)}
       </article>
+
+      <div class="rep-assinatura">
+        <div class="rep-assinatura-nome">{r.assinatura.linha1}</div>
+        <div class="rep-assinatura-cargo">{r.assinatura.linha2}</div>
+      </div>
 
       {!isFull && (
         <p class="nota" style="margin-top:18px;">{T.completo}</p>
