@@ -270,7 +270,7 @@ nav.main li.has-sub:focus-within > a .caret {
 nav.main ul.sub {
   display: none;
   position: absolute;
-  top: calc(100% + 4px);
+  top: 100%;
   left: 0;
   z-index: 120;
   min-width: 240px;
@@ -278,8 +278,6 @@ nav.main ul.sub {
   margin: 0;
   list-style: none;
   background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--linha);
   border-radius: var(--raio);
   box-shadow: var(--sombra-menu);
@@ -298,11 +296,16 @@ nav.main ul.sub {
 }
 
 nav.main li.has-sub:hover > ul.sub,
-nav.main li.has-sub:focus-within > ul.sub {
+nav.main li.has-sub:focus-within > ul.sub,
+nav.main li.has-sub.open > ul.sub {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
+
+/* Estabilidade do submenu: o clique fixa (.open) — primeiro clique abre, segundo navega */
+nav.main li.has-sub > a { cursor: pointer; }
+nav.main li.has-sub.open > a .caret { transform: rotate(180deg); }
 
 nav.main ul.sub a {
   display: block;

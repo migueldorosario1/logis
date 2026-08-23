@@ -116,4 +116,43 @@ const REDES = [
       </div>
     </details>
   </div>
+
+  <script is:inline>
+    // Submenus estáveis: 1º clique fixa o menu aberto (.open), 2º clique navega;
+    // clique fora ou ESC fecha; hover/foco continuam funcionando como atalho.
+    (function () {
+      var itens = document.querySelectorAll('nav.main li.has-sub > a');
+      itens.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var li = a.parentElement;
+          var aberto = li.classList.contains('open');
+          document.querySelectorAll('nav.main li.has-sub.open').forEach(function (o) {
+            if (o !== li) { o.classList.remove('open'); o.querySelector('a').setAttribute('aria-expanded', 'false'); }
+          });
+          if (!aberto) {
+            e.preventDefault();
+            li.classList.add('open');
+            a.setAttribute('aria-expanded', 'true');
+          } else {
+            a.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+      document.addEventListener('click', function (e) {
+        document.querySelectorAll('nav.main li.has-sub.open').forEach(function (li) {
+          if (!li.contains(e.target)) {
+            li.classList.remove('open');
+            li.querySelector('a').setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        document.querySelectorAll('nav.main li.has-sub.open').forEach(function (li) {
+          li.classList.remove('open');
+          li.querySelector('a').setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 </header>
