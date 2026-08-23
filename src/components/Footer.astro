@@ -14,7 +14,21 @@ const ano = new Date().getFullYear();
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <span class="mark">L</span> {SITE_NAME}
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="url(#brand-grad-ftr)"/>
+              <path d="M13 11V26C13 27.6569 14.3431 29 16 29H28" stroke="#B5E048" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 16L26 21L31 16" stroke="#1E8A66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+              <circle cx="13" cy="11" r="2" fill="#B5E048"/>
+              <defs>
+                <linearGradient id="brand-grad-ftr" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#14664E"/>
+                  <stop offset="1" stop-color="#1E8A66"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span>{SITE_NAME}</span>
         </div>
         <p>{t.rodape}</p>
       </div>

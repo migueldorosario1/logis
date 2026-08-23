@@ -18,10 +18,24 @@ const groupActive = (g: { slug: string; children?: { slug: string }[] }) =>
   <div class="container">
     <div class="header-top">
       <a class="brand" href={langPath(lang)} aria-label={`${SITE_NAME} - ${t.tagline}`}>
-        <span class="mark">L</span>
-        <span>
-          {SITE_NAME}
-          <small>{t.tagline} · {MAGAZINE_NAME}</small>
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="11" fill="url(#brand-grad-hdr)"/>
+            <path d="M13 11V26C13 27.6569 14.3431 29 16 29H28" stroke="#B5E048" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 16L26 21L31 16" stroke="#1E8A66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+            <circle cx="13" cy="11" r="2" fill="#B5E048"/>
+            <defs>
+              <linearGradient id="brand-grad-hdr" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#07271E"/>
+                <stop offset="0.6" stop-color="#0B3B2E"/>
+                <stop offset="1" stop-color="#14664E"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">{SITE_NAME}</span>
+          <small class="brand-tagline">{t.tagline}</small>
         </span>
       </a>
       <div class="lang-switch" role="navigation" aria-label="Idioma / Language / Idioma">
