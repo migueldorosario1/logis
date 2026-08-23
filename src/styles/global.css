@@ -418,8 +418,53 @@ nav.main ul.sub a.active {
     linear-gradient(135deg, var(--verde-950) 0%, var(--verde-900) 60%, var(--verde-700) 100%);
   color: #ffffff;
   padding: 80px 0 64px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ===== Variações sutis de cor por página (ordem Miguel 23/08 ~00:15 — sobretudo o fundo do título) =====
+   Famílias: verde LOGIS (padrão) · petróleo (Mapas & Dados) · azul-noite (Segurança) ·
+   areia-oliva (Regulação) · lima-profundo (Revista/Editorial) · sálvia (Instituto/Quem Somos) */
+body.hero-geomapas .hero,
+body.hero-observatorio .hero,
+body.hero-pesquisa .hero {
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(94, 202, 222, 0.16), transparent 70%),
+    radial-gradient(600px 300px at 15% 110%, rgba(14, 58, 93, 0.45), transparent 60%),
+    linear-gradient(135deg, #0A2A38 0%, #0E3A5D 60%, #11506B 100%);
+}
+body.hero-seguranca .hero {
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(181, 224, 72, 0.12), transparent 70%),
+    radial-gradient(600px 300px at 15% 110%, rgba(26, 74, 115, 0.5), transparent 60%),
+    linear-gradient(135deg, #0B1F33 0%, #123252 60%, #1A4A73 100%);
+}
+body.hero-reguladores .hero,
+body.hero-legal .hero,
+body.hero-contratos .hero {
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(230, 200, 110, 0.14), transparent 70%),
+    radial-gradient(600px 300px at 15% 110%, rgba(86, 98, 46, 0.5), transparent 60%),
+    linear-gradient(135deg, #23271A 0%, #2B2E18 55%, #56622E 100%);
+}
+body.hero-revista .hero,
+body.hero-editorial .hero {
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(181, 224, 72, 0.24), transparent 70%),
+    radial-gradient(600px 300px at 15% 110%, rgba(74, 110, 28, 0.45), transparent 60%),
+    linear-gradient(135deg, #233610 0%, #35501A 60%, #4A6E1C 100%);
+}
+body.hero-quemsomos .hero,
+body.hero-objetivos .hero,
+body.hero-endereco .hero,
+body.hero-contato .hero,
+body.hero-estatuto .hero,
+body.hero-linha-editorial .hero,
+body.hero-institucional .hero {
+  background:
+    radial-gradient(1000px 500px at 85% -10%, rgba(181, 224, 72, 0.14), transparent 70%),
+    radial-gradient(600px 300px at 15% 110%, rgba(47, 107, 84, 0.4), transparent 60%),
+    linear-gradient(135deg, #12312A 0%, #1F463B 60%, #2F6B54 100%);
+}
+.hero { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 
 .hero::after {
   content: '';
