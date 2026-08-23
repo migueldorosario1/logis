@@ -3,13 +3,15 @@ import Base from '../../layouts/Base.astro';
 import { LANGS, type Lang, langPath } from '../../content/ui';
 import { PAGES } from '../../content/pages';
 import { FONTES } from '../../data/rss';
+import { REPORTAGENS } from '../../data/reportagens';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
 }
 const lang = Astro.params.lang as Lang;
 const c = PAGES.home[lang];
-const m = c.manchete!;
+const e = PAGES.editorial[lang];
+const rep = REPORTAGENS[0];
 const title = 'LOGIS';
 
 // Ilustrações (SVG inline, traço verde — uma por card)
@@ -22,26 +24,39 @@ const ILUSTRAS: Record<string, string> = {
 };
 
 const T = {
-  pt: { ler: 'Ler o editorial completo', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site — notícia do mundo em português, inglês e espanhol.', emBreve: 'tradução automática em construção' },
-  en: { ler: 'Read the full editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages — world news in Portuguese, English and Spanish.', emBreve: 'automatic translation under construction' },
-  es: { ler: 'Leer el editorial completo', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio — noticia del mundo en portugués, inglés y español.', emBreve: 'traducción automática en construcción' },
+  pt: { ler: 'Ler a reportagem completa', editorialK: 'Editorial semanal', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.', emBreve: 'tradução automática em construção' },
+  en: { ler: 'Read the full story', editorialK: 'Weekly editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.', emBreve: 'automatic translation under construction' },
+  es: { ler: 'Leer la reportaje completa', editorialK: 'Editorial semanal', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.', emBreve: 'traducción automática en construcción' },
 }[lang];
 ---
 
-<Base lang={lang} slug="" title={title} description={m.tese}>
+<Base lang={lang} slug="" title={title} description={rep.olho[lang]}>
   <section class="manchete">
     <div class="container">
       <div class="manchete-grid">
         <div class="manchete-texto">
-          <a class="manchete-kicker" href={langPath(lang, m.slug)}>{m.kicker}</a>
-          <h1 class="manchete-titulo">{m.titulo}</h1>
-          <p class="manchete-tese">{m.tese}</p>
+          <a class="manchete-kicker" href={langPath(lang, `reportagens/${rep.slug}`)}>{rep.kicker[lang]} · {rep.data}</a>
+          <h1 class="manchete-titulo">{rep.titulo[lang]}</h1>
+          <p class="manchete-tese">{rep.olho[lang]}</p>
           <div class="ctas">
-            <a class="btn primary" href={langPath(lang, m.slug)}>{T.ler} →</a>
-            <span class="manchete-data">{m.data}</span>
+            <a class="btn primary" href={langPath(lang, `reportagens/${rep.slug}`)}>{T.ler} →</a>
+            <span class="manchete-data">{rep.autor}</span>
           </div>
         </div>
+        <a class="manchete-foto" href={langPath(lang, `reportagens/${rep.slug}`)} aria-label={rep.titulo[lang]}>
+          <img src={rep.foto.src} alt={rep.foto.descricao} />
+        </a>
       </div>
+    </div>
+  </section>
+
+  <section class="faixa-editorial">
+    <div class="container">
+      <a class="faixa-link" href={langPath(lang, 'editorial')}>
+        <span class="faixa-kicker">{T.editorialK}</span>
+        <span class="faixa-titulo">{e.hero.title}</span>
+        <span class="faixa-seta">→</span>
+      </a>
     </div>
   </section>
 

@@ -1,0 +1,58 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { LANGS, type Lang, langPath } from '../../../content/ui';
+import { REPORTAGENS } from '../../../data/reportagens';
+
+export function getStaticPaths() {
+  return REPORTAGENS.flatMap((r) =>
+    LANGS.map((lang) => ({ params: { lang, slug: r.slug } }))
+  );
+}
+const lang = Astro.params.lang as Lang;
+const slug = Astro.params.slug as string;
+const r = REPORTAGENS.find((x) => x.slug === slug)!;
+const title = `${r.titulo[lang]} — LOGIS`;
+const isFull = lang === 'pt';
+
+const T = {
+  pt: { lerEditorial: 'Ler os editoriais', completo: '' },
+  en: { lerEditorial: 'Read the editorials', completo: 'Full text in Portuguese · Resumo em inglês' },
+  es: { lerEditorial: 'Leer los editoriales', completo: 'Texto integral en portugués · Resumen en español' },
+}[lang];
+---
+
+<Base lang={lang} slug="reportagens" title={title} description={r.olho[lang]}>
+  <section class="hero compact">
+    <div class="container">
+      <span class="kicker">{r.kicker[lang]} · {r.data}</span>
+      <h1>{r.titulo[lang]}</h1>
+      <p class="sub">{r.olho[lang]}</p>
+      <p class="byline">Por {r.autor}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <figure class="rep-foto">
+        <img src={r.foto.src} alt={r.foto.descricao} loading="lazy" />
+        <figcaption>
+          {r.foto.descricao} — Foto: {r.foto.credito} · Licença: {r.foto.licenca} (Wikimedia Commons)
+        </figcaption>
+      </figure>
+
+      <article class="editorial">
+        {r.corpo[lang].map((p, i) => (
+          i === 0 ? <p class="lead">{p}</p> : <p>{p}</p>
+        ))}
+      </article>
+
+      {!isFull && (
+        <p class="nota" style="margin-top:18px;">{T.completo}</p>
+      )}
+
+      <div style="margin-top:22px;">
+        <a class="btn ghost" href={langPath(lang, 'editorial')}>{T.lerEditorial} →</a>
+      </div>
+    </div>
+  </section>
+</Base>
