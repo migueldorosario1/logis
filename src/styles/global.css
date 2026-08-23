@@ -795,6 +795,31 @@ a.card.link:hover h3::after {
 }
 
 /* ==========================================================================
+   Home — LOGIS grande + subtítulo maior + ilustrações por card (ordem Miguel 22/08 ~22:45)
+   ========================================================================== */
+.hero h1.hero-logo {
+  font-size: clamp(64px, 12vw, 132px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+}
+.hero .sub.tagline {
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.25;
+  font-weight: 600;
+  max-width: 30ch;
+}
+a.card.link .ilustra {
+  display: block;
+  width: 46px;
+  height: 46px;
+  color: var(--verde-700);
+  margin-bottom: 12px;
+}
+a.card.link .ilustra svg { width: 100%; height: 100%; display: block; }
+a.card.link:hover .ilustra { color: var(--verde-900); }
+
+/* ==========================================================================
    Data Tables
    ========================================================================== */
 .table-wrap {

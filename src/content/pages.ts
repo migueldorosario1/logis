@@ -22,9 +22,9 @@ export const PAGES: Pages = {
   home: {
     pt: {
       hero: {
-        kicker: 'Portal trilíngue · PT · EN · ES',
-        title: 'LOGIS — Logística e Sustentabilidade',
-        sub: 'Informação, mapas, regulação e pesquisa sobre a logística brasileira e mundial — com foco em infraestrutura, rastreabilidade e sustentabilidade.',
+        kicker: '',
+        title: 'LOGIS',
+        sub: 'Logística e Sustentabilidade',
       },
       kpis: [
         { v: 'R$ 1,7 tri/ano', l: 'Custo logístico do Brasil (19,5% do PIB)', fonte: 'Dados apresentados pela Casa da Moeda do Brasil' },
@@ -42,9 +42,9 @@ export const PAGES: Pages = {
     },
     en: {
       hero: {
-        kicker: 'Trilingual portal · PT · EN · ES',
-        title: 'LOGIS — Logistics and Sustainability',
-        sub: 'Information, maps, regulation and research on Brazilian and global logistics — with a focus on infrastructure, traceability and sustainability.',
+        kicker: '',
+        title: 'LOGIS',
+        sub: 'Logistics and Sustainability',
       },
       kpis: [
         { v: 'BRL 1.7 tn/yr', l: 'Brazilian logistics cost (19.5% of GDP)', fonte: 'Data presented by Casa da Moeda do Brasil' },
@@ -62,9 +62,9 @@ export const PAGES: Pages = {
     },
     es: {
       hero: {
-        kicker: 'Portal trilingüe · PT · EN · ES',
-        title: 'LOGIS — Logística y Sostenibilidad',
-        sub: 'Información, mapas, regulación e investigación sobre la logística brasileña y mundial — con foco en infraestructura, trazabilidad y sostenibilidad.',
+        kicker: '',
+        title: 'LOGIS',
+        sub: 'Logística y Sostenibilidad',
       },
       kpis: [
         { v: 'BRL 1,7 bill./año', l: 'Costo logístico de Brasil (19,5% del PIB)', fonte: 'Datos presentados por la Casa da Moeda do Brasil' },

@@ -10,14 +10,23 @@ const lang = Astro.params.lang as Lang;
 const c = PAGES.home[lang];
 const t = UI[lang];
 const title = `LOGIS — ${t.tagline}`;
+
+// Ilustrações (SVG inline, traço verde — uma por card)
+const ILUSTRAS: Record<string, string> = {
+  geomapas: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><ellipse cx="24" cy="24" rx="7.5" ry="17"/><path d="M8 18h32M8 30h32"/><path d="M12 36C18 28 30 26 40 14" stroke-width="2.1"/><circle cx="12" cy="36" r="2.3" fill="currentColor" stroke="none"/><circle cx="40" cy="14" r="2.3" fill="currentColor" stroke="none"/></svg>`,
+  reguladores: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6v30"/><path d="M10 40h28"/><path d="M24 10l12 5-12 5-12-5 12-5z" fill="currentColor" fill-opacity=".12"/><path d="M12 15v8c0 2.5 5.4 4.5 12 4.5s12-2 12-4.5v-8"/><path d="M6 40h8M34 40h8M12 36l-4 4M36 36l4 4"/></svg>`,
+  sustentabilidade: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44S7 36 7 21V9l17-5 17 5v12c0 15-17 23-17 23z" fill="currentColor" fill-opacity=".08"/><path d="M24 12v22"/><path d="M24 22c0-5-4-9-10-10 0 6 4 10 10 10z" fill="currentColor" fill-opacity=".2"/><path d="M24 30c0-5 4-9 10-10 0 6-4 10-10 10z" fill="currentColor" fill-opacity=".2"/></svg>`,
+  revista: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12c6-2 10-2 14 1v25c-4-3-8-3-14-1V12z" fill="currentColor" fill-opacity=".1"/><path d="M42 12c-6-2-10-2-14 1v25c4-3 8-3 14-1V12z"/><path d="M20 13v25"/><path d="M11 19h5M11 24h5M32 19h5M32 24h5"/></svg>`,
+  institucional: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20L24 8l18 12" fill="currentColor" fill-opacity=".12"/><path d="M10 20v18M18 20v18M30 20v18M38 20v18"/><path d="M6 38h36"/><path d="M22 14h4v4h-4z" fill="currentColor" fill-opacity=".25"/></svg>`,
+};
 ---
 
 <Base lang={lang} slug="" title={title} description={c.hero.sub}>
   <section class="hero">
     <div class="container">
-      <span class="kicker">{c.hero.kicker}</span>
-      <h1>{c.hero.title}</h1>
-      <p class="sub">{c.hero.sub}</p>
+      {c.hero.kicker && <span class="kicker">{c.hero.kicker}</span>}
+      <h1 class="hero-logo">{c.hero.title}</h1>
+      <p class="sub tagline">{c.hero.sub}</p>
       <div class="ctas">
         <a class="btn primary" href={langPath(lang, c.cta!.slug)}>{c.cta!.label} →</a>
         <a class="btn ghost" href={langPath(lang, 'revista')}>Logis</a>
@@ -30,6 +39,7 @@ const title = `LOGIS — ${t.tagline}`;
       <div class="cards">
         {c.blocos!.map((b) => (
           <a class="card link" href={langPath(lang, b.slug ?? '')}>
+            {b.slug && ILUSTRAS[b.slug] && <span class="ilustra" set:html={ILUSTRAS[b.slug]} />}
             <h3>{b.t}</h3>
             <p>{b.x}</p>
           </a>
