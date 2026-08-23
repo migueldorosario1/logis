@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang, langPath } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.seguranca[lang];
+const title = `${c.hero.title} — LOGOS`;
+
+const T = {
+  pt: { g: 'Como o mundo controla a cadeia logística', pais: 'País / bloco', prog: 'Programa', como: 'Mecanismo', site: 'Site' },
+  en: { g: 'How the world controls the logistics chain', pais: 'Country / bloc', prog: 'Program', como: 'Mechanism', site: 'Website' },
+  es: { g: 'Cómo controla el mundo la cadena logística', pais: 'País / bloque', prog: 'Programa', como: 'Mecanismo', site: 'Sitio' },
+}[lang];
+---
+
+<Base lang={lang} slug="seguranca" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+      <div class="kpis">
+        {c.kpis!.map((k) => (
+          <div class="kpi">
+            <div class="v">{k.v}</div>
+            <div class="l">{k.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="cards">
+        {c.blocos!.map((b) => (
+          <div class="card">
+            <h3>{b.t}</h3>
+            <p>{b.x}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="container">
+      <h3 class="group-title">{T.g}</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{T.pais}</th><th>{T.prog}</th><th>{T.como}</th><th>{T.site}</th></tr></thead>
+          <tbody>
+            {c.programas!.map((p) => (
+              <tr>
+                <td><strong>{p.pais}</strong></td>
+                <td>{p.prog}</td>
+                <td>{p.como}</td>
+                <td><a href={p.url} target="_blank" rel="noopener noreferrer">{p.url.replace(/^https?:\/\//, '')}</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="prose" style="margin-top:28px;">
+        <p class="nota">{c.nota}</p>
+      </div>
+      <div style="margin-top:26px;">
+        <a class="btn solid" href={langPath(lang, c.cta!.slug)}>{c.cta!.label} →</a>
+      </div>
+    </div>
+  </section>
+</Base>

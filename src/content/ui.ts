@@ -8,6 +8,7 @@ export const MAGAZINE_NAME = 'Logis';
 export const NAV: { slug: string; label: Record<Lang, string> }[] = [
   { slug: '', label: { pt: 'Início', en: 'Home', es: 'Inicio' } },
   { slug: 'geomapas', label: { pt: 'Geomapas', en: 'Geomaps', es: 'Geomapas' } },
+  { slug: 'seguranca', label: { pt: 'Segurança Pública', en: 'Public Security', es: 'Seguridad Pública' } },
   { slug: 'sustentabilidade', label: { pt: 'Sustentabilidade', en: 'Sustainability', es: 'Sostenibilidad' } },
   { slug: 'contratos', label: { pt: 'Contratos', en: 'Contracts', es: 'Contratos' } },
   { slug: 'reguladores', label: { pt: 'Reguladores', en: 'Regulators', es: 'Reguladores' } },

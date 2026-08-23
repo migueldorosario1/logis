@@ -3,6 +3,7 @@ import type { Lang } from './ui';
 export interface KP { v: string; l: string; fonte?: string }
 export interface TI { t: string; x: string }
 export interface TL { ano: string; t: string }
+export interface PROG { pais: string; prog: string; como: string; url: string }
 
 interface PageContent {
   hero: { kicker: string; title: string; sub: string };
@@ -10,6 +11,7 @@ interface PageContent {
   kpis?: KP[];
   timeline?: TL[];
   paragrafos?: string[];
+  programas?: PROG[];
   nota?: string;
   cta?: { label: string; slug: string };
 }
@@ -32,7 +34,7 @@ export const PAGES: Pages = {
       blocos: [
         { t: 'Conhecimento', x: 'A revista trimestral Logis, bases públicas de artigos científicos e os principais centros de pesquisa do Brasil e do mundo.' },
         { t: 'Infraestrutura', x: 'Geomapas de rodovias, ferrovias, portos, hidrovias e fluxos internacionais de comércio — do Brasil para o mundo.' },
-        { t: 'Confiança', x: 'Reguladores por estado, marco legal nacional e internacional, contratos e ideias de desenvolvimento para a logística brasileira.' },
+        { t: 'Confiança', x: 'Segurança pública e controle logístico das fronteiras, reguladores por estado, marco legal nacional e internacional, contratos e ideias de desenvolvimento para a logística brasileira.' },
       ],
       cta: { label: 'Explorar os geomapas', slug: 'geomapas' },
     },
@@ -50,7 +52,7 @@ export const PAGES: Pages = {
       blocos: [
         { t: 'Knowledge', x: 'The quarterly journal Logis, public scientific article databases and the leading research centers in Brazil and worldwide.' },
         { t: 'Infrastructure', x: 'Geomaps of highways, railways, ports, waterways and international trade flows — from Brazil to the world.' },
-        { t: 'Trust', x: 'Regulators by state, national and international legal frameworks, contracts and development ideas for Brazilian logistics.' },
+        { t: 'Trust', x: 'Public security and logistics control of borders, regulators by state, national and international legal frameworks, contracts and development ideas for Brazilian logistics.' },
       ],
       cta: { label: 'Explore the geomaps', slug: 'geomapas' },
     },
@@ -68,7 +70,7 @@ export const PAGES: Pages = {
       blocos: [
         { t: 'Conocimiento', x: 'La revista trimestral Logis, bases públicas de artículos científicos y los principales centros de investigación de Brasil y del mundo.' },
         { t: 'Infraestructura', x: 'Geomapas de carreteras, ferrocarriles, puertos, hidrovías y flujos internacionales de comercio — de Brasil al mundo.' },
-        { t: 'Confianza', x: 'Reguladores por estado, marco legal nacional e internacional, contratos e ideas de desarrollo para la logística brasileña.' },
+        { t: 'Confianza', x: 'Seguridad pública y control logístico de fronteras, reguladores por estado, marco legal nacional e internacional, contratos e ideas de desarrollo para la logística brasileña.' },
       ],
       cta: { label: 'Explorar los geomapas', slug: 'geomapas' },
     },
@@ -458,6 +460,96 @@ export const PAGES: Pages = {
         { t: 'Indexación', x: 'Nacer indexable: DOAJ, Latindex, Redalyc y SciELO como metas de corto plazo; TRID y OpenAlex como espejos de metadatos.' },
       ],
       nota: 'Edición nº 1 prevista para el 4º trimestre de 2026. Convocatoria de trabajos en preparación — siga el portal.',
+    },
+  },
+
+  seguranca: {
+    pt: {
+      hero: {
+        kicker: 'Um dos centros do portal',
+        title: 'Segurança pública & controle logístico',
+        sub: 'Cada novo corredor de escoamento é também uma nova porta. Abrir sem controlar é abrir caminho para o contrabando, a pirataria, as drogas e as armas.',
+      },
+      kpis: [
+        { v: 'R$ 500 bi', l: 'mercado ilegal no Brasil em 2025', fonte: 'O Globo' },
+        { v: 'R$ 1,88', l: 'custo do selo eletrônico fiscal por unidade', fonte: 'Projeto Básico MoedaLog' },
+        { v: '10', l: 'níveis de segurança do selo RFID/NFC', fonte: 'Projeto Básico MoedaLog' },
+      ],
+      blocos: [
+        { t: 'A tese: abertura sem controle é convite ao crime', x: 'O Plano Nacional de Logística, o Porto de Chancay e a ferrovia transoceânica (bioceânica) criam rotas inéditas de desenvolvimento — e também de fluxo ilegal. Sem um programa de controle logístico de Estado, os novos canais ampliam a entrada de produtos pirateados, contrabando, drogas e armas. A abertura precisa vir acompanhada do controle.' },
+        { t: 'Fronteiras na agenda de 2026', x: 'O controle das fronteiras é consenso entre os principais candidatos (GloboNews — propostas enviadas ao TSE). A proposta do presidente Lula: Forças Armadas nas fronteiras amazônicas com patrulhamento fluvial e aéreo; cooperação com os países da OTCA; e investimento em radares, drones, sensores, imagens de satélite e centros integrados de comando e controle. É exatamente nesse comando e controle que entra o rastreamento logístico de cargas e contêineres.' },
+        { t: 'Como o mundo controla', x: 'Os grandes blocos certificam operadores e rastreiam cargas — C-TPAT nos EUA, AEO+ICS2 na União Europeia, NEEC no México, OEA na Colômbia, STP em Singapura, AEO no Japão — todos sob o guarda-chuva do Framework SAFE da OMA. O Brasil tem a oportunidade de dar o passo seguinte: controle por item, com tecnologia embarcada na própria mercadoria.' },
+        { t: 'A resposta tecnológica brasileira', x: 'O selo eletrônico fiscal (MoedaLog/e-SFI): chip passivo RFID/NFC com 10 níveis de segurança a R$ 1,88 por unidade, ancorado em ICP-Brasil, blockchain e eFuse de uso único — rastreabilidade da origem ao destino, alerta automático de violação (caso PRF) e integração com fronteiras, Mercosul e Chancay.' },
+      ],
+      programas: [
+        { pais: 'Mundo (OMA/WCO)', prog: 'Framework SAFE', como: 'Padrão global de operador econômico autorizado e segurança da cadeia, adotado por mais de 100 aduanas', url: 'https://www.wcoomd.org/' },
+        { pais: 'Estados Unidos', prog: 'C-TPAT', como: 'Parceria alfândega–empresa: carga certificada, inspeções reduzidas e critérios mínimos de segurança', url: 'https://www.cbp.gov/border-security/ports-entry/cargo-security/ctpat' },
+        { pais: 'União Europeia', prog: 'AEO + ICS2', como: 'Operador econômico autorizado + dados prévios de carga antes da chegada ao bloco', url: 'https://taxation-customs.ec.europa.eu/index_en' },
+        { pais: 'México', prog: 'NEEC', como: 'Novo Esquema de Empresas Certificadas, em alinhamento com o C-TPAT dos EUA', url: 'https://www.sat.gob.mx/portal/public/tramites/aduanas/nuevo-esquema-de-empresas-certificadas-neec' },
+        { pais: 'Colômbia', prog: 'OEA (DIAN)', como: 'Operador Econômico Autorizado com benefícios de facilitação do comércio', url: 'https://www.dian.gov.co/aduanas/oea/Paginas/default.aspx' },
+        { pais: 'Singapura', prog: 'Secure Trade Partnership', como: 'Certificação de segurança da cadeia logística portuária e aérea', url: 'https://www.customs.gov.sg/' },
+        { pais: 'Japão', prog: 'AEO Japão', como: 'Certificação de operadores conforme o padrão SAFE da OMA', url: 'https://www.customs.go.jp/english/' },
+      ],
+      nota: 'Agenda eleitoral: GloboNews — “Propostas para as fronteiras”, propostas enviadas ao TSE (eleições de 2026). Programas internacionais verificados por HTTP em 22/08/2026.',
+      cta: { label: 'Conhecer o MoedaLog na seção Ideias', slug: 'ideias' },
+    },
+    en: {
+      hero: {
+        kicker: 'One of the cores of the portal',
+        title: 'Public security & logistics control',
+        sub: 'Every new export corridor is also a new door. Opening it without control opens the way to smuggling, piracy, drugs and weapons.',
+      },
+      kpis: [
+        { v: 'BRL 500 bn', l: 'illegal market in Brazil in 2025', fonte: 'O Globo' },
+        { v: 'BRL 1.88', l: 'cost per unit of the electronic fiscal seal', fonte: 'MoedaLog basic project' },
+        { v: '10', l: 'security levels of the RFID/NFC seal', fonte: 'MoedaLog basic project' },
+      ],
+      blocos: [
+        { t: 'The thesis: opening without control invites crime', x: 'The National Logistics Plan, the Port of Chancay and the transoceanic (bioceanic) railway create unprecedented routes for development — and for illegal flows as well. Without a state logistics-control program, the new corridors widen the entry of pirated goods, smuggling, drugs and weapons. Opening must come together with control.' },
+        { t: 'Borders on the 2026 agenda', x: 'Border control is a consensus among the leading candidates (GloboNews — proposals filed with the TSE). President Lula’s proposal: Armed Forces on the Amazonian borders with river and air patrols; cooperation with OTCA countries; and investment in radars, drones, sensors, satellite imagery and integrated command-and-control centers. That command and control is exactly where cargo and container tracking comes in.' },
+        { t: 'How the world controls', x: 'Major blocs certify operators and track cargo — C-TPAT in the US, AEO+ICS2 in the European Union, NEEC in Mexico, OEA in Colombia, STP in Singapore, AEO in Japan — all under the WCO SAFE Framework umbrella. Brazil has the opportunity to take the next step: item-level control, with technology embedded in the goods themselves.' },
+        { t: 'The Brazilian technological answer', x: 'The electronic fiscal seal (MoedaLog/e-SFI): a passive RFID/NFC chip with 10 security levels at BRL 1.88 per unit, anchored in ICP-Brasil, blockchain and single-use eFuse — traceability from origin to destination, automatic tamper alerts (PRF case) and integration with borders, Mercosur and Chancay.' },
+      ],
+      programas: [
+        { pais: 'World (WCO)', prog: 'SAFE Framework', como: 'Global standard for authorized economic operators and supply-chain security, adopted by 100+ customs administrations', url: 'https://www.wcoomd.org/' },
+        { pais: 'United States', prog: 'C-TPAT', como: 'Customs–trade partnership: certified cargo, reduced inspections and minimum security criteria', url: 'https://www.cbp.gov/border-security/ports-entry/cargo-security/ctpat' },
+        { pais: 'European Union', prog: 'AEO + ICS2', como: 'Authorized economic operator + advance cargo data before arrival in the bloc', url: 'https://taxation-customs.ec.europa.eu/index_en' },
+        { pais: 'Mexico', prog: 'NEEC', como: 'New Scheme of Certified Companies, aligned with US C-TPAT', url: 'https://www.sat.gob.mx/portal/public/tramites/aduanas/nuevo-esquema-de-empresas-certificadas-neec' },
+        { pais: 'Colombia', prog: 'OEA (DIAN)', como: 'Authorized economic operator with trade-facilitation benefits', url: 'https://www.dian.gov.co/aduanas/oea/Paginas/default.aspx' },
+        { pais: 'Singapore', prog: 'Secure Trade Partnership', como: 'Security certification for the port and air logistics chain', url: 'https://www.customs.gov.sg/' },
+        { pais: 'Japan', prog: 'AEO Japan', como: 'Operator certification under the WCO SAFE standard', url: 'https://www.customs.go.jp/english/' },
+      ],
+      nota: 'Electoral agenda: GloboNews — “Proposals for the borders”, proposals filed with the TSE (2026 elections). International programs verified over HTTP on 22/08/2026.',
+      cta: { label: 'See MoedaLog in the Ideas section', slug: 'ideias' },
+    },
+    es: {
+      hero: {
+        kicker: 'Uno de los centros del portal',
+        title: 'Seguridad pública y control logístico',
+        sub: 'Cada nuevo corredor de escoamiento es también una nueva puerta. Abrir sin controlar es abrir camino al contrabando, la piratería, las drogas y las armas.',
+      },
+      kpis: [
+        { v: 'R$ 500 mil M', l: 'mercado ilegal en Brasil en 2025', fonte: 'O Globo' },
+        { v: 'R$ 1,88', l: 'costo del sello electrónico fiscal por unidad', fonte: 'Proyecto básico MoedaLog' },
+        { v: '10', l: 'niveles de seguridad del sello RFID/NFC', fonte: 'Proyecto básico MoedaLog' },
+      ],
+      blocos: [
+        { t: 'La tesis: apertura sin control es invitación al crimen', x: 'El Plan Nacional de Logística, el Puerto de Chancay y el ferrocarril transoceánico (bioceánico) crean rutas inéditas de desarrollo — y también de flujo ilegal. Sin un programa estatal de control logístico, los nuevos canales amplían la entrada de productos pirateados, contrabando, drogas y armas. La apertura debe venir acompañada del control.' },
+        { t: 'Fronteras en la agenda de 2026', x: 'El control de fronteras es consenso entre los principales candidatos (GloboNews — propuestas enviadas al TSE). La propuesta del presidente Lula: Fuerzas Armadas en las fronteras amazónicas con patrullaje fluvial y aéreo; cooperación con los países de la OTCA; e inversión en radares, drones, sensores, imágenes satelitales y centros integrados de comando y control. Es exactamente en ese comando y control donde entra el rastreo logístico de cargas y contenedores.' },
+        { t: 'Cómo controla el mundo', x: 'Los grandes bloques certifican operadores y rastrean cargas — C-TPAT en EE. UU., AEO+ICS2 en la Unión Europea, NEEC en México, OEA en Colombia, STP en Singapur, AEO en Japón — todos bajo el paraguas del Marco SAFE de la OMA. Brasil tiene la oportunidad de dar el siguiente paso: control por ítem, con tecnología embebida en la propia mercancía.' },
+        { t: 'La respuesta tecnológica brasileña', x: 'El sello electrónico fiscal (MoedaLog/e-SFI): chip pasivo RFID/NFC con 10 niveles de seguridad a R$ 1,88 por unidad, anclado en ICP-Brasil, blockchain y eFuse de uso único — rastreabilidad del origen al destino, alerta automática de violación (caso PRF) e integración con fronteras, Mercosur y Chancay.' },
+      ],
+      programas: [
+        { pais: 'Mundo (OMA)', prog: 'Marco SAFE', como: 'Estándar global de operador económico autorizado y seguridad de la cadena, adoptado por más de 100 aduanas', url: 'https://www.wcoomd.org/' },
+        { pais: 'Estados Unidos', prog: 'C-TPAT', como: 'Alianza aduana–empresa: carga certificada, inspecciones reducidas y criterios mínimos de seguridad', url: 'https://www.cbp.gov/border-security/ports-entry/cargo-security/ctpat' },
+        { pais: 'Unión Europea', prog: 'AEO + ICS2', como: 'Operador económico autorizado + datos previos de carga antes de la llegada al bloque', url: 'https://taxation-customs.ec.europa.eu/index_en' },
+        { pais: 'México', prog: 'NEEC', como: 'Nuevo Esquema de Empresas Certificadas, alineado con el C-TPAT de EE. UU.', url: 'https://www.sat.gob.mx/portal/public/tramites/aduanas/nuevo-esquema-de-empresas-certificadas-neec' },
+        { pais: 'Colombia', prog: 'OEA (DIAN)', como: 'Operador Económico Autorizado con beneficios de facilitación del comercio', url: 'https://www.dian.gov.co/aduanas/oea/Paginas/default.aspx' },
+        { pais: 'Singapur', prog: 'Secure Trade Partnership', como: 'Certificación de seguridad de la cadena logística portuaria y aérea', url: 'https://www.customs.gov.sg/' },
+        { pais: 'Japón', prog: 'AEO Japón', como: 'Certificación de operadores conforme al estándar SAFE de la OMA', url: 'https://www.customs.go.jp/english/' },
+      ],
+      nota: 'Agenda electoral: GloboNews — “Propuestas para las fronteras”, propuestas enviadas al TSE (elecciones de 2026). Programas internacionales verificados por HTTP el 22/08/2026.',
+      cta: { label: 'Conocer MoedaLog en la sección Ideas', slug: 'ideias' },
     },
   },
 
