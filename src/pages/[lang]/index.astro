@@ -9,7 +9,7 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const c = PAGES.home[lang];
 const t = UI[lang];
-const title = `LOGIS — ${t.tagline}`;
+const title = 'LOGIS';
 
 // Ilustrações (SVG inline, traço verde — uma por card)
 const ILUSTRAS: Record<string, string> = {
@@ -26,7 +26,7 @@ const ILUSTRAS: Record<string, string> = {
     <div class="container">
       {c.hero.kicker && <span class="kicker">{c.hero.kicker}</span>}
       <h1 class="hero-logo">{c.hero.title}</h1>
-      <p class="sub tagline">{c.hero.sub}</p>
+      {c.hero.sub && <p class="sub tagline">{c.hero.sub}</p>}
       <div class="ctas">
         <a class="btn primary" href={langPath(lang, c.cta!.slug)}>{c.cta!.label} →</a>
         <a class="btn ghost" href={langPath(lang, 'revista')}>Logis</a>

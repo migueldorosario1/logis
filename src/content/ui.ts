@@ -25,7 +25,15 @@ export interface NavChild { slug: string; label: Record<Lang, string> }
 export interface NavGroup { slug: string; label: Record<Lang, string>; children?: NavChild[] }
 
 export const NAV_GROUPS: NavGroup[] = [
-  { slug: '', label: { pt: 'Início', en: 'Home', es: 'Inicio' } },
+  {
+    slug: '',
+    label: { pt: 'Início', en: 'Home', es: 'Inicio' },
+    children: [
+      { slug: 'quemsomos', label: { pt: 'Quem Somos', en: 'Who We Are', es: 'Quiénes Somos' } },
+      { slug: 'linha-editorial', label: { pt: 'Linha Editorial', en: 'Editorial Line', es: 'Línea Editorial' } },
+      { slug: 'estatuto', label: { pt: 'Estatuto', en: 'Statutes', es: 'Estatutos' } },
+    ],
+  },
   {
     slug: 'mapas',
     label: { pt: 'Mapas & Dados', en: 'Maps & Data', es: 'Mapas y Datos' },

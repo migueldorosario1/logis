@@ -4,6 +4,8 @@ export interface KP { v: string; l: string; fonte?: string }
 export interface TI { t: string; x: string; slug?: string }
 export interface TL { ano: string; t: string }
 export interface PROG { pais: string; prog: string; como: string; url: string }
+export interface ART { n: string; x: string }
+export interface CAP { cap: string; arts: ART[] }
 
 interface PageContent {
   hero: { kicker: string; title: string; sub: string };
@@ -12,6 +14,7 @@ interface PageContent {
   timeline?: TL[];
   paragrafos?: string[];
   programas?: PROG[];
+  capitulos?: CAP[];
   nota?: string;
   cta?: { label: string; slug: string };
 }
@@ -24,7 +27,7 @@ export const PAGES: Pages = {
       hero: {
         kicker: '',
         title: 'LOGIS',
-        sub: 'Logística e Sustentabilidade',
+        sub: '',
       },
       kpis: [
         { v: 'R$ 1,7 tri/ano', l: 'Custo logístico do Brasil (19,5% do PIB)', fonte: 'Dados apresentados pela Casa da Moeda do Brasil' },
@@ -44,7 +47,7 @@ export const PAGES: Pages = {
       hero: {
         kicker: '',
         title: 'LOGIS',
-        sub: 'Logistics and Sustainability',
+        sub: '',
       },
       kpis: [
         { v: 'BRL 1.7 tn/yr', l: 'Brazilian logistics cost (19.5% of GDP)', fonte: 'Data presented by Casa da Moeda do Brasil' },
@@ -64,7 +67,7 @@ export const PAGES: Pages = {
       hero: {
         kicker: '',
         title: 'LOGIS',
-        sub: 'Logística y Sostenibilidad',
+        sub: '',
       },
       kpis: [
         { v: 'BRL 1,7 bill./año', l: 'Costo logístico de Brasil (19,5% del PIB)', fonte: 'Datos presentados por la Casa da Moeda do Brasil' },
@@ -418,6 +421,207 @@ export const PAGES: Pages = {
         { ano: '2029', t: 'Fin de la transición del Sello Electrónico: se prevé sustituir 7,3 millones de e-CNPJ' },
       ],
       nota: 'La Casa da Moeda do Brasil — 332 años de historia — produce billetes, pasaportes, precintos de urnas electrónicas y sellos fiscales para el Estado brasileño.',
+    },
+  },
+
+  quemsomos: {
+    pt: {
+      hero: {
+        kicker: 'Quem Somos',
+        title: 'Instituto de Logística e Sustentabilidade',
+        sub: 'Entidade civil sem fins lucrativos dedicada a produzir e difundir conhecimento sobre logística, sustentabilidade e segurança pública — editora do portal LOGIS e da revista Logis.',
+      },
+      blocos: [
+        { t: 'Fundador e presidente', x: 'O Instituto foi fundado pelo jornalista Miguel do Rosário, que o preside e assina a linha editorial. É também o responsável editorial da revista Logis.' },
+        { t: 'O que fazemos', x: 'Estudos e pesquisas aplicadas sobre corredores logísticos, controle de fronteiras, logística reversa e economia circular; observação regulatória; e publicação científica em acesso aberto.' },
+        { t: 'Estrutura', x: 'Portal LOGIS (conhecimento trilíngue PT·EN·ES), revista trimestral Logis (acesso aberto diamante) e programa próprio de estudos — hoje com foco no dossiê corredores de escoamento × controle logístico.' },
+        { t: 'Por que existe', x: 'Porque a abertura dos novos canais de escoamento do Brasil e da América do Sul exige um programa de controle logístico à altura — e porque essa pauta precisa de uma casa independente de estudos.' },
+      ],
+      nota: 'O Instituto está em processo de constituição formal. A minuta do estatuto fundador está publicada neste portal, no submenu Estatuto.',
+      cta: { label: 'Ler o Estatuto', slug: 'estatuto' },
+    },
+    en: {
+      hero: {
+        kicker: 'Who We Are',
+        title: 'Institute of Logistics and Sustainability',
+        sub: 'A civil non-profit organization dedicated to producing and disseminating knowledge on logistics, sustainability and public security — publisher of the LOGIS portal and the Logis journal.',
+      },
+      blocos: [
+        { t: 'Founder and president', x: 'The Institute was founded by journalist Miguel do Rosário, who presides over it and signs the editorial line. He is also the journal Logis’s responsible editor.' },
+        { t: 'What we do', x: 'Applied studies and research on logistics corridors, border control, reverse logistics and circular economy; regulatory observation; and open-access scholarly publishing.' },
+        { t: 'Structure', x: 'The LOGIS portal (trilingual knowledge PT·EN·ES), the quarterly journal Logis (diamond open access) and our own study program — currently focused on the export corridors × logistics control dossier.' },
+        { t: 'Why it exists', x: 'Because the opening of Brazil’s and South America’s new trade corridors demands a logistics-control program to match — and because this agenda needs an independent home of studies.' },
+      ],
+      nota: 'The Institute is in the process of formal incorporation. The founding statutes draft is published on this portal, under the Statutes submenu.',
+      cta: { label: 'Read the Statutes', slug: 'estatuto' },
+    },
+    es: {
+      hero: {
+        kicker: 'Quiénes Somos',
+        title: 'Instituto de Logística y Sostenibilidad',
+        sub: 'Entidad civil sin fines de lucro dedicada a producir y difundir conocimiento sobre logística, sostenibilidad y seguridad pública — editora del portal LOGIS y de la revista Logis.',
+      },
+      blocos: [
+        { t: 'Fundador y presidente', x: 'El Instituto fue fundado por el periodista Miguel do Rosário, quien lo preside y firma la línea editorial. Es también el editor responsable de la revista Logis.' },
+        { t: 'Qué hacemos', x: 'Estudios e investigaciones aplicadas sobre corredores logísticos, control de fronteras, logística inversa y economía circular; observación regulatoria; y publicación científica en acceso abierto.' },
+        { t: 'Estructura', x: 'Portal LOGIS (conocimiento trilingüe PT·EN·ES), revista trimestral Logis (acceso abierto diamante) y programa propio de estudios — hoy centrado en el dosier corredores de escoamiento × control logístico.' },
+        { t: 'Por qué existe', x: 'Porque la apertura de los nuevos canales de escoamiento de Brasil y de Sudamérica exige un programa de control logístico a la altura — y porque esta agenda necesita una casa independiente de estudios.' },
+      ],
+      nota: 'El Instituto está en proceso de constitución formal. La minuta de los estatutos fundadores está publicada en este portal, en el submenú Estatutos.',
+      cta: { label: 'Leer los Estatutos', slug: 'estatuto' },
+    },
+  },
+
+  linhaeditorial: {
+    pt: {
+      hero: {
+        kicker: 'Linha Editorial',
+        title: 'Nossa linha editorial',
+        sub: 'Os princípios que guiam tudo o que o Instituto publica — no portal LOGIS e na revista Logis.',
+      },
+      blocos: [
+        { t: 'Abertura com controle', x: 'Desenvolvimento logístico e segurança pública caminham juntos: nenhum corredor novo é analisado sem a pergunta de quem vigia a porta que ele abre.' },
+        { t: 'Sustentabilidade não é anexo', x: 'Economia circular, logística reversa e baixo carbono são centro da análise de logística — não capítulo final.' },
+        { t: 'Ciência aberta', x: 'Tudo em acesso aberto diamante: grátis para ler, grátis para publicar. Trilíngue por princípio — PT·EN·ES.' },
+        { t: 'Dado com fonte', x: 'Todo número tem origem citada; todo dado fictício ou demonstrativo está explicitamente marcado como tal.' },
+        { t: 'Independência', x: 'Nenhum financiamento que condicione conclusões. Erros são corrigidos publicamente.' },
+        { t: 'A segurança pública é pauta logística', x: 'Contrabando, pirataria e fluxos ilegais são tratados como problemas de cadeia logística — com solução de tecnologia, regulação e Estado.' },
+      ],
+    },
+    en: {
+      hero: {
+        kicker: 'Editorial Line',
+        title: 'Our editorial line',
+        sub: 'The principles that guide everything the Institute publishes — on the LOGIS portal and in the Logis journal.',
+      },
+      blocos: [
+        { t: 'Openness with control', x: 'Logistics development and public security go together: no new corridor is analyzed without asking who watches the door it opens.' },
+        { t: 'Sustainability is not an annex', x: 'Circular economy, reverse logistics and low carbon sit at the center of logistics analysis — not in a final chapter.' },
+        { t: 'Open science', x: 'Everything in diamond open access: free to read, free to publish. Trilingual by principle — PT·EN·ES.' },
+        { t: 'Data with a source', x: 'Every number has a cited origin; every fictional or demo item is explicitly marked as such.' },
+        { t: 'Independence', x: 'No funding that conditions conclusions. Errors are publicly corrected.' },
+        { t: 'Public security is a logistics agenda', x: 'Smuggling, piracy and illegal flows are treated as supply-chain problems — with technology, regulation and state capacity.' },
+      ],
+    },
+    es: {
+      hero: {
+        kicker: 'Línea Editorial',
+        title: 'Nuestra línea editorial',
+        sub: 'Los principios que guían todo lo que publica el Instituto — en el portal LOGIS y en la revista Logis.',
+      },
+      blocos: [
+        { t: 'Apertura con control', x: 'El desarrollo logístico y la seguridad pública van juntos: ningún corredor nuevo se analiza sin preguntar quién vigila la puerta que abre.' },
+        { t: 'La sostenibilidad no es anexo', x: 'Economía circular, logística inversa y bajo carbono son el centro del análisis logístico — no el capítulo final.' },
+        { t: 'Ciencia abierta', x: 'Todo en acceso abierto diamante: gratis para leer, gratis para publicar. Trilingüe por principio — PT·EN·ES.' },
+        { t: 'Dato con fuente', x: 'Todo número tiene origen citado; todo dato ficticio o demostrativo está explícitamente marcado como tal.' },
+        { t: 'Independencia', x: 'Ningún financiamiento que condicione conclusiones. Los errores se corrigen públicamente.' },
+        { t: 'La seguridad pública es agenda logística', x: 'Contrabando, piratería y flujos ilegales se tratan como problemas de cadena logística — con tecnología, regulación y Estado.' },
+      ],
+    },
+  },
+
+  estatuto: {
+    pt: {
+      hero: {
+        kicker: 'Documento fundador',
+        title: 'Estatuto do Instituto de Logística e Sustentabilidade',
+        sub: 'Minuta fundadora, publicada em 22 de agosto de 2026. O Instituto está em processo de constituição formal; os dados do registro serão complementados nesta página.',
+      },
+      capitulos: [
+        {
+          cap: 'Capítulo I — Da Denominação, Sede, Foro e Prazo',
+          arts: [
+            { n: 'Art. 1º', x: 'O Instituto de Logística e Sustentabilidade — ILS é uma associação civil, sem fins lucrativos, com atuação nos campos da pesquisa, do estudo e da difusão de conhecimento em logística e sustentabilidade, regida por este estatuto e pela legislação brasileira vigente.' },
+            { n: 'Art. 2º', x: 'A sede e o foro do Instituto serão fixados no município a ser definido pela Assembleia Geral de Fundação, com prazo de duração indeterminado.' },
+          ],
+        },
+        {
+          cap: 'Capítulo II — Dos Fins',
+          arts: [
+            { n: 'Art. 3º', x: 'São fins do Instituto: (I) promover estudos e pesquisas sobre logística, infraestrutura, sustentabilidade, economia circular e segurança pública; (II) analisar corredores logísticos nacionais e internacionais e suas implicações de controle e fiscalização; (III) editar e publicar a revista científica Logis e manter o portal LOGIS; (IV) fomentar o debate público e a formulação de políticas públicas em suas áreas; (V) celebrar convênios, parcerias e receber doações, subvenções e financiamentos nacionais e internacionais, vedada qualquer finalidade lucrativa.' },
+            { n: 'Art. 4º', x: 'O Instituto não distribui lucros, bonificações ou vantagens a dirigentes, associados ou terceiros, aplicando integralmente seus recursos no desenvolvimento de suas finalidades estatutárias.' },
+          ],
+        },
+        {
+          cap: 'Capítulo III — Do Patrimônio e das Receitas',
+          arts: [
+            { n: 'Art. 5º', x: 'Constituem receitas do Instituto: as contribuições de associados; doações, legados e subvenções; rendas de projetos, cursos e publicações; e rendimentos de patrimônio próprio.' },
+            { n: 'Art. 6º', x: 'A escrituração contábil observará os princípios fundamentais de contabilidade e as normas aplicáveis a entidades do terceiro setor, com prestação de contas anual à Assembleia Geral.' },
+          ],
+        },
+        {
+          cap: 'Capítulo IV — Dos Associados',
+          arts: [
+            { n: 'Art. 7º', x: 'O Instituto admite associados fundadores, efetivos e colaboradores, sem distinção de nacionalidade, sexo, raça, religião ou convicção política, vedadas condições de admissão que violem a lei.' },
+            { n: 'Art. 8º', x: 'São direitos dos associados em pleno gozo estatutário: participar das assembleias com voz e voto, eleger e ser eleito, e requerer, na forma da lei, a dissolução da associação.' },
+            { n: 'Art. 9º', x: 'São deveres dos associados: cumprir o estatuto, zelar pelo nome do Instituto e contribuir, conforme o caso, com as receitas definidas em assembleia.' },
+          ],
+        },
+        {
+          cap: 'Capítulo V — Da Administração',
+          arts: [
+            { n: 'Art. 10', x: 'O Instituto é administrado por uma Diretoria composta de Presidente, Vice-Presidente, Secretário e Tesoureiro, eleita pela Assembleia Geral para mandato de três anos, permitida uma recondução.' },
+            { n: 'Art. 11', x: 'Compete à Presidência: representar o Instituto ativa e passivamente; definir, com a Diretoria, o plano anual de atividades; e assinar, com o Tesoureiro, os atos que obriguem o patrimônio.' },
+            { n: 'Art. 12', x: 'Haverá um Conselho Fiscal de três membros titulares, com mandato de três anos, incumbido de opinar sobre as contas e o orçamento anuais.' },
+            { n: 'Art. 13', x: 'O exercício dos cargos é gratuito, sendo permitido o ressarcimento de despesas comprovadas realizadas em nome do Instituto.' },
+          ],
+        },
+        {
+          cap: 'Capítulo VI — Da Assembleia Geral',
+          arts: [
+            { n: 'Art. 14', x: 'A Assembleia Geral, órgão soberano da associação, instala-se em primeira convocação com a maioria dos associados e em segunda com qualquer número, deliberando por maioria simples de votos, salvo os quóruns legais para alteração estatutária e destituição de dirigentes.' },
+          ],
+        },
+        {
+          cap: 'Capítulo VII — Das Disposições Gerais',
+          arts: [
+            { n: 'Art. 15', x: 'Este estatuto só pode ser alterado por deliberação de Assembleia Geral especificamente convocada, na forma da lei.' },
+            { n: 'Art. 16', x: 'Em caso de dissolução, o patrimônio líquido do Instituto será destinado a entidade pública ou privada sem fins lucrativos com fins congêneres, vedada qualquer partilha entre associados.' },
+            { n: 'Art. 17', x: 'Os casos omissos serão resolvidos pela Assembleia Geral, com base na legislação civil brasileira.' },
+          ],
+        },
+        {
+          cap: 'Capítulo VIII — Das Disposições Transitórias',
+          arts: [
+            { n: 'Art. 18', x: 'Fica eleita a primeira Diretoria, com mandato até a realização da primeira Assembleia Geral Ordinária subsequente ao registro do Instituto, assim composta: Presidente — jornalista Miguel do Rosário; os demais cargos serão definidos na Assembleia de Fundação.' },
+            { n: 'Art. 19', x: 'Este estatuto entra em vigor na data de seu registro no competente Cartório de Registro Civil das Pessoas Jurídicas.' },
+          ],
+        },
+      ],
+    },
+    en: {
+      hero: {
+        kicker: 'Founding document',
+        title: 'Statutes of the Institute of Logistics and Sustainability',
+        sub: 'Founding draft, published on August 22, 2026. The Institute is in the process of formal incorporation; registration details will be added to this page. The binding text is the Portuguese version.',
+      },
+      capitulos: [
+        { cap: 'Chapter I — Name, Seat and Term', arts: [ { n: 'Art. 1', x: 'The Institute of Logistics and Sustainability (ILS) is a civil non-profit association for research, study and knowledge dissemination in logistics and sustainability.' }, { n: 'Art. 2', x: 'Seat and forum to be fixed by the Founding General Assembly; indefinite term.' } ] },
+        { cap: 'Chapter II — Purposes', arts: [ { n: 'Art. 3', x: 'Purposes: studies and research on logistics, infrastructure, sustainability, circular economy and public security; analysis of logistics corridors and their control implications; publishing the Logis journal and the LOGIS portal; public debate and policy; and receiving donations, grants and partnerships, with no profit purpose.' }, { n: 'Art. 4', x: 'No profits, bonuses or advantages are distributed to officers, members or third parties; all resources fund the statutory purposes.' } ] },
+        { cap: 'Chapter III — Assets and Revenue', arts: [ { n: 'Art. 5', x: 'Revenue: member contributions; donations, legacies and grants; project, course and publication income; and returns on own assets.' }, { n: 'Art. 6', x: 'Accounting follows Brazilian third-sector standards, with annual accountability to the General Assembly.' } ] },
+        { cap: 'Chapter IV — Members', arts: [ { n: 'Art. 7', x: 'Founding, full and collaborating members are admitted, with no discrimination.' }, { n: 'Art. 8', x: 'Rights: to take part and vote in assemblies, to elect and be elected, under the statute and the law.' }, { n: 'Art. 9', x: 'Duties: to comply with the statute, safeguard the Institute’s name and contribute as set by the assembly.' } ] },
+        { cap: 'Chapter V — Governance', arts: [ { n: 'Art. 10', x: 'Governed by a Board (President, Vice-President, Secretary, Treasurer) elected for a three-year term, one re-election allowed.' }, { n: 'Art. 11', x: 'The President represents the Institute, leads the annual plan and co-signs acts binding its assets.' }, { n: 'Art. 12', x: 'A three-member Fiscal Council reviews the annual accounts and budget.' }, { n: 'Art. 13', x: 'Offices are unpaid; verified expenses may be reimbursed.' } ] },
+        { cap: 'Chapter VI — General Assembly', arts: [ { n: 'Art. 14', x: 'The General Assembly is the sovereign body, deciding by simple majority, subject to legal quorums for statute amendments.' } ] },
+        { cap: 'Chapter VII — General Provisions', arts: [ { n: 'Art. 15', x: 'Amendments require a specially convened General Assembly.' }, { n: 'Art. 16', x: 'Upon dissolution, net assets go to a public or non-profit entity with similar purposes; no distribution among members.' }, { n: 'Art. 17', x: 'Omitted cases are resolved by the General Assembly under Brazilian civil law.' } ] },
+        { cap: 'Chapter VIII — Transitional Provisions', arts: [ { n: 'Art. 18', x: 'First Board elected: President — journalist Miguel do Rosário; other offices to be set by the Founding Assembly.' }, { n: 'Art. 19', x: 'These statutes take effect upon registration with the competent Civil Registry of Legal Entities.' } ] },
+      ],
+    },
+    es: {
+      hero: {
+        kicker: 'Documento fundador',
+        title: 'Estatutos del Instituto de Logística y Sostenibilidad',
+        sub: 'Minuta fundadora, publicada el 22 de agosto de 2026. El Instituto está en proceso de constitución formal; los datos del registro se completarán en esta página. El texto vinculante es la versión en portugués.',
+      },
+      capitulos: [
+        { cap: 'Capítulo I — Denominación, Sede y Plazo', arts: [ { n: 'Art. 1º', x: 'El Instituto de Logística y Sostenibilidad (ILS) es una asociación civil sin fines de lucro dedicada a la investigación, el estudio y la difusión de conocimiento en logística y sostenibilidad.' }, { n: 'Art. 2º', x: 'Sede y foro serán fijados por la Asamblea General Fundadora; plazo indeterminado.' } ] },
+        { cap: 'Capítulo II — De los Fines', arts: [ { n: 'Art. 3º', x: 'Fines: estudios e investigaciones sobre logística, infraestructura, sostenibilidad, economía circular y seguridad pública; análisis de corredores logísticos y sus implicaciones de control; edición de la revista Logis y del portal LOGIS; debate público y políticas; y recepción de donaciones, subvenciones y convenios, sin fin lucrativo.' }, { n: 'Art. 4º', x: 'No se distribuyen lucros ni ventajas a dirigentes, asociados o terceros; todos los recursos se aplican a los fines estatutarios.' } ] },
+        { cap: 'Capítulo III — Patrimonio y Recursos', arts: [ { n: 'Art. 5º', x: 'Recursos: contribuciones de asociados; donaciones, legados y subvenciones; ingresos de proyectos, cursos y publicaciones; y rendimientos del patrimonio propio.' }, { n: 'Art. 6º', x: 'La contabilidad sigue las normas brasileñas del tercer sector, con rendición anual de cuentas a la Asamblea General.' } ] },
+        { cap: 'Capítulo IV — De los Asociados', arts: [ { n: 'Art. 7º', x: 'Se admiten asociados fundadores, efectivos y colaboradores, sin distinción.' }, { n: 'Art. 8º', x: 'Derechos: participar y votar en las asambleas, elegir y ser elegido, conforme al estatuto y la ley.' }, { n: 'Art. 9º', x: 'Deberes: cumplir el estatuto, cuidar el nombre del Instituto y contribuir según lo defina la asamblea.' } ] },
+        { cap: 'Capítulo V — De la Administración', arts: [ { n: 'Art. 10', x: 'Administrado por una Directiva (Presidente, Vicepresidente, Secretario y Tesorero) elegida por tres años, con una reelección permitida.' }, { n: 'Art. 11', x: 'El Presidente representa al Instituto, conduce el plan anual y firma junto al Tesorero los actos que obliguen al patrimonio.' }, { n: 'Art. 12', x: 'Un Consejo Fiscal de tres miembros revisa las cuentas y el presupuesto anuales.' }, { n: 'Art. 13', x: 'Los cargos no son remunerados; se reembolsan gastos comprobados.' } ] },
+        { cap: 'Capítulo VI — De la Asamblea General', arts: [ { n: 'Art. 14', x: 'La Asamblea General es el órgano soberano, decidiendo por mayoría simple, salvo quórums legales para reformas estatutarias.' } ] },
+        { cap: 'Capítulo VII — Disposiciones Generales', arts: [ { n: 'Art. 15', x: 'Las reformas exigen Asamblea General específicamente convocada.' }, { n: 'Art. 16', x: 'En caso de disolución, el patrimonio líquido se destina a entidad pública o sin fines de lucro con fines congéneres; sin reparto entre asociados.' }, { n: 'Art. 17', x: 'Los casos omisos los resuelve la Asamblea General según la ley civil brasileña.' } ] },
+        { cap: 'Capítulo VIII — Disposiciones Transitorias', arts: [ { n: 'Art. 18', x: 'Primera Directiva electa: Presidente — periodista Miguel do Rosário; demás cargos definidos en la Asamblea Fundadora.' }, { n: 'Art. 19', x: 'Estos estatutos entran en vigor con su registro en el Registro Civil de Personas Jurídicas competente.' } ] },
+      ],
     },
   },
 

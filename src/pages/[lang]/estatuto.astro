@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LANGS, type Lang } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.estatuto[lang];
+const title = `${c.hero.title} — LOGIS`;
+
+const T = {
+  pt: { assinam: 'Assinatura fundadora', fundador: 'Miguel do Rosário', cargo: 'Jornalista · Fundador e Presidente' },
+  en: { assinam: 'Founding signature', fundador: 'Miguel do Rosário', cargo: 'Journalist · Founder and President' },
+  es: { assinam: 'Firma fundadora', fundador: 'Miguel do Rosário', cargo: 'Periodista · Fundador y Presidente' },
+}[lang];
+---
+
+<Base lang={lang} slug="estatuto" title={title} description={c.hero.sub}>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">{c.hero.kicker}</span>
+      <h1>{c.hero.title}</h1>
+      <p class="sub">{c.hero.sub}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <article class="doc">
+        {c.capitulos!.map((cap) => (
+          <section class="doc-cap">
+            <h2>{cap.cap}</h2>
+            {cap.arts.map((a) => (
+              <p><strong>{a.n}</strong> {a.x}</p>
+            ))}
+          </section>
+        ))}
+
+        <div class="assinatura">
+          <div class="assinatura-label">{T.assinam}</div>
+          <div class="assinatura-nome">{T.fundador}</div>
+          <div class="assinatura-cargo">{T.cargo}</div>
+          <div class="assinatura-data">LOGIS · 22 · 08 · 2026</div>
+        </div>
+      </article>
+    </div>
+  </section>
+</Base>
