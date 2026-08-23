@@ -6,9 +6,11 @@ export interface TL { ano: string; t: string }
 export interface PROG { pais: string; prog: string; como: string; url: string }
 export interface ART { n: string; x: string }
 export interface CAP { cap: string; arts: ART[] }
+export interface MANCHETE { kicker: string; titulo: string; tese: string; slug: string; data: string }
 
 interface PageContent {
   hero: { kicker: string; title: string; sub: string };
+  manchete?: MANCHETE;
   blocos?: TI[];
   kpis?: KP[];
   timeline?: TL[];
@@ -29,11 +31,13 @@ export const PAGES: Pages = {
         title: 'LOGIS',
         sub: '',
       },
-      kpis: [
-        { v: 'R$ 1,7 tri/ano', l: 'Custo logístico do Brasil (19,5% do PIB)', fonte: 'Dados apresentados pela Casa da Moeda do Brasil' },
-        { v: 'R$ 500 bi', l: 'Prejuízo do mercado ilegal (2025)', fonte: 'O Globo, citado em material institucional' },
-        { v: '36º / 139', l: 'Brasil no LPI do Banco Mundial (2023)', fonte: 'World Bank — Logistics Performance Index' },
-      ],
+      manchete: {
+        kicker: 'Editorial semanal · Nº 1 · Brasil',
+        titulo: 'Abrir o corredor, vigiar a porta',
+        tese: 'A mesma infraestrutura que integra o Brasil ao mundo integra também o contrabando. A agenda logística de 2026 só se completa quando a obra e a vigilância forem assinadas juntas.',
+        slug: 'editorial',
+        data: '23 de agosto de 2026',
+      },
       blocos: [
         { t: 'Mapas & Dados', slug: 'geomapas', x: 'Mapa-múndi interativo com rotas navais, ferrovias, corredores aéreos, oleodutos e fibras ópticas submarinas — além do observatório de indicadores e da pesquisa.' },
         { t: 'Regulação & Mercados', slug: 'reguladores', x: 'Reguladores do Brasil e do mundo, marco legal nacional e internacional e contratos.' },
@@ -49,11 +53,13 @@ export const PAGES: Pages = {
         title: 'LOGIS',
         sub: '',
       },
-      kpis: [
-        { v: 'BRL 1.7 tn/yr', l: 'Brazilian logistics cost (19.5% of GDP)', fonte: 'Data presented by Casa da Moeda do Brasil' },
-        { v: 'BRL 500 bn', l: 'Losses to the illegal market (2025)', fonte: 'O Globo, cited in institutional material' },
-        { v: '36th / 139', l: 'Brazil in the World Bank LPI (2023)', fonte: 'World Bank — Logistics Performance Index' },
-      ],
+      manchete: {
+        kicker: 'Weekly editorial · No. 1 · Brazil',
+        titulo: 'Open the corridor, watch the door',
+        tese: 'The same infrastructure that connects Brazil to the world also connects the smuggler. Brazil’s 2026 logistics agenda is only complete when the works and the watchfulness are signed together.',
+        slug: 'editorial',
+        data: 'August 23, 2026',
+      },
       blocos: [
         { t: 'Maps & Data', slug: 'geomapas', x: 'Interactive world map with shipping lanes, railways, air corridors, oil pipelines and submarine fiber-optic cables — plus the indicators observatory and research.' },
         { t: 'Regulation & Markets', slug: 'reguladores', x: 'Regulators from Brazil and the world, national and international legal frameworks and contracts.' },
@@ -69,11 +75,13 @@ export const PAGES: Pages = {
         title: 'LOGIS',
         sub: '',
       },
-      kpis: [
-        { v: 'BRL 1,7 bill./año', l: 'Costo logístico de Brasil (19,5% del PIB)', fonte: 'Datos presentados por la Casa da Moeda do Brasil' },
-        { v: 'BRL 500 mil M', l: 'Pérdidas por el mercado ilegal (2025)', fonte: 'O Globo, citado en material institucional' },
-        { v: '36º / 139', l: 'Brasil en el LPI del Banco Mundial (2023)', fonte: 'World Bank — Logistics Performance Index' },
-      ],
+      manchete: {
+        kicker: 'Editorial semanal · Nº 1 · Brasil',
+        titulo: 'Abrir el corredor, vigilar la puerta',
+        tese: 'La misma infraestructura que integra a Brasil con el mundo también integra al contrabando. La agenda logística de 2026 solo se completa cuando la obra y la vigilancia se firman juntas.',
+        slug: 'editorial',
+        data: '23 de agosto de 2026',
+      },
       blocos: [
         { t: 'Mapas y Datos', slug: 'geomapas', x: 'Mapamundi interactivo con rutas navales, ferrocarriles, corredores aéreos, oleoductos y fibras ópticas submarinas — además del observatorio de indicadores y la investigación.' },
         { t: 'Regulación y Mercados', slug: 'reguladores', x: 'Reguladores de Brasil y del mundo, marco legal nacional e internacional y contratos.' },
@@ -421,6 +429,69 @@ export const PAGES: Pages = {
         { ano: '2029', t: 'Fin de la transición del Sello Electrónico: se prevé sustituir 7,3 millones de e-CNPJ' },
       ],
       nota: 'La Casa da Moeda do Brasil — 332 años de historia — produce billetes, pasaportes, precintos de urnas electrónicas y sellos fiscales para el Estado brasileño.',
+    },
+  },
+
+  editorial: {
+    pt: {
+      hero: {
+        kicker: 'Editorial semanal · Nº 1 · Brasil · 23/08/2026',
+        title: 'Abrir o corredor, vigiar a porta',
+        sub: 'A tese do LOGIS nesta semana: a mesma infraestrutura que integra o Brasil ao mundo integra também o contrabando — e a agenda logística de 2026 só se completa quando a obra e a vigilância forem assinadas juntas.',
+      },
+      paragrafos: [
+        'A semana confirma o que o mapa já mostrava. O Peru consolida o corredor do Pacífico com o terminal de Chancay em operação comercial, a ferrovia bioceânica volta ao centro das conversas entre Brasil, Bolívia e Peru, e o Plano Nacional de Logística reaparece no noticiário como promessa de integração continental. É a maior virada de geografia econômica do país em uma geração.',
+        'Toda virada dessa escala tem duas faces. A rota que encurta o caminho da soja e da manufatura encurta também o caminho da mercadoria irregular. O corredor que reduz o custo do container reduz o custo do contrabando — é a mesma estrada, o mesmo porto, o mesmo manifesto de carga. Não existe obra que escolha o que vai circular por ela.',
+        'É por isso que este editorial defende uma tese simples: no Brasil de 2026, discutir logística sem discutir controle logístico é discutir metade do problema. O custo de não fazer isso já é conhecido — um mercado ilegal estimado em R$ 500 bilhões, sonegação em toda a cadeia e fronteiras que fiscalizam com a tecnologia do século passado.',
+        'O debate eleitoral chegou antes. Na semana em que as propostas de governo foram parar na tela, o controle das fronteiras virou consenso: patrulhamento fluvial e aéreo na Amazônia, cooperação com os vizinhos, radares, drones, sensores e centros integrados de comando. A pauta existe — o que ainda não existe é a ponte entre vigiar o território e rastrear a carga.',
+        'Essa ponte tem nome: controle logístico de Estado, item a item, da origem ao destino. O mundo pratica a versão aduaneira dela há vinte anos — C-TPAT nos Estados Unidos, operadores econômicos autorizados na Europa, o padrão SAFE das alfândegas do mundo inteiro. O Brasil tem a oportunidade de dar o passo seguinte: a rastreabilidade embarcada no próprio produto, com o selo eletrônico fiscal — chip passivo, barato, impossível de falsificar em escala.',
+        'A matemática favorece. Um selo de menos de dois reais por item contra bilhões em sonegação; um alerta automático de violação contra a inspeção a olho nu; um banco de dados de origem contra a nota fria. Quem paga o preço da ausência dessa camada não é o contrabandista — é o industrial que compete com o pirata e o Estado que financia a obra duas vezes.',
+        'Contraponham-se os riscos, com honestidade: tecnologia não substitui instituição. Selo sem integração entre Receita, PRF e aduanas vizinhas vira colecionador de dados; dado sem punição vira relatório. O programa precisa virar política de Estado — com prazo, orçamento e métrica pública de redução do mercado ilegal.',
+        'A decisão da semana, portanto, não é se o Brasil abre seus corredores — eles já estão abrindo, com ou sem plano. A decisão é se cada nova rota nasce com o seu gêmeo: o sistema de vigilância que a acompanha. Obra sem vigilância é dívida; obra com vigilância é ganho líquido.',
+        'O LOGIS vai acompanhar essa pauta semana a semana — alternando o olhar sobre o Brasil e sobre o mundo. É a nossa primeira edição, e esta é a nossa tese de partida.',
+      ],
+      nota: 'Editorial do Instituto de Logística e Sustentabilidade · jornalista Miguel do Rosário · 23/08/2026. Fontes da semana: operação comercial do terminal de Chancay (Peru), agenda da ferrovia bioceânica, Propostas para as fronteiras (GloboNews — propostas enviadas ao TSE, eleições 2026), estimativas do mercado ilegal citadas em material institucional (O Globo, 2025).',
+      cta: { label: 'Ver a seção Segurança Pública', slug: 'seguranca' },
+    },
+    en: {
+      hero: {
+        kicker: 'Weekly editorial · No. 1 · Brazil · Aug 23, 2026',
+        title: 'Open the corridor, watch the door',
+        sub: 'This week’s thesis at LOGIS: the infrastructure that connects Brazil to the world also connects the smuggler — and the 2026 logistics agenda is only complete when the works and the watchfulness are signed together.',
+      },
+      paragrafos: [
+        'The week confirms what the map already showed. Peru consolidates the Pacific corridor with Chancay in commercial operation, the bioceanic railway returns to the center of Brazil–Bolivia–Peru talks, and the National Logistics Plan reappears in the news as a promise of continental integration. It is the biggest shift in the country’s economic geography in a generation.',
+        'A shift of this scale has two faces. The route that shortens the path of soy and manufactured goods also shortens the path of irregular goods. The corridor that cuts container costs cuts smuggling costs — same road, same port, same cargo manifest. No infrastructure chooses what travels on it.',
+        'That is why this editorial defends a simple thesis: in the Brazil of 2026, discussing logistics without discussing logistics control means discussing half the problem. The cost of not doing it is well known — an illegal market estimated at BRL 500 billion, tax evasion across the chain, and borders inspected with last-century technology.',
+        'The electoral debate got there first. As government proposals hit the screen, border control became consensus: river and air patrols in the Amazon, cooperation with neighbors, radars, drones, sensors and integrated command centers. The agenda exists — what does not exist yet is the bridge between watching the territory and tracking the cargo.',
+        'That bridge has a name: state logistics control, item by item, from origin to destination. The world has practiced its customs version for twenty years — C-TPAT in the United States, authorized economic operators in Europe, the SAFE standard of the world’s customs administrations. Brazil has the chance to take the next step: traceability embedded in the product itself, with the electronic fiscal seal — a passive chip, cheap, impossible to counterfeit at scale.',
+        'The math favors it. A seal of under two reais per item against billions in evasion; an automatic tamper alert against inspection by the naked eye; an origin database against the phantom invoice. Those who pay for the absence of this layer are not smugglers — they are the manufacturers competing with pirates and the State financing the work twice.',
+        'Let the risks be stated honestly: technology does not replace institution. A seal without integration among the tax authority, highway police and neighboring customs becomes a data hoarder; data without enforcement becomes a report. The program must become state policy — with deadlines, budget and a public metric for reducing the illegal market.',
+        'The decision of the week, therefore, is not whether Brazil opens its corridors — they are already opening, with or without a plan. The decision is whether each new route is born with its twin: the surveillance system that accompanies it. Works without watchfulness are debt; works with watchfulness are net gain.',
+        'LOGIS will follow this agenda week by week — alternating the view on Brazil and on the world. This is our first edition, and this is our starting thesis.',
+      ],
+      nota: 'Editorial by the Institute of Logistics and Sustainability · journalist Miguel do Rosário · Aug 23, 2026. Week’s sources: commercial operation of the Chancay terminal (Peru), bioceanic railway agenda, border proposals (GloboNews — proposals filed with the TSE, 2026 elections), illegal-market estimates cited in institutional material (O Globo, 2025).',
+      cta: { label: 'See the Public Security section', slug: 'seguranca' },
+    },
+    es: {
+      hero: {
+        kicker: 'Editorial semanal · Nº 1 · Brasil · 23/08/2026',
+        title: 'Abrir el corredor, vigilar la puerta',
+        sub: 'La tesis de LOGIS esta semana: la infraestructura que integra a Brasil con el mundo también integra al contrabando — y la agenda logística de 2026 solo se completa cuando la obra y la vigilancia se firman juntas.',
+      },
+      paragrafos: [
+        'La semana confirma lo que el mapa ya mostraba. Perú consolida el corredor del Pacífico con Chancay en operación comercial, el ferrocarril bioceánico vuelve al centro de las conversaciones entre Brasil, Bolivia y Perú, y el Plan Nacional de Logística reaparece en las noticias como promesa de integración continental. Es el mayor giro geoeconómico del país en una generación.',
+        'Un giro de esta escala tiene dos caras. La ruta que acorta el camino de la soya y de la manufactura acorta también el camino de la mercancía irregular. El corredor que reduce el costo del contenedor reduce el costo del contrabando — misma carretera, mismo puerto, mismo manifiesto. Ninguna obra elige lo que circula por ella.',
+        'Por eso este editorial defiende una tesis simple: en el Brasil de 2026, discutir logística sin discutir control logístico es discutir la mitad del problema. El costo de no hacerlo es conocido — un mercado ilegal estimado en R$ 500 mil millones, evasión en toda la cadena y fronteras fiscalizadas con tecnología del siglo pasado.',
+        'El debate electoral llegó antes. Cuando las propuestas de gobierno llegaron a la pantalla, el control de fronteras se volvió consenso: patrullaje fluvial y aéreo en el Amazonas, cooperación con los vecinos, radares, drones, sensores y centros integrados de mando. La agenda existe — lo que aún no existe es el puente entre vigilar el territorio y rastrear la carga.',
+        'Ese puente tiene nombre: control logístico de Estado, ítem por ítem, del origen al destino. El mundo practica su versión aduanera desde hace veinte años — C-TPAT en Estados Unidos, operadores económicos autorizados en Europa, el estándar SAFE de las aduanas del mundo. Brasil tiene la oportunidad de dar el paso siguiente: la trazabilidad embebida en el propio producto, con el sello electrónico fiscal — chip pasivo, barato, imposible de falsificar a escala.',
+        'La matemática acompaña. Un sello de menos de dos reales por ítem contra miles de millones en evasión; una alerta automática de violación contra la inspección a ojo desnudo; una base de datos de origen contra la factura fantasma. Quien paga el precio de la ausencia de esta capa no es el contrabandista — es el industrial que compite con el pirata y el Estado que financia la obra dos veces.',
+        'Digamos los riesgos con honestidad: la tecnología no sustituye a la institución. Un sello sin integración entre hacienda, la policía de carreteras y las aduanas vecinas se vuelve acumulador de datos; el dato sin castigo se vuelve informe. El programa necesita convertirse en política de Estado — con plazo, presupuesto y métrica pública de reducción del mercado ilegal.',
+        'La decisión de la semana, por lo tanto, no es si Brasil abre sus corredores — ya se están abriendo, con o sin plan. La decisión es si cada ruta nueva nace con su gemelo: el sistema de vigilancia que la acompaña. Obra sin vigilancia es deuda; obra con vigilancia es ganancia neta.',
+        'LOGIS va a seguir esta agenda semana a semana — alternando la mirada sobre Brasil y sobre el mundo. Esta es nuestra primera edición, y esta es nuestra tesis de partida.',
+      ],
+      nota: 'Editorial del Instituto de Logística y Sostenibilidad · periodista Miguel do Rosário · 23/08/2026. Fuentes de la semana: operación comercial del terminal de Chancay (Perú), agenda del ferrocarril bioceánico, propuestas para las fronteras (GloboNews — propuestas presentadas al TSE, elecciones 2026), estimaciones del mercado ilegal citadas en material institucional (O Globo, 2025).',
+      cta: { label: 'Ver la sección Seguridad Pública', slug: 'seguranca' },
     },
   },
 

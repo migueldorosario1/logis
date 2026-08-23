@@ -846,6 +846,55 @@ article.doc p strong { color: var(--verde-900, #0b3b2e); }
 .assinatura-data { font-size: 11.5px; letter-spacing: .22em; color: var(--verde-700, #14664e); margin-top: 16px; }
 @media (max-width: 640px) { article.doc { padding: 22px 18px; } }
 
+/* ===== Home-portal de notícia (ordem Miguel 22/08 ~23:00) ===== */
+.manchete {
+  background: linear-gradient(135deg, #07271E 0%, #0B3B2E 55%, #14664E 100%);
+  color: #F6F5F0; padding: 54px 0 50px;
+}
+.manchete-grid { max-width: 880px; }
+.manchete-kicker {
+  display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 11.5px;
+  letter-spacing: .22em; text-transform: uppercase; color: #B5E048;
+  text-decoration: none; margin-bottom: 14px; border-bottom: 1px solid rgba(181, 224, 72, .4); padding-bottom: 4px;
+}
+.manchete-kicker:hover { color: #d6f089; }
+.manchete-titulo {
+  font-size: clamp(34px, 6vw, 60px); line-height: 1.05; font-weight: 800;
+  color: #fff; margin: 0 0 16px; letter-spacing: -.01em;
+}
+.manchete-tese { font-size: clamp(16px, 2.2vw, 20px); line-height: 1.55; color: #D9E6DD; max-width: 62ch; margin: 0 0 22px; }
+.manchete .ctas { align-items: center; }
+.manchete-data { font-family: Helvetica, Arial, sans-serif; font-size: 12px; letter-spacing: .08em; color: #9DB8A9; }
+.manchete .btn.primary { background: #B5E048; color: #07271E; border: none; }
+.manchete .btn.primary:hover { background: #c8ea6a; }
+
+/* Editorial (página do artigo) */
+article.editorial { max-width: 760px; margin: 0 auto; }
+article.editorial p { font-size: 15.5px; line-height: 1.75; margin: 0 0 16px; text-align: justify; hyphens: auto; }
+article.editorial p.lead { font-size: 18px; line-height: 1.65; color: var(--verde-900, #0b3b2e); font-weight: 500; }
+
+/* RSS */
+.rss-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.rss-item {
+  display: flex; flex-direction: column; gap: 3px; padding: 14px 16px;
+  background: var(--branco, #fff); border: 1px solid var(--linha, #e3e8e4); border-radius: 10px;
+  text-decoration: none; color: inherit;
+}
+.rss-item:hover { border-color: var(--verde-500, #1e8a66); }
+.rss-item strong { font-size: 14px; color: var(--verde-900, #0b3b2e); }
+.rss-item span { font-size: 11.5px; color: var(--cinza, #5b6b62); letter-spacing: .06em; text-transform: uppercase; }
+
+/* Header: ações (redes + bandeiras) na primeira linha */
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.redes { display: flex; align-items: center; gap: 4px; }
+.redes a {
+  display: flex; align-items: center; justify-content: center; width: 30px; height: 30px;
+  border-radius: 8px; color: var(--cinza, #5b6b62);
+}
+.redes a:hover { color: var(--verde-700, #14664e); background: var(--verde-100, #e6f2ec); text-decoration: none; }
+.redes a svg { width: 17px; height: 17px; }
+@media (max-width: 720px) { .redes { display: none; } }
+
 /* ==========================================================================
    Data Tables
    ========================================================================== */

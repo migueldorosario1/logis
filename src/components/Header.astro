@@ -1,5 +1,5 @@
 ---
-import { LANGS, type Lang, NAV_GROUPS, UI, langPath, SITE_NAME, MAGAZINE_NAME } from '../content/ui';
+import { LANGS, type Lang, NAV_GROUPS, NAV_EXTRAS, UI, langPath, SITE_NAME } from '../content/ui';
 import Flag from './Flag.astro';
 
 interface Props {
@@ -12,12 +12,19 @@ const t = UI[lang];
 const LANG_NAMES: Record<Lang, string> = { pt: 'Português (Brasil)', en: 'English (USA)', es: 'Español (España)' };
 const groupActive = (g: { slug: string; children?: { slug: string }[] }) =>
   g.slug === slug || (g.children?.some((ch) => ch.slug === slug) ?? false);
+
+const REDES = [
+  { id: 'x', label: 'X', svg: `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l12 12M16 4L4 16"/></svg>` },
+  { id: 'youtube', label: 'YouTube', svg: `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="5" width="16" height="11" rx="3"/><path d="M8.5 8.2l4 2.3-4 2.3z" fill="currentColor" stroke="none"/></svg>` },
+  { id: 'linkedin', label: 'LinkedIn', svg: `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2.5" y="2.5" width="15" height="15" rx="3.5"/><circle cx="6.6" cy="7" r="1" fill="currentColor" stroke="none"/><path d="M6.6 9.5v5M9.8 14.5v-5c1.6-1.2 3.6-.6 3.6 1.4v3.6"/></svg>` },
+  { id: 'instagram', label: 'Instagram', svg: `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="15" height="15" rx="4.5"/><circle cx="10" cy="10" r="3.4"/><circle cx="14.6" cy="5.4" r="0.9" fill="currentColor" stroke="none"/></svg>` },
+];
 ---
 
 <header class="site">
   <div class="container">
     <div class="header-top">
-      <a class="brand" href={langPath(lang)} aria-label={`${SITE_NAME} - ${t.tagline}`}>
+      <a class="brand" href={langPath(lang)} aria-label={SITE_NAME}>
         <span class="mark" aria-hidden="true">
           <svg viewBox="0 0 40 40" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="40" height="40" rx="11" fill="url(#brand-grad-hdr)"/>
@@ -35,15 +42,21 @@ const groupActive = (g: { slug: string; children?: { slug: string }[] }) =>
         </span>
         <span class="brand-text">
           <span class="brand-name">{SITE_NAME}</span>
-          <small class="brand-tagline">{t.tagline}</small>
         </span>
       </a>
-      <div class="lang-switch" role="navigation" aria-label="Idioma / Language / Idioma">
-        {LANGS.map((l) => (
-          <a href={langPath(l, slug)} class:list={{ active: l === lang }} title={LANG_NAMES[l]} aria-label={LANG_NAMES[l]}>
-            <Flag lang={l} />
-          </a>
-        ))}
+      <div class="header-actions">
+        <div class="redes" aria-label="Redes sociais">
+          {REDES.map((r) => (
+            <a href="#" title={`${r.label} (em breve)`} aria-label={`${r.label} (em breve)`} set:html={r.svg} />
+          ))}
+        </div>
+        <div class="lang-switch" role="navigation" aria-label="Idioma / Language / Idioma">
+          {LANGS.map((l) => (
+            <a href={langPath(l, slug)} class:list={{ active: l === lang }} title={LANG_NAMES[l]} aria-label={LANG_NAMES[l]}>
+              <Flag lang={l} />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
 
@@ -93,7 +106,14 @@ const groupActive = (g: { slug: string; children?: { slug: string }[] }) =>
           )}
         </div>
       ))}
+      <div class="mm-group">
+        <h4>{{ pt: 'Revista & Instituto', en: 'Journal & Institute', es: 'Revista & Instituto' }[lang]}</h4>
+        <ul>
+          {NAV_EXTRAS.map((ch) => (
+            <li><a href={langPath(lang, ch.slug)} class:list={{ active: ch.slug === slug }}>{ch.label[lang]}</a></li>
+          ))}
+        </ul>
+      </div>
     </details>
   </div>
 </header>
-

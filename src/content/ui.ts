@@ -20,20 +20,11 @@ export const NAV: { slug: string; label: Record<Lang, string> }[] = [
   { slug: 'institucional', label: { pt: 'Institucional', en: 'About', es: 'Institucional' } },
 ];
 
-// Navegação agrupada com submenus (hover/clique) — ordem Miguel 22/08 ~21:45
+// Navegação: 3 grupos no menu de cima (resto submenu/acessível pelo rodapé) — ordem Miguel 22/08 ~23:00
 export interface NavChild { slug: string; label: Record<Lang, string> }
 export interface NavGroup { slug: string; label: Record<Lang, string>; children?: NavChild[] }
 
 export const NAV_GROUPS: NavGroup[] = [
-  {
-    slug: '',
-    label: { pt: 'Início', en: 'Home', es: 'Inicio' },
-    children: [
-      { slug: 'quemsomos', label: { pt: 'Quem Somos', en: 'Who We Are', es: 'Quiénes Somos' } },
-      { slug: 'linha-editorial', label: { pt: 'Linha Editorial', en: 'Editorial Line', es: 'Línea Editorial' } },
-      { slug: 'estatuto', label: { pt: 'Estatuto', en: 'Statutes', es: 'Estatutos' } },
-    ],
-  },
   {
     slug: 'mapas',
     label: { pt: 'Mapas & Dados', en: 'Maps & Data', es: 'Mapas y Datos' },
@@ -61,7 +52,14 @@ export const NAV_GROUPS: NavGroup[] = [
       { slug: 'ideias', label: { pt: 'Ideias p/ o Desenvolvimento', en: 'Development Ideas', es: 'Ideas p/ el Desarrollo' } },
     ],
   },
+];
+
+// Extras fora do menu de 3 (aparecem no menu mobile e no rodapé)
+export const NAV_EXTRAS: NavChild[] = [
   { slug: 'revista', label: { pt: 'Revista Logis', en: 'Logis Journal', es: 'Revista Logis' } },
+  { slug: 'quemsomos', label: { pt: 'Quem Somos', en: 'Who We Are', es: 'Quiénes Somos' } },
+  { slug: 'linha-editorial', label: { pt: 'Linha Editorial', en: 'Editorial Line', es: 'Línea Editorial' } },
+  { slug: 'estatuto', label: { pt: 'Estatuto', en: 'Statutes', es: 'Estatutos' } },
   { slug: 'institucional', label: { pt: 'Institucional', en: 'About', es: 'Institucional' } },
 ];
 

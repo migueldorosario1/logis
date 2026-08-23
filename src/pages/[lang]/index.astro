@@ -1,14 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { LANGS, type Lang, UI, langPath } from '../../content/ui';
+import { LANGS, type Lang, langPath } from '../../content/ui';
 import { PAGES } from '../../content/pages';
+import { FONTES } from '../../data/rss';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
 }
 const lang = Astro.params.lang as Lang;
 const c = PAGES.home[lang];
-const t = UI[lang];
+const m = c.manchete!;
 const title = 'LOGIS';
 
 // Ilustrações (SVG inline, traço verde — uma por card)
@@ -19,17 +20,27 @@ const ILUSTRAS: Record<string, string> = {
   revista: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12c6-2 10-2 14 1v25c-4-3-8-3-14-1V12z" fill="currentColor" fill-opacity=".1"/><path d="M42 12c-6-2-10-2-14 1v25c4-3 8-3 14-1V12z"/><path d="M20 13v25"/><path d="M11 19h5M11 24h5M32 19h5M32 24h5"/></svg>`,
   institucional: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20L24 8l18 12" fill="currentColor" fill-opacity=".12"/><path d="M10 20v18M18 20v18M30 20v18M38 20v18"/><path d="M6 38h36"/><path d="M22 14h4v4h-4z" fill="currentColor" fill-opacity=".25"/></svg>`,
 };
+
+const T = {
+  pt: { ler: 'Ler o editorial completo', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site — notícia do mundo em português, inglês e espanhol.', emBreve: 'tradução automática em construção' },
+  en: { ler: 'Read the full editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages — world news in Portuguese, English and Spanish.', emBreve: 'automatic translation under construction' },
+  es: { ler: 'Leer el editorial completo', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio — noticia del mundo en portugués, inglés y español.', emBreve: 'traducción automática en construcción' },
+}[lang];
 ---
 
-<Base lang={lang} slug="" title={title} description={c.hero.sub}>
-  <section class="hero">
+<Base lang={lang} slug="" title={title} description={m.tese}>
+  <section class="manchete">
     <div class="container">
-      {c.hero.kicker && <span class="kicker">{c.hero.kicker}</span>}
-      <h1 class="hero-logo">{c.hero.title}</h1>
-      {c.hero.sub && <p class="sub tagline">{c.hero.sub}</p>}
-      <div class="ctas">
-        <a class="btn primary" href={langPath(lang, c.cta!.slug)}>{c.cta!.label} →</a>
-        <a class="btn ghost" href={langPath(lang, 'revista')}>Logis</a>
+      <div class="manchete-grid">
+        <div class="manchete-texto">
+          <a class="manchete-kicker" href={langPath(lang, m.slug)}>{m.kicker}</a>
+          <h1 class="manchete-titulo">{m.titulo}</h1>
+          <p class="manchete-tese">{m.tese}</p>
+          <div class="ctas">
+            <a class="btn primary" href={langPath(lang, m.slug)}>{T.ler} →</a>
+            <span class="manchete-data">{m.data}</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -45,6 +56,21 @@ const ILUSTRAS: Record<string, string> = {
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="container">
+      <h2 class="group-title">{T.rssTitulo}</h2>
+      <div class="rss-grid">
+        {FONTES.map((f) => (
+          <a class="rss-item" href={f.url} target="_blank" rel="noopener noreferrer">
+            <strong>{f.nome}</strong>
+            <span>{f.pais} · RSS</span>
+          </a>
+        ))}
+      </div>
+      <p class="nota" style="margin-top:18px;">{T.rssTexto} <em>({T.emBreve})</em></p>
     </div>
   </section>
 </Base>
