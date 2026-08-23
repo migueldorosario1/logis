@@ -495,6 +495,144 @@ export const PAGES: Pages = {
     },
   },
 
+  objetivos: {
+    pt: {
+      hero: {
+        kicker: 'Quem Somos',
+        title: 'Objetivos do Instituto',
+        sub: 'O que o Instituto de Logística e Sustentabilidade existe para fazer — os fins estatutários em linguagem direta.',
+      },
+      blocos: [
+        { t: 'Estudar os corredores', x: 'Pesquisar e analisar os corredores logísticos do Brasil e do mundo — portos, ferrovias, rotas marítimas, dutos e fibras — e o que eles mudam na economia real.' },
+        { t: 'Vigiar a porta aberta', x: 'Colocar a segurança pública dentro da pauta logística: contrabando, pirataria e fluxos ilegais como problemas de cadeia, com respostas de tecnologia, regulação e Estado.' },
+        { t: 'Sustentabilidade como centro', x: 'Logística reversa, economia circular e baixo carbono no coração da análise — não como anexo.' },
+        { t: 'Publicar em acesso aberto', x: 'Manter o portal LOGIS trilíngue e a revista trimestral Logis em acesso aberto diamante — grátis para ler e grátis para publicar.' },
+        { t: 'Alimentar políticas públicas', x: 'Oferecer aos poderes públicos estudos, dados e propostas — como o selo eletrônico fiscal — com independência e fonte citada.' },
+        { t: 'Cooperar com o mundo', x: 'Dialogar com centros de pesquisa, organismos e institutos congêneres internacionais, traduzindo o debate global para o português (e o nosso para o mundo).' },
+      ],
+      cta: { label: 'Ver a Linha Editorial', slug: 'linha-editorial' },
+    },
+    en: {
+      hero: {
+        kicker: 'Who We Are',
+        title: 'Objectives of the Institute',
+        sub: 'What the Institute of Logistics and Sustainability exists to do — the statutory purposes in plain language.',
+      },
+      blocos: [
+        { t: 'Study the corridors', x: 'Research and analyze logistics corridors in Brazil and worldwide — ports, railways, shipping lanes, pipelines and fiber — and what they change in the real economy.' },
+        { t: 'Watch the open door', x: 'Bring public security into the logistics agenda: smuggling, piracy and illegal flows as supply-chain problems, answered with technology, regulation and state capacity.' },
+        { t: 'Sustainability at the center', x: 'Reverse logistics, circular economy and low carbon at the heart of the analysis — not as an annex.' },
+        { t: 'Publish in open access', x: 'Maintain the trilingual LOGIS portal and the quarterly diamond-open-access journal Logis — free to read and free to publish.' },
+        { t: 'Feed public policy', x: 'Offer governments studies, data and proposals — such as the electronic fiscal seal — with independence and cited sources.' },
+        { t: 'Cooperate with the world', x: 'Engage research centers, international organizations and peer institutes, translating the global debate into Portuguese (and ours to the world).' },
+      ],
+      cta: { label: 'See the Editorial Line', slug: 'linha-editorial' },
+    },
+    es: {
+      hero: {
+        kicker: 'Quiénes Somos',
+        title: 'Objetivos del Instituto',
+        sub: 'Lo que el Instituto de Logística y Sostenibilidad existe para hacer — los fines estatutarios en lenguaje directo.',
+      },
+      blocos: [
+        { t: 'Estudiar los corredores', x: 'Investigar y analizar los corredores logísticos de Brasil y del mundo — puertos, ferrocarriles, rutas marítimas, ductos y fibras — y lo que cambian en la economía real.' },
+        { t: 'Vigilar la puerta abierta', x: 'Poner la seguridad pública dentro de la agenda logística: contrabando, piratería y flujos ilegales como problemas de cadena, con respuestas de tecnología, regulación y Estado.' },
+        { t: 'Sostenibilidad en el centro', x: 'Logística inversa, economía circular y bajo carbono en el corazón del análisis — no como anexo.' },
+        { t: 'Publicar en acceso abierto', x: 'Mantener el portal LOGIS trilingüe y la revista trimestral Logis en acceso abierto diamante — gratis para leer y gratis para publicar.' },
+        { t: 'Alimentar políticas públicas', x: 'Ofrecer a los poderes públicos estudios, datos y propuestas — como el sello electrónico fiscal — con independencia y fuente citada.' },
+        { t: 'Cooperar con el mundo', x: 'Dialogar con centros de investigación, organismos e institutos congéneres internacionales, traduciendo el debate global al portugués (y el nuestro al mundo).' },
+      ],
+      cta: { label: 'Ver la Línea Editorial', slug: 'linha-editorial' },
+    },
+  },
+
+  endereco: {
+    pt: {
+      hero: {
+        kicker: 'Quem Somos',
+        title: 'Endereço',
+        sub: 'Onde nos encontrar.',
+      },
+      blocos: [
+        { t: 'Sede', x: 'A sede do Instituto será registrada no Estatuto (art. 2º) pela Assembleia de Fundação — o endereço oficial será publicado nesta página logo após o registro no cartório.' },
+        { t: 'Endereço digital', x: 'Enquanto a sede física não é definida, o Instituto vive aqui: portal LOGIS em logis-magazine.vercel.app, com editorial semanal, geomapas do mundo, revista Logis e Instituto completo.' },
+      ],
+      nota: 'Esta página é atualizada automaticamente assim que a sede for registrada.',
+      cta: { label: 'Ver o Estatuto', slug: 'estatuto' },
+    },
+    en: {
+      hero: {
+        kicker: 'Who We Are',
+        title: 'Address',
+        sub: 'Where to find us.',
+      },
+      blocos: [
+        { t: 'Headquarters', x: 'The Institute’s seat will be recorded in the Statutes (art. 2) by the Founding Assembly — the official address will be published on this page right after the registry.' },
+        { t: 'Digital address', x: 'Until the physical seat is set, the Institute lives here: the LOGIS portal at logis-magazine.vercel.app, with the weekly editorial, world geomaps, the Logis journal and the full Institute.' },
+      ],
+      nota: 'This page updates automatically as soon as the seat is registered.',
+      cta: { label: 'See the Statutes', slug: 'estatuto' },
+    },
+    es: {
+      hero: {
+        kicker: 'Quiénes Somos',
+        title: 'Dirección',
+        sub: 'Dónde encontrarnos.',
+      },
+      blocos: [
+        { t: 'Sede', x: 'La sede del Instituto será registrada en los Estatutos (art. 2º) por la Asamblea Fundadora — la dirección oficial se publicará en esta página justo después del registro.' },
+        { t: 'Dirección digital', x: 'Mientras la sede física no se define, el Instituto vive aquí: el portal LOGIS en logis-magazine.vercel.app, con editorial semanal, geomapas del mundo, la revista Logis y el Instituto completo.' },
+      ],
+      nota: 'Esta página se actualiza automáticamente en cuanto la sede sea registrada.',
+      cta: { label: 'Ver los Estatutos', slug: 'estatuto' },
+    },
+  },
+
+  contato: {
+    pt: {
+      hero: {
+        kicker: 'Quem Somos',
+        title: 'Contato',
+        sub: 'Fale com o Instituto de Logística e Sustentabilidade.',
+      },
+      blocos: [
+        { t: 'Imprensa e entrevistas', x: 'Para entrevistas e informações à imprensa sobre editoriais, estudos e a revista Logis, o canal é a assessoria do Instituto — contato oficial em publicação.' },
+        { t: 'Submissão de artigos', x: 'Cientistas e profissionais interessados em publicar na revista Logis acompanhem a chamada de trabalhos na página da revista — submissões abrem com a edição nº 1.' },
+        { t: 'Parcerias e cooperação', x: 'Instituições de pesquisa, organismos e empresas podem propor cooperação nos termos do Estatuto (art. 3º) — canal oficial em publicação.' },
+      ],
+      nota: 'Os canais oficiais (e-mail e telefone) do Instituto serão publicados nesta página logo após a constituição formal. Até lá, tudo passa pelo portal.',
+      cta: { label: 'Ver a Revista Logis', slug: 'revista' },
+    },
+    en: {
+      hero: {
+        kicker: 'Who We Are',
+        title: 'Contact',
+        sub: 'Talk to the Institute of Logistics and Sustainability.',
+      },
+      blocos: [
+        { t: 'Press and interviews', x: 'For interviews and press information on editorials, studies and the Logis journal, the channel is the Institute’s office — official contact to be published.' },
+        { t: 'Article submissions', x: 'Researchers and professionals interested in publishing in Logis should follow the call for papers on the journal page — submissions open with issue no. 1.' },
+        { t: 'Partnerships and cooperation', x: 'Research institutions, organizations and companies may propose cooperation under the Statutes (art. 3) — official channel to be published.' },
+      ],
+      nota: 'The Institute’s official channels (e-mail and phone) will be published on this page right after formal incorporation. Until then, everything goes through the portal.',
+      cta: { label: 'See the Logis Journal', slug: 'revista' },
+    },
+    es: {
+      hero: {
+        kicker: 'Quiénes Somos',
+        title: 'Contacto',
+        sub: 'Hable con el Instituto de Logística y Sostenibilidad.',
+      },
+      blocos: [
+        { t: 'Prensa y entrevistas', x: 'Para entrevistas e información de prensa sobre editoriales, estudios y la revista Logis, el canal es la asesoría del Instituto — contacto oficial en publicación.' },
+        { t: 'Envío de artículos', x: 'Investigadores y profesionales interesados en publicar en Logis deben seguir la convocatoria en la página de la revista — los envíos abren con la edición nº 1.' },
+        { t: 'Alianzas y cooperación', x: 'Instituciones de investigación, organismos y empresas pueden proponer cooperación según los Estatutos (art. 3º) — canal oficial en publicación.' },
+      ],
+      nota: 'Los canales oficiales (correo y teléfono) del Instituto se publicarán en esta página justo después de la constitución formal. Hasta entonces, todo pasa por el portal.',
+      cta: { label: 'Ver la Revista Logis', slug: 'revista' },
+    },
+  },
+
   quemsomos: {
     pt: {
       hero: {

@@ -52,12 +52,21 @@ export const NAV_GROUPS: NavGroup[] = [
       { slug: 'ideias', label: { pt: 'Ideias p/ o Desenvolvimento', en: 'Development Ideas', es: 'Ideas p/ el Desarrollo' } },
     ],
   },
+  {
+    slug: 'quemsomos-grupo',
+    label: { pt: 'Quem Somos', en: 'Who We Are', es: 'Quiénes Somos' },
+    children: [
+      { slug: 'quemsomos', label: { pt: 'Instituto', en: 'Institute', es: 'Instituto' } },
+      { slug: 'objetivos', label: { pt: 'Objetivos', en: 'Objectives', es: 'Objetivos' } },
+      { slug: 'endereco', label: { pt: 'Endereço', en: 'Address', es: 'Dirección' } },
+      { slug: 'contato', label: { pt: 'Contato', en: 'Contact', es: 'Contacto' } },
+    ],
+  },
 ];
 
-// Extras fora do menu de 3 (aparecem no menu mobile e no rodapé)
+// Extras fora do menu (aparecem no menu mobile e no rodapé)
 export const NAV_EXTRAS: NavChild[] = [
   { slug: 'revista', label: { pt: 'Revista Logis', en: 'Logis Journal', es: 'Revista Logis' } },
-  { slug: 'quemsomos', label: { pt: 'Quem Somos', en: 'Who We Are', es: 'Quiénes Somos' } },
   { slug: 'linha-editorial', label: { pt: 'Linha Editorial', en: 'Editorial Line', es: 'Línea Editorial' } },
   { slug: 'estatuto', label: { pt: 'Estatuto', en: 'Statutes', es: 'Estatutos' } },
   { slug: 'institucional', label: { pt: 'Institucional', en: 'About', es: 'Institucional' } },
