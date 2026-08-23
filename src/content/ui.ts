@@ -2,7 +2,7 @@ export const LANGS = ['pt', 'en', 'es'] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = 'pt';
 
-export const SITE_NAME = 'LOGOS';
+export const SITE_NAME = 'LOGIS';
 export const MAGAZINE_NAME = 'Logis';
 
 export const NAV: { slug: string; label: Record<Lang, string> }[] = [
@@ -25,7 +25,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     tagline: 'Portal de logística sustentável',
     lerMais: 'Saiba mais',
     menu: 'Menu',
-    rodape: 'LOGOS — Portal de Logística Sustentável. Conteúdo trilíngue (PT·EN·ES) sobre logística, infraestrutura, regulação e sustentabilidade.',
+    rodape: 'LOGIS — Portal de Logística e Sustentabilidade. Conteúdo trilíngue (PT·EN·ES) sobre logística, infraestrutura, regulação e sustentabilidade.',
     creditos: 'Fontes de dados: IBGE, DNIT, ANTT, ANTAQ, Banco Mundial (LPI), Natural Earth e OpenStreetMap (contribuidores). Mapas: OpenFreeMap.',
     avisoIdeias: 'Seção dedicada a ideias e projetos em desenvolvimento para a logística brasileira.',
     atualizadoEm: 'Atualizado em agosto de 2026',
@@ -34,7 +34,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     tagline: 'Sustainable logistics portal',
     lerMais: 'Learn more',
     menu: 'Menu',
-    rodape: 'LOGOS — Sustainable Logistics Portal. Trilingual content (PT·EN·ES) on logistics, infrastructure, regulation and sustainability.',
+    rodape: 'LOGIS — Logistics and Sustainability Portal. Trilingual content (PT·EN·ES) on logistics, infrastructure, regulation and sustainability.',
     creditos: 'Data sources: IBGE, DNIT, ANTT, ANTAQ, World Bank (LPI), Natural Earth and OpenStreetMap contributors. Maps: OpenFreeMap.',
     avisoIdeias: 'Section dedicated to ideas and projects under development for Brazilian logistics.',
     atualizadoEm: 'Updated August 2026',
@@ -43,7 +43,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     tagline: 'Portal de logística sostenible',
     lerMais: 'Más información',
     menu: 'Menú',
-    rodape: 'LOGOS — Portal de Logística Sostenible. Contenido trilingüe (PT·EN·ES) sobre logística, infraestructura, regulación y sostenibilidad.',
+    rodape: 'LOGIS — Portal de Logística y Sostenibilidad. Contenido trilingüe (PT·EN·ES) sobre logística, infraestructura, regulación y sostenibilidad.',
     creditos: 'Fuentes de datos: IBGE, DNIT, ANTT, ANTAQ, Banco Mundial (LPI), Natural Earth y colaboradores de OpenStreetMap. Mapas: OpenFreeMap.',
     avisoIdeias: 'Sección dedicada a ideas y proyectos en desarrollo para la logística brasileña.',
     atualizadoEm: 'Actualizado en agosto de 2026',

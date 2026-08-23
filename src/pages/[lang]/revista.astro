@@ -9,7 +9,7 @@ export function getStaticPaths() {
 }
 const lang = Astro.params.lang as Lang;
 const c = PAGES.revista[lang];
-const title = `${c.hero.title} — LOGOS`;
+const title = `${c.hero.title} — LOGIS`;
 ---
 
 <Base lang={lang} slug="revista" title={title} description={c.hero.sub}>

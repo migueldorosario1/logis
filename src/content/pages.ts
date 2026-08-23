@@ -23,7 +23,7 @@ export const PAGES: Pages = {
     pt: {
       hero: {
         kicker: 'Portal trilíngue · PT · EN · ES',
-        title: 'LOGOS — a logística sustentável, do campo ao porto',
+        title: 'LOGIS — Logística e Sustentabilidade',
         sub: 'Informação, mapas, regulação e pesquisa sobre a logística brasileira e mundial — com foco em infraestrutura, rastreabilidade e sustentabilidade.',
       },
       kpis: [
@@ -41,7 +41,7 @@ export const PAGES: Pages = {
     en: {
       hero: {
         kicker: 'Trilingual portal · PT · EN · ES',
-        title: 'LOGOS — sustainable logistics, from farm to port',
+        title: 'LOGIS — Logistics and Sustainability',
         sub: 'Information, maps, regulation and research on Brazilian and global logistics — with a focus on infrastructure, traceability and sustainability.',
       },
       kpis: [
@@ -59,7 +59,7 @@ export const PAGES: Pages = {
     es: {
       hero: {
         kicker: 'Portal trilingüe · PT · EN · ES',
-        title: 'LOGOS — logística sostenible, del campo al puerto',
+        title: 'LOGIS — Logística y Sostenibilidad',
         sub: 'Información, mapas, regulación e investigación sobre la logística brasileña y mundial — con foco en infraestructura, trazabilidad y sostenibilidad.',
       },
       kpis: [
@@ -427,6 +427,8 @@ export const PAGES: Pages = {
         { t: 'Acesso aberto diamante', x: 'Grátis para ler e grátis para publicar — o mesmo modelo da EJTIR (TU Delft), referência mundial em acesso aberto sem taxas.' },
         { t: 'Escopo', x: 'Infraestrutura e transporte, rastreabilidade e confiança, logística reversa e economia circular, regulação e marco legal, inovação tecnológica.' },
         { t: 'Seções', x: 'Artigos científicos (peer review), estudos de caso, observatório regulatório e revisões de dados — cada edição, um dossiê temático.' },
+        { t: 'Edições', x: 'A edição nº 1 está prevista para o 4º trimestre de 2026, com dossiê sobre corredores de escoamento e controle logístico — Chancay, a ferrovia bioceânica e o desafio das fronteiras abertas. Cada edição reúne artigos revisados por pares, estudos de caso e o observatório regulatório do trimestre.' },
+        { t: 'Submissões', x: 'A chamada de trabalhos será publicada no portal. Pesquisadores, profissionais e centros de pesquisa poderão submeter artigos completos (6.000–10.000 palavras), estudos de caso (4.000–6.000) e notas de dados (2.000–4.000), em português, inglês ou espanhol.' },
         { t: 'Indexação', x: 'Nascer indexável: DOAJ, Latindex, Redalyc e SciELO como metas de curto prazo; TRID e OpenAlex como espelhos de metadados.' },
       ],
       nota: 'Edição nº 1 prevista para o 4º trimestre de 2026. Chamada de trabalhos em preparação — acompanhe o portal.',
@@ -442,6 +444,8 @@ export const PAGES: Pages = {
         { t: 'Diamond open access', x: 'Free to read and free to publish — the same model as EJTIR (TU Delft), a world reference in fee-free open access.' },
         { t: 'Scope', x: 'Infrastructure and transport, traceability and trust, reverse logistics and circular economy, regulation and legal framework, technological innovation.' },
         { t: 'Sections', x: 'Scientific articles (peer review), case studies, regulatory observatory and data reviews — each issue, a thematic dossier.' },
+        { t: 'Issues', x: 'Issue #1 is planned for Q4 2026, with a dossier on export corridors and logistics control — Chancay, the bioceanic railway and the challenge of open borders. Each issue brings together peer-reviewed articles, case studies and the quarter’s regulatory observatory.' },
+        { t: 'Submissions', x: 'The call for papers will be published on the portal. Researchers, practitioners and research centers may submit full articles (6,000–10,000 words), case studies (4,000–6,000) and data notes (2,000–4,000), in Portuguese, English or Spanish.' },
         { t: 'Indexing', x: 'Born indexable: DOAJ, Latindex, Redalyc and SciELO as short-term goals; TRID and OpenAlex as metadata mirrors.' },
       ],
       nota: 'Issue #1 planned for Q4 2026. Call for papers in preparation — follow the portal.',
@@ -457,6 +461,8 @@ export const PAGES: Pages = {
         { t: 'Acceso abierto diamante', x: 'Gratis para leer y gratis para publicar — el mismo modelo de EJTIR (TU Delft), referencia mundial en acceso abierto sin tasas.' },
         { t: 'Alcance', x: 'Infraestructura y transporte, trazabilidad y confianza, logística inversa y economía circular, regulación y marco legal, innovación tecnológica.' },
         { t: 'Secciones', x: 'Artículos científicos (peer review), estudios de caso, observatorio regulatorio y revisiones de datos — cada edición, un dossier temático.' },
+        { t: 'Ediciones', x: 'La edición nº 1 está prevista para el 4º trimestre de 2026, con un dossier sobre corredores de escoamiento y control logístico — Chancay, el ferrocarril bioceánico y el desafío de las fronteras abiertas. Cada edición reúne artículos revisados por pares, estudios de caso y el observatorio regulatorio del trimestre.' },
+        { t: 'Envíos', x: 'La convocatoria de trabajos será publicada en el portal. Investigadores, profesionales y centros de investigación podrán enviar artículos completos (6.000–10.000 palabras), estudios de caso (4.000–6.000) y notas de datos (2.000–4.000), en portugués, inglés o español.' },
         { t: 'Indexación', x: 'Nacer indexable: DOAJ, Latindex, Redalyc y SciELO como metas de corto plazo; TRID y OpenAlex como espejos de metadatos.' },
       ],
       nota: 'Edición nº 1 prevista para el 4º trimestre de 2026. Convocatoria de trabajos en preparación — siga el portal.',
@@ -608,7 +614,7 @@ export const PAGES: Pages = {
     pt: {
       hero: {
         kicker: 'Sobre o portal',
-        title: 'LOGOS',
+        title: 'LOGIS',
         sub: 'Um portal trilíngue dedicado à logística sustentável — informação aberta, dados verificáveis e ciência acessível.',
       },
       blocos: [
@@ -621,7 +627,7 @@ export const PAGES: Pages = {
     en: {
       hero: {
         kicker: 'About the portal',
-        title: 'LOGOS',
+        title: 'LOGIS',
         sub: 'A trilingual portal dedicated to sustainable logistics — open information, verifiable data and accessible science.',
       },
       blocos: [
@@ -634,7 +640,7 @@ export const PAGES: Pages = {
     es: {
       hero: {
         kicker: 'Sobre el portal',
-        title: 'LOGOS',
+        title: 'LOGIS',
         sub: 'Un portal trilingüe dedicado a la logística sostenible — información abierta, datos verificables y ciencia accesible.',
       },
       blocos: [
