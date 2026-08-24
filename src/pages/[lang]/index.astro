@@ -24,9 +24,9 @@ const ILUSTRAS: Record<string, string> = {
 };
 
 const T = {
-  pt: { ler: 'Ler a reportagem completa', editorialK: 'Editorial semanal', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.', emBreve: 'tradução automática em construção' },
-  en: { ler: 'Read the full story', editorialK: 'Weekly editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.', emBreve: 'automatic translation under construction' },
-  es: { ler: 'Leer la reportaje completa', editorialK: 'Editorial semanal', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.', emBreve: 'traducción automática en construcción' },
+  pt: { ler: 'Ler a reportagem completa', por: 'Por', editorialK: 'Editorial semanal', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.', emBreve: 'tradução automática em construção' },
+  en: { ler: 'Read the full story', por: 'By', editorialK: 'Weekly editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.', emBreve: 'automatic translation under construction' },
+  es: { ler: 'Leer la reportaje completa', por: 'Por', editorialK: 'Editorial semanal', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.', emBreve: 'traducción automática en construcción' },
 }[lang];
 ---
 
@@ -39,8 +39,10 @@ const T = {
           <h1 class="manchete-titulo">{rep.titulo[lang]}</h1>
           <p class="manchete-tese">{rep.olho[lang]}</p>
           <div class="ctas">
-            <a class="btn primary" href={langPath(lang, `reportagens/${rep.slug}`)}>{T.ler} →</a>
-            <span class="manchete-data">{rep.autor}</span>
+            <a class="btn primary manchete-btn" href={langPath(lang, `reportagens/${rep.slug}`)}>
+              <span class="manchete-btn-frase">{T.ler} →</span>
+              <span class="manchete-btn-autor">{T.por} {rep.autor}</span>
+            </a>
           </div>
         </div>
         <a class="manchete-foto" href={langPath(lang, `reportagens/${rep.slug}`)} aria-label={rep.titulo[lang]}>

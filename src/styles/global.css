@@ -912,9 +912,28 @@ article.doc p strong { color: var(--verde-900, #0b3b2e); }
 }
 .manchete-tese { font-size: clamp(15px, 2vw, 18.5px); line-height: 1.55; color: #D9E6DD; max-width: 60ch; margin: 0 0 22px; }
 .manchete .ctas { align-items: center; }
-.manchete-data { font-family: Helvetica, Arial, sans-serif; font-size: 12px; letter-spacing: .08em; color: #9DB8A9; }
+.manchete-btn {
+  flex-direction: column;
+  gap: 5px;
+  padding: 17px 34px;
+  font-size: 16.5px;
+  line-height: 1.25;
+  border-radius: var(--raio-full);
+}
+.manchete-btn-frase { display: block; }
+.manchete-btn-autor {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  opacity: .78;
+}
 .manchete .btn.primary { background: #B5E048; color: #07271E; border: none; }
 .manchete .btn.primary:hover { background: #c8ea6a; }
+@media (max-width: 560px) {
+  .manchete-btn { padding: 15px 26px; font-size: 15px; }
+  .manchete-btn-autor { font-size: 12px; }
+}
 .manchete-foto { display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38); border: 1px solid rgba(255, 255, 255, 0.14); }
 .manchete-foto img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3/2; transition: transform .45s ease; }
 .manchete-foto:hover img { transform: scale(1.03); }
