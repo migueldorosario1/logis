@@ -358,7 +358,7 @@ export const PAGES: Pages = {
       kpis: [
         { v: 'RFID + NFC', l: 'Selo passivo — sem bateria, ativado na leitura' },
         { v: '10', l: 'Níveis de segurança física e digital' },
-        { v: 'R$ 1,88', l: 'Custo unitário estimado do selo' },
+        { v: 'Valor mínimo', l: 'Custo unitário estimado do selo' },
         { v: 'eFuse', l: 'Lacre eletrônico de uso único' },
       ],
       blocos: [
@@ -385,7 +385,7 @@ export const PAGES: Pages = {
       kpis: [
         { v: 'RFID + NFC', l: 'Passive seal — battery-free, activated at reading' },
         { v: '10', l: 'Levels of physical and digital security' },
-        { v: 'BRL 1.88', l: 'Estimated unit cost of the seal' },
+        { v: 'Minimum value', l: 'Estimated unit cost of the seal' },
         { v: 'eFuse', l: 'Single-use electronic seal' },
       ],
       blocos: [
@@ -412,7 +412,7 @@ export const PAGES: Pages = {
       kpis: [
         { v: 'RFID + NFC', l: 'Sello pasivo — sin batería, activado en la lectura' },
         { v: '10', l: 'Niveles de seguridad física y digital' },
-        { v: 'BRL 1,88', l: 'Costo unitario estimado del sello' },
+        { v: 'Valor mínimo', l: 'Costo unitario estimado del sello' },
         { v: 'eFuse', l: 'Precinto electrónico de uso único' },
       ],
       blocos: [
@@ -445,7 +445,7 @@ export const PAGES: Pages = {
         'É por isso que este editorial defende uma tese simples: no Brasil de 2026, discutir logística sem discutir controle logístico é discutir metade do problema. O custo de não fazer isso já é conhecido — um mercado ilegal estimado em R$ 500 bilhões, sonegação em toda a cadeia e fronteiras que fiscalizam com a tecnologia do século passado.',
         'O debate eleitoral chegou antes. Na semana em que as propostas de governo foram parar na tela, o controle das fronteiras virou consenso: patrulhamento fluvial e aéreo na Amazônia, cooperação com os vizinhos, radares, drones, sensores e centros integrados de comando. A pauta existe — o que ainda não existe é a ponte entre vigiar o território e rastrear a carga.',
         'Essa ponte tem nome: controle logístico de Estado, item a item, da origem ao destino. O mundo pratica a versão aduaneira dela há vinte anos — C-TPAT nos Estados Unidos, operadores econômicos autorizados na Europa, o padrão SAFE das alfândegas do mundo inteiro. O Brasil tem a oportunidade de dar o passo seguinte: a rastreabilidade embarcada no próprio produto, com o selo eletrônico fiscal — chip passivo, barato, impossível de falsificar em escala.',
-        'A matemática favorece. Um selo de menos de dois reais por item contra bilhões em sonegação; um alerta automático de violação contra a inspeção a olho nu; um banco de dados de origem contra a nota fria. Quem paga o preço da ausência dessa camada não é o contrabandista — é o industrial que compete com o pirata e o Estado que financia a obra duas vezes.',
+        'A matemática favorece. Um selo de valor mínimo por item contra bilhões em sonegação; um alerta automático de violação contra a inspeção a olho nu; um banco de dados de origem contra a nota fria. Quem paga o preço da ausência dessa camada não é o contrabandista — é o industrial que compete com o pirata e o Estado que financia a obra duas vezes.',
         'Contraponham-se os riscos, com honestidade: tecnologia não substitui instituição. Selo sem integração entre Receita, PRF e aduanas vizinhas vira colecionador de dados; dado sem punição vira relatório. O programa precisa virar política de Estado — com prazo, orçamento e métrica pública de redução do mercado ilegal.',
         'A decisão da semana, portanto, não é se o Brasil abre seus corredores — eles já estão abrindo, com ou sem plano. A decisão é se cada nova rota nasce com o seu gêmeo: o sistema de vigilância que a acompanha. Obra sem vigilância é dívida; obra com vigilância é ganho líquido.',
         'O LOGIS vai acompanhar essa pauta semana a semana — alternando o olhar sobre o Brasil e sobre o mundo. É a nossa primeira edição, e esta é a nossa tese de partida.',
@@ -465,7 +465,7 @@ export const PAGES: Pages = {
         'That is why this editorial defends a simple thesis: in the Brazil of 2026, discussing logistics without discussing logistics control means discussing half the problem. The cost of not doing it is well known — an illegal market estimated at BRL 500 billion, tax evasion across the chain, and borders inspected with last-century technology.',
         'The electoral debate got there first. As government proposals hit the screen, border control became consensus: river and air patrols in the Amazon, cooperation with neighbors, radars, drones, sensors and integrated command centers. The agenda exists — what does not exist yet is the bridge between watching the territory and tracking the cargo.',
         'That bridge has a name: state logistics control, item by item, from origin to destination. The world has practiced its customs version for twenty years — C-TPAT in the United States, authorized economic operators in Europe, the SAFE standard of the world’s customs administrations. Brazil has the chance to take the next step: traceability embedded in the product itself, with the electronic fiscal seal — a passive chip, cheap, impossible to counterfeit at scale.',
-        'The math favors it. A seal of under two reais per item against billions in evasion; an automatic tamper alert against inspection by the naked eye; an origin database against the phantom invoice. Those who pay for the absence of this layer are not smugglers — they are the manufacturers competing with pirates and the State financing the work twice.',
+        'The math favors it. A minimum-value seal per item against billions in evasion; an automatic tamper alert against inspection by the naked eye; an origin database against the phantom invoice. Those who pay for the absence of this layer are not smugglers — they are the manufacturers competing with pirates and the State financing the work twice.',
         'Let the risks be stated honestly: technology does not replace institution. A seal without integration among the tax authority, highway police and neighboring customs becomes a data hoarder; data without enforcement becomes a report. The program must become state policy — with deadlines, budget and a public metric for reducing the illegal market.',
         'The decision of the week, therefore, is not whether Brazil opens its corridors — they are already opening, with or without a plan. The decision is whether each new route is born with its twin: the surveillance system that accompanies it. Works without watchfulness are debt; works with watchfulness are net gain.',
         'LOGIS will follow this agenda week by week — alternating the view on Brazil and on the world. This is our first edition, and this is our starting thesis.',
@@ -485,7 +485,7 @@ export const PAGES: Pages = {
         'Por eso este editorial defiende una tesis simple: en el Brasil de 2026, discutir logística sin discutir control logístico es discutir la mitad del problema. El costo de no hacerlo es conocido — un mercado ilegal estimado en R$ 500 mil millones, evasión en toda la cadena y fronteras fiscalizadas con tecnología del siglo pasado.',
         'El debate electoral llegó antes. Cuando las propuestas de gobierno llegaron a la pantalla, el control de fronteras se volvió consenso: patrullaje fluvial y aéreo en el Amazonas, cooperación con los vecinos, radares, drones, sensores y centros integrados de mando. La agenda existe — lo que aún no existe es el puente entre vigilar el territorio y rastrear la carga.',
         'Ese puente tiene nombre: control logístico de Estado, ítem por ítem, del origen al destino. El mundo practica su versión aduanera desde hace veinte años — C-TPAT en Estados Unidos, operadores económicos autorizados en Europa, el estándar SAFE de las aduanas del mundo. Brasil tiene la oportunidad de dar el paso siguiente: la trazabilidad embebida en el propio producto, con el sello electrónico fiscal — chip pasivo, barato, imposible de falsificar a escala.',
-        'La matemática acompaña. Un sello de menos de dos reales por ítem contra miles de millones en evasión; una alerta automática de violación contra la inspección a ojo desnudo; una base de datos de origen contra la factura fantasma. Quien paga el precio de la ausencia de esta capa no es el contrabandista — es el industrial que compite con el pirata y el Estado que financia la obra dos veces.',
+        'La matemática acompaña. Un sello de valor mínimo por ítem contra miles de millones en evasión; una alerta automática de violación contra la inspección a ojo desnudo; una base de datos de origen contra la factura fantasma. Quien paga el precio de la ausencia de esta capa no es el contrabandista — es el industrial que compite con el pirata y el Estado que financia la obra dos veces.',
         'Digamos los riesgos con honestidad: la tecnología no sustituye a la institución. Un sello sin integración entre hacienda, la policía de carreteras y las aduanas vecinas se vuelve acumulador de datos; el dato sin castigo se vuelve informe. El programa necesita convertirse en política de Estado — con plazo, presupuesto y métrica pública de reducción del mercado ilegal.',
         'La decisión de la semana, por lo tanto, no es si Brasil abre sus corredores — ya se están abriendo, con o sin plan. La decisión es si cada ruta nueva nace con su gemelo: el sistema de vigilancia que la acompaña. Obra sin vigilancia es deuda; obra con vigilancia es ganancia neta.',
         'LOGIS va a seguir esta agenda semana a semana — alternando la mirada sobre Brasil y sobre el mundo. Esta es nuestra primera edición, y esta es nuestra tesis de partida.',
@@ -897,14 +897,14 @@ export const PAGES: Pages = {
       },
       kpis: [
         { v: 'R$ 500 bi', l: 'mercado ilegal no Brasil em 2025', fonte: 'O Globo' },
-        { v: 'R$ 1,88', l: 'custo do selo eletrônico fiscal por unidade', fonte: 'Projeto Básico MoedaLog' },
+        { v: 'Valor mínimo', l: 'custo do selo eletrônico fiscal por unidade', fonte: 'Projeto Básico MoedaLog' },
         { v: '10', l: 'níveis de segurança do selo RFID/NFC', fonte: 'Projeto Básico MoedaLog' },
       ],
       blocos: [
         { t: 'A tese: abertura sem controle é convite ao crime', x: 'O Plano Nacional de Logística, o Porto de Chancay e a ferrovia transoceânica (bioceânica) criam rotas inéditas de desenvolvimento — e também de fluxo ilegal. Sem um programa de controle logístico de Estado, os novos canais ampliam a entrada de produtos pirateados, contrabando, drogas e armas. A abertura precisa vir acompanhada do controle.' },
         { t: 'Fronteiras na agenda de 2026', x: 'O controle das fronteiras é consenso entre os principais candidatos (GloboNews — propostas enviadas ao TSE). A proposta do presidente Lula: Forças Armadas nas fronteiras amazônicas com patrulhamento fluvial e aéreo; cooperação com os países da OTCA; e investimento em radares, drones, sensores, imagens de satélite e centros integrados de comando e controle. É exatamente nesse comando e controle que entra o rastreamento logístico de cargas e contêineres.' },
         { t: 'Como o mundo controla', x: 'Os grandes blocos certificam operadores e rastreiam cargas — C-TPAT nos EUA, AEO+ICS2 na União Europeia, NEEC no México, OEA na Colômbia, STP em Singapura, AEO no Japão — todos sob o guarda-chuva do Framework SAFE da OMA. O Brasil tem a oportunidade de dar o passo seguinte: controle por item, com tecnologia embarcada na própria mercadoria.' },
-        { t: 'A resposta tecnológica brasileira', x: 'O selo eletrônico fiscal (MoedaLog/e-SFI): chip passivo RFID/NFC com 10 níveis de segurança a R$ 1,88 por unidade, ancorado em ICP-Brasil, blockchain e eFuse de uso único — rastreabilidade da origem ao destino, alerta automático de violação (caso PRF) e integração com fronteiras, Mercosul e Chancay.' },
+        { t: 'A resposta tecnológica brasileira', x: 'O selo eletrônico fiscal (MoedaLog/e-SFI): chip passivo RFID/NFC com 10 níveis de segurança e custo mínimo por unidade, ancorado em ICP-Brasil, blockchain e eFuse de uso único — rastreabilidade da origem ao destino, alerta automático de violação (caso PRF) e integração com fronteiras, Mercosul e Chancay.' },
       ],
       programas: [
         { pais: 'Mundo (OMA/WCO)', prog: 'Framework SAFE', como: 'Padrão global de operador econômico autorizado e segurança da cadeia, adotado por mais de 100 aduanas', url: 'https://www.wcoomd.org/' },
@@ -926,14 +926,14 @@ export const PAGES: Pages = {
       },
       kpis: [
         { v: 'BRL 500 bn', l: 'illegal market in Brazil in 2025', fonte: 'O Globo' },
-        { v: 'BRL 1.88', l: 'cost per unit of the electronic fiscal seal', fonte: 'MoedaLog basic project' },
+        { v: 'Minimum value', l: 'cost per unit of the electronic fiscal seal', fonte: 'MoedaLog basic project' },
         { v: '10', l: 'security levels of the RFID/NFC seal', fonte: 'MoedaLog basic project' },
       ],
       blocos: [
         { t: 'The thesis: opening without control invites crime', x: 'The National Logistics Plan, the Port of Chancay and the transoceanic (bioceanic) railway create unprecedented routes for development — and for illegal flows as well. Without a state logistics-control program, the new corridors widen the entry of pirated goods, smuggling, drugs and weapons. Opening must come together with control.' },
         { t: 'Borders on the 2026 agenda', x: 'Border control is a consensus among the leading candidates (GloboNews — proposals filed with the TSE). President Lula’s proposal: Armed Forces on the Amazonian borders with river and air patrols; cooperation with OTCA countries; and investment in radars, drones, sensors, satellite imagery and integrated command-and-control centers. That command and control is exactly where cargo and container tracking comes in.' },
         { t: 'How the world controls', x: 'Major blocs certify operators and track cargo — C-TPAT in the US, AEO+ICS2 in the European Union, NEEC in Mexico, OEA in Colombia, STP in Singapore, AEO in Japan — all under the WCO SAFE Framework umbrella. Brazil has the opportunity to take the next step: item-level control, with technology embedded in the goods themselves.' },
-        { t: 'The Brazilian technological answer', x: 'The electronic fiscal seal (MoedaLog/e-SFI): a passive RFID/NFC chip with 10 security levels at BRL 1.88 per unit, anchored in ICP-Brasil, blockchain and single-use eFuse — traceability from origin to destination, automatic tamper alerts (PRF case) and integration with borders, Mercosur and Chancay.' },
+        { t: 'The Brazilian technological answer', x: 'The electronic fiscal seal (MoedaLog/e-SFI): a passive RFID/NFC chip with 10 security levels and minimum unit cost, anchored in ICP-Brasil, blockchain and single-use eFuse — traceability from origin to destination, automatic tamper alerts (PRF case) and integration with borders, Mercosur and Chancay.' },
       ],
       programas: [
         { pais: 'World (WCO)', prog: 'SAFE Framework', como: 'Global standard for authorized economic operators and supply-chain security, adopted by 100+ customs administrations', url: 'https://www.wcoomd.org/' },
@@ -955,14 +955,14 @@ export const PAGES: Pages = {
       },
       kpis: [
         { v: 'R$ 500 mil M', l: 'mercado ilegal en Brasil en 2025', fonte: 'O Globo' },
-        { v: 'R$ 1,88', l: 'costo del sello electrónico fiscal por unidad', fonte: 'Proyecto básico MoedaLog' },
+        { v: 'Valor mínimo', l: 'costo del sello electrónico fiscal por unidad', fonte: 'Proyecto básico MoedaLog' },
         { v: '10', l: 'niveles de seguridad del sello RFID/NFC', fonte: 'Proyecto básico MoedaLog' },
       ],
       blocos: [
         { t: 'La tesis: apertura sin control es invitación al crimen', x: 'El Plan Nacional de Logística, el Puerto de Chancay y el ferrocarril transoceánico (bioceánico) crean rutas inéditas de desarrollo — y también de flujo ilegal. Sin un programa estatal de control logístico, los nuevos canales amplían la entrada de productos pirateados, contrabando, drogas y armas. La apertura debe venir acompañada del control.' },
         { t: 'Fronteras en la agenda de 2026', x: 'El control de fronteras es consenso entre los principales candidatos (GloboNews — propuestas enviadas al TSE). La propuesta del presidente Lula: Fuerzas Armadas en las fronteras amazónicas con patrullaje fluvial y aéreo; cooperación con los países de la OTCA; e inversión en radares, drones, sensores, imágenes satelitales y centros integrados de comando y control. Es exactamente en ese comando y control donde entra el rastreo logístico de cargas y contenedores.' },
         { t: 'Cómo controla el mundo', x: 'Los grandes bloques certifican operadores y rastrean cargas — C-TPAT en EE. UU., AEO+ICS2 en la Unión Europea, NEEC en México, OEA en Colombia, STP en Singapur, AEO en Japón — todos bajo el paraguas del Marco SAFE de la OMA. Brasil tiene la oportunidad de dar el siguiente paso: control por ítem, con tecnología embebida en la propia mercancía.' },
-        { t: 'La respuesta tecnológica brasileña', x: 'El sello electrónico fiscal (MoedaLog/e-SFI): chip pasivo RFID/NFC con 10 niveles de seguridad a R$ 1,88 por unidad, anclado en ICP-Brasil, blockchain y eFuse de uso único — rastreabilidad del origen al destino, alerta automática de violación (caso PRF) e integración con fronteras, Mercosur y Chancay.' },
+        { t: 'La respuesta tecnológica brasileña', x: 'El sello electrónico fiscal (MoedaLog/e-SFI): chip pasivo RFID/NFC con 10 niveles de seguridad y costo mínimo por unidad, anclado en ICP-Brasil, blockchain y eFuse de uso único — rastreabilidad del origen al destino, alerta automática de violación (caso PRF) e integración con fronteras, Mercosur y Chancay.' },
       ],
       programas: [
         { pais: 'Mundo (OMA)', prog: 'Marco SAFE', como: 'Estándar global de operador económico autorizado y seguridad de la cadena, adoptado por más de 100 aduanas', url: 'https://www.wcoomd.org/' },
