@@ -21,7 +21,7 @@ def req(method, url, headers=None, data=None):
         return e.code, e.read()
 
 def upload(path, sha, size, blob):
-    st, body = req(f'{API}/v2/files?teamId={TEAM}', {
+    st, body = req('POST', f'{API}/v2/files?teamId={TEAM}', {
         'Authorization': f'Bearer {token}',
         'x-now-digest': sha, 'x-now-size': str(size),
         'Content-Type': 'application/octet-stream'}, blob)
