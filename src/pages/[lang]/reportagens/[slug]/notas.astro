@@ -1,0 +1,89 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { LANGS, type Lang, langPath } from '../../../../content/ui';
+import { REPORTAGENS } from '../../../../data/reportagens';
+
+export function getStaticPaths() {
+  return REPORTAGENS.filter((r) => r.notas).flatMap((r) =>
+    LANGS.map((lang) => ({ params: { lang, slug: r.slug } }))
+  );
+}
+const lang = Astro.params.lang as Lang;
+const slug = Astro.params.slug as string;
+const r = REPORTAGENS.find((x) => x.slug === slug)!;
+const title = `Notas e fontes — ${r.titulo[lang]} · LOGIS`;
+
+const mdLinks = (p: string) =>
+  p.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+const T = {
+  pt: { voltar: '← Voltar para a reportagem', metodo: 'Notas e fontes' },
+  en: { voltar: '← Back to the story', metodo: 'Notes and sources' },
+  es: { voltar: '← Volver al reportaje', metodo: 'Notas y fuentes' },
+}[lang];
+---
+
+<Base lang={lang} slug="reportagens" title={title} description={T.metodo}>
+  <section class="hero compact">
+    <div class="container">
+      <span class="kicker">{r.kicker[lang]} · {T.metodo}</span>
+      <h1>{T.metodo}</h1>
+      <p class="sub">{r.titulo[lang]}</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container container-narrow">
+      <ol class="notas-lista">
+        {r.notas![lang].map((nota, i) => (
+          <li><span class="notas-num">{i + 1}</span><p set:html={mdLinks(nota)} /></li>
+        ))}
+      </ol>
+
+      <div class="rep-assinatura" style="margin-top:26px;">
+        <div class="rep-assinatura-nome">{r.assinatura.linha1}</div>
+        <div class="rep-assinatura-cargo">{r.assinatura.linha2}</div>
+      </div>
+
+      <div style="margin-top:22px;">
+        <a class="btn ghost" href={langPath(lang, `reportagens/${r.slug}`)}>{T.voltar}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notas-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .notas-lista li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    background: var(--areia-light);
+    border: 1px solid var(--linha-suave);
+    border-radius: var(--raio);
+  }
+  .notas-num {
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--raio-full);
+    background: var(--verde-700);
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 14px;
+    display: grid;
+    place-items: center;
+    margin-top: 2px;
+  }
+  .notas-lista p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--tinta-suave);
+  }
+</style>

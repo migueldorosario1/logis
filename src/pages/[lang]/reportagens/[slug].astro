@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import GraficosArtigo from '../../../components/GraficosArtigo.astro';
 import { LANGS, type Lang, langPath } from '../../../content/ui';
 import { REPORTAGENS } from '../../../data/reportagens';
 
@@ -14,10 +15,16 @@ const r = REPORTAGENS.find((x) => x.slug === slug)!;
 const title = `${r.titulo[lang]} — LOGIS`;
 const isFull = lang === 'pt';
 
+// Links silenciosos: [texto](https://…) vira <a> — só aceita https, conteúdo é nosso.
+const mdLinks = (p: string) =>
+  p.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+const graficosApos = (i: number) =>
+  lang === 'pt' ? (r.graficos ?? []).filter((g) => g.apos === i) : [];
+
 const T = {
-  pt: { lerEditorial: 'Ler os editoriais', completo: '' },
-  en: { lerEditorial: 'Read the editorials', completo: 'Full text in Portuguese · Resumo em inglês' },
-  es: { lerEditorial: 'Leer los editoriales', completo: 'Texto integral en portugués · Resumen en español' },
+  pt: { lerEditorial: 'Ler os editoriais', completo: '', notas: 'Notas e fontes da reportagem' },
+  en: { lerEditorial: 'Read the editorials', completo: 'Full text in Portuguese · Resumo em inglês', notas: 'Notes and sources' },
+  es: { lerEditorial: 'Leer los editoriales', completo: 'Texto integral en portugués · Resumen en español', notas: 'Notas y fuentes' },
 }[lang];
 ---
 
@@ -41,13 +48,24 @@ const T = {
       </figure>
 
       <article class="editorial">
-        {r.corpo[lang].map((p) => <p>{p}</p>)}
+        {r.corpo[lang].map((p, i) => (
+          <Fragment>
+            <p set:html={mdLinks(p)} />
+            {graficosApos(i).map((g) => <GraficosArtigo id={g.id} />)}
+          </Fragment>
+        ))}
       </article>
 
       <div class="rep-assinatura">
         <div class="rep-assinatura-nome">{r.assinatura.linha1}</div>
         <div class="rep-assinatura-cargo">{r.assinatura.linha2}</div>
       </div>
+
+      {r.notas && (
+        <div class="rep-notas-link">
+          <a class="btn ghost" href={langPath(lang, `reportagens/${r.slug}/notas`)}>📝 {T.notas} →</a>
+        </div>
+      )}
 
       {!isFull && (
         <p class="nota" style="margin-top:18px;">{T.completo}</p>
