@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Logis — Issue No. 1</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:'Segoe UI','Plus Jakarta Sans','Helvetica Neue',Arial,sans-serif; }
+  .capa { width:210mm; height:296mm; background:var(--v950); color:#fff; position:relative; overflow:hidden;
+          display:flex; flex-direction:column; padding:20mm 18mm 16mm; }
+  :root { --v950:#06231b; --v900:#0b3b2e; --v700:#14664e; --v100:#dcefe5; --lima:#b5e048; --cinza:#8a9b93; }
+  .cab { display:flex; justify-content:space-between; align-items:center; }
+  .marca { display:flex; gap:10px; align-items:center; }
+  .l { width:34px; height:34px; border-radius:9px; background:#fff; color:var(--v950); font-weight:800; font-size:19px; display:grid; place-items:center; }
+  .marca b { font-size:16pt; letter-spacing:.08em; }
+  .marca i { font-style:normal; display:block; font-size:7pt; letter-spacing:.22em; color:var(--lima); font-weight:600; }
+  .num { text-align:right; font-size:9pt; color:var(--cinza); line-height:1.5; }
+  .num b { color:#fff; font-size:11pt; }
+  .foto { flex:1; margin:12mm 0; border-radius:14px; overflow:hidden; position:relative; min-height:0; }
+  .foto img { width:100%; height:100%; object-fit:cover; display:block; }
+  .cred { position:absolute; bottom:8px; right:12px; background:rgba(6,35,27,.75); color:#cfe3d8;
+          font-size:6.6pt; padding:4px 10px; border-radius:99px; letter-spacing:.03em; }
+  .tese { font-size:23pt; font-weight:800; line-height:1.18; letter-spacing:-.01em; }
+  .tese span { color:var(--lima); }
+  .dossie { margin-top:10px; font-size:10.5pt; color:var(--v100); line-height:1.5; }
+  .rod { margin-top:12mm; border-top:1px solid rgba(255,255,255,.18); padding-top:6mm;
+         display:flex; justify-content:space-between; font-size:8pt; color:var(--cinza); }
+  .rod b { color:#fff; }
+  .indice { width:210mm; height:296mm; padding:18mm 20mm; page-break-before:always; color:#14201b; }
+  .itit { font-size:20pt; font-weight:800; color:var(--v950); margin-bottom:2mm; }
+  .isub { font-size:10pt; color:#586961; margin-bottom:10mm; }
+  .sec { margin-bottom:7mm; }
+  .sec h3 { font-size:11pt; color:var(--v950); border-left:4px solid var(--lima); padding-left:9px; margin-bottom:3mm; }
+  .item { display:flex; justify-content:space-between; gap:8mm; padding:2.6mm 0; border-bottom:1px solid #ebe9e2; }
+  .item .t { font-size:10.5pt; font-weight:600; }
+  .item .t small { display:block; font-weight:400; color:#586961; font-size:8.5pt; margin-top:1mm; }
+  .item p { font-size:9pt; color:#8a9b93; white-space:nowrap; align-self:center; }
+  .nota { margin-top:8mm; background:#f2f9f5; border-radius:10px; padding:5mm 6mm; font-size:8.8pt; color:#2d3f37; line-height:1.55; }
+  .irod { position:absolute; bottom:10mm; left:20mm; right:20mm; border-top:1px solid #e1dfd7;
+          padding-top:4mm; display:flex; justify-content:space-between; font-size:7.5pt; color:#8a9b93; }
+</style></head><body>
+<div class="capa">
+  <div class="cab">
+    <div class="marca"><div class="l">L</div><div><b>LOGIS</b><i>LOGISTICS AND SUSTAINABILITY</i></div></div>
+    <div class="num"><b>Issue No. 1</b><br>4th quarter 2026 · preview</div>
+  </div>
+  <div class="foto"><img src="../imagens/reportagem-selo-capa.jpg" alt="Porto">
+    <div class="cred">Photo: Samory Pereira Santos · CC BY-SA 4.0</div>
+  </div>
+  <div class="tese">Dossier: <span>export corridors</span> and logistics control</div>
+  <div class="dossie">Chancay, the bioceanic railway and the challenge of open borders — why every new route must be born with its twin system of watchfulness.</div>
+  <div class="rod"><span><b>Quarterly publication</b> · diamond open access</span><span>logis-magazine.vercel.app</span></div>
+</div>
+<div class="indice" style="position:relative;">
+  <div class="itit">Contents</div>
+  <div class="isub">Issue No. 1 · 4th quarter 2026 · preview (cover and contents)</div>
+  <div class="sec">
+    <h3>Opening</h3>
+    <div class="item"><div class="t">Open the corridor, watch the door<small>Editorial · Miguel do Rosário</small></div><p>03</p></div>
+    <div class="item"><div class="t">The merchandise passport<small>Feature story · Miguel do Rosário</small></div><p>05</p></div>
+  </div>
+  <div class="sec">
+    <h3>Sections of the issue</h3>
+    <div class="item"><div class="t">Scientific articles<small>Call for papers in preparation — submissions in Portuguese, English or Spanish.</small></div></div>
+    <div class="item"><div class="t">Case studies<small>Real experiences from corridors, ports and operators.</small></div></div>
+    <div class="item"><div class="t">Regulatory observatory<small>The quarter in logistics regulation and foreign trade.</small></div></div>
+    <div class="item"><div class="t">Data reviews<small>Flow, cost and sustainability indicators, explained.</small></div></div>
+  </div>
+  <div class="nota">This preview presents the cover and contents of Issue No. 1. The Opening pieces are already published on the portal and enter the full PDF edition; the scientific sections open with the call for papers. Nothing here is a dummy — what you see is what exists.</div>
+  <div class="irod"><span>Logis — Journal of Logistics and Sustainability · Institute of Logistics and Sustainability</span><span>logis-magazine.vercel.app</span></div>
+</div>
+</body></html>
