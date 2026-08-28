@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Section from '../../components/Section.astro';
-import { LANGS, type Lang } from '../../content/ui';
+import { LANGS, type Lang, langPath } from '../../content/ui';
 import { PAGES } from '../../content/pages';
 
 export function getStaticPaths() {
@@ -14,21 +14,21 @@ const title = `${c.hero.title} — LOGIS`;
 const T = {
   pt: {
     dlTitulo: 'Prévia da edição nº 1 — capa e sumário (PDF)',
-    dlTexto: 'Baixe a prévia da edição nº 1: capa com o dossiê "corredores de escoamento e controle logístico" e sumário com o que já existe — o editorial e a reportagem publicados no portal — e as seções que abrem com a chamada de trabalhos. Conteúdo real, nada demonstrativo.',
-    dlBtn: '⬇ PDF em português',
-    dlOutros: 'Também disponível:',
+    dlTexto: 'Leia a prévia da edição nº 1 no visualizador em página inteira: capa com o dossiê "corredores de escoamento e controle logístico" e sumário com o que já existe — o editorial e a reportagem publicados no portal — e as seções que abrem com a chamada de trabalhos. Conteúdo real, nada demonstrativo. O botão de download fica dentro do visualizador.',
+    dlVer: 'Abrir o visualizador',
+    dlOutros: 'Visualizar em outro idioma:',
   },
   en: {
     dlTitulo: 'Issue #1 preview — cover and contents (PDF)',
-    dlTexto: 'Download the Issue #1 preview: a cover with the "export corridors and logistics control" dossier and a contents page listing what already exists — the editorial and the feature story published on the portal — plus the sections opening with the call for papers. Real content, nothing dummy.',
-    dlBtn: '⬇ PDF in English',
-    dlOutros: 'Also available:',
+    dlTexto: 'Read the Issue #1 preview in the full-page viewer: a cover with the "export corridors and logistics control" dossier and a contents page listing what already exists — the editorial and the feature story published on the portal — plus the sections opening with the call for papers. Real content, nothing dummy. The download button lives inside the viewer.',
+    dlVer: 'Open the viewer',
+    dlOutros: 'View in another language:',
   },
   es: {
     dlTitulo: 'Avance de la edición nº 1 — portada y sumario (PDF)',
-    dlTexto: 'Descargue el avance de la edición nº 1: portada con el dossier "corredores de escoamiento y control logístico" y sumario con lo que ya existe — el editorial y el reportaje publicados en el portal — y las secciones que abren con la convocatoria de trabajos. Contenido real, nada demostrativo.',
-    dlBtn: '⬇ PDF en español',
-    dlOutros: 'También disponible:',
+    dlTexto: 'Lea el avance de la edición nº 1 en el visor de página completa: portada con el dossier "corredores de escoamiento y control logístico" y sumario con lo que ya existe — el editorial y el reportaje publicados en el portal — y las secciones que abren con la convocatoria de trabajos. Contenido real, nada demostrativo. El botón de descarga está dentro del visor.',
+    dlVer: 'Abrir el visor',
+    dlOutros: 'Ver en otro idioma:',
   },
 }[lang];
 
@@ -49,12 +49,12 @@ const PDF_ATUAL = lang === 'en' ? PDF_EN : lang === 'es' ? PDF_ES : PDF_PT;
           <p>{T.dlTexto}</p>
         </div>
         <div class="revista-downloads">
-          <a class="btn primary" href={PDF_ATUAL} download>{T.dlBtn}</a>
+          <a class="btn primary" href={langPath(lang, 'revista/visualizador')}>📖 {T.dlVer}</a>
           <span class="revista-downloads-outros">
             {T.dlOutros}
-            <a href={PDF_PT} download>português</a> ·
-            <a href={PDF_EN} download>english</a> ·
-            <a href={PDF_ES} download>español</a>
+            <a href={langPath('pt', 'revista/visualizador')}>português</a> ·
+            <a href={langPath('en', 'revista/visualizador')}>english</a> ·
+            <a href={langPath('es', 'revista/visualizador')}>español</a>
           </span>
         </div>
       </div>

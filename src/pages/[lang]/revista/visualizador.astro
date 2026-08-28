@@ -1,0 +1,93 @@
+---
+// Visualizador da revista em página inteira — leitor de PDF nativo do navegador
+// embebido + barra própria com download (ordem Miguel 28/08: "clicar na capa abre
+// um visualizador grande, na página inteira, com botão de download").
+import { LANGS, type Lang, langPath } from '../../../content/ui';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+
+const PDF = {
+  pt: '/downloads/revista-logis-edicao1-pt.pdf',
+  en: '/downloads/revista-logis-edicao1-en.pdf',
+  es: '/downloads/revista-logis-edicao1-es.pdf',
+}[lang];
+
+const T = {
+  pt: { titulo: 'Revista Logis · Edição nº 1 — prévia', baixar: '⬇ Baixar PDF', fechar: '✕ Fechar', novaAba: 'Abrir o PDF em nova aba' },
+  en: { titulo: 'Logis Journal · Issue No. 1 — preview', baixar: '⬇ Download PDF', fechar: '✕ Close', novaAba: 'Open the PDF in a new tab' },
+  es: { titulo: 'Revista Logis · Edición nº 1 — avance', baixar: '⬇ Descargar PDF', fechar: '✕ Cerrar', novaAba: 'Abrir el PDF en una pestaña nueva' },
+}[lang];
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{T.titulo} · LOGIS</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+      display: flex; flex-direction: column;
+      background: #06231b;
+    }
+    .barra {
+      flex: 0 0 auto;
+      display: flex; align-items: center; gap: 14px;
+      padding: 10px 18px;
+      background: linear-gradient(90deg, #06231b, #0b3b2e);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(6,35,27,.4);
+      z-index: 2;
+    }
+    .l {
+      width: 30px; height: 30px; border-radius: 8px; flex: 0 0 auto;
+      background: #fff; color: #06231b; font-weight: 800; font-size: 16px;
+      display: grid; place-items: center;
+    }
+    .titulo { flex: 1; min-width: 0; }
+    .titulo b { font-size: 14.5px; letter-spacing: .02em; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .titulo span { font-size: 10.5px; letter-spacing: .12em; color: #b5e048; font-weight: 700; }
+    .acoes { display: flex; gap: 10px; flex: 0 0 auto; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: 999px; font-weight: 700; font-size: 13px;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform .15s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-lima { background: #b5e048; color: #06231b; box-shadow: 0 3px 12px rgba(181,224,72,.35); }
+    .btn-lima:hover { background: #c8ea6a; }
+    .btn-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.35); }
+    .btn-ghost:hover { background: rgba(255,255,255,.18); }
+    .palco { flex: 1; min-height: 0; background: #0d2b21; }
+    .palco iframe { width: 100%; height: 100%; border: 0; display: block; }
+    @media (max-width: 560px) {
+      .titulo span { display: none; }
+      .btn { padding: 8px 14px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="barra">
+    <div class="l">L</div>
+    <div class="titulo">
+      <span>LOGIS · {lang.toUpperCase()}</span>
+      <b>{T.titulo}</b>
+    </div>
+    <div class="acoes">
+      <a class="btn btn-lima" href={PDF} download>{T.baixar}</a>
+      <a class="btn btn-ghost" href={PDF} target="_blank" rel="noopener" title={T.novaAba}>↗</a>
+      <a class="btn btn-ghost" href={langPath(lang, 'revista')}>{T.fechar}</a>
+    </div>
+  </div>
+  <div class="palco">
+    <iframe src={`${PDF}#view=FitH`} title={T.titulo} allow="fullscreen"></iframe>
+  </div>
+</body>
+</html>
