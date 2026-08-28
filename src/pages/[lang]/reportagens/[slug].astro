@@ -13,18 +13,16 @@ const lang = Astro.params.lang as Lang;
 const slug = Astro.params.slug as string;
 const r = REPORTAGENS.find((x) => x.slug === slug)!;
 const title = `${r.titulo[lang]} — LOGIS`;
-const isFull = lang === 'pt';
 
 // Links silenciosos: [texto](https://…) vira <a> — só aceita https, conteúdo é nosso.
 const mdLinks = (p: string) =>
   p.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-const graficosApos = (i: number) =>
-  lang === 'pt' ? (r.graficos ?? []).filter((g) => g.apos === i) : [];
+const graficosApos = (i: number) => (r.graficos ?? []).filter((g) => g.apos === i);
 
 const T = {
-  pt: { lerEditorial: 'Ler os editoriais', completo: '', notas: 'Notas e fontes da reportagem' },
-  en: { lerEditorial: 'Read the editorials', completo: 'Full text in Portuguese · Resumo em inglês', notas: 'Notes and sources' },
-  es: { lerEditorial: 'Leer los editoriales', completo: 'Texto integral en portugués · Resumen en español', notas: 'Notas y fuentes' },
+  pt: { lerEditorial: 'Ler os editoriais', notas: 'Notas e fontes da reportagem' },
+  en: { lerEditorial: 'Read the editorials', notas: 'Notes and sources' },
+  es: { lerEditorial: 'Leer los editoriales', notas: 'Notas y fuentes' },
 }[lang];
 ---
 
@@ -51,7 +49,7 @@ const T = {
         {r.corpo[lang].map((p, i) => (
           <Fragment>
             <p set:html={mdLinks(p)} />
-            {graficosApos(i).map((g) => <GraficosArtigo id={g.id} />)}
+            {graficosApos(i).map((g) => <GraficosArtigo id={g.id} lang={lang} />)}
           </Fragment>
         ))}
       </article>
@@ -65,10 +63,6 @@ const T = {
         <div class="rep-notas-link">
           <a class="btn ghost" href={langPath(lang, `reportagens/${r.slug}/notas`)}>📝 {T.notas} →</a>
         </div>
-      )}
-
-      {!isFull && (
-        <p class="nota" style="margin-top:18px;">{T.completo}</p>
       )}
 
       <div style="margin-top:22px;">

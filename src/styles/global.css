@@ -1320,6 +1320,93 @@ footer.site p {
 /* ==========================================================================
    Accessibility & Media Overrides
    ========================================================================== */
+/* ----- Bloco Últimas notícias (capa) ----- */
+.noticias { padding-top: 42px; }
+.noticias-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.noticias-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--verde-700);
+  background: var(--verde-50);
+  border: 1px solid var(--verde-100);
+  border-radius: var(--raio-full);
+  padding: 5px 12px;
+}
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.noticia-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 172px;
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  padding: 18px 20px;
+  text-decoration: none !important;
+  box-shadow: var(--sombra-sm);
+  transition: transform var(--transicao-normal), box-shadow var(--transicao-normal);
+  isolation: isolate;
+}
+.noticia-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-hover);
+}
+.noticia-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.noticia-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(6,35,27,0) 30%, rgba(6,35,27,.55) 62%, rgba(6,35,27,.86) 100%);
+}
+.tema-corredores::before { background: linear-gradient(135deg, var(--verde-950), var(--azul-porto)); }
+.tema-ferrovias::before  { background: linear-gradient(135deg, var(--verde-900), var(--verde-700)); }
+.tema-portos::before     { background: linear-gradient(135deg, var(--azul-porto), #1e5f8a); }
+.tema-verde::before      { background: linear-gradient(135deg, var(--verde-900), #2f6b3f); }
+.noticia-icone {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 46px;
+  height: 46px;
+  color: rgba(255,255,255,.5);
+}
+.noticia-icone svg { width: 100%; height: 100%; }
+.noticia-texto { display: flex; flex-direction: column; gap: 6px; }
+.noticia-kicker {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--lima);
+}
+.noticia-titulo {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+}
+@media (max-width: 720px) {
+  .noticias-grid { grid-template-columns: 1fr; }
+  .noticia-card { min-height: 150px; }
+  .noticia-titulo { font-size: 16px; }
+}
+
 /* ----- Gráficos das reportagens (SVG inline) + link p/ notas ----- */
 .rep-grafico {
   margin: 30px 0 34px;

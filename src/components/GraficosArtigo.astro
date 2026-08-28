@@ -3,85 +3,93 @@
 // 'perdas'    → barra dividida do Custo Brasil (R$ 1,7 tri; ilegal ≈ R$ 500 bi)
 // 'historia'  → linha do tempo do selo fiscal (1964 → 2026)
 // 'leitores'  → pictograma dos smartphones-leitores (≈ 3 em cada 4 brasileiros)
-interface Props { id: string }
-const { id } = Astro.props;
+interface Props { id: string; lang?: string }
+const { id, lang = 'pt' } = Astro.props;
 
 const FONT = "'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif";
+
+const TX = {
+  pt: {
+    perdas: { titulo: 'O rombo anual do Custo Brasil', sub: 'estimativa do setor produtivo · valores por ano', custo: 'Custo Brasil ≈ R$ 1,7 trilhão · 19,5% do PIB', pib: 'PIB brasileiro ≈ R$ 8,7 trilhões', leg: 'economia ilegal (≈ 29% do Custo Brasil · ≈ 5,7% do PIB)', fonte: 'Gráfico LOGIS · Fontes: estimativas do setor produtivo (CNI) e de fóruns de combate à pirataria (FNCP) — valores aproximados, não estatísticas oficiais.' },
+    historia: { titulo: 'Do papel ao chip', sub: 'sessenta anos do selo fiscal brasileiro', n: ['Lei 4.502 institui|o selo fiscal', 'Decreto 7.212|regulamenta o IPI', 'selo eletrônico nos|documentos digitais', 'projeto do selo|eletrônico fiscal'], fonte: 'Gráfico LOGIS · Fontes: Lei 4.502/1964 e Decreto 7.212/2010 (Planalto); regulamentação de 2024 sob verificação formal.' },
+    leitores: { titulo: 'O fiscal que todo mundo carrega', sub: 'smartphones em circulação no Brasil ≈ 3 em cada 4 brasileiros', leg: '≈ 160 milhões de aparelhos com leitura por aproximação — cada um, um posto de verificação', fonte: 'Gráfico LOGIS · Fonte: estimativa do setor de telecomunicações citada no projeto (mais de 160 milhões de aparelhos); proporção ilustrativa.' },
+  },
+  en: {
+    perdas: { titulo: 'The annual Brazil Cost hole', sub: 'industry estimates · values per year', custo: 'Brazil Cost ≈ BRL 1.7 trillion · 19.5% of GDP', pib: 'Brazilian GDP ≈ BRL 8.7 trillion', leg: 'illegal economy (≈ 29% of the Brazil Cost · ≈ 5.7% of GDP)', fonte: 'LOGIS chart · Sources: productive-sector estimates (CNI) and anti-piracy forums (FNCP) — approximate values, not official statistics.' },
+    historia: { titulo: 'From paper to chip', sub: 'sixty years of the Brazilian fiscal seal', n: ['Law 4,502 creates|the fiscal seal', 'Decree 7,212|regulates the IPI', 'electronic seal for|digital documents', 'the electronic|fiscal seal project'], fonte: 'LOGIS chart · Sources: Law 4,502/1964 and Decree 7,212/2010 (Planalto); the 2024 regulation under formal verification.' },
+    leitores: { titulo: 'The inspector everyone carries', sub: 'smartphones in circulation in Brazil ≈ 3 in 4 Brazilians', leg: '≈ 160 million devices with tap reading — each one, a checkpoint', fonte: 'LOGIS chart · Source: telecom-sector estimate cited in the project (over 160 million devices); proportion is illustrative.' },
+  },
+  es: {
+    perdas: { titulo: 'El agujero anual del Custo Brasil', sub: 'estimación del sector productivo · valores por año', custo: 'Custo Brasil ≈ R$ 1,7 billones · 19,5% del PIB', pib: 'PIB brasileño ≈ R$ 8,7 billones', leg: 'economía ilegal (≈ 29% del Custo Brasil · ≈ 5,7% del PIB)', fonte: 'Gráfico LOGIS · Fuentes: estimaciones del sector productivo (CNI) y foros contra la piratería (FNCP) — valores aproximados, no estadísticas oficiales.' },
+    historia: { titulo: 'Del papel al chip', sub: 'sesenta años del sello fiscal brasileño', n: ['Ley 4.502 instituye|el sello fiscal', 'Decreto 7.212|reglamenta el IPI', 'sello electrónico en|documentos digitales', 'proyecto del sello|electrónico fiscal'], fonte: 'Gráfico LOGIS · Fuentes: Ley 4.502/1964 y Decreto 7.212/2010 (Planalto); la reglamentación de 2024 bajo verificación formal.' },
+    leitores: { titulo: 'El fiscal que todos cargan', sub: 'celulares en circulación en Brasil ≈ 3 de cada 4 brasileños', leg: '≈ 160 millones de aparatos con lectura por aproximación — cada uno, un puesto de verificación', fonte: 'Gráfico LOGIS · Fuente: estimación del sector de telecomunicaciones citada en el proyecto (más de 160 millones de aparatos); proporción ilustrativa.' },
+  },
+}[lang as 'pt' | 'en' | 'es'] ?? ({} as any);
+
+const h1_ = TX.historia.n.map((s: string) => s.split('|'));
 ---
 
 {id === 'perdas' && (
   <figure class="rep-grafico">
-    <svg viewBox="0 0 720 252" role="img" aria-label="Gráfico: do total anual do Custo Brasil, estimado em 1,7 trilhão de reais, cerca de 500 bilhões correspondem à economia ilegal">
+    <svg viewBox="0 0 720 252" role="img" aria-label={`Gráfico: ${TX.perdas.titulo}`}>
       <rect x="0" y="0" width="720" height="252" rx="14" fill="var(--areia-light)" />
-      <text x="36" y="46" font-family={FONT} font-size="21" font-weight="700" fill="var(--verde-950)">O rombo anual do Custo Brasil</text>
-      <text x="36" y="70" font-family={FONT} font-size="13" fill="var(--cinza)">estimativa do setor produtivo · valores por ano</text>
+      <text x="36" y="46" font-family={FONT} font-size="21" font-weight="700" fill="var(--verde-950)">{TX.perdas.titulo}</text>
+      <text x="36" y="70" font-family={FONT} font-size="13" fill="var(--cinza)">{TX.perdas.sub}</text>
 
-      <!-- barra total: Custo Brasil R$ 1,7 tri -->
-      <text x="36" y="112" font-family={FONT} font-size="13" font-weight="600" fill="var(--tinta)">Custo Brasil ≈ R$ 1,7 trilhão · 19,5% do PIB</text>
+      <text x="36" y="112" font-family={FONT} font-size="13" font-weight="600" fill="var(--tinta)">{TX.perdas.custo}</text>
       <rect x="36" y="124" width="648" height="46" rx="8" fill="var(--verde-100)" />
-      <!-- segmento economia ilegal ~29,4% -->
       <rect x="36" y="124" width="190" height="46" rx="8" fill="var(--azul-porto)" />
       <text x="48" y="152" font-family={FONT} font-size="15" font-weight="700" fill="#ffffff">R$ 500 bi</text>
 
-      <!-- régua do PIB -->
-      <text x="36" y="206" font-family={FONT} font-size="13" font-weight="600" fill="var(--tinta)">PIB brasileiro ≈ R$ 8,7 trilhões</text>
+      <text x="36" y="206" font-family={FONT} font-size="13" font-weight="600" fill="var(--tinta)">{TX.perdas.pib}</text>
       <rect x="36" y="216" width="648" height="14" rx="7" fill="var(--linha-suave)" />
       <rect x="36" y="216" width="127" height="14" rx="7" fill="var(--verde-700)" />
 
-      <!-- legendas -->
-      <circle cx="42" cy="236" r="0" />
       <g font-family={FONT} font-size="12" fill="var(--tinta-suave)">
         <rect x="238" y="136" width="10" height="10" rx="2" fill="var(--azul-porto)" />
-        <text x="253" y="145">economia ilegal (≈ 29% do Custo Brasil · ≈ 5,7% do PIB)</text>
+        <text x="253" y="145">{TX.perdas.leg}</text>
         <rect x="540" y="228" width="10" height="10" rx="2" fill="var(--verde-700)" />
         <text x="555" y="237" font-size="11">19,5%</text>
       </g>
     </svg>
-    <figcaption>Gráfico LOGIS · Fontes: estimativas do setor produtivo (CNI) e de fóruns de combate à pirataria (FNCP) — valores aproximados, não estatísticas oficiais.</figcaption>
+    <figcaption>{TX.perdas.fonte}</figcaption>
   </figure>
 )}
 
 {id === 'historia' && (
   <figure class="rep-grafico">
-    <svg viewBox="0 0 720 224" role="img" aria-label="Linha do tempo: 1964 Lei 4.502 cria o selo fiscal; 2010 Decreto 7.212 regulamenta o IPI; 2024 selo eletrônico nos documentos digitais; 2026 projeto do selo eletrônico fiscal">
+    <svg viewBox="0 0 720 224" role="img" aria-label={`Gráfico: ${TX.historia.titulo}`}>
       <rect x="0" y="0" width="720" height="224" rx="14" fill="var(--areia-light)" />
-      <text x="36" y="46" font-family={FONT} font-size="21" font-weight="700" fill="var(--verde-950)">Do papel ao chip</text>
-      <text x="36" y="70" font-family={FONT} font-size="13" fill="var(--cinza)">sessenta anos do selo fiscal brasileiro</text>
+      <text x="36" y="46" font-family={FONT} font-size="21" font-weight="700" fill="var(--verde-950)">{TX.historia.titulo}</text>
+      <text x="36" y="70" font-family={FONT} font-size="13" fill="var(--cinza)">{TX.historia.sub}</text>
 
       <line x1="56" y1="132" x2="664" y2="132" stroke="var(--cinza-claro)" stroke-width="3" />
 
       <g font-family={FONT}>
-        <circle cx="90" cy="132" r="9" fill="var(--verde-700)" />
-        <text x="90" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="var(--verde-900)">1964</text>
-        <text x="90" y="164" text-anchor="middle" font-size="11.5" fill="var(--tinta-suave)">Lei 4.502 institui</text>
-        <text x="90" y="180" text-anchor="middle" font-size="11.5" fill="var(--tinta-suave)">o selo fiscal</text>
-
-        <circle cx="262" cy="132" r="9" fill="var(--verde-700)" />
-        <text x="262" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="var(--verde-900)">2010</text>
-        <text x="262" y="164" text-anchor="middle" font-size="11.5" fill="var(--tinta-suave)">Decreto 7.212</text>
-        <text x="262" y="180" text-anchor="middle" font-size="11.5" fill="var(--tinta-suave)">regulamenta o IPI</text>
-
-        <circle cx="434" cy="132" r="9" fill="var(--verde-700)" />
-        <text x="434" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="var(--verde-900)">2024</text>
-        <text x="434" y="164" text-anchor="middle" font-size="11.5" fill="var(--tinta-suave)">selo eletrônico nos</text>
-        <text x="434" y="180" text-anchor="middle" font-size="11.5" fill="var(--tinta-suave)">documentos digitais</text>
-
-        <circle cx="606" cy="132" r="11" fill="var(--verde-500)" stroke="var(--lima)" stroke-width="4" />
-        <text x="606" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="var(--verde-950)">2026</text>
-        <text x="606" y="164" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--verde-900)">projeto do selo</text>
-        <text x="606" y="180" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--verde-900)">eletrônico fiscal</text>
+        {[1964, 2010, 2024, 2026].map((ano, i) => {
+          const cx = 90 + i * 172;
+          const fim = i === 3;
+          return (
+            <g>
+              <circle cx={cx} cy="132" r={fim ? 11 : 9} fill={fim ? 'var(--verde-500)' : 'var(--verde-700)'} stroke={fim ? 'var(--lima)' : 'none'} stroke-width="4" />
+              <text x={cx} y="106" text-anchor="middle" font-size="19" font-weight="800" fill={fim ? 'var(--verde-950)' : 'var(--verde-900)'}>{ano}</text>
+              <text x={cx} y="164" text-anchor="middle" font-size="11.5" font-weight={fim ? '600' : '400'} fill={fim ? 'var(--verde-900)' : 'var(--tinta-suave)'}>{h1_[i][0]}</text>
+              <text x={cx} y="180" text-anchor="middle" font-size="11.5" font-weight={fim ? '600' : '400'} fill={fim ? 'var(--verde-900)' : 'var(--tinta-suave)'}>{h1_[i][1]}</text>
+            </g>
+          );
+        })}
       </g>
     </svg>
-    <figcaption>Gráfico LOGIS · Fontes: Lei 4.502/1964 e Decreto 7.212/2010 (Planalto); regulamentação de 2024 sob verificação formal.</figcaption>
+    <figcaption>{TX.historia.fonte}</figcaption>
   </figure>
 )}
 
 {id === 'leitores' && (
   <figure class="rep-grafico">
-    <svg viewBox="0 0 720 268" role="img" aria-label="Pictograma: cerca de três em cada quatro brasileiros, aproximadamente 160 milhões de aparelhos, carregam um leitor de selos no bolso">
+    <svg viewBox="0 0 720 268" role="img" aria-label={`Gráfico: ${TX.leitores.titulo}`}>
       <rect x="0" y="0" width="720" height="268" rx="14" fill="var(--areia-light)" />
-      <text x="36" y="46" font-family={FONT} font-size="21" font-weight="700" fill="var(--verde-950)">O fiscal que todo mundo carrega</text>
-      <text x="36" y="70" font-family={FONT} font-size="13" fill="var(--cinza)">smartphones em circulação no Brasil ≈ 3 em cada 4 brasileiros</text>
+      <text x="36" y="46" font-family={FONT} font-size="21" font-weight="700" fill="var(--verde-950)">{TX.leitores.titulo}</text>
+      <text x="36" y="70" font-family={FONT} font-size="13" fill="var(--cinza)">{TX.leitores.sub}</text>
 
       <g>
         {Array.from({ length: 12 }).map((_, i) => {
@@ -105,9 +113,9 @@ const FONT = "'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif";
 
       <g font-family={FONT} font-size="12" fill="var(--tinta-suave)">
         <rect x="52" y="256" width="10" height="10" rx="2" fill="var(--verde-700)" />
-        <text x="68" y="265">≈ 160 milhões de aparelhos com leitura por aproximação — cada um, um posto de verificação</text>
+        <text x="68" y="265">{TX.leitores.leg}</text>
       </g>
     </svg>
-    <figcaption>Gráfico LOGIS · Fonte: estimativa do setor de telecomunicações citada no projeto (mais de 160 milhões de aparelhos); proporção ilustrativa.</figcaption>
+    <figcaption>{TX.leitores.fonte}</figcaption>
   </figure>
 )}
