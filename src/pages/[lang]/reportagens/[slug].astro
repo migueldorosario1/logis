@@ -45,9 +45,36 @@ const T = {
         </figcaption>
       </figure>
 
+      {(r.variantes ?? []).flatMap((v) => v.citas).filter((c) => c.onde === 'epigrafe').map((c) => (
+        <blockquote class="epigrafe" data-v={(r.variantes ?? []).find((v) => v.citas.includes(c))!.id} hidden>
+          <p class="epigrafe-texto">“{c.texto}”</p>
+          <cite>— {c.autor}, <em>{c.obra}</em></cite>
+        </blockquote>
+      ))}
+
+      {r.variantes && (
+        <div class="seletor-versao" id="seletor-versao">
+          <span class="seletor-rotulo">
+            {{ pt: 'Versões com citação erudita:', en: 'Versions with a classic quote:', es: 'Versiones con cita clásica:' }[lang]}
+          </span>
+          {r.variantes.map((v) => (
+            <button class="pill-versao" data-pill={v.id} type="button">{v.rotulo.split(' · ')[0]}</button>
+          ))}
+        </div>
+      )}
+
       <article class="editorial">
         {r.corpo[lang].map((p, i) => (
           <Fragment>
+            {(r.variantes ?? [])
+              .flatMap((v) => v.citas)
+              .filter((c) => c.onde.startsWith('antes:') && p.startsWith(c.onde.slice(6)))
+              .map((c) => (
+                <blockquote class="epigrafe" data-v={(r.variantes ?? []).find((v) => v.citas.includes(c))!.id} hidden>
+                  <p class="epigrafe-texto">“{c.texto}”</p>
+                  <cite>— {c.autor}, <em>{c.obra}</em></cite>
+                </blockquote>
+              ))}
             <p set:html={mdLinks(p)} />
             {graficosApos(i).map((g) => <GraficosArtigo id={g.id} lang={lang} />)}
           </Fragment>
@@ -58,6 +85,13 @@ const T = {
         <div class="rep-assinatura-nome">{r.assinatura.linha1}</div>
         <div class="rep-assinatura-cargo">{r.assinatura.linha2}</div>
       </div>
+
+      {(r.variantes ?? []).flatMap((v) => v.citas).filter((c) => c.onde === 'fecho').map((c) => (
+        <blockquote class="epigrafe" data-v={(r.variantes ?? []).find((v) => v.citas.includes(c))!.id} hidden>
+          <p class="epigrafe-texto">“{c.texto}”</p>
+          <cite>— {c.autor}, <em>{c.obra}</em></cite>
+        </blockquote>
+      ))}
 
       {r.notas && (
         <div class="rep-notas-link">
@@ -71,3 +105,69 @@ const T = {
     </div>
   </section>
 </Base>
+
+{r.variantes && (
+<script is:inline>
+  (function () {
+    var primeira = document.querySelector('.pill-versao');
+    if (!primeira) return;
+    var pills = Array.prototype.slice.call(document.querySelectorAll('.pill-versao'));
+    function ativa(id, gravar) {
+      document.querySelectorAll('.epigrafe').forEach(function (b) { b.hidden = b.getAttribute('data-v') !== id; });
+      pills.forEach(function (p) { p.classList.toggle('ativa', p.getAttribute('data-pill') === id); });
+      if (gravar) {
+        try { history.replaceState(null, '', '?v=' + id); } catch (e) {}
+      }
+    }
+    pills.forEach(function (p) {
+      p.addEventListener('click', function () { ativa(p.getAttribute('data-pill'), true); });
+    });
+    var inicial = (location.search.match(/[?&]v=(v\d)/) || [])[1] || primeira.getAttribute('data-pill');
+    ativa(inicial, false);
+  })();
+</script>
+)}
+
+<style>
+  .seletor-versao {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    margin: 0 0 18px; padding: 10px 14px;
+    background: var(--verde-50, #f2f9f5);
+    border: 1px solid var(--verde-100, #dcefe5);
+    border-radius: 999px;
+  }
+  .seletor-rotulo { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--verde-700, #14664e); margin-right: 4px; }
+  .pill-versao {
+    padding: 7px 16px; border-radius: 999px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    background: #fff; color: var(--verde-900, #0b3b2e);
+    border: 1.5px solid var(--verde-100, #dcefe5);
+    transition: all .15s ease;
+  }
+  .pill-versao:hover { border-color: var(--verde-500, #1e8a66); transform: translateY(-1px); }
+  .pill-versao.ativa {
+    background: var(--verde-950, #06231b); color: var(--lima, #b5e048);
+    border-color: var(--verde-950, #06231b);
+  }
+  .epigrafe {
+    margin: 0 0 26px; padding: 20px 24px;
+    background: var(--areia-light, #faf9f6);
+    border-left: 4px solid var(--lima, #b5e048);
+    border-radius: 0 14px 14px 0;
+  }
+  .epigrafe-texto {
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-style: italic;
+    font-size: 19px !important;
+    line-height: 1.55 !important;
+    color: var(--verde-950, #06231b) !important;
+    text-align: left !important;
+    margin: 0 0 8px !important;
+    font-weight: 400 !important;
+  }
+  .epigrafe cite {
+    font-style: normal; font-size: 13px; color: var(--cinza, #586961);
+    letter-spacing: .03em;
+  }
+  .epigrafe cite em { font-style: italic; }
+</style>

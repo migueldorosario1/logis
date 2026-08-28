@@ -13,6 +13,7 @@ export interface Reportagem {
   // Links de fonte entram como [texto](https://…) no corpo — renderizados silenciosamente.
   graficos?: { apos: number; id: string }[]; // intercalar <GraficosArtigo> após o parágrafo N (0-based, só pt)
   notas?: Record<string, string[]>; // página /reportagens/[slug]/notas — markdown links permitidos
+  variantes?: { id: string; rotulo: string; citas: { texto: string; autor: string; obra: string; onde: string }[] }[]; // versões com citações eruditas em posições diferentes (seletor na página)
 }
 
 export const REPORTAGENS: Reportagem[] = [
@@ -33,7 +34,28 @@ export const REPORTAGENS: Reportagem[] = [
       credito: 'Alf van Beem',
       licenca: 'CC0 (domínio público)',
       descricao: 'Navio contêiner sendo carregado à noite em um porto internacional',
-    },
+    },    variantes: [
+      { id: 'v1', rotulo: 'V1 · epígrafe', citas: [
+        { texto: 'Somos servos da lei para podermos ser livres.', autor: 'Cícero', obra: 'Pro Cluentio', onde: 'epigrafe' },
+      ] },
+      { id: 'v2', rotulo: 'V2 · lei + estratégia', citas: [
+        { texto: 'Somos servos da lei para podermos ser livres.', autor: 'Cícero', obra: 'Pro Cluentio', onde: 'epigrafe' },
+        { texto: 'A suprema arte da guerra é subjugar o inimigo sem lutar.', autor: 'Sun Tzu', obra: 'A Arte da Guerra', onde: 'antes:Seria injusto dizer que o Brasil assiste parado' },
+      ] },
+      { id: 'v3', rotulo: 'V3 · rota + ordem', citas: [
+        { texto: 'Não existe vento favorável para o marinheiro que não sabe a que porto se dirige.', autor: 'Sêneca', obra: 'Cartas a Lucílio', onde: 'antes:O Plano Nacional de Logística promete' },
+        { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
+      ] },
+      { id: 'v4', rotulo: 'V4 · três vozes', citas: [
+        { texto: 'Onde a liberdade caiu, ninguém ousa falar livremente.', autor: 'Públio Siro', obra: 'Sententiae', onde: 'antes:Nesses territórios, 59,5% das pessoas' },
+        { texto: 'A suprema arte da guerra é subjugar o inimigo sem lutar.', autor: 'Sun Tzu', obra: 'A Arte da Guerra', onde: 'antes:Seria injusto dizer que o Brasil assiste parado' },
+        { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
+      ] },
+      { id: 'v5', rotulo: 'V5 · chamada', citas: [
+        { texto: 'Uma jornada de mil milhas começa com um único passo.', autor: 'Lao Tsé', obra: 'Tao Te Ching', onde: 'fecho' },
+      ] },
+    ],
+
     corpo: {
       pt: [
         "Enquanto o Brasil desenha os maiores corredores logísticos de sua história, o passageiro mais pontual deles já comprou o bilhete. Não é a soja, não é a indústria, é o crime organizado.",
