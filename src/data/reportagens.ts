@@ -54,6 +54,14 @@ export const REPORTAGENS: Reportagem[] = [
       { id: 'v5', rotulo: 'V5 · chamada', citas: [
         { texto: 'Uma jornada de mil milhas começa com um único passo.', autor: 'Lao Tsé', obra: 'Tao Te Ching', onde: 'fecho' },
       ] },
+      { id: 'v6', rotulo: 'V6 · a obra e a arma', citas: [
+        { texto: 'Com uma das mãos trabalhavam na obra e com a outra seguravam a arma.', autor: 'Neemias', obra: 'Neemias 4:17', onde: 'antes:Cada obra da nova malha logística é dupla por natureza' },
+        { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
+      ] },
+      { id: 'v7', rotulo: 'V7 · a sentinela', citas: [
+        { texto: 'Estou fazendo uma grande obra e não posso descer.', autor: 'Neemias', obra: 'Neemias 6:3', onde: 'epigrafe' },
+        { texto: 'Filho do homem, eu te designei por atalaia para a casa de Israel.', autor: 'Ezequiel', obra: 'Ezequiel 33:7', onde: 'antes:A peça que falta existe no papel' },
+      ] },
     ],
 
     corpo: {
