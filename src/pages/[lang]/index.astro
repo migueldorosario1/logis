@@ -33,9 +33,15 @@ const ILUSTRAS: Record<string, string> = {
 };
 
 const T = {
-  pt: { ler: 'Ler a reportagem completa', por: 'Por', noticiasK: 'Atualizado semanalmente', noticiasT: 'Últimas notícias', editorialK: 'Editorial semanal', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.', emBreve: 'tradução automática em construção' },
-  en: { ler: 'Read the full story', por: 'By', noticiasK: 'Updated weekly', noticiasT: 'Latest news', editorialK: 'Weekly editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.', emBreve: 'automatic translation under construction' },
-  es: { ler: 'Leer la reportaje completa', por: 'Por', noticiasK: 'Actualizado semanalmente', noticiasT: 'Últimas noticias', editorialK: 'Editorial semanal', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.', emBreve: 'traducción automática en construcción' },
+  pt: { ler: 'Ler a reportagem completa', por: 'Por', noticiasK: 'Atualizado semanalmente', noticiasT: 'Últimas notícias', revKicker: 'Revista Logis · Edição nº 1 · prévia', revTitulo: 'Dossiê: corredores de escoamento e controle logístico', revTexto: 'Chancay, a ferrovia bioceânica e o desafio das fronteiras abertas. A capa e o sumário da primeira edição já estão prontos para baixar — conteúdo real, nada demonstrativo.', revBaixar: '⬇ Baixar a prévia (PDF)', revVer: 'Conhecer a revista', editorialK: 'Editorial semanal', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.', emBreve: 'tradução automática em construção' },
+  en: { ler: 'Read the full story', por: 'By', noticiasK: 'Updated weekly', noticiasT: 'Latest news', revKicker: 'Logis Journal · Issue No. 1 · preview', revTitulo: 'Dossier: export corridors and logistics control', revTexto: 'Chancay, the bioceanic railway and the challenge of open borders. The first issue’s cover and contents are ready to download — real content, nothing dummy.', revBaixar: '⬇ Download the preview (PDF)', revVer: 'About the journal', editorialK: 'Weekly editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.', emBreve: 'automatic translation under construction' },
+  es: { ler: 'Leer la reportaje completa', por: 'Por', noticiasK: 'Actualizado semanalmente', noticiasT: 'Últimas noticias', revKicker: 'Revista Logis · Edición nº 1 · avance', revTitulo: 'Dossier: corredores de escoamiento y control logístico', revTexto: 'Chancay, el ferrocarril bioceánico y el desafío de las fronteras abiertas. La portada y el sumario de la primera edición ya están listos para descargar — contenido real, nada demostrativo.', revBaixar: '⬇ Descargar el avance (PDF)', revVer: 'Conocer la revista', editorialK: 'Editorial semanal', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.', emBreve: 'traducción automática en construcción' },
+}[lang];
+
+const REVISTA_PDF = {
+  pt: '/downloads/revista-logis-edicao1-pt.pdf',
+  en: '/downloads/revista-logis-edicao1-en.pdf',
+  es: '/downloads/revista-logis-edicao1-es.pdf',
 }[lang];
 ---
 
@@ -87,6 +93,25 @@ const T = {
             </span>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block revista-destaque">
+    <div class="container">
+      <a class="revista-card" href={langPath(lang, 'revista')}>
+        <span class="revista-capa">
+          <img src={`/imagens/revista-capa-${lang}.png`} alt={T.revTitulo} loading="lazy" />
+        </span>
+        <span class="revista-info">
+          <span class="revista-kicker">{T.revKicker}</span>
+          <h2 class="revista-titulo">{T.revTitulo}</h2>
+          <p class="revista-texto">{T.revTexto}</p>
+        </span>
+      </a>
+      <div class="revista-botoes">
+        <a class="btn primary" href={REVISTA_PDF} download>{T.revBaixar}</a>
+        <a class="btn ghost" href={langPath(lang, 'revista')}>{T.revVer} →</a>
       </div>
     </div>
   </section>

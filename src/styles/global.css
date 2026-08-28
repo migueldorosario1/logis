@@ -1320,6 +1320,55 @@ footer.site p {
 /* ==========================================================================
    Accessibility & Media Overrides
    ========================================================================== */
+/* ----- Destaque da revista (capa na home) ----- */
+.revista-destaque { background: var(--verde-50); }
+.revista-card {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  text-decoration: none !important;
+}
+.revista-capa {
+  flex: 0 0 200px;
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px -6px rgba(6,35,27,.35), 0 3px 8px rgba(6,35,27,.18);
+  transition: transform var(--transicao-normal), box-shadow var(--transicao-normal);
+}
+.revista-card:hover .revista-capa {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 16px 34px -8px rgba(6,35,27,.42), 0 4px 10px rgba(6,35,27,.2);
+}
+.revista-capa img { display: block; width: 100%; height: auto; }
+.revista-info { display: flex; flex-direction: column; gap: 8px; }
+.revista-kicker {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--verde-700);
+}
+.revista-titulo {
+  font-size: clamp(20px, 2.6vw, 27px);
+  line-height: 1.25;
+  color: var(--verde-950);
+}
+.revista-texto { font-size: 14.5px; line-height: 1.6; color: var(--tinta-suave); max-width: 56ch; }
+.revista-botoes {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+@media (max-width: 720px) {
+  .revista-card { flex-direction: column; text-align: center; }
+  .revista-capa { flex-basis: auto; width: 190px; }
+  .revista-texto { max-width: none; }
+  .revista-botoes { justify-content: center; }
+}
+
 /* ----- Bloco Últimas notícias (capa) ----- */
 .noticias { padding-top: 42px; }
 .noticias-cabecalho {

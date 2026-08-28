@@ -58,6 +58,7 @@ export const NAV_GROUPS: NavGroup[] = [
     children: [
       { slug: 'quemsomos', label: { pt: 'Instituto', en: 'Institute', es: 'Instituto' } },
       { slug: 'objetivos', label: { pt: 'Objetivos', en: 'Objectives', es: 'Objetivos' } },
+      { slug: 'revista', label: { pt: 'Revista Logis', en: 'Logis Journal', es: 'Revista Logis' } },
       { slug: 'endereco', label: { pt: 'Endereço', en: 'Address', es: 'Dirección' } },
       { slug: 'contato', label: { pt: 'Contato', en: 'Contact', es: 'Contacto' } },
     ],
@@ -66,7 +67,7 @@ export const NAV_GROUPS: NavGroup[] = [
 
 // Extras fora do menu (aparecem no menu mobile e no rodapé)
 export const NAV_EXTRAS: NavChild[] = [
-  { slug: 'revista', label: { pt: 'Revista Logis', en: 'Logis Journal', es: 'Revista Logis' } },
+  // 'revista' migrou para o submenu do Quem Somos (ordem Miguel 28/08)
   { slug: 'linha-editorial', label: { pt: 'Linha Editorial', en: 'Editorial Line', es: 'Línea Editorial' } },
   { slug: 'estatuto', label: { pt: 'Estatuto', en: 'Statutes', es: 'Estatutos' } },
   { slug: 'institucional', label: { pt: 'Institucional', en: 'About', es: 'Institucional' } },

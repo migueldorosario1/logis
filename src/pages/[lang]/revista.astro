@@ -17,30 +17,25 @@ const T = {
     dlTexto: 'Baixe a prévia da edição nº 1: capa com o dossiê "corredores de escoamento e controle logístico" e sumário com o que já existe — o editorial e a reportagem publicados no portal — e as seções que abrem com a chamada de trabalhos. Conteúdo real, nada demonstrativo.',
     dlBtn: '⬇ PDF em português',
     dlOutros: 'Também disponível:',
-    dlEn: 'English PDF',
-    dlEs: 'PDF en español',
   },
   en: {
     dlTitulo: 'Issue #1 preview — cover and contents (PDF)',
     dlTexto: 'Download the Issue #1 preview: a cover with the "export corridors and logistics control" dossier and a contents page listing what already exists — the editorial and the feature story published on the portal — plus the sections opening with the call for papers. Real content, nothing dummy.',
     dlBtn: '⬇ PDF in English',
     dlOutros: 'Also available:',
-    dlEn: 'PDF em português',
-    dlEs: 'PDF en español',
   },
   es: {
     dlTitulo: 'Avance de la edición nº 1 — portada y sumario (PDF)',
     dlTexto: 'Descargue el avance de la edición nº 1: portada con el dossier "corredores de escoamiento y control logístico" y sumario con lo que ya existe — el editorial y el reportaje publicados en el portal — y las secciones que abren con la convocatoria de trabajos. Contenido real, nada demostrativo.',
     dlBtn: '⬇ PDF en español',
     dlOutros: 'También disponible:',
-    dlEn: 'PDF em português',
-    dlEs: 'English PDF',
   },
 }[lang];
 
 const PDF_PT = '/downloads/revista-logis-edicao1-pt.pdf';
 const PDF_EN = '/downloads/revista-logis-edicao1-en.pdf';
 const PDF_ES = '/downloads/revista-logis-edicao1-es.pdf';
+const PDF_ATUAL = lang === 'en' ? PDF_EN : lang === 'es' ? PDF_ES : PDF_PT;
 ---
 
 <Base lang={lang} slug="revista" title={title} description={c.hero.sub}>
@@ -54,12 +49,12 @@ const PDF_ES = '/downloads/revista-logis-edicao1-es.pdf';
           <p>{T.dlTexto}</p>
         </div>
         <div class="revista-downloads">
-          <a class="btn primary" href={lang === 'en' ? PDF_EN : lang === 'es' ? PDF_ES : PDF_PT} download>{T.dlBtn}</a>
+          <a class="btn primary" href={PDF_ATUAL} download>{T.dlBtn}</a>
           <span class="revista-downloads-outros">
             {T.dlOutros}
-            <a href={PDF_PT} download>{lang === 'pt' ? T.dlEn : 'português'}</a> ·
-            <a href={PDF_EN} download>{lang === 'en' ? T.dlEn : 'english'}</a> ·
-            <a href={PDF_ES} download>{lang === 'es' ? T.dlEn : 'español'}</a>
+            <a href={PDF_PT} download>português</a> ·
+            <a href={PDF_EN} download>english</a> ·
+            <a href={PDF_ES} download>español</a>
           </span>
         </div>
       </div>
