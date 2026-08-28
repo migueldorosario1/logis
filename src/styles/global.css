@@ -959,9 +959,10 @@ article.doc p strong { color: var(--verde-900, #0b3b2e); }
 .rep-foto img { width: 100%; border-radius: 14px; box-shadow: 0 14px 34px rgba(2, 24, 14, 0.16); display: block; }
 .rep-foto figcaption { font-size: 11.5px; color: var(--cinza, #5b6b62); margin-top: 8px; line-height: 1.5; }
 article.editorial p {
-  font-size: 17.5px; line-height: 1.8; margin: 0 0 16px;
+  font-family: 'Nunito', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px; font-weight: 500; line-height: 1.8; margin: 0 0 16px;
   text-align: justify; hyphens: auto;
-  color: var(--tinta, #14201b);
+  color: #0d1811;
 }
 .rep-assinatura { margin-top: 34px; text-align: center; }
 .rep-assinatura-nome {
@@ -973,7 +974,7 @@ article.editorial p {
 
 /* Editorial (página do artigo) */
 article.editorial { max-width: 760px; margin: 0 auto; }
-article.editorial p { font-size: 17.5px; line-height: 1.8; margin: 0 0 16px; text-align: justify; hyphens: auto; color: var(--tinta, #14201b); }
+article.editorial p { font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.8; margin: 0 0 16px; text-align: justify; hyphens: auto; color: #0d1811; }
 article.editorial p.lead { font-size: 18px; line-height: 1.65; color: var(--verde-900, #0b3b2e); font-weight: 500; }
 
 /* RSS */
