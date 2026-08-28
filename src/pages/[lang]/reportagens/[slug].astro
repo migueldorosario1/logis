@@ -39,10 +39,20 @@ const T = {
   <section class="block">
     <div class="container">
       <figure class="rep-foto">
-        <img src={r.foto.src} alt={r.foto.descricao} loading="lazy" />
-        <figcaption>
+        <img id="rep-foto-img" src={r.foto.src} alt={r.foto.descricao} loading="lazy" />
+        <figcaption id="rep-foto-caption">
           {r.foto.descricao} — Foto: {r.foto.credito} · Licença: {r.foto.licenca} (Wikimedia Commons)
         </figcaption>
+        {(r.variantes ?? []).filter((v) => v.foto).map((v) => (
+          <span
+            class="foto-variante-data"
+            data-v={v.id}
+            data-src={v.foto!.src}
+            data-alt={v.foto!.descricao}
+            data-caption={`${v.foto!.descricao} — Foto: ${v.foto!.credito} · Licença: ${v.foto!.licenca} (Wikimedia Commons)`}
+            hidden
+          />
+        ))}
       </figure>
 
       {(r.variantes ?? []).flatMap((v) => v.citas).filter((c) => c.onde === 'epigrafe').map((c) => (
@@ -115,6 +125,14 @@ const T = {
     function ativa(id, gravar) {
       document.querySelectorAll('.epigrafe').forEach(function (b) { b.hidden = b.getAttribute('data-v') !== id; });
       pills.forEach(function (p) { p.classList.toggle('ativa', p.getAttribute('data-pill') === id); });
+      var dados = document.querySelector('.foto-variante-data[data-v="' + id + '"]');
+      var img = document.getElementById('rep-foto-img');
+      var cap = document.getElementById('rep-foto-caption');
+      if (dados && img && cap) {
+        img.src = dados.getAttribute('data-src');
+        img.alt = dados.getAttribute('data-alt');
+        cap.textContent = dados.getAttribute('data-caption');
+      }
       if (gravar) {
         try { history.replaceState(null, '', '?v=' + id); } catch (e) {}
       }

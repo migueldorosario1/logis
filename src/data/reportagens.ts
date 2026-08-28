@@ -13,7 +13,11 @@ export interface Reportagem {
   // Links de fonte entram como [texto](https://…) no corpo — renderizados silenciosamente.
   graficos?: { apos: number; id: string }[]; // intercalar <GraficosArtigo> após o parágrafo N (0-based, só pt)
   notas?: Record<string, string[]>; // página /reportagens/[slug]/notas — markdown links permitidos
-  variantes?: { id: string; rotulo: string; citas: { texto: string; autor: string; obra: string; onde: string }[] }[]; // versões com citações eruditas em posições diferentes (seletor na página)
+  variantes?: {
+    id: string; rotulo: string;
+    foto?: { src: string; credito: string; licenca: string; descricao: string };
+    citas: { texto: string; autor: string; obra: string; onde: string }[];
+  }[]; // versões com citações eruditas em posições diferentes (seletor na página)
 }
 
 export const REPORTAGENS: Reportagem[] = [
@@ -35,30 +39,37 @@ export const REPORTAGENS: Reportagem[] = [
       licenca: 'CC0 (domínio público)',
       descricao: 'Navio contêiner sendo carregado à noite em um porto internacional',
     },    variantes: [
-      { id: 'v1', rotulo: 'V1 · epígrafe', citas: [
+      { id: 'v1', rotulo: 'V1 · epígrafe', foto: { src: '/imagens/reportagem-crime-capa.jpg', credito: 'Alf van Beem', licenca: 'CC0 (domínio público)', descricao: 'Navio contêiner sendo carregado à noite em um porto internacional' },
+        citas: [
         { texto: 'Somos servos da lei para podermos ser livres.', autor: 'Cícero', obra: 'Pro Cluentio', onde: 'epigrafe' },
       ] },
-      { id: 'v2', rotulo: 'V2 · lei + estratégia', citas: [
+      { id: 'v2', rotulo: 'V2 · lei + estratégia', foto: { src: '/imagens/crime-v2.jpg', credito: 'Severin.stalder', licenca: 'CC BY-SA 3.0', descricao: 'A Grande Muralha da China, a obra de controle de fronteira mais antiga do mundo' },
+        citas: [
         { texto: 'Somos servos da lei para podermos ser livres.', autor: 'Cícero', obra: 'Pro Cluentio', onde: 'epigrafe' },
         { texto: 'A suprema arte da guerra é subjugar o inimigo sem lutar.', autor: 'Sun Tzu', obra: 'A Arte da Guerra', onde: 'antes:Seria injusto dizer que o Brasil assiste parado' },
       ] },
-      { id: 'v3', rotulo: 'V3 · rota + ordem', citas: [
+      { id: 'v3', rotulo: 'V3 · rota + ordem', foto: { src: '/imagens/crime-v3.jpg', credito: 'Deni Williams', licenca: 'CC BY 2.0', descricao: 'A Ponte da Amizade, na fronteira Brasil–Paraguai — a rota histórica do contrabando' },
+        citas: [
         { texto: 'Não existe vento favorável para o marinheiro que não sabe a que porto se dirige.', autor: 'Sêneca', obra: 'Cartas a Lucílio', onde: 'antes:O Plano Nacional de Logística promete' },
         { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
       ] },
-      { id: 'v4', rotulo: 'V4 · três vozes', citas: [
+      { id: 'v4', rotulo: 'V4 · três vozes', foto: { src: '/imagens/crime-v4.jpg', credito: 'U.S. Customs and Border Protection', licenca: 'Domínio público', descricao: 'Agentes da patrulha de fronteira operando um posto de controle na Interestadual 8, nos EUA' },
+        citas: [
         { texto: 'Onde a liberdade caiu, ninguém ousa falar livremente.', autor: 'Públio Siro', obra: 'Sententiae', onde: 'antes:Nesses territórios, 59,5% das pessoas' },
         { texto: 'A suprema arte da guerra é subjugar o inimigo sem lutar.', autor: 'Sun Tzu', obra: 'A Arte da Guerra', onde: 'antes:Seria injusto dizer que o Brasil assiste parado' },
         { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
       ] },
-      { id: 'v5', rotulo: 'V5 · chamada', citas: [
+      { id: 'v5', rotulo: 'V5 · chamada', foto: { src: '/imagens/crime-v5.jpg', credito: 'Dietmar Rabich', licenca: 'CC BY-SA 4.0', descricao: 'Uma estrada solitária se perdendo no horizonte' },
+        citas: [
         { texto: 'Uma jornada de mil milhas começa com um único passo.', autor: 'Lao Tsé', obra: 'Tao Te Ching', onde: 'fecho' },
       ] },
-      { id: 'v6', rotulo: 'V6 · a obra e a arma', citas: [
+      { id: 'v6', rotulo: 'V6 · a obra e a arma', foto: { src: '/imagens/crime-v6.jpg', credito: 'Boris Jaramazović', licenca: 'CC BY-SA 4.0', descricao: 'As muralhas da Cidade Velha de Jerusalém' },
+        citas: [
         { texto: 'Com uma das mãos trabalhavam na obra e com a outra seguravam a arma.', autor: 'Neemias', obra: 'Neemias 4:17', onde: 'antes:Cada obra da nova malha logística é dupla por natureza' },
         { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
       ] },
-      { id: 'v7', rotulo: 'V7 · a sentinela', citas: [
+      { id: 'v7', rotulo: 'V7 · a sentinela', foto: { src: '/imagens/crime-v7.jpg', credito: 'Nicholas Raymond', licenca: 'CC BY 2.0', descricao: 'Um farol ao amanhecer — a vigia que orienta quem chega' },
+        citas: [
         { texto: 'Estou fazendo uma grande obra e não posso descer.', autor: 'Neemias', obra: 'Neemias 6:3', onde: 'epigrafe' },
         { texto: 'Filho do homem, eu te designei por atalaia para a casa de Israel.', autor: 'Ezequiel', obra: 'Ezequiel 33:7', onde: 'antes:A peça que falta existe no papel' },
       ] },
