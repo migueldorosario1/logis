@@ -77,7 +77,7 @@ export const REPORTAGENS: Reportagem[] = [
 
     corpo: {
       pt: [
-        "Enquanto o Brasil desenha os maiores corredores logísticos de sua história, o passageiro mais pontual deles já comprou o bilhete. Não é a soja, não é a indústria, é o crime organizado.",
+        "Enquanto o Brasil desenha os maiores corredores logísticos de sua história, o passageiro mais pontual deles já comprou o bilhete. Quem embarcou primeiro foi o crime organizado, deixando para trás a soja e a indústria.",
         "O Plano Nacional de Logística promete integrar o território até 2050, a ferrovia bioceânica voltou à mesa com a Bolívia e o Peru, e o Porto de Chancay encurtou o Pacífico. Se essas obras nascerem sem controle sobre quem as usa, o Estado terá pago a conta da própria derrota.",
         "O adversário mais caro do desenvolvimento brasileiro não carrega fuzil. Carrega carga, e viaja sem que ninguém pergunte o que há dentro.",
         "A inteligência do Ministério Público de São Paulo mediu o adversário, e a conta assusta. Ela estima, desde maio de 2026, que o PCC fature US$ 2 bilhões por ano, e o Tesouro dos Estados Unidos o classificou em julho como a maior organização criminosa do Hemisfério Ocidental.",
@@ -91,13 +91,13 @@ export const REPORTAGENS: Reportagem[] = [
         "A porta de saída é onde o descontrole mais dói. O Porto de Santos concentrou 40% de toda a cocaína apreendida no país em 2025, e [84% das apreensões da Receita Federal acontecem em portos, no embarque](https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/futuro-seguro/receita-federal/apreensao-de-drogas), pelos mesmos berços que despacham a soja.",
         "São 12 mil contêineres por dia, fiscalizados por amostragem. O crime não precisa vencer a polícia; basta caber na fração que ninguém abre.",
         "Na entrada, o problema é de terra firme. O rastreamento das armas apreendidas mostra que 99% chegam pelo território continental, sobretudo pela Tríplice Fronteira, com boa parte do armamento pesado comprado legalmente nos Estados Unidos e desviado pelo Paraguai.",
-        "O preço humano também entra na conta. Entre 28,5 e 68,7 milhões de brasileiros convivem com a presença ou o domínio de facções, conforme a métrica do [Datafolha para o Fórum Brasileiro de Segurança Pública](https://sbtnews.sbt.com.br/noticia/brasil/mais-de-28-milhoes-de-brasileiros-vivem-em-areas-dominadas-por-faccoes-e-milicias-mostra-datafolha).",
+        "Nenhuma dessas contas se fecha sem o preço humano. Entre 28,5 e 68,7 milhões de brasileiros convivem com a presença ou o domínio de facções, conforme a métrica do [Datafolha para o Fórum Brasileiro de Segurança Pública](https://sbtnews.sbt.com.br/noticia/brasil/mais-de-28-milhoes-de-brasileiros-vivem-em-areas-dominadas-por-faccoes-e-milicias-mostra-datafolha).",
         "Nesses territórios, 59,5% das pessoas evitam falar de política no próprio bairro. E o país soma 46.328 homicídios dolosos por ano, muitos deles na guerra pelas rotas.",
         "Onde manda a rota, a urna obedece. Eleições foram anuladas pela Justiça Eleitoral no Ceará e na Paraíba por financiamento de facção, uma candidatura foi barrada no Rio, e a estimativa analítica é que o crime tenha posto cerca de R$ 8 bilhões nas urnas municipais de 2024.",
-        "A reação institucional veio, e veio tarde. Em junho de 2026, o Ministério Público Eleitoral [orientou formalmente os partidos](https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/eleicoes-2026-mp-eleitoral-orienta-partidos-a-adotarem-medidas-para-prevenir-infiltracao-do-crime-organizado) a vetar candidaturas ligadas ao crime, e quando a infiltração vira circular oficial é porque deixou de ser exceção.",
+        "A reação institucional só chegou tarde. Em junho de 2026, o Ministério Público Eleitoral [orientou formalmente os partidos](https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/eleicoes-2026-mp-eleitoral-orienta-partidos-a-adotarem-medidas-para-prevenir-infiltracao-do-crime-organizado) a vetar candidaturas ligadas ao crime, e quando a infiltração vira circular oficial é porque deixou de ser exceção.",
         "Cada obra da nova malha logística é dupla por natureza, e serve a quem chegar primeiro. Um corredor que encurta o caminho da soja encurta o da cocaína, e um porto que acelera o contêiner honesto acelera o outro.",
-        "Obra sem vigilância não é obra, é presente entregue a quem comete crime. O Brasil paga, o crime usa de graça, e a diferença de custo vira lucro do lado errado da lei.",
-        "É o cenário que ninguém quer desenhar, e não é ficção. Um país que integra a América do Sul sem controlar a mercadoria que circula nela caminha para o narco-estado, não por golpe, mas por omissão.",
+        "Sem vigilância, a construção deixa de ser obra, e o que era progresso se torna presente entregue a quem comete crime. O Brasil paga, o crime usa de graça, e a diferença de custo vira lucro do lado errado da lei.",
+        "O cenário que esse erro desenha está mais próximo do que parece. Um país que integra a América do Sul sem controlar a mercadoria que circula nela caminha para o narco-estado, não por golpe, mas por omissão.",
         "Seria injusto dizer que o Brasil assiste parado. A estratégia federal dos últimos anos é a mais inteligente já tentada contra o crime organizado, a de asfixiar o dinheiro em vez de contar corpos.",
         "Foi assim que a Carbono Oculto mapeou o banco paralelo, a Narco Fluxo bloqueou R$ 1,6 bilhão e a Exchange congelou R$ 10,4 bilhões do tráfico internacional. O tiro saiu da equação; entrou a planilha.",
         "A ideia de que a logística decide a guerra entre o Estado e o crime não nasceu com o debate atual. A criminologia trata o transporte e o trânsito de mercadorias como a espinha do crime organizado, e a história já provou a regra dos dois lados.",
@@ -130,7 +130,7 @@ export const REPORTAGENS: Reportagem[] = [
         "Por isso a PEC e o ministério valem mais do que parecem. Pela primeira vez, a lei da segurança, a estrutura do ministério, a malha de 2050 e a tecnologia de rastreamento estão sobre a mesma mesa, e separadas trabalham para o adversário.",
         "Um corredor vigiado é política de Estado; um corredor cego é convite. A diferença entre os dois não é militar, é logística, e cabe numa peça do tamanho de uma moeda.",
         "A Constituição já deu a ordem, ainda que o país a leia pela metade. O artigo 144 manda a segurança pública proteger o patrimônio, e patrimônio, no século da logística, é a mercadoria que sustenta a economia legal.",
-        "O Brasil tem o projeto, tem a tecnologia no papel e tem, agora, o debate aberto no Senado e no Planalto. Falta decidir que os corredores de 2050 terão dono.",
+        "O Brasil tem o projeto, a tecnologia pronta no papel e o debate aberto no Senado e no Planalto. Falta decidir que os corredores de 2050 terão dono.",
         "Construir sem vigiar é entregar para o crime organizado. E ninguém deveria entregar de graça, a quem já fatura US$ 2 bilhões por ano, a infraestrutura com que ele sempre sonhou.",
       ],
       en: [
