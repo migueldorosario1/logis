@@ -33,6 +33,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { slug: 'geomapas', label: { pt: 'Geomapas do mundo', en: 'World geomaps', es: 'Geomapas del mundo' } },
       { slug: 'observatorio', label: { pt: 'Observatório', en: 'Observatory', es: 'Observatorio' } },
       { slug: 'pesquisa', label: { pt: 'Pesquisa & Dados', en: 'Research & Data', es: 'Investigación y Datos' } },
+      { slug: 'artigos', label: { pt: 'Artigos Científicos', en: 'Scientific Articles', es: 'Artículos Científicos' } },
     ],
   },
   {
@@ -60,7 +61,6 @@ export const NAV_GROUPS: NavGroup[] = [
       { slug: 'quemsomos', label: { pt: 'Instituto', en: 'Institute', es: 'Instituto' } },
       { slug: 'objetivos', label: { pt: 'Objetivos', en: 'Objectives', es: 'Objetivos' } },
       { slug: 'revista', label: { pt: 'Revista Logis', en: 'Logis Journal', es: 'Revista Logis' } },
-      { slug: 'artigos', label: { pt: 'Artigos Científicos', en: 'Scientific Articles', es: 'Artículos Científicos' } },
       { slug: 'endereco', label: { pt: 'Endereço', en: 'Address', es: 'Dirección' } },
       { slug: 'contato', label: { pt: 'Contato', en: 'Contact', es: 'Contacto' } },
     ],
