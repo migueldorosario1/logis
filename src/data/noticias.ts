@@ -11,6 +11,29 @@ export interface Noticia {
 }
 
 export const NOTICIAS: Noticia[] = [
+  // Renovação 09/09/2026 (ZCode, ordem Miguel): 2 notícias novas, fontes e datas verificadas por HTTP.
+  {
+    tema: 'portos',
+    fonte: 'Portogente',
+    data: 'set 2026',
+    url: 'https://portogente.com.br/noticias/dia-a-dia/118082-acesso-ao-porto-de-santos-dragar-o-presente-ou-construir-o-futuro',
+    titulo: {
+      pt: 'Acesso ao Porto de Santos: dragar o presente ou construir o futuro?',
+      en: 'Access to the Port of Santos: dredge the present or build the future?',
+      es: 'Acceso al puerto de Santos: ¿dragar el presente o construir el futuro?',
+    },
+  },
+  {
+    tema: 'corredores',
+    fonte: 'Gazeta do Povo',
+    data: 'ago 2026',
+    url: 'https://www.gazetadopovo.com.br/mundo/decisao-judicial-pressao-eua-colocam-berlinda-megaporto-chines-peru/',
+    titulo: {
+      pt: '“Dragão de Troia”: decisão judicial e pressão dos EUA colocam na berlinda megaporto chinês no Peru',
+      en: '"Trojan Dragon": court ruling and US pressure put Peru\u2019s Chinese-built megaport on the spot',
+      es: '"Dragón de Troya": fallo judicial y presión de EE. UU. ponen en la mira el megapuerto chino en Perú',
+    },
+  },
   {
     tema: 'corredores',
     fonte: 'East Asia Forum',

@@ -19,10 +19,6 @@ const mdLinks = (p: string) =>
   p.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 const graficosApos = (i: number) => (r.graficos ?? []).filter((g) => g.apos === i);
 
-// Versão definitiva, sem seletor (decisão Miguel 09/09/2026): citações fixas.
-// V1-V7 arquivadas em arquivo_versoes_capa/.
-const citas = r.citas ?? [];
-
 const T = {
   pt: { lerEditorial: 'Ler os editoriais', notas: 'Notas e fontes da reportagem' },
   en: { lerEditorial: 'Read the editorials', notas: 'Notes and sources' },
@@ -47,22 +43,44 @@ const T = {
         <figcaption id="rep-foto-caption">
           {r.foto.descricao} — Foto: {r.foto.credito} · Licença: {r.foto.licenca} (Wikimedia Commons)
         </figcaption>
+        {(r.variantes ?? []).filter((v) => v.foto).map((v) => (
+          <span
+            class="foto-variante-data"
+            data-v={v.id}
+            data-src={v.foto!.src}
+            data-alt={v.foto!.descricao}
+            data-caption={`${v.foto!.descricao} — Foto: ${v.foto!.credito} · Licença: ${v.foto!.licenca} (Wikimedia Commons)`}
+            hidden
+          />
+        ))}
       </figure>
 
-      {citas.filter((c) => c.onde === 'epigrafe').map((c) => (
-        <blockquote class="epigrafe">
+      {(r.variantes ?? []).flatMap((v) => v.citas).filter((c) => c.onde === 'epigrafe').map((c) => (
+        <blockquote class="epigrafe" data-v={(r.variantes ?? []).find((v) => v.citas.includes(c))!.id} hidden>
           <p class="epigrafe-texto">“{c.texto}”</p>
           <cite>— {c.autor}, <em>{c.obra}</em></cite>
         </blockquote>
       ))}
 
+      {r.variantes && (
+        <div class="seletor-versao" id="seletor-versao">
+          <span class="seletor-rotulo">
+            {{ pt: 'Versões com citação erudita:', en: 'Versions with a classic quote:', es: 'Versiones con cita clásica:' }[lang]}
+          </span>
+          {r.variantes.map((v) => (
+            <button class="pill-versao" data-pill={v.id} type="button">{v.rotulo.split(' · ')[0]}</button>
+          ))}
+        </div>
+      )}
+
       <article class="editorial">
         {r.corpo[lang].map((p, i) => (
           <Fragment>
-            {citas
+            {(r.variantes ?? [])
+              .flatMap((v) => v.citas)
               .filter((c) => c.onde.startsWith('antes:') && p.startsWith(c.onde.slice(6)))
               .map((c) => (
-                <blockquote class="epigrafe">
+                <blockquote class="epigrafe" data-v={(r.variantes ?? []).find((v) => v.citas.includes(c))!.id} hidden>
                   <p class="epigrafe-texto">“{c.texto}”</p>
                   <cite>— {c.autor}, <em>{c.obra}</em></cite>
                 </blockquote>
@@ -78,8 +96,8 @@ const T = {
         <div class="rep-assinatura-cargo">{r.assinatura.linha2}</div>
       </div>
 
-      {citas.filter((c) => c.onde === 'fecho').map((c) => (
-        <blockquote class="epigrafe">
+      {(r.variantes ?? []).flatMap((v) => v.citas).filter((c) => c.onde === 'fecho').map((c) => (
+        <blockquote class="epigrafe" data-v={(r.variantes ?? []).find((v) => v.citas.includes(c))!.id} hidden>
           <p class="epigrafe-texto">“{c.texto}”</p>
           <cite>— {c.autor}, <em>{c.obra}</em></cite>
         </blockquote>
@@ -98,7 +116,57 @@ const T = {
   </section>
 </Base>
 
+{r.variantes && (
+<script is:inline>
+  (function () {
+    var primeira = document.querySelector('.pill-versao');
+    if (!primeira) return;
+    var pills = Array.prototype.slice.call(document.querySelectorAll('.pill-versao'));
+    function ativa(id, gravar) {
+      document.querySelectorAll('.epigrafe').forEach(function (b) { b.hidden = b.getAttribute('data-v') !== id; });
+      pills.forEach(function (p) { p.classList.toggle('ativa', p.getAttribute('data-pill') === id); });
+      var dados = document.querySelector('.foto-variante-data[data-v="' + id + '"]');
+      var img = document.getElementById('rep-foto-img');
+      var cap = document.getElementById('rep-foto-caption');
+      if (dados && img && cap) {
+        img.src = dados.getAttribute('data-src');
+        img.alt = dados.getAttribute('data-alt');
+        cap.textContent = dados.getAttribute('data-caption');
+      }
+      if (gravar) {
+        try { history.replaceState(null, '', '?v=' + id); } catch (e) {}
+      }
+    }
+    pills.forEach(function (p) {
+      p.addEventListener('click', function () { ativa(p.getAttribute('data-pill'), true); });
+    });
+    var inicial = (location.search.match(/[?&]v=(v\d)/) || [])[1] || primeira.getAttribute('data-pill');
+    ativa(inicial, false);
+  })();
+</script>
+)}
+
 <style>
+  .seletor-versao {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    margin: 0 0 18px; padding: 10px 14px;
+    background: var(--verde-50, #f2f9f5);
+    border: 1px solid var(--verde-100, #dcefe5);
+    border-radius: 999px;
+  }
+  .seletor-rotulo { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--verde-700, #14664e); margin-right: 4px; }
+  .pill-versao {
+    padding: 7px 16px; border-radius: 999px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    background: #fff; color: var(--verde-900, #0b3b2e);
+    border: 1.5px solid var(--verde-100, #dcefe5);
+    transition: all .15s ease;
+  }
+  .pill-versao:hover { border-color: var(--verde-500, #1e8a66); transform: translateY(-1px); }
+  .pill-versao.ativa {
+    background: var(--verde-950, #06231b); color: var(--lima, #b5e048);
+    border-color: var(--verde-950, #06231b);
+  }
   .epigrafe {
     margin: 0 0 16px; padding: 0;
     background: none; border: none;
