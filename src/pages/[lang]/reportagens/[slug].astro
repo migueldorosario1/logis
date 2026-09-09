@@ -19,9 +19,9 @@ const mdLinks = (p: string) =>
   p.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 const graficosApos = (i: number) => (r.graficos ?? []).filter((g) => g.apos === i);
 
-// Versão definitiva, sem seletor (decisão Miguel 09/09/2026): citações fixas.
+// Versão definitiva, sem seletor (decisão Miguel 09/09/2026). Citações bíblica e clássica
+// vivem TECIDAS nos parágrafos do corpo (2ª ordem 09/09: sem blocos destacados).
 // V1-V7 arquivadas em arquivo_versoes_capa/.
-const citas = r.citas ?? [];
 
 const T = {
   pt: { lerEditorial: 'Ler os editoriais', notas: 'Notas e fontes da reportagem' },
@@ -49,24 +49,9 @@ const T = {
         </figcaption>
       </figure>
 
-      {citas.filter((c) => c.onde === 'epigrafe').map((c) => (
-        <blockquote class="epigrafe">
-          <p class="epigrafe-texto">“{c.texto}”</p>
-          <cite>— {c.autor}, <em>{c.obra}</em></cite>
-        </blockquote>
-      ))}
-
       <article class="editorial">
         {r.corpo[lang].map((p, i) => (
           <Fragment>
-            {citas
-              .filter((c) => c.onde.startsWith('antes:') && p.startsWith(c.onde.slice(6)))
-              .map((c) => (
-                <blockquote class="epigrafe">
-                  <p class="epigrafe-texto">“{c.texto}”</p>
-                  <cite>— {c.autor}, <em>{c.obra}</em></cite>
-                </blockquote>
-              ))}
             <p set:html={mdLinks(p)} />
             {graficosApos(i).map((g) => <GraficosArtigo id={g.id} lang={lang} />)}
           </Fragment>
@@ -77,13 +62,6 @@ const T = {
         <div class="rep-assinatura-nome">{r.assinatura.linha1}</div>
         <div class="rep-assinatura-cargo">{r.assinatura.linha2}</div>
       </div>
-
-      {citas.filter((c) => c.onde === 'fecho').map((c) => (
-        <blockquote class="epigrafe">
-          <p class="epigrafe-texto">“{c.texto}”</p>
-          <cite>— {c.autor}, <em>{c.obra}</em></cite>
-        </blockquote>
-      ))}
 
       {r.notas && (
         <div class="rep-notas-link">
@@ -97,25 +75,3 @@ const T = {
     </div>
   </section>
 </Base>
-
-<style>
-  .epigrafe {
-    margin: 0 0 16px; padding: 0;
-    background: none; border: none;
-  }
-  .epigrafe-texto {
-    font-family: Georgia, 'Times New Roman', serif !important;
-    font-style: italic;
-    font-size: 17px !important;
-    line-height: 1.8 !important;
-    color: #0d1811 !important;
-    text-align: left !important;
-    margin: 0 !important;
-    font-weight: 400 !important;
-  }
-  .epigrafe cite {
-    font-style: normal; font-size: 13px; color: var(--cinza, #586961);
-    letter-spacing: .03em;
-  }
-  .epigrafe cite em { font-style: italic; }
-</style>

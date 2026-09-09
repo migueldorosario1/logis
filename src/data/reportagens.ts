@@ -13,9 +13,9 @@ export interface Reportagem {
   // Links de fonte entram como [texto](https://…) no corpo — renderizados silenciosamente.
   graficos?: { apos: number; id: string }[]; // intercalar <GraficosArtigo> após o parágrafo N (0-based, só pt)
   notas?: Record<string, string[]>; // página /reportagens/[slug]/notas — markdown links permitidos
-  // Versão definitiva sem seletor (decisão Miguel 09/09/2026): citações fixas no corpo.
+  // Versão definitiva sem seletor (decisão Miguel 09/09/2026): citações bíblica + clássica
+  // TECIDAS no corpo do texto (2ª ordem 09/09: casuais, integradas ao contexto, sem bloco de destaque).
   // As 7 versões originais (V1-V7) estão arquivadas em arquivo_versoes_capa/ (decisão provisória).
-  citas?: { texto: string; autor: string; obra: string; onde: string }[];
 }
 
 export const REPORTAGENS: Reportagem[] = [
@@ -37,11 +37,8 @@ export const REPORTAGENS: Reportagem[] = [
       licenca: 'CC BY-SA 4.0',
       descricao: 'As muralhas da Cidade Velha de Jerusalém',
     },
-    // V6 «a obra e a arma» = versão definitiva (decisão Miguel 09/09/2026): bíblica (Neemias) + clássica (Agostinho).
-    citas: [
-      { texto: 'Com uma das mãos trabalhavam na obra e com a outra seguravam a arma.', autor: 'Neemias', obra: 'Neemias 4:17', onde: 'antes:Cada obra da nova malha logística é dupla por natureza' },
-      { texto: 'A paz é a tranquilidade da ordem.', autor: 'Agostinho de Hipona', obra: 'A Cidade de Deus', onde: 'antes:A Constituição já deu a ordem' },
-    ],
+    // V6 «a obra e a arma» = versão definitiva (decisão Miguel 09/09/2026): bíblica (Neemias 4:17) +
+    // clássica (Agostinho), TECIDAS nos parágrafos pt — Neemias na «obra dupla», Agostinho na «ordem» da Constituição.
 
     corpo: {
       pt: [
@@ -63,7 +60,7 @@ export const REPORTAGENS: Reportagem[] = [
         "Nesses territórios, 59,5% das pessoas evitam falar de política no próprio bairro. E o país soma 46.328 homicídios dolosos por ano, muitos deles na guerra pelas rotas.",
         "Onde manda a rota, a urna obedece. Eleições foram anuladas pela Justiça Eleitoral no Ceará e na Paraíba por financiamento de facção, uma candidatura foi barrada no Rio, e a estimativa analítica é que o crime tenha posto cerca de R$ 8 bilhões nas urnas municipais de 2024.",
         "A reação institucional só chegou tarde. Em junho de 2026, o Ministério Público Eleitoral [orientou formalmente os partidos](https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/eleicoes-2026-mp-eleitoral-orienta-partidos-a-adotarem-medidas-para-prevenir-infiltracao-do-crime-organizado) a vetar candidaturas ligadas ao crime, e quando a infiltração vira circular oficial é porque deixou de ser exceção.",
-        "Cada obra da nova malha logística é dupla por natureza, e serve a quem chegar primeiro. Um corredor que encurta o caminho da soja encurta o da cocaína, e um porto que acelera o contêiner honesto acelera o outro.",
+        "Os muros da fotografia que abre esta reportagem são os de Jerusalém. Foi reconstruindo-os, sob ameaça, que os homens de Neemias fixaram a regra de toda construção exposta: com uma das mãos trabalhavam na obra e com a outra seguravam a arma (Neemias 4:17). Cada obra da nova malha logística é dupla por natureza, e serve a quem chegar primeiro. Um corredor que encurta o caminho da soja encurta o da cocaína, e um porto que acelera o contêiner honesto acelera o outro.",
         "Sem vigilância, a construção deixa de ser obra, e o que era progresso se torna presente entregue a quem comete crime. O Brasil paga, o crime usa de graça, e a diferença de custo vira lucro do lado errado da lei.",
         "O cenário que esse erro desenha está mais próximo do que parece. Um país que integra a América do Sul sem controlar a mercadoria que circula nela caminha para o narco-estado, não por golpe, mas por omissão.",
         "Seria injusto dizer que o Brasil assiste parado. A estratégia federal dos últimos anos é a mais inteligente já tentada contra o crime organizado, a de asfixiar o dinheiro em vez de contar corpos.",
@@ -99,7 +96,7 @@ export const REPORTAGENS: Reportagem[] = [
         "Uganda colheu alta de 30% na arrecadação com o mesmo modelo, e no Quênia um estudo de séries temporais mediu efeito positivo e estatisticamente significativo na receita dos produtos selados. Isso não é aposta, mas instrumento com resultado auditado.",
         "Por isso a PEC e o ministério valem mais do que parecem. Pela primeira vez, a lei da segurança, a estrutura do ministério, a malha de 2050 e a tecnologia de rastreamento estão sobre a mesma mesa, e separadas trabalham para o adversário.",
         "Um corredor vigiado é política de Estado; um corredor cego é convite. A diferença entre os dois não é militar, é logística, e cabe numa peça do tamanho de uma moeda.",
-        "A Constituição já deu a ordem, ainda que o país a leia pela metade. O artigo 144 manda a segurança pública proteger o patrimônio, e patrimônio, no século da logística, é a mercadoria que sustenta a economia legal.",
+        "A paz é a tranquilidade da ordem, ensinou Agostinho de Hipona há dezesseis séculos. A Constituição brasileira já deu a ordem, ainda que o país a leia pela metade. O artigo 144 manda a segurança pública proteger o patrimônio, e patrimônio, no século da logística, é a mercadoria que sustenta a economia legal.",
         "O Brasil tem o projeto, a tecnologia pronta no papel e o debate aberto no Senado e no Planalto. Falta decidir que os corredores de 2050 terão dono.",
         "Construir sem vigiar é entregar para o crime organizado. E ninguém deveria entregar de graça, a quem já fatura US$ 2 bilhões por ano, a infraestrutura com que ele sempre sonhou.",
       ],

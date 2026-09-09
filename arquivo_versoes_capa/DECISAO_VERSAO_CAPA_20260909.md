@@ -52,3 +52,13 @@ Para voltar ao estado anterior: copiar os dois `.bak` de volta para `src/data/re
 Para trocar a versão definitiva sem restaurar o seletor: editar o campo `citas` e a `foto` da reportagem em `src/data/reportagens.ts` usando os dados da tabela acima.
 
 As 7 fotos seguem em `public/imagens/` (reportagem-crime-capa.jpg, crime-v2…crime-v7.jpg) — nenhuma foi apagada.
+
+## Adendo — citações TECIDAS no texto (09/09 ~10:4x, 2ª ordem do Miguel)
+
+Miguel viu a V6 no ar e ordenou: citação NÃO fica em bloco destacado com fonte/cor diferente — entra tecida casualmente no parágrafo, acoplada ao contexto (se não acoplasse, trocar a citação; não precisou — as duas acoplaram).
+
+- **Neemias 4:17** entrou no parágrafo da «obra dupla» — e ganhou amarração com a FOTO DA CAPA (as muralhas de Jerusalém): «Os muros da fotografia que abre esta reportagem são os de Jerusalém. Foi reconstruindo-os, sob ameaça, que os homens de Neemias fixaram a regra de toda construção exposta: com uma das mãos trabalhavam na obra e com a outra seguravam a arma (Neemias 4:17).»
+- **Agostinho** entrou no parágrafo da Constituição, aproveitando o jogo ordem × ordem: «A paz é a tranquilidade da ordem, ensinou Agostinho de Hipona há dezesseis séculos. A Constituição brasileira já deu a ordem, ainda que o país a leia pela metade.»
+- Mecanismo `citas` REMOVIDO (interface + array em `reportagens.ts`; render blockquote/epigrafe + estilos em `[slug].astro`). As citações agora vivem apenas dentro dos próprios parágrafos pt.
+- As 2 citações que definiram a V6 (bíblica + clássica) foram preservadas; mudou só a integração.
+- Contagem de parágrafos NÃO mudou (substituições in-place) — índices de `graficos.apos` seguem válidos.
