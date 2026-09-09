@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import { LANGS, type Lang } from '../../content/ui';
+import { PAGES } from '../../content/pages';
+import { ARTIGOS_CIENTIFICOS } from '../../data/artigos';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const c = PAGES.artigos[lang];
+const title = `${c.hero.title} — LOGIS`;
+
+const T = {
+  pt: {
+    artigoN: 'Artigo nº',
+    autor: 'Autor',
+    ler: 'Ler o artigo',
+    baixar: 'Baixar PDF',
+    chaves: 'Palavras-chave',
+    docBil: 'Documento bilíngue',
+    paginas: 'páginas',
+  },
+  en: {
+    artigoN: 'Article no.',
+    autor: 'Author',
+    ler: 'Read the article',
+    baixar: 'Download PDF',
+    chaves: 'Keywords',
+    docBil: 'Bilingual document',
+    paginas: 'pages',
+  },
+  es: {
+    artigoN: 'Artículo nº',
+    autor: 'Autor',
+    ler: 'Leer el artículo',
+    baixar: 'Descargar PDF',
+    chaves: 'Palabras clave',
+    docBil: 'Documento bilingüe',
+    paginas: 'páginas',
+  },
+}[lang];
+---
+
+<Base lang={lang} slug="artigos" title={title} description={c.hero.sub}>
+  <Section lang={lang} slug="artigos" />
+
+  <section class="block alt">
+    <div class="container">
+      {ARTIGOS_CIENTIFICOS.map((a) => (
+        <div class="download-box artigo-card">
+          <div>
+            <span class="artigo-numero">{T.artigoN} {a.numero} · {a.data}</span>
+            <h3>{a.titulo[lang]}</h3>
+            <p>{a.resumo[lang]}</p>
+            <p class="artigo-meta">
+              {T.autor}: <strong>{a.autor}</strong> · {T.docBil} ({a.idiomas}) · {a.paginas} {T.paginas} · PDF
+            </p>
+            <p class="artigo-chaves">{T.chaves}: {a.palavrasChave[lang]}</p>
+          </div>
+          <div class="artigo-botoes">
+            <a class="btn primary" href={a.pdf} target="_blank" rel="noopener">📄 {T.ler}</a>
+            <a class="btn ghost" href={a.pdf} download>⬇️ {T.baixar}</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .artigo-card { margin-bottom: 18px; }
+  .artigo-numero {
+    display: inline-block; margin-bottom: 8px;
+    font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--verde-700, #14664e);
+  }
+  .artigo-card h3 { margin: 0 0 10px; }
+  .artigo-meta { font-size: 14px; color: var(--cinza, #586961); margin: 10px 0 4px; }
+  .artigo-chaves { font-size: 13px; color: var(--cinza, #586961); margin: 0; }
+  .artigo-botoes { display: flex; flex-direction: column; gap: 10px; min-width: 180px; }
+  @media (max-width: 720px) {
+    .artigo-botoes { flex-direction: row; flex-wrap: wrap; min-width: 0; }
+  }
+</style>

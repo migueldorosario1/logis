@@ -42,7 +42,7 @@ export const PAGES: Pages = {
         { t: 'Mapas & Dados', slug: 'geomapas', x: 'Mapa-múndi interativo com rotas navais, ferrovias, corredores aéreos, oleodutos e fibras ópticas submarinas — além do observatório de indicadores e da pesquisa.' },
         { t: 'Regulação & Mercados', slug: 'reguladores', x: 'Reguladores do Brasil e do mundo, marco legal nacional e internacional e contratos.' },
         { t: 'Sustentabilidade & Segurança', slug: 'sustentabilidade', x: 'Logística reversa e economia circular, segurança pública e controle das fronteiras, e ideias de desenvolvimento como o selo eletrônico fiscal.' },
-        { t: 'Revista Logis', slug: 'revista', x: 'Revista trimestral de logística sustentável — acesso aberto diamante e trilíngue, com edição demonstrativa para download.' },
+        { t: 'Revista Logis', slug: 'revista', x: 'Revista trimestral de logística sustentável — acesso aberto diamante e trilíngue, com edição demonstrativa e o primeiro artigo científico para download.' },
         { t: 'Institucional', slug: 'institucional', x: 'Sobre o portal LOGIS, metodologia e contato.' },
       ],
       cta: { label: 'Explorar os geomapas', slug: 'geomapas' },
@@ -64,7 +64,7 @@ export const PAGES: Pages = {
         { t: 'Maps & Data', slug: 'geomapas', x: 'Interactive world map with shipping lanes, railways, air corridors, oil pipelines and submarine fiber-optic cables — plus the indicators observatory and research.' },
         { t: 'Regulation & Markets', slug: 'reguladores', x: 'Regulators from Brazil and the world, national and international legal frameworks and contracts.' },
         { t: 'Sustainability & Security', slug: 'sustentabilidade', x: 'Reverse logistics and circular economy, public security and border control, and development ideas such as the electronic fiscal seal.' },
-        { t: 'Logis Journal', slug: 'revista', x: 'Quarterly journal of sustainable logistics — diamond open access and trilingual, with a demo edition available for download.' },
+        { t: 'Logis Journal', slug: 'revista', x: 'Quarterly journal of sustainable logistics — diamond open access and trilingual, with a demo edition and the first scientific article available for download.' },
         { t: 'About', slug: 'institucional', x: 'About the LOGIS portal, methodology and contact.' },
       ],
       cta: { label: 'Explore the geomaps', slug: 'geomapas' },
@@ -86,7 +86,7 @@ export const PAGES: Pages = {
         { t: 'Mapas y Datos', slug: 'geomapas', x: 'Mapamundi interactivo con rutas navales, ferrocarriles, corredores aéreos, oleoductos y fibras ópticas submarinas — además del observatorio de indicadores y la investigación.' },
         { t: 'Regulación y Mercados', slug: 'reguladores', x: 'Reguladores de Brasil y del mundo, marco legal nacional e internacional y contratos.' },
         { t: 'Sostenibilidad y Seguridad', slug: 'sustentabilidade', x: 'Logística inversa y economía circular, seguridad pública y control de fronteras, e ideas de desarrollo como el sello electrónico fiscal.' },
-        { t: 'Revista Logis', slug: 'revista', x: 'Revista trimestral de logística sostenible — acceso abierto diamante y trilingüe, con edición demostrativa para descargar.' },
+        { t: 'Revista Logis', slug: 'revista', x: 'Revista trimestral de logística sostenible — acceso abierto diamante y trilingüe, con edición demostrativa y el primer artículo científico para descargar.' },
         { t: 'Institucional', slug: 'institucional', x: 'Sobre el portal LOGIS, metodología y contacto.' },
       ],
       cta: { label: 'Explorar los geomapas', slug: 'geomapas' },
@@ -831,6 +831,45 @@ export const PAGES: Pages = {
         { cap: 'Capítulo VII — Disposiciones Generales', arts: [ { n: 'Art. 15', x: 'Las reformas exigen Asamblea General específicamente convocada.' }, { n: 'Art. 16', x: 'En caso de disolución, el patrimonio líquido se destina a entidad pública o sin fines de lucro con fines congéneres; sin reparto entre asociados.' }, { n: 'Art. 17', x: 'Los casos omisos los resuelve la Asamblea General según la ley civil brasileña.' } ] },
         { cap: 'Capítulo VIII — Disposiciones Transitorias', arts: [ { n: 'Art. 18', x: 'Primera Directiva electa: Presidente — periodista Miguel do Rosário; demás cargos definidos en la Asamblea Fundadora.' }, { n: 'Art. 19', x: 'Estos estatutos entran en vigor con su registro en el Registro Civil de Personas Jurídicas competente.' } ] },
       ],
+    },
+  },
+
+  artigos: {
+    pt: {
+      hero: {
+        kicker: 'Revista Logis',
+        title: 'Artigos Científicos',
+        sub: 'Os artigos científicos da Revista Logis — acesso aberto diamante: grátis para ler, grátis para publicar.',
+      },
+      paragrafos: [
+        'Esta seção reúne os artigos e estudos publicados pela Revista Logis sobre logística, sustentabilidade e controle público da circulação de mercadorias. Cada artigo fica disponível em PDF para leitura e download, com metadados completos de autoria, data e palavras-chave.',
+      ],
+      nota: 'O artigo nº 1, «Controle Logístico Nacional», é o primeiro artigo científico da revista — publicado originalmente no site Controle Logístico (2026) e agora parte do acervo da Revista Logis. As submissões abrem com a edição nº 1, no 4º trimestre de 2026.',
+      cta: { label: 'Ver a Revista Logis', slug: 'revista' },
+    },
+    en: {
+      hero: {
+        kicker: 'Logis Journal',
+        title: 'Scientific Articles',
+        sub: 'The scientific articles of the Logis Journal — diamond open access: free to read, free to publish.',
+      },
+      paragrafos: [
+        'This section gathers the articles and studies published by the Logis Journal on logistics, sustainability and public control of the circulation of goods. Each article is available as a PDF for reading and download, with full metadata on authorship, date and keywords.',
+      ],
+      nota: 'Article no. 1, "National Logistics Control", is the journal\u2019s first scientific article — originally published on the Controle Logístico site (2026) and now part of the Logis Journal collection. Submissions open with issue #1, in Q4 2026.',
+      cta: { label: 'See the Logis Journal', slug: 'revista' },
+    },
+    es: {
+      hero: {
+        kicker: 'Revista Logis',
+        title: 'Artículos Científicos',
+        sub: 'Los artículos científicos de la Revista Logis — acceso abierto diamante: gratis para leer, gratis para publicar.',
+      },
+      paragrafos: [
+        'Esta sección reúne los artículos y estudios publicados por la Revista Logis sobre logística, sostenibilidad y control público de la circulación de mercancías. Cada artículo está disponible en PDF para lectura y descarga, con metadatos completos de autoría, fecha y palabras clave.',
+      ],
+      nota: 'El artículo nº 1, «Control Logístico Nacional», es el primer artículo científico de la revista — publicado originalmente en el sitio Controle Logístico (2026) y ahora parte del acervo de la Revista Logis. Los envíos abren con la edición nº 1, en el 4º trimestre de 2026.',
+      cta: { label: 'Ver la Revista Logis', slug: 'revista' },
     },
   },
 

@@ -17,18 +17,27 @@ const T = {
     dlTexto: 'Leia a prévia da edição nº 1 no visualizador em página inteira: capa com o dossiê "corredores de escoamento e controle logístico" e sumário com o que já existe — o editorial e a reportagem publicados no portal — e as seções que abrem com a chamada de trabalhos. Conteúdo real, nada demonstrativo. O botão de download fica dentro do visualizador.',
     dlVer: 'Abrir o visualizador',
     dlOutros: 'Visualizar em outro idioma:',
+    artTitulo: 'Artigos científicos',
+    artTexto: 'O primeiro artigo científico da revista já está publicado: «Controle Logístico Nacional: a Casa da Moeda do Brasil como âncora pública de confiança para a circulação de mercadorias», de Miguel do Rosário — PDF bilíngue (PT·EN), 26 páginas, acesso aberto.',
+    artVer: 'Ver os artigos científicos',
   },
   en: {
     dlTitulo: 'Issue #1 preview — cover and contents (PDF)',
     dlTexto: 'Read the Issue #1 preview in the full-page viewer: a cover with the "export corridors and logistics control" dossier and a contents page listing what already exists — the editorial and the feature story published on the portal — plus the sections opening with the call for papers. Real content, nothing dummy. The download button lives inside the viewer.',
     dlVer: 'Open the viewer',
     dlOutros: 'View in another language:',
+    artTitulo: 'Scientific articles',
+    artTexto: 'The journal\u2019s first scientific article is already published: "National Logistics Control: the Brazilian Mint as the public trust anchor for the circulation of goods", by Miguel do Rosário — bilingual PDF (PT·EN), 26 pages, open access.',
+    artVer: 'See the scientific articles',
   },
   es: {
     dlTitulo: 'Avance de la edición nº 1 — portada y sumario (PDF)',
     dlTexto: 'Lea el avance de la edición nº 1 en el visor de página completa: portada con el dossier "corredores de escoamiento y control logístico" y sumario con lo que ya existe — el editorial y el reportaje publicados en el portal — y las secciones que abren con la convocatoria de trabajos. Contenido real, nada demostrativo. El botón de descarga está dentro del visor.',
     dlVer: 'Abrir el visor',
     dlOutros: 'Ver en otro idioma:',
+    artTitulo: 'Artículos científicos',
+    artTexto: 'El primer artículo científico de la revista ya está publicado: «Control Logístico Nacional: la Casa de la Moneda de Brasil como ancla pública de confianza para la circulación de mercancías», de Miguel do Rosário — PDF bilingüe (PT·EN), 26 páginas, acceso abierto.',
+    artVer: 'Ver los artículos científicos',
   },
 }[lang];
 
@@ -56,6 +65,16 @@ const PDF_ATUAL = lang === 'en' ? PDF_EN : lang === 'es' ? PDF_ES : PDF_PT;
             <a href={langPath('en', 'revista/visualizador')}>english</a> ·
             <a href={langPath('es', 'revista/visualizador')}>español</a>
           </span>
+        </div>
+      </div>
+
+      <div class="download-box" style="margin-top:18px;">
+        <div>
+          <h3>{T.artTitulo}</h3>
+          <p>{T.artTexto}</p>
+        </div>
+        <div class="revista-downloads">
+          <a class="btn primary" href={langPath(lang, 'artigos')}>📄 {T.artVer}</a>
         </div>
       </div>
     </div>
