@@ -30,7 +30,7 @@ const T = {
 }[lang];
 ---
 
-<Base lang={lang} slug="reportagens" title={title} description={r.olho[lang]}>
+<Base lang={lang} slug={`reportagens/${r.slug}`} title={title} description={r.olho[lang]}>
   <section class="hero compact">
     <div class="container">
       <span class="kicker">{r.kicker[lang]} · {r.data}</span>
