@@ -1,16 +1,17 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { LANGS, type Lang, langPath } from '../../../../content/ui';
-import { REPORTAGENS } from '../../../../data/reportagens';
+import { REPORTAGENS, slugRep } from '../../../../data/reportagens';
 
 export function getStaticPaths() {
   return REPORTAGENS.filter((r) => r.notas).flatMap((r) =>
-    LANGS.map((lang) => ({ params: { lang, slug: r.slug } }))
+    LANGS.map((lang) => ({ params: { lang, slug: slugRep(r, lang) } }))
   );
 }
 const lang = Astro.params.lang as Lang;
 const slug = Astro.params.slug as string;
-const r = REPORTAGENS.find((x) => x.slug === slug)!;
+const r = REPORTAGENS.find((x) => slugRep(x, lang) === slug)!;
+const repPaths = Object.fromEntries(LANGS.map((l) => [l, `reportagens/${slugRep(r, l)}/notas`])) as Record<Lang, string>;
 const title = `Notas e fontes — ${r.titulo[lang]} · LOGIS`;
 
 const mdLinks = (p: string) =>
@@ -23,7 +24,7 @@ const T = {
 }[lang];
 ---
 
-<Base lang={lang} slug="reportagens" title={title} description={T.metodo}>
+<Base lang={lang} slug="reportagens" paths={repPaths} title={title} description={T.metodo}>
   <section class="hero compact">
     <div class="container">
       <span class="kicker">{r.kicker[lang]} · {T.metodo}</span>
@@ -46,7 +47,7 @@ const T = {
       </div>
 
       <div style="margin-top:22px;">
-        <a class="btn ghost" href={langPath(lang, `reportagens/${r.slug}`)}>{T.voltar}</a>
+        <a class="btn ghost" href={langPath(lang, `reportagens/${slugRep(r, lang)}`)}>{T.voltar}</a>
       </div>
     </div>
   </section>

@@ -3,14 +3,48 @@
 // em vários idiomas, títulos traduzidos PT·EN·ES; renovação semanal pelo ritual
 // de sábado via WebSearch — nunca publicar sem fonte e data verdadeiras).
 export interface Noticia {
-  tema: 'corredores' | 'ferrovias' | 'portos' | 'verde';
+  tema: 'corredores' | 'ferrovias' | 'portos' | 'verde' | 'seguranca';
   fonte: string;   // nome do veículo (mostra no kicker)
   data: string;    // data da publicação original
-  url: string;     // link para a matéria original
+  url: string;     // link para a matéria original — ou caminho interno (reportagens/…) p/ artigos da casa
   titulo: Record<string, string>;
 }
 
 export const NOTICIAS: Noticia[] = [
+  // 18/09/2026 (ZCode, ordem Miguel): os 3 artigos novos da casa entram no topo, com link interno.
+  {
+    tema: 'seguranca',
+    fonte: 'LOGIS · Análise',
+    data: 'set 2026',
+    url: 'reportagens/seguranca-privada-custo-economia',
+    titulo: {
+      pt: 'O preço da proteção: o imposto oculto da segurança privada',
+      en: 'The price of protection: the hidden tax of private security',
+      es: 'El precio de la protección: el impuesto oculto de la seguridad privada',
+    },
+  },
+  {
+    tema: 'seguranca',
+    fonte: 'LOGIS · Análise',
+    data: 'set 2026',
+    url: 'reportagens/mercado-ilegal-combustiveis-petroleo',
+    titulo: {
+      pt: 'A república paralela do combustível: o mercado ilegal que vale 4× a cocaína',
+      en: 'The parallel republic of fuel: the illegal market worth 4× cocaine',
+      es: 'La república paralela del combustible: el mercado ilegal que vale 4× la cocaína',
+    },
+  },
+  {
+    tema: 'portos',
+    fonte: 'LOGIS · Análise',
+    data: 'set 2026',
+    url: 'reportagens/mare-liberum-corrupcao-portos',
+    titulo: {
+      pt: 'O porto à venda: a Mare Liberum e a corrupção na alfândega do Rio',
+      en: 'The port for sale: Operation Mare Liberum and corruption at Rio’s customs',
+      es: 'El puerto en venta: la Mare Liberum y la corrupción en la aduana de Río',
+    },
+  },
   // Renovação 09/09/2026 (ZCode, ordem Miguel): 2 notícias novas, fontes e datas verificadas por HTTP.
   {
     tema: 'portos',

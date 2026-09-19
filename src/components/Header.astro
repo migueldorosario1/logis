@@ -5,9 +5,11 @@ import Flag from './Flag.astro';
 interface Props {
   lang: Lang;
   slug: string;
+  paths?: Record<Lang, string>; // caminho por idioma (ex.: slugs traduzidos de reportagem) — as bandeiras trocam de língua NA MESMA página
 }
-const { lang, slug } = Astro.props;
+const { lang, slug, paths } = Astro.props;
 const t = UI[lang];
+const flagSlug = (l: Lang) => paths?.[l] ?? slug; // 18/09: bandeiras apontam o caminho no idioma de destino
 
 const LANG_NAMES: Record<Lang, string> = { pt: 'Português (Brasil)', en: 'English (USA)', es: 'Español (España)' };
 const groupActive = (g: { slug: string; children?: { slug: string }[] }) =>
@@ -52,7 +54,7 @@ const REDES = [
         </div>
         <div class="lang-switch" role="navigation" aria-label="Idioma / Language / Idioma">
           {LANGS.map((l) => (
-            <a href={langPath(l, slug)} class:list={{ active: l === lang }} title={LANG_NAMES[l]} aria-label={LANG_NAMES[l]}>
+            <a href={langPath(l, flagSlug(l))} class:list={{ active: l === lang }} title={LANG_NAMES[l]} aria-label={LANG_NAMES[l]}>
               <Flag lang={l} />
             </a>
           ))}

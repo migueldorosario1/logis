@@ -2,16 +2,17 @@
 import Base from '../../../layouts/Base.astro';
 import GraficosArtigo from '../../../components/GraficosArtigo.astro';
 import { LANGS, type Lang, langPath } from '../../../content/ui';
-import { REPORTAGENS } from '../../../data/reportagens';
+import { REPORTAGENS, slugRep } from '../../../data/reportagens';
 
 export function getStaticPaths() {
   return REPORTAGENS.flatMap((r) =>
-    LANGS.map((lang) => ({ params: { lang, slug: r.slug } }))
+    LANGS.map((lang) => ({ params: { lang, slug: slugRep(r, lang) } }))
   );
 }
 const lang = Astro.params.lang as Lang;
 const slug = Astro.params.slug as string;
-const r = REPORTAGENS.find((x) => x.slug === slug)!;
+const r = REPORTAGENS.find((x) => slugRep(x, lang) === slug)!;
+const repPaths = Object.fromEntries(LANGS.map((l) => [l, `reportagens/${slugRep(r, l)}`])) as Record<Lang, string>;
 const title = `${r.titulo[lang]} — LOGIS`;
 
 // Links silenciosos: [texto](https://…) vira <a> — só aceita https, conteúdo é nosso.
@@ -30,7 +31,7 @@ const T = {
 }[lang];
 ---
 
-<Base lang={lang} slug={`reportagens/${r.slug}`} title={title} description={r.olho[lang]}>
+<Base lang={lang} slug={`reportagens/${r.slug}`} paths={repPaths} title={title} description={r.olho[lang]}>
   <section class="hero compact">
     <div class="container">
       <span class="kicker">{r.kicker[lang]} · {r.data}</span>
@@ -65,7 +66,7 @@ const T = {
 
       {r.notas && (
         <div class="rep-notas-link">
-          <a class="btn ghost" href={langPath(lang, `reportagens/${r.slug}/notas`)}>📝 {T.notas} →</a>
+          <a class="btn ghost" href={langPath(lang, `reportagens/${slugRep(r, lang)}/notas`)}>📝 {T.notas} →</a>
         </div>
       )}
 

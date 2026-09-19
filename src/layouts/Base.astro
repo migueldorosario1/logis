@@ -9,8 +9,9 @@ interface Props {
   slug: string;
   title: string;
   description: string;
+  paths?: Record<Lang, string>; // caminho por idioma — repassado ao Header p/ as bandeiras ficarem na mesma página
 }
-const { lang, slug, title, description } = Astro.props;
+const { lang, slug, title, description, paths } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ const { lang, slug, title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class={`hero-${slug || 'home'}`}>
-    <Header lang={lang} slug={slug} />
+    <Header lang={lang} slug={slug} paths={paths} />
     <main>
       <slot />
     </main>
