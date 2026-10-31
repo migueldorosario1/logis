@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import NovosArtigos from '../../components/NovosArtigos.astro';
 import Section from '../../components/Section.astro';
 import { LANGS, type Lang, langPath } from '../../content/ui';
 import { PAGES } from '../../content/pages';
@@ -49,6 +50,8 @@ const PDF_ATUAL = lang === 'en' ? PDF_EN : lang === 'es' ? PDF_ES : PDF_PT;
 
 <Base lang={lang} slug="revista" title={title} description={c.hero.sub}>
   <Section lang={lang} slug="revista" />
+
+  <NovosArtigos lang={lang} />
 
   <section class="block alt">
     <div class="container">

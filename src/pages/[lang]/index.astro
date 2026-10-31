@@ -87,7 +87,7 @@ const REVISTA_PDF = {
       <div class="rep-cards-grid">
         {REPORTAGENS.slice(1).map((r) => (
           <a class="rep-card-img" href={langPath(lang, `reportagens/${slugRep(r, lang)}`)}>
-            <img src={r.foto.src} alt={r.foto.descricao} loading="lazy" />
+            <img src={r.foto.src} alt={r.ilustracao?.[lang].descricao ?? r.foto.descricao} loading="lazy" />
             <span class="rep-card-img-overlay">
               <span class="rep-card-img-kicker">{r.kicker[lang]} · {r.data}</span>
               <span class="rep-card-img-titulo">{r.titulo[lang]}</span>

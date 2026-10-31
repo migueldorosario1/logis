@@ -1,6 +1,8 @@
+import { NOVAS_REPORTAGENS_20261031 } from './novas-reportagens-20261031';
 // Reportagens do LOGIS — a capa roda matérias jornalísticas (ordem Miguel 23/08 ~11:00);
 // o editorial semanal fica na faixa discreta. Foto: SEMPRE licenciada, vista e creditada.
 export interface Reportagem {
+  ilustracao?: Record<string, { descricao: string; legenda: string }>;
   slug: string; // slug canônico (PT) — nunca muda depois de publicado
   slugs?: { en?: string; es?: string }; // slugs traduzidos (18/09, ordem Miguel: a URL muda com o idioma)
   kicker: Record<string, string>;
@@ -632,3 +634,6 @@ export const REPORTAGENS: Reportagem[] = [
     },
   },
 ];
+
+// Novos destaques após a capa histórica, sem remover matérias existentes.
+REPORTAGENS.splice(1, 0, ...NOVAS_REPORTAGENS_20261031);

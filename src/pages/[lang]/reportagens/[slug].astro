@@ -32,28 +32,35 @@ const T = {
 ---
 
 <Base lang={lang} slug={`reportagens/${r.slug}`} paths={repPaths} title={title} description={r.olho[lang]}>
+  <Fragment slot="head">
+    {r.ilustracao && <>
+    <link rel="canonical" href={`https://logis-magazine.vercel.app/${lang}/reportagens/${slugRep(r, lang)}/`} />
+    {LANGS.map(l => <link rel="alternate" hreflang={l} href={`https://logis-magazine.vercel.app/${l}/reportagens/${slugRep(r, l)}/`} />)}
+    <meta property="og:image" content={`https://logis-magazine.vercel.app${r.foto.src}`} />
+    </>}
+  </Fragment>
   <section class="hero compact">
     <div class="container">
       <span class="kicker">{r.kicker[lang]} · {r.data}</span>
       <h1>{r.titulo[lang]}</h1>
       <p class="sub">{r.olho[lang]}</p>
-      <p class="byline">Por {r.autor}</p>
+      <p class="byline">{r.ilustracao && lang === "en" ? "By" : "Por"} {r.autor}</p>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
       <figure class="rep-foto">
-        <img id="rep-foto-img" src={r.foto.src} alt={r.foto.descricao} loading="lazy" />
+        <img id="rep-foto-img" src={r.foto.src} alt={r.ilustracao?.[lang].descricao ?? r.foto.descricao} loading="lazy" />
         <figcaption id="rep-foto-caption">
-          {r.foto.descricao} — Foto: {r.foto.credito} · Licença: {r.foto.licenca} (Wikimedia Commons)
+          {r.ilustracao ? r.ilustracao[lang].legenda : `${r.foto.descricao} — Foto: ${r.foto.credito} · Licença: ${r.foto.licenca} (Wikimedia Commons)`}
         </figcaption>
       </figure>
 
       <article class="editorial">
         {r.corpo[lang].map((p, i) => (
           <Fragment>
-            <p set:html={mdLinks(p)} />
+            {p.startsWith("## ") ? <h2>{p.slice(3)}</h2> : <p set:html={mdLinks(p)} />}
             {graficosApos(i).map((g) => <GraficosArtigo id={g.id} lang={lang} />)}
           </Fragment>
         ))}
