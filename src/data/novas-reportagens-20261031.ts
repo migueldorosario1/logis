@@ -295,5 +295,107 @@ export const NOVAS_REPORTAGENS_20261031: Reportagem[] = [
         "[Microsoft](https://www.microsoft.com/en-us/Investor/events/fy-2027/earnings-fy-2027-q1), transcripción oficial de la presentación de resultados del primer trimestre fiscal de 2027, 28 de octubre de 2026."
       ]
     }
+  },
+  {
+    "slug": "roubo-de-combustivel-rastreio",
+    "slugs": {"en":"fuel-theft-and-tracing","es":"robo-de-combustible-y-rastreo"},
+    "kicker": {
+      "pt": "Opinião · Combustíveis e segurança pública",
+      "en": "Opinion · Fuels and public security",
+      "es": "Opinión · Combustibles y seguridad pública"
+    },
+    "titulo": {
+      "pt": "O roubo de combustível que cresce nas estradas — e o rastreio que pode vencer o crime",
+      "en": "The fuel theft that keeps growing on the roads — and the tracing that can beat the crime",
+      "es": "El robo de combustible que crece en las carreteras — y el rastreo que puede vencer al crimen"
+    },
+    "olho": {
+      "pt": "De duto furado a caminhão-tanque assaltado, o combustível virou um dos maiores negócios do crime organizado no Brasil. Rastrear cada litro — com o selo eletrônico e a Casa da Moeda no centro da malha — é a resposta que o país ainda deve dar.",
+      "en": "From a breached pipeline to an ambushed tanker truck, fuel has become one of organized crime’s biggest businesses in Brazil. Tracing every liter — with the electronic seal and the Mint at the center of the mesh — is the answer the country still owes.",
+      "es": "De un ducto perforado a un camión cisterna asaltado, el combustible se volvió uno de los mayores negocios del crimen organizado en Brasil. Rastrear cada litro —con el sello electrónico y la Casa de la Moneda al centro de la malla— es la respuesta que el país aún debe."
+    },
+    "data": "31/10/2026",
+    "autor": "Miguel do Rosário",
+    "assinatura": {
+      "linha1": "Miguel do Rosário",
+      "linha2": ""
+    },
+    "foto": {
+      "src": "/imagens/logis-caminhao-cisterna-terminal-combustivel.jpg",
+      "credito": "Mariordo (Mario Roberto Duran Ortiz)",
+      "licenca": "CC BY-SA 3.0",
+      "descricao": "Caminhão-cisterna carrega combustível para distribuição em usina em Piracicaba (SP)."
+    },
+    "corpo": {
+      "pt": [
+        "O Brasil se acostumou a conviver com um crime que raramente aparece nos noticiários de sangue: o roubo de combustível. Ele não deixa vítima baleada na calçada, mas drena bilhões de reais por ano do bolso do brasileiro e financia algumas das organizações mais perigosas do país.",
+        "Os números mais recentes mostram o mal em crescimento. Em 2024, o roubo de cargas no Brasil atingiu prejuízo recorde de R$ 1,217 bilhão, segundo levantamento da Overhaul Brasil. Em 2025, o furto de combustível voltou a crescer depois de seis anos de queda: foram 31 derivações ilegais registradas nos dutos da Transpetro, contra 25 em 2024 — em São Paulo, os ataques a dutos subiram de 17 para 22.",
+        "A infiltração também mudou de escala. A Operação Carbono Oculto, deflagrada pela Polícia Federal e pela Receita Federal em agosto de 2025 e descrita como a maior operação já feita contra a penetração do crime organizado na economia formal, apurou a presença do PCC em usinas, distribuidoras e redes de postos, com movimentações investigadas na casa de R$ 26 bilhões. Em outubro de 2026, a PF revelou conexões entre um cartel de postos do Rio de Janeiro e empresas ligadas à facção.",
+        "As estimativas do setor dão a medida do buraco: o Instituto Combustível Legal calcula prejuízos de cerca de R$ 30 bilhões por ano com sonegação, adulteração e comércio ilegal de combustíveis. No Congresso, repete-se a conta de que mais de 40% da receita do crime organizado viria de combustíveis adulterados. A gasolina virou moeda de financiamento de facções.",
+        "## O caminhão-tanque virou presa",
+        "O crime também acontece na estrada, caminhão a caminhão. Há poucos dias, a Polícia Rodoviária Federal recuperou na BR-424, em Garanhuns (PE), um caminhão-tanque clonado, trafegando com placas falsas e registro de furto. Em outro caso recente, na BR-324, na Bahia, um caminhão-tanque carregado com cerca de 30 mil litros — quase R$ 100 mil em combustível — foi levado com o motorista feito refém. Numa era em que o combustível vale cada vez mais, cada tanque que sai da base virou alvo.",
+        "A discussão sobre a privatização da antiga BR Distribuidora, concluída em 2021, costuma entrar aqui — e merece honestidade: sonegação e adulteração não nasceram com ela, e atribuir o crime inteiro à troca de dono é simplificar. O que os anos seguintes mostraram é outra coisa: uma cadeia pulverizada, com dezenas de distribuidoras e milhares de postos, virou terreno fértil para facções quando falta rastreio de ponta a ponta. O problema não é quem explora; é ninguém enxergar o fluxo.",
+        "## Mad Max não é roteiro de cinema",
+        "Para dizer isso com uma brincadeira: no pós-apocalíptico de cinema, o filme se chamava Mad Max, e os vilões viviam exatamente disso — atacar comboios e roubar o combustível dos caminhões. A piada tem fundo sério. Um país que deixa a cadeia de combustíveis nas mãos do crime está ensaiando o próprio deserto: estrada sem segurança, posto sem confiança, tanque vira presa.",
+        "## Rastrear, lacrar, certificar",
+        "A tecnologia para enfrentar isso já existe e é brasileira. O selo eletrônico fiscal operado pela Casa da Moeda do Brasil — o mecanismo que dá identidade única e rastreabilidade a produtos como cigarros e bebidas, como mostrou a matéria [O passaporte da mercadoria](https://logis-magazine.vercel.app/pt/reportagens/selo-eletronico-fiscal/) —, aplicado à cadeia de combustíveis, transformaria cada litro em algo verificável: lacrado na origem, rastreado no caminhão, confirmado no posto. Você saberia de onde aquele combustível veio, por onde passou e se pagou os impostos.",
+        "É isso que um país sério oferece ao motorista: combustível legal, de qualidade certificada, com imposto pago e história conhecida — e não um produto batizado com solvente comprado do crime. O consumidor que abastece num posto irregular é cúmplice sem saber: paga caro num produto ruim que financia a facção da região.",
+        "O Legislativo começou a reagir. A Lei 15.517/2025 pôs o furto de combustível — inclusive o desvio de dutos — na faixa de 4 a 10 anos de reclusão e passou a punir quem adquire, transporta ou revende produto de origem criminosa. O PL 399/2025, aprovado pela Câmara em abril de 2026 e agora no Senado, multiplica por quase cinco as multas por adulteração e falsificação. E o setor cobra a tributação monofásica integral, que unifica a cobrança de impostos e fecha as brechas que a sonegação explora.",
+        "## A Casa da Moeda no centro da malha",
+        "E se a pergunta é quem deve sediar essa malha de rastreabilidade nacional, a resposta é a instituição mais adequada que o Estado brasileiro tem: a Casa da Moeda do Brasil. Pública, secular, com vocação de segurança, ela já opera identificação única, autenticidade e rastreio de produtos em escala nacional. Com a Polícia Federal ao lado — acesso com finalidade definida, autorização cabível e registro auditável, preservando direitos —, cada registro vira prova investigável e cada litro vira rastro.",
+        "O combustível é o sangue da economia. Não se pode continuar deixando esse sangue ser sugado pelas facções no duto, na estrada e no posto. Rastrear, lacrar, certificar: é assim que o Brasil transforma o caminhão-tanque de presa em elo protegido — e tira do crime um dos seus maiores negócios.",
+        "## Fontes",
+        "[Instituto Combustível Legal](https://institutocombustivellegal.org.br), estimativas de prejuízo do mercado ilegal de combustíveis.",
+        "[Minaspetro](https://minaspetro.com.br/brasil-perde-r-30-bilhoes-por-ano-com-mercado-ilegal-de-combustiveis-diz-ceo-da-ipiranga), Brasil perde R$ 30 bilhões por ano com mercado ilegal de combustíveis, janeiro de 2026.",
+        "[ICL Notícias](https://iclnoticias.com.br/economia/fraudes-em-postos-de-combustiveis), fraudes em postos de combustíveis, junho de 2026.",
+        "[Tribuna PR](https://www.tribunapr.com.br/noticias/economia/furto-de-combustivel-passa-a-ter-pena-de-ate-10-anos-de-prisao), sobre a Lei 15.517/2025."
+      ],
+      "en": [
+        "Brazil has grown used to living with a crime that rarely makes the news: fuel theft. It leaves no victim bleeding on the sidewalk, but it drains billions of reais a year from Brazilians’ pockets and finances some of the most dangerous organizations in the country.",
+        "The latest numbers show the evil growing. In 2024, cargo theft in Brazil reached a record loss of R$1.217 billion, according to a survey by Overhaul Brasil. In 2025, fuel theft started growing again after six years of decline: 31 illegal taps were recorded on Transpetro pipelines, against 25 in 2024 — in São Paulo state, pipeline attacks rose from 17 to 22.",
+        "Infiltration has also changed scale. Operation Carbono Oculto, launched by the Federal Police and the Federal Revenue Service in August 2025 and described as the largest operation ever conducted against organized crime’s penetration of the formal economy, found the PCC faction present in sugar mills, distributors and fuel station chains, with transactions under investigation in the range of R$26 billion. In October 2026, the Federal Police revealed connections between a fuel-station cartel in Rio de Janeiro and companies linked to the faction.",
+        "Industry estimates measure the hole: the Instituto Combustível Legal (Legal Fuel Institute) puts losses at about R$30 billion a year from tax evasion, adulteration and illegal fuel trade. In Congress, the figure repeated is that more than 40% of organized crime’s revenue would come from adulterated fuels. Gasoline has become a financing currency for criminal factions.",
+        "## The tanker truck has become prey",
+        "The crime also happens on the road, truck by truck. Days ago, the Federal Highway Police recovered a cloned tanker truck on the BR-424 in Garanhuns (PE), traveling with false plates and a theft record on file. In another recent case, on the BR-324 in Bahia, a tanker truck loaded with about 30,000 liters — nearly R$100,000 in fuel — was taken with the driver held hostage. In an era when fuel is worth more and more, every tank that leaves the base has become a target.",
+        "The debate over the privatization of the former BR Distribuidora, completed in 2021, usually comes up here — and deserves honesty: tax evasion and adulteration were not born with it, and blaming the whole crime on the change of ownership is simplistic. What the following years showed is something else: a fragmented chain, with dozens of distributors and thousands of stations, became fertile ground for factions when end-to-end tracing was lacking. The problem is not who operates it; it is that nobody sees the flow.",
+        "## Mad Max is not a movie script",
+        "To say it with a joke: in the post-apocalyptic movie, the film was called Mad Max, and the villains lived precisely off that — attacking convoys and stealing the fuel from trucks. The joke has a serious core. A country that leaves its fuel chain in the hands of crime is rehearsing its own desert: a road without security, a station without trust, a tank turned into prey.",
+        "## Trace, seal, certify",
+        "The technology to face this already exists, and it is Brazilian. The electronic fiscal seal operated by Casa da Moeda do Brasil, Brazil’s Mint — the mechanism that gives a unique identity and traceability to products such as cigarettes and beverages, as our article [The merchandise passport](https://logis-magazine.vercel.app/en/reportagens/the-merchandise-passport/) showed —, applied to the fuel chain, would make every liter verifiable: sealed at the origin, traced on the truck, confirmed at the station. You would know where that fuel came from, where it passed and whether it paid its taxes.",
+        "That is what a serious country offers the driver: legal fuel, with certified quality, taxes paid and a known history — not a product cut with solvent bought from crime. The consumer who fills up at an irregular station is an unwitting accomplice: paying dearly for a bad product that finances the local faction.",
+        "The legislature has begun to react. Law 15.517/2025 set fuel theft — including pipeline tapping — at 4 to 10 years of imprisonment and now punishes anyone who buys, transports or resells goods of criminal origin. Bill PL 399/2025, approved by the Chamber of Deputies in April 2026 and now in the Senate, multiplies fines for adulteration and counterfeiting by nearly five. The sector is also calling for full single-phase taxation, which unifies tax collection and closes the loopholes evasion exploits.",
+        "## The Mint at the center of the mesh",
+        "And if the question is who should host this national tracing mesh, the answer is the most suitable institution the Brazilian state has: Casa da Moeda do Brasil. Public, secular, with a security vocation, it already operates unique identification, authentication and product tracing at national scale. With the Federal Police alongside — access with a defined purpose, appropriate authorization and an auditable record, preserving rights — every record becomes investigable evidence and every liter becomes a trail.",
+        "Fuel is the blood of the economy. It cannot keep being siphoned off by factions at the pipeline, on the road and at the station. Trace, seal, certify: that is how Brazil turns the tanker truck from prey into a protected link — and takes one of crime’s biggest businesses away from it.",
+        "## Sources",
+        "[Instituto Combustível Legal](https://institutocombustivellegal.org.br), estimates of losses from the illegal fuel market.",
+        "[Minaspetro](https://minaspetro.com.br/brasil-perde-r-30-bilhoes-por-ano-com-mercado-ilegal-de-combustiveis-diz-ceo-da-ipiranga), Brazil loses R$30 billion a year to the illegal fuel market, January 2026.",
+        "[ICL Notícias](https://iclnoticias.com.br/economia/fraudes-em-postos-de-combustiveis), fraud at fuel stations, June 2026.",
+        "[Tribuna PR](https://www.tribunapr.com.br/noticias/economia/furto-de-combustivel-passa-a-ter-pena-de-ate-10-anos-de-prisao), on Law 15.517/2025."
+      ],
+      "es": [
+        "Brasil se acostumó a convivir con un crimen que rara vez aparece en los noticieros de sangre: el robo de combustible. No deja a una víctima baleada en la acera, pero drena miles de millones de reales al año del bolsillo del brasileño y financia a algunas de las organizaciones más peligrosas del país.",
+        "Los números más recientes muestran el mal en crecimiento. En 2024, el robo de cargas en Brasil alcanzó una pérdida récord de 1.217 millones de reales, según un levantamiento de Overhaul Brasil. En 2025, el hurto de combustible volvió a crecer después de seis años de caída: se registraron 31 derivaciones ilegales en los ductos de Transpetro, contra 25 en 2024 —en el estado de São Paulo, los ataques a ductos subieron de 17 a 22.",
+        "La infiltración también cambió de escala. La Operación Carbono Oculto, desplegada por la Policía Federal y la Receita Federal en agosto de 2025 y descrita como la mayor operación jamás realizada contra la penetración del crimen organizado en la economía formal, constató la presencia del PCC en usinas, distribuidoras y redes de estaciones de servicio, con movimientos investigados en el orden de 26.000 millones de reales. En octubre de 2026, la PF reveló conexiones entre un cartel de estaciones de Río de Janeiro y empresas vinculadas a la facción.",
+        "Las estimaciones del sector miden el agujero: el Instituto Combustível Legal calcula pérdidas de alrededor de 30.000 millones de reales al año por evasión, adulteración y comercio ilegal de combustibles. En el Congreso se repite la cuenta de que más del 40% de los ingresos del crimen organizado provendrían de combustibles adulterados. La gasolina se convirtió en moneda de financiamiento de las facciones.",
+        "## El camión cisterna se volvió presa",
+        "El crimen también ocurre en la carretera, camión a camión. Hace pocos días, la Policía Rodoviaria Federal recuperó en la BR-424, en Garanhuns (PE), un camión cisterna clonado, circulando con placas falsas y registro de hurto. En otro caso reciente, en la BR-324, en Bahía, un camión cisterna cargado con unos 30.000 litros —casi 100.000 reales en combustible— fue llevado con el conductor hecho rehén. En una era en la que el combustible vale cada vez más, cada tanque que sale de la base se volvió blanco.",
+        "El debate sobre la privatización de la antigua BR Distribuidora, concluida en 2021, suele entrar aquí —y merece honestidad: la evasión y la adulteración no nacieron con ella, y atribuir todo el crimen al cambio de dueño es simplificar. Lo que los años siguientes mostraron es otra cosa: una cadena pulverizada, con decenas de distribuidoras y miles de estaciones, se volvió terreno fértil para las facciones cuando falta rastreo de punta a punta. El problema no es quién explota; es que nadie ve el flujo.",
+        "## Mad Max no es un guion de cine",
+        "Para decirlo con una broma: en la película posapocalíptica, el film se llamaba Mad Max, y los villanos vivían exactamente de eso —atacar convoyes y robar el combustible de los camiones. La broma tiene un fondo serio. Un país que deja la cadena de combustibles en manos del crimen está ensayando su propio desierto: carretera sin seguridad, estación sin confianza, tanque vuelto presa.",
+        "## Rastrear, sellar, certificar",
+        "La tecnología para enfrentar esto ya existe, y es brasileña. El sello electrónico fiscal operado por la Casa da Moeda do Brasil, la Casa de la Moneda de Brasil —el mecanismo que da identidad única y trazabilidad a productos como cigarrillos y bebidas, como mostró la nota [El pasaporte de la mercancía](https://logis-magazine.vercel.app/es/reportagens/el-pasaporte-de-la-mercancia/)—, aplicado a la cadena de combustibles, transformaría cada litro en algo verificable: sellado en el origen, rastreado en el camión, confirmado en la estación. Usted sabría de dónde vino aquel combustible, por dónde pasó y si pagó los impuestos.",
+        "Eso es lo que un país serio ofrece al conductor: combustible legal, de calidad certificada, con impuestos pagados e historia conocida —y no un producto bautizado con solvente comprado al crimen. El consumidor que carga en una estación irregular es cómplice sin saberlo: paga caro por un producto malo que financia a la facción de la región.",
+        "El Legislativo empezó a reaccionar. La Ley 15.517/2025 puso el hurto de combustible —incluida la derivación de ductos— en la franja de 4 a 10 años de reclusión y pasó a castigar a quien adquiere, transporta o revende producto de origen criminal. El PL 399/2025, aprobado por la Cámara en abril de 2026 y ahora en el Senado, multiplica por casi cinco las multas por adulteración y falsificación. Y el sector reclama la tributación monofásica integral, que unifica el cobro de impuestos y cierra las brechas que explota la evasión.",
+        "## La Casa de la Moneda al centro de la malla",
+        "Y si la pregunta es quién debe albergar esta malla nacional de rastreo, la respuesta es la institución más adecuada que tiene el Estado brasileño: la Casa da Moeda do Brasil. Pública, secular, con vocación de seguridad, ya opera identificación única, autenticidad y rastreo de productos a escala nacional. Con la Policía Federal al lado —acceso con finalidad definida, autorización correspondiente y registro auditable, preservando derechos—, cada registro se vuelve prueba investigable y cada litro se vuelve rastro.",
+        "El combustible es la sangre de la economía. No se puede seguir dejando que esa sangre sea succionada por las facciones en el ducto, en la carretera y en la estación. Rastrear, sellar, certificar: así Brasil transforma el camión cisterna de presa en eslabón protegido —y le quita al crimen uno de sus mayores negocios.",
+        "## Fuentes",
+        "[Instituto Combustível Legal](https://institutocombustivellegal.org.br), estimaciones de pérdidas del mercado ilegal de combustibles.",
+        "[Minaspetro](https://minaspetro.com.br/brasil-perde-r-30-bilhoes-por-ano-com-mercado-ilegal-de-combustiveis-diz-ceo-da-ipiranga), Brasil pierde 30.000 millones de reales al año con el mercado ilegal de combustibles, enero de 2026.",
+        "[ICL Notícias](https://iclnoticias.com.br/economia/fraudes-em-postos-de-combustiveis), fraudes en estaciones de combustibles, junio de 2026.",
+        "[Tribuna PR](https://www.tribunapr.com.br/noticias/economia/furto-de-combustivel-passa-a-ter-pena-de-ate-10-anos-de-prisao), sobre la Ley 15.517/2025."
+      ]
+    }
   }
 ];
