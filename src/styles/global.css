@@ -1322,6 +1322,169 @@ footer.site p {
 /* ==========================================================================
    Accessibility & Media Overrides
    ========================================================================== */
+/* ----- Destaque Apresentação Executiva Dinâmica 20 Páginas (CMB & Controle Logístico) ----- */
+.apresentacao-destaque {
+  padding: 40px 0 18px;
+}
+.apresentacao-card {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 32px;
+  align-items: center;
+  background: linear-gradient(135deg, #061A14 0%, #0B2D22 55%, #114232 100%);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 20px 48px rgba(4, 22, 16, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f4f7f5;
+  position: relative;
+  overflow: hidden;
+}
+.apresentacao-card::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(181, 224, 72, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+}
+.apresentacao-preview {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.55);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.48);
+  aspect-ratio: 16 / 9;
+  background: #07131d;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  text-decoration: none !important;
+}
+.apresentacao-preview:hover {
+  transform: translateY(-4px) scale(1.015);
+  border-color: #B5E048;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.62), 0 0 20px rgba(181, 224, 72, 0.25);
+}
+.apresentacao-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.apresentacao-preview:hover img {
+  transform: scale(1.03);
+}
+.apresentacao-preview-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(7, 19, 29, 0.9);
+  backdrop-filter: blur(8px);
+  color: #F3D060;
+  border: 1px solid rgba(243, 208, 96, 0.6);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+.apresentacao-info {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  position: relative;
+  z-index: 1;
+}
+.apresentacao-kicker {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F3D060;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  padding: 5px 13px;
+  border-radius: 999px;
+}
+.apresentacao-titulo {
+  font-size: clamp(22px, 2.7vw, 30px);
+  line-height: 1.2;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+.apresentacao-titulo a {
+  color: #ffffff;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+.apresentacao-titulo a:hover {
+  color: #B5E048;
+}
+.apresentacao-texto {
+  font-size: 14.8px;
+  line-height: 1.62;
+  color: #d5e5dc;
+  margin: 0;
+}
+.apresentacao-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+.apresentacao-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #B5E048;
+  background: rgba(181, 224, 72, 0.1);
+  border: 1px solid rgba(181, 224, 72, 0.28);
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+.apresentacao-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  align-items: center;
+}
+.apresentacao-btn-main {
+  background: linear-gradient(135deg, #F3D060 0%, #D4AF37 100%) !important;
+  color: #061A14 !important;
+  font-weight: 800 !important;
+  border: none !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35) !important;
+}
+.apresentacao-btn-main:hover {
+  background: linear-gradient(135deg, #ffe07d 0%, #e5c046 100%) !important;
+  box-shadow: 0 8px 26px rgba(212, 175, 55, 0.5) !important;
+}
+.apresentacao-btn-sec {
+  padding: 11px 18px;
+  font-size: 13.5px;
+}
+@media (max-width: 980px) {
+  .apresentacao-card {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 22px 20px;
+  }
+  .apresentacao-preview {
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 /* ----- Destaque da revista (capa na home) ----- */
 .revista-destaque { background: var(--verde-50); }
 .revista-card {

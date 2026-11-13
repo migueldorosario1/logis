@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Controle Logístico Nacional e Casa da Moeda do Brasil — Apresentação Executiva (20 Páginas)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #07101e;
+    color: #0f172a;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .deck-toolbar {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: rgba(10, 22, 40, 0.94);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 999px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .deck-toolbar button {
+    background: linear-gradient(135deg, #d4af37, #b48a1e);
+    color: #0a1628;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .deck-toolbar button:hover {
+    filter: brightness(1.1);
+  }
+  .deck-toolbar select {
+    background: #112240;
+    color: #f8fafc;
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-weight: 600;
+  }
+
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  @media print {
+    .deck-toolbar { display: none !important; }
+    body { background: #ffffff; }
+    .slide {
+      margin: 0 !important;
+      box-shadow: none !important;
+      page-break-after: always;
+      break-after: page;
+    }
+  }
+
+  .deck-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 24px 0 90px 0;
+  }
+
+  @media print {
+    .deck-container {
+      display: block;
+      padding: 0;
+    }
+  }
+
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background: #f8fafc;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.65);
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .slide-dark {
+    background: radial-gradient(circle at 85% 20%, #133b3a 0%, #0b1d36 55%, #071120 100%);
+    color: #ffffff;
+  }
+
+  .slide-main {
+    width: 68%;
+    height: 100%;
+    padding: 58px 64px 50px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    position: relative;
+  }
+
+  .slide-full {
+    width: 100%;
+    height: 100%;
+    padding: 56px 72px 50px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #f8fafc;
+    position: relative;
+  }
+
+  .slide-side {
+    width: 32%;
+    height: 100%;
+    background: linear-gradient(155deg, #0a192f 0%, #0f2942 52%, #0d3b38 100%);
+    color: #ffffff;
+    padding: 58px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border-left: 6px solid #d4af37;
+  }
+
+  .dot-grid {
+    position: absolute;
+    width: 220px;
+    height: 120px;
+    background-image: radial-gradient(rgba(212, 175, 55, 0.28) 2px, transparent 2px);
+    background-size: 22px 22px;
+    pointer-events: none;
+  }
+
+  .kicker {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    color: #9a7b1c;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 4px;
+    background: #d4af37;
+    border-radius: 2px;
+  }
+  .slide-dark .kicker {
+    color: #eab308;
+  }
+
+  h1.hero-title {
+    font-size: 66px;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1.2px;
+    color: #ffffff;
+    margin-bottom: 18px;
+  }
+  h1.hero-title span {
+    color: #eab308;
+    display: block;
+  }
+
+  h2.slide-title {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.14;
+    color: #0a192f;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+  .slide-dark h2.slide-title {
+    color: #ffffff;
+  }
+
+  p.slide-subtitle {
+    font-size: 21px;
+    font-weight: 500;
+    color: #475569;
+    line-height: 1.42;
+    margin-bottom: 24px;
+  }
+  .slide-dark p.slide-subtitle {
+    color: #cbd5e1;
+  }
+
+  .slide-footer {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .slide-dark .slide-footer {
+    color: #94a3b8;
+    border-top-color: rgba(255,255,255,0.12);
+  }
+
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #0a192f;
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .item-row.gold { border-left-color: #d4af37; }
+  .item-row.emerald { border-left-color: #10b981; }
+  .item-row.crimson { border-left-color: #ef4444; }
+
+  .icon-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #0a192f;
+    color: #eab308;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .icon-circle.gold { background: #eab308; color: #0a192f; }
+  .icon-circle.emerald { background: #059669; color: #ffffff; }
+  .icon-circle.crimson { background: #dc2626; color: #ffffff; }
+
+  .item-text h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0a192f;
+    margin-bottom: 4px;
+  }
+  .item-text p {
+    font-size: 18px;
+    line-height: 1.42;
+    color: #334155;
+  }
+
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    flex: 1;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    flex: 1;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    flex: 1;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-top: 6px solid #0a192f;
+    border-radius: 16px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  }
+  .card.gold { border-top-color: #d4af37; }
+  .card.emerald { border-top-color: #10b981; }
+  .card.crimson { border-top-color: #ef4444; }
+  .card.navy-fill {
+    background: linear-gradient(145deg, #0a192f, #112a46);
+    color: #ffffff;
+    border: 1px solid rgba(212,175,55,0.4);
+    border-top: 6px solid #eab308;
+  }
+  .card.navy-fill h3 { color: #eab308 !important; }
+  .card.navy-fill p { color: #e2e8f0 !important; }
+
+  .card h3 {
+    font-size: 23px;
+    font-weight: 800;
+    color: #0a192f;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 17.5px;
+    line-height: 1.45;
+    color: #334155;
+  }
+
+  .kpi-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 18px;
+    padding: 24px 26px;
+    text-align: center;
+  }
+  .kpi-num {
+    font-size: 56px;
+    font-weight: 900;
+    color: #eab308;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+  }
+  .kpi-usd {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.22);
+    border: 1px solid #10b981;
+    color: #6ee7b7;
+    font-size: 17px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .kpi-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e2e8f0;
+    line-height: 1.38;
+  }
+
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 290px 1fr 230px;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    padding: 11px 18px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .bar-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0a192f;
+  }
+  .bar-label span {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #64748b;
+  }
+  .bar-track {
+    width: 100%;
+    height: 28px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0a192f, #1e40af);
+  }
+  .bar-fill.crimson { background: linear-gradient(90deg, #991b1b, #ef4444); }
+  .bar-fill.gold { background: linear-gradient(90deg, #92400e, #eab308); }
+  .bar-fill.emerald { background: linear-gradient(90deg, #065f46, #10b981); }
+  .bar-val {
+    font-size: 17px;
+    font-weight: 900;
+    color: #0a192f;
+    text-align: right;
+  }
+  .bar-val span {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #059669;
+  }
+
+  table.exec-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  }
+  table.exec-table th {
+    background: #0a192f;
+    color: #eab308;
+    font-size: 16.5px;
+    font-weight: 800;
+    text-align: left;
+    padding: 15px 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  table.exec-table td {
+    padding: 14px 18px;
+    font-size: 16.5px;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+    line-height: 1.35;
+  }
+  table.exec-table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  .badge-yes {
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    display: inline-block;
+  }
+  .badge-gold {
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  .bottom-callout {
+    background: linear-gradient(90deg, #0a192f 0%, #0f2942 60%, #0d3b38 100%);
+    color: #ffffff;
+    padding: 20px 28px;
+    border-radius: 14px;
+    border-left: 8px solid #eab308;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .bottom-callout strong {
+    color: #eab308;
+  }
+
+  /* Dynamic Presentation Mode (Default on screen) */
+  body.present-mode {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #050c17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body.present-mode .deck-container {
+    padding: 0;
+    margin: 0;
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    transform-origin: center center;
+  }
+  body.present-mode .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(40px) scale(0.98);
+    transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1), transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  body.present-mode .slide.active-slide {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+    z-index: 10;
+  }
+  .progress-bar-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #eab308, #10b981);
+    z-index: 10000;
+    transition: width 0.3s ease;
+  }
+  @media print {
+    body.present-mode {
+      overflow: visible !important;
+      width: auto !important;
+      height: auto !important;
+      display: block !important;
+    }
+    body.present-mode .deck-container {
+      transform: none !important;
+      width: auto !important;
+      height: auto !important;
+    }
+    body.present-mode .slide {
+      position: relative !important;
+      opacity: 1 !important;
+      transform: none !important;
+      pointer-events: auto !important;
+    }
+    .progress-bar-top { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar-top" id="progressBar" style="width:5%;"></div>
+<div class="deck-toolbar">
+  <span id="slideCounter" style="color:#eab308;font-weight:900;">01 / 20</span>
+  <button onclick="prevSlide()" title="Seta Esquerda">◀ Anterior</button>
+  <select id="slideSelect" onchange="goToSlide(this.value)"></select>
+  <button onclick="nextSlide()" title="Seta Direita ou Espaço">Próximo ▶</button>
+  <button onclick="toggleMode()" id="modeBtn" style="background:#3b82f6;color:#fff;">📜 Modo Rolagem</button>
+  <button onclick="toggleFullscreen()" style="background:#8b5cf6;color:#fff;">🖥️ Tela Cheia</button>
+  <button onclick="window.print()" style="background:#10b981;color:#fff;">🖨️ PDF</button>
+</div>
+
+<div class="deck-container" id="deck">
+
+  <!-- ==================== SLIDE 01: CAPA ==================== -->
+  <section class="slide slide-dark" id="slide-1">
+    <div class="dot-grid" style="top:56px;left:72px;"></div>
+    <div style="width:100%;padding:76px 88px 56px 88px;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;">
+      <div>
+        <div class="kicker">PROJETO ESTRATÉGICO DE ESTADO · CASA DA MOEDA DO BRASIL (CLEC-CMB / MOEDALOG)</div>
+        <h1 class="hero-title" style="max-width:1480px;margin-top:16px;">
+          Controle Logístico Nacional
+          <span>Neoindustrialização, Justiça Fiscal e Soberania</span>
+        </h1>
+        <p class="slide-subtitle" style="font-size:26px;max-width:1380px;color:#e2e8f0;margin-top:18px;">
+          Como o <strong>Selo Eletrônico Fiscal (RFID/NFC)</strong> e o <strong>Lacre Eletrônico de Contêineres e Caminhões</strong> operados pela <strong>Casa da Moeda do Brasil</strong> combatem a pirataria, <strong>reduzem a carga tributária do setor produtivo e dos brasileiros</strong> e garantem a segurança dos produtos no país.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin:28px 0;">
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(234,179,8,0.4);border-radius:18px;padding:24px;text-align:center;">
+          <div style="width:68px;height:68px;border-radius:50%;background:#eab308;color:#0a192f;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;">📉</div>
+          <div style="font-size:19px;font-weight:800;color:#eab308;margin-bottom:6px;">Redução Tributária</div>
+          <div style="font-size:15px;color:#cbd5e1;line-height:1.35;">Amplia a base fiscal cobrando de sonegadores para baixar impostos de quem produz e consome</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(234,179,8,0.4);border-radius:18px;padding:24px;text-align:center;">
+          <div style="width:68px;height:68px;border-radius:50%;background:#eab308;color:#0a192f;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;">🛡️</div>
+          <div style="font-size:19px;font-weight:800;color:#eab308;margin-bottom:6px;">Segurança ao Cidadão</div>
+          <div style="font-size:15px;color:#cbd5e1;line-height:1.35;">Fim de bebidas, remédios e combustíveis adulterados com auditoria via celular NFC</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(234,179,8,0.4);border-radius:18px;padding:24px;text-align:center;">
+          <div style="width:68px;height:68px;border-radius:50%;background:#eab308;color:#0a192f;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;">🏭</div>
+          <div style="font-size:19px;font-weight:800;color:#eab308;margin-bottom:6px;">Neoindustrialização</div>
+          <div style="font-size:15px;color:#cbd5e1;line-height:1.35;">Defesa da indústria nacional e demanda soberana de bilhões de chips para a Ceitec</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(234,179,8,0.4);border-radius:18px;padding:24px;text-align:center;">
+          <div style="width:68px;height:68px;border-radius:50%;background:#eab308;color:#0a192f;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;">☀️</div>
+          <div style="font-size:19px;font-weight:800;color:#eab308;margin-bottom:6px;">Data Center &amp; Solar</div>
+          <div style="font-size:15px;color:#cbd5e1;line-height:1.35;">Complexo CMB de 500 mil m² em Santa Cruz com Usina Solar e Nuvem Soberana</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(234,179,8,0.4);border-radius:18px;padding:24px;text-align:center;">
+          <div style="width:68px;height:68px;border-radius:50%;background:#eab308;color:#0a192f;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;">🚢</div>
+          <div style="font-size:19px;font-weight:800;color:#eab308;margin-bottom:6px;">Selo &amp; Lacre (e-Seal)</div>
+          <div style="font-size:15px;color:#cbd5e1;line-height:1.35;">Selo RFID/NFC em todo produto nacional e Lacre Eletrônico em contêineres importados</div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>CASA DA MOEDA DO BRASIL (CMB) · MINISTÉRIO DA FAZENDA · NOVEMBRO DE 2026</span>
+        <span style="color:#eab308;font-weight:800;">PÁGINA 01 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 02: RESUMO EXECUTIVO ==================== -->
+  <section class="slide" id="slide-2">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">VISÃO EXECUTIVA · A GRANDE TESE NACIONAL</div>
+        <h2 class="slide-title">Por que o Controle Logístico é Estratégico para o Brasil</h2>
+        <p class="slide-subtitle">O Brasil digitalizou a Nota Fiscal (NF-e), mas ainda é cego para a circulação física das mercadorias. Fechar esse elo transforma a economia nacional.</p>
+
+        <div class="item-list">
+          <div class="item-row gold">
+            <div class="icon-circle gold">1</div>
+            <div class="item-text">
+              <h3>Combate Estrutural à Pirataria, ao Contrabando e à Informalidade</h3>
+              <p>Estanca a sangria de <strong>R$ 473,2 a R$ 500 bilhões/ano (US$ 82 a US$ 87 bi)</strong> da pirataria e de <strong>R$ 550 a R$ 627 bilhões/ano (US$ 95 a US$ 109 bi)</strong> da sonegação fiscal que financiam o crime organizado.</p>
+            </div>
+          </div>
+          <div class="item-row emerald">
+            <div class="icon-circle emerald">2</div>
+            <div class="item-text">
+              <h3>Redução da Carga Tributária para o Setor Produtivo e para os Brasileiros</h3>
+              <p>Ao cobrar de quem hoje opera na ilegalidade, o Estado amplia a base de arrecadação sem criar impostos e abre espaço real para <strong>reduzir alíquotas sobre a indústria formal e o consumo popular</strong>.</p>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="icon-circle">3</div>
+            <div class="item-text">
+              <h3>Aumento da Segurança dos Produtos para as Famílias Brasileiras</h3>
+              <p>Protege a saúde e a vida contra bebidas com metanol, remédios falsos, combustíveis adulterados e defensivos ilegais. Qualquer cidadão confere a autenticidade pelo <strong>NFC do celular</strong>.</p>
+            </div>
+          </div>
+          <div class="item-row gold">
+            <div class="icon-circle gold">4</div>
+            <div class="item-text">
+              <h3>Casa da Moeda (CMB): Produtos Tradicionais Intocáveis + Nova Infraestrutura</h3>
+              <p>Cédulas, moedas, passaportes e lacres de urnas do TSE seguem intocáveis. O complexo de <strong>Santa Cruz (500 mil m²)</strong> ganha <strong>Data Center Soberano, Usina Solar, Selo RFID/NFC e Lacre de Contêineres</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>CLEC-CMB · Sistema Nacional de Controle Logístico e Certificação Soberana</span>
+        <span>02 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">DIMENSÃO DO PROBLEMA</div>
+        <h3 style="font-size:28px;font-weight:800;margin-bottom:20px;">A Economia Invisível que Drena o País</h3>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">R$ 1,7 Tri</div>
+          <div class="kpi-usd">≈ US$ 295,6 Bilhões / ano</div>
+          <div class="kpi-label">Tamanho da <strong>Economia Subterrânea e Informal</strong> no Brasil (~14,5% do PIB)</div>
+        </div>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">R$ 627 Bi</div>
+          <div class="kpi-usd">≈ US$ 109,0 Bilhões / ano</div>
+          <div class="kpi-label"><strong>Sonegação Fiscal Anual</strong> estimada (Sinprofaz / Sonegômetro)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-num">R$ 500 Bi</div>
+          <div class="kpi-usd">≈ US$ 87,0 Bilhões / ano</div>
+          <div class="kpi-label">Perdas anuais com <strong>Pirataria, Contrabando e Falsificação</strong> (FNCP)</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Câmbio de referência: US$ 1 = R$ 5,75</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 03: SANGRIA FINANCEIRA MACRO ==================== -->
+  <section class="slide" id="slide-3">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">DIAGNÓSTICO MACROECONÔMICO · EM REAIS (R$) E DÓLARES (US$)</div>
+        <h2 class="slide-title">A Sangria Financeira da Informalidade e da Sonegação</h2>
+        <p class="slide-subtitle">Estudos atualizados do Instituto Igarapé (fev/2026), Sinprofaz, FNCP e FBSP revelam que o Brasil perde mais de um décimo do seu PIB para mercados ilícitos e evasão.</p>
+
+        <div class="bar-chart" style="margin-top:10px;">
+          <div class="bar-row">
+            <div class="bar-label">Economia Subterrânea Total<span>ETCO / FGV / Igarapé (~14,5% do PIB)</span></div>
+            <div class="bar-track"><div class="bar-fill crimson" style="width:100%;"></div></div>
+            <div class="bar-val">R$ 1,70 Trilhão<span>US$ 295,6 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">"Imposto Oculto" do Crime<span>Instituto Igarapé (fev/2026 · 11% a 14% PIB)</span></div>
+            <div class="bar-track"><div class="bar-fill crimson" style="width:88%;"></div></div>
+            <div class="bar-val">R$ 1,50 Trilhão<span>US$ 261,0 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Sonegação Tributária Anual<span>Sinprofaz / Sonegômetro (27,6% da arrecadação)</span></div>
+            <div class="bar-track"><div class="bar-fill gold" style="width:52%;"></div></div>
+            <div class="bar-val">R$ 627,0 Bilhões<span>US$ 109,0 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Pirataria e Contrabando<span>FNCP (15 setores · +62% desde 2020)</span></div>
+            <div class="bar-track"><div class="bar-fill gold" style="width:44%;"></div></div>
+            <div class="bar-val">R$ 500,0 Bilhões<span>US$ 87,0 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Receita do Crime em Produtos<span>FBSP "Follow The Products" (23× a cocaína)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:34%;"></div></div>
+            <div class="bar-val">R$ 348,1 Bilhões<span>US$ 60,5 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Segurança Privada e Seguros<span>Ipea / FBSP (Custo defensivo das empresas)</span></div>
+            <div class="bar-track"><div class="bar-fill emerald" style="width:22%;"></div></div>
+            <div class="bar-val">R$ 171,0 Bilhões<span>US$ 29,7 Bilhões/ano</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Fontes: Instituto Igarapé (2026), Sinprofaz, FNCP (2025/2026), FBSP (2025) e Ipea.</span>
+        <span>03 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">ASSIMETRIA INTERNACIONAL</div>
+        <h3 style="font-size:27px;font-weight:800;margin-bottom:22px;">Sonegação no Brasil vs. Países Desenvolvidos</h3>
+        <div class="kpi-box" style="margin-bottom:22px;border-color:#ef4444;">
+          <div class="kpi-num" style="color:#f87171;">27,6%</div>
+          <div class="kpi-label">de tudo o que o Brasil arrecada é perdido para a <strong>sonegação fiscal</strong> (Sinprofaz)</div>
+        </div>
+        <div class="kpi-box" style="margin-bottom:22px;border-color:#10b981;">
+          <div class="kpi-num" style="color:#34d399;">7,7%</div>
+          <div class="kpi-label">é a média de perda tributária nos <strong>países desenvolvidos (OCDE)</strong> com controle físico-digital</div>
+        </div>
+        <div style="background:rgba(234,179,8,0.12);border-left:4px solid #eab308;padding:16px;border-radius:10px;font-size:16.5px;line-height:1.45;color:#f8fafc;">
+          <strong>Decomposição Igarapé (R$ 1,5 Tri):</strong><br>
+          • R$ 468 bi (US$ 81 bi): mercados ilícitos e pirataria<br>
+          • R$ 373 bi (US$ 65 bi): custos da violência<br>
+          • R$ 300 bi (US$ 52 bi): economia subterrânea<br>
+          • R$ 200 bi (US$ 35 bi): crime ambiental/ouro
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">O crime organizado migrou das drogas para cargas e produtos</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 04: IMPACTO NA INDÚSTRIA ==================== -->
+  <section class="slide" id="slide-4">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">DANO DIRETO À PRODUÇÃO NACIONAL · DADOS FNCP, CNI E FIESP (2025/2026)</div>
+        <h2 class="slide-title">Como a Pirataria e o Contrabando Destroem a Indústria Brasileira</h2>
+        <p class="slide-subtitle">As perdas saltaram 62% desde 2020 (de R$ 287 bi para R$ 473,2–500 bi/ano), drenando investimentos, empregos qualificados e competitividade externa.</p>
+
+        <div class="grid-4" style="margin-bottom:24px;">
+          <div class="card crimson">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#dc2626;margin-bottom:6px;">FATURAMENTO ROUBADO (FNCP)</div>
+              <div style="font-size:42px;font-weight:900;color:#0a192f;line-height:1.05;">R$ 326,3 Bi</div>
+              <div style="font-size:16px;font-weight:800;color:#059669;margin:6px 0 12px;">≈ US$ 56,7 Bilhões / ano</div>
+              <p>Parcela da perda anual que sai diretamente do caixa das indústrias e do comércio formal brasileiro nos 15 setores monitorados.</p>
+            </div>
+            <div style="font-size:13px;font-weight:700;color:#64748b;margin-top:12px;">69% do rombo total da pirataria</div>
+          </div>
+
+          <div class="card gold">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#b45309;margin-bottom:6px;">IMPOSTOS NÃO ARRECADADOS</div>
+              <div style="font-size:42px;font-weight:900;color:#0a192f;line-height:1.05;">R$ 146,9 Bi</div>
+              <div style="font-size:16px;font-weight:800;color:#059669;margin:6px 0 12px;">≈ US$ 25,5 Bilhões / ano</div>
+              <p>Evasão tributária direta gerada exclusivamente pela venda de produtos piratas, contrabandeados e falsificados em 15 cadeias produtivas.</p>
+            </div>
+            <div style="font-size:13px;font-weight:700;color:#64748b;margin-top:12px;">31% do rombo total da pirataria</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#1e40af;margin-bottom:6px;">CUSTO DIRETO NA INDÚSTRIA (CNI)</div>
+              <div style="font-size:42px;font-weight:900;color:#0a192f;line-height:1.05;">R$ 107,6 Bi</div>
+              <div style="font-size:16px;font-weight:800;color:#059669;margin:6px 0 12px;">≈ US$ 18,7 Bilhões / ano</div>
+              <p>Sondagem <em>Brasil Legal</em> (CNI, mai/2026): <strong>R$ 68,5 bi (US$ 11,9 bi)</strong> em gastos preventivos/segurança + <strong>R$ 39,1 bi (US$ 6,8 bi)</strong> em perdas diretas.</p>
+            </div>
+            <div style="font-size:13px;font-weight:700;color:#64748b;margin-top:12px;">Pesquisa CNI / Instituto Locomotiva</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#eab308;margin-bottom:6px;">EMPREGOS E COMPETITIVIDADE</div>
+              <div style="font-size:42px;font-weight:900;color:#eab308;line-height:1.05;">-370 Mil</div>
+              <div style="font-size:16px;font-weight:800;color:#6ee7b7;margin:6px 0 12px;">Vagas Formais Perdidas / ano</div>
+              <p>Segundo a <strong>Fiesp (ago/2026)</strong>, <strong>70% das empresas industriais</strong> sofrem perda direta de competitividade internacional por causa da ilegalidade.</p>
+            </div>
+            <div style="font-size:13px;font-weight:700;color:#94a3b8;margin-top:12px;">Desindustrialização induzida pelo crime</div>
+          </div>
+        </div>
+
+        <div class="bottom-callout">
+          <span>⚠️ <strong>Diagnóstico Industrial:</strong> Nenhuma indústria formal consegue competir com quem não paga impostos, rouba cargas, falsifica marcas e usa as rodovias sem fiscalização eletrônica.</span>
+          <span style="white-space:nowrap;margin-left:20px;"><strong>3,75% do PIB Perdido</strong></span>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Fontes: FNCP (Anuário 2025/2026), CNI (Sondagem Especial Brasil Legal, maio/2026) e Fiesp (agosto/2026).</span>
+        <span>04 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 05: RADIOGRAFIA SETORIAL ==================== -->
+  <section class="slide" id="slide-5">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">RADIOGRAFIA SETORIAL · ONDE ESTÁ A SANGRIA (EM R$ E US$)</div>
+        <h2 class="slide-title">Os Setores Mais Atingidos pelo Crime e pela Fraude</h2>
+        <p class="slide-subtitle">O crime organizado fatura R$ 348,1 bi/ano (US$ 60,5 bi) infiltrado em cadeias produtivas legais — 23 vezes mais do que com o tráfico de cocaína (R$ 15 bi).</p>
+
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Combustíveis e Lubrificantes<span>R$ 61,5 bi crime (13 bi L) + R$ 30 bi sonegação</span></div>
+            <div class="bar-track"><div class="bar-fill crimson" style="width:100%;"></div></div>
+            <div class="bar-val">R$ 91,5 Bilhões<span>US$ 15,91 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Vestuário, Têxtil e Calçados<span>Falsificação e descaminho industrial (FNCP)</span></div>
+            <div class="bar-track"><div class="bar-fill gold" style="width:95%;"></div></div>
+            <div class="bar-val">R$ 87,0 Bilhões<span>US$ 15,13 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Bebidas Alcoólicas<span>+224% contrabando pós-Sicobe; R$ 88 bi evasão</span></div>
+            <div class="bar-track"><div class="bar-fill crimson" style="width:93%;"></div></div>
+            <div class="bar-val">R$ 85,0 Bilhões<span>US$ 14,78 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Material Esportivo e Calçados<span>Falsificação em marketplaces e varejo (FNCP)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:32%;"></div></div>
+            <div class="bar-val">R$ 23,0 Bilhões<span>US$ 4,00 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Perfumes, Higiene e Cosméticos<span>Risco sanitário grave ao consumidor (FNCP)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:29%;"></div></div>
+            <div class="bar-val">R$ 21,0 Bilhões<span>US$ 3,65 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Defensivos Agrícolas (Agro)<span>25% do mercado nacional é ilegal (FBSP/CropLife)</span></div>
+            <div class="bar-track"><div class="bar-fill emerald" style="width:28%;"></div></div>
+            <div class="bar-val">R$ 20,5 Bilhões<span>US$ 3,56 Bilhões/ano</span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Ouro Ilegal + Cigarros Ilegais<span>Ouro: R$ 18,2 bi (38% ilegal) | Cigarros: R$ 10,3 bi (41%)</span></div>
+            <div class="bar-track"><div class="bar-fill gold" style="width:39%;"></div></div>
+            <div class="bar-val">R$ 28,5 Bilhões<span>US$ 4,95 Bilhões/ano</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Fontes: FBSP (Follow The Products, 2025), FNCP (2025), ICL/FGV, ABCF, Euromonitor e Receita Federal.</span>
+        <span>05 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">CASOS REAIS EMBLEMÁTICOS</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:18px;">O Custo de Desligar o Controle Físico</h3>
+        <div style="background:rgba(239,68,68,0.16);border:1px solid #ef4444;border-radius:14px;padding:18px;margin-bottom:16px;">
+          <div style="font-size:18px;font-weight:800;color:#fca5a5;margin-bottom:6px;">🍺 A Lição do Fim do Sicobe (2016)</div>
+          <p style="font-size:15.5px;color:#f8fafc;line-height:1.4;">Após o desligamento do sistema da Casa da Moeda em 2016, o <strong>contrabando de bebidas explodiu +224%</strong> e a falsificação subiu <strong>+46%</strong>. Hoje 36% dos destilados têm indício de fraude.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.35);border-radius:14px;padding:18px;margin-bottom:16px;">
+          <div style="font-size:18px;font-weight:800;color:#eab308;margin-bottom:6px;">⛽ Combustíveis: Caso Refit e PCC</div>
+          <p style="font-size:15.5px;color:#e2e8f0;line-height:1.4;">Setor acumula <strong>R$ 215 bi em dívida ativa</strong>. A Refit acumulou R$ 26 bi sonegados; a <em>Op. Fluxo Oculto</em> revelou importação de nafta pelo PCC movimentando R$ 26 bi em fintechs.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(16,185,129,0.4);border-radius:14px;padding:18px;">
+          <div style="font-size:18px;font-weight:800;color:#6ee7b7;margin-bottom:6px;">⚓ Portos: Op. Mare Liberum (2026)</div>
+          <p style="font-size:15.5px;color:#e2e8f0;line-height:1.4;">Uma única operação da PF/RFB no Porto do Rio descobriu <strong>R$ 86,6 bilhões (US$ 15 bi)</strong> movimentados com 17 mil declarações de importação fraudadas.</p>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Dados auditados PF / RFB / ICL / ABCF</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 06: O PONTO CEGO ==================== -->
+  <section class="slide" id="slide-6">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">VULNERABILIDADE ESTRUTURAL · POR QUE A NF-e SOZINHA NÃO BASTA</div>
+        <h2 class="slide-title">O Ponto Cego Nacional: Documento Digital vs. Carga Física Cega</h2>
+        <p class="slide-subtitle">O Brasil construiu o melhor sistema de escrituração digital do mundo (SPED / NF-e), mas a nota fiscal viaja na nuvem enquanto o caminhão e o contêiner viajam no escuro.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 120px 1fr;align-items:stretch;gap:18px;margin-bottom:24px;">
+          <div style="background:#ffffff;border:2px solid #10b981;border-radius:18px;padding:26px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+              <span style="font-size:22px;font-weight:900;color:#065f46;">🌐 MUNDO DIGITAL (NF-e / MDF-e / DUIMP)</span>
+              <span class="badge-yes">HIPER-DIGITALIZADO</span>
+            </div>
+            <p style="font-size:17px;color:#334155;margin-bottom:16px;">Na tela do computador da Receita Federal e das SEFAZ estaduais, o arquivo XML está matematicamente perfeito:</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:17px;color:#1e293b;">
+              <li>✅ Emitente, CNPJ e assinatura digital válidos no SPED</li>
+              <li>✅ Impostos declarados eletronicamente no papel</li>
+              <li>✅ Manifesto de carga emitido antes da partida</li>
+            </ul>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+            <div style="width:90px;height:90px;border-radius:50%;background:#dc2626;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;box-shadow:0 10px 25px rgba(220,38,38,0.4);">⚡</div>
+            <div style="font-size:15px;font-weight:900;color:#dc2626;margin-top:10px;text-transform:uppercase;">Abismo Físico<br>Sem Lacre/Selo</div>
+          </div>
+
+          <div style="background:#fff1f2;border:2px solid #ef4444;border-radius:18px;padding:26px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+              <span style="font-size:22px;font-weight:900;color:#991b1b;">🚛 MUNDO FÍSICO (PORTOS, BRs E VAREJO)</span>
+              <span style="background:#fecaca;color:#991b1b;font-weight:800;padding:4px 10px;border-radius:999px;font-size:14px;">PONTO CEGO ATUAL</span>
+            </div>
+            <p style="font-size:17px;color:#334155;margin-bottom:16px;">Sem um <strong>Selo RFID/NFC</strong> no produto e um <strong>Lacre Eletrônico</strong> no contêiner/caminhão, ocorrem 5 fraudes sistêmicas:</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:17px;color:#7f1d1d;font-weight:600;">
+              <li>❌ <strong>1. Nota Carrossel:</strong> 1 nota fiscal esquenta 10 viagens de carga sonegada</li>
+              <li>❌ <strong>2. Troca no Contêiner:</strong> declara plástico na aduana e traz eletrônicos</li>
+              <li>❌ <strong>3. Descarga Fantasma:</strong> simula venda interestadual e despeja no estado</li>
+              <li>❌ <strong>4. Adulteração em Trânsito:</strong> batismo de combustível e bebida falsa</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bottom-callout">
+          <span>🔐 <strong>A Solução Definitiva:</strong> Amarrar criptograficamente a <strong>NF-e / DUIMP</strong> ao <strong>Selo Eletrônico do Produto</strong> e ao <strong>Lacre Eletrônico do Caminhão/Contêiner</strong> sob custódia da Casa da Moeda.</span>
+          <span style="white-space:nowrap;margin-left:20px;"><strong>Físico + Digital Unificados</strong></span>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>CLEC-CMB · A convergência entre o SPED Fiscal e a rastreabilidade física em tempo real.</span>
+        <span>06 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 07: REDUÇÃO DA CARGA TRIBUTÁRIA ==================== -->
+  <section class="slide" id="slide-7">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">CONCEITO ECONÔMICO CENTRAL · JUSTIÇA FISCAL E DESENVOLVIMENTO</div>
+        <h2 class="slide-title">Redução da Carga Tributária para o Setor Produtivo e os Brasileiros</h2>
+        <p class="slide-subtitle">Por que o imposto formal no Brasil é tão alto? Porque quem trabalha na lei paga a conta de quem sonega R$ 627 bilhões/ano. O Controle Logístico inverte essa lógica.</p>
+
+        <div class="grid-2x2" style="margin-top:8px;">
+          <div class="card crimson">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#dc2626;margin-bottom:6px;">CENÁRIO ATUAL (INJUSTIÇA FISCAL)</div>
+              <h3>Base Estreita e Alíquota Sufocante</h3>
+              <p>A indústria formal e o trabalhador brasileiro suportam uma carga tributária pesada porque <strong>14,5% do PIB opera na sombra</strong> e <strong>27,6% da arrecadação se perde na sonegação</strong>.</p>
+            </div>
+            <div style="margin-top:12px;font-size:15px;font-weight:800;color:#991b1b;">❌ Penaliza o produtor honesto e encarece a cesta básica</div>
+          </div>
+
+          <div class="card emerald">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#059669;margin-bottom:6px;">NOVO CENÁRIO COM CONTROLE LOGÍSTICO</div>
+              <h3>Base Ampliada = Alíquota Menor</h3>
+              <p>Com o Selo e o Lacre Eletrônico da CMB, os sonegadores e contrabandistas passam a ser alcançados. A arrecadação sobe <strong>sem aumentar um único imposto</strong>.</p>
+            </div>
+            <div style="margin-top:12px;font-size:15px;font-weight:800;color:#065f46;">✅ Permite reduzir alíquotas de IBS/CBS para todos</div>
+          </div>
+
+          <div class="card gold">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#b45309;margin-bottom:6px;">ALÍVIO PARA A INDÚSTRIA NACIONAL</div>
+              <h3>Desoneração Produtiva e Frete Barato</h3>
+              <p>Além da queda na carga tributária nominal, a indústria ganha mercado antes tomado pelo pirata (+R$ 326 bi) e reduz drasticamente gastos com seguro e escolta (-R$ 171 bi).</p>
+            </div>
+            <div style="margin-top:12px;font-size:15px;font-weight:800;color:#92400e;">📈 Mais escala industrial = menor preço unitário</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#eab308;margin-bottom:6px;">ALÍVIO PARA O POVO BRASILEIRO</div>
+              <h3>Produtos Mais Baratos e Cashback</h3>
+              <p>O dividendo fiscal do combate à fraude financia a <strong>redução de tributos sobre alimentos, medicamentos, energia e bens industriais</strong> consumidos pelas famílias brasileiras.</p>
+            </div>
+            <div style="margin-top:12px;font-size:15px;font-weight:800;color:#6ee7b7;">🇧🇷 Poder de compra real devolvido ao cidadão</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Conceito Econômico CLEC-CMB · Justiça Fiscal: cobrar do ilícito para desonerar quem produz e trabalha.</span>
+        <span>07 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">DIVIDENDO FISCAL PARA O PAÍS</div>
+        <h3 style="font-size:27px;font-weight:800;margin-bottom:20px;">A Matemática da Desoneração Tributária</h3>
+        <div class="kpi-box" style="margin-bottom:20px;">
+          <div class="kpi-num">+R$ 150 Bi</div>
+          <div class="kpi-usd">≈ US$ 26,0 Bilhões / ano</div>
+          <div class="kpi-label">Recuperação tributária anual conservadora (apenas <strong>25% da evasão atual</strong>)</div>
+        </div>
+        <div style="background:rgba(16,185,129,0.15);border:1px solid #10b981;border-radius:16px;padding:22px;margin-bottom:20px;">
+          <div style="font-size:19px;font-weight:800;color:#6ee7b7;margin-bottom:10px;">O Ciclo Virtuoso:</div>
+          <div style="font-size:16px;color:#f8fafc;line-height:1.55;">
+            1. <strong>Selo/Lacre CMB</strong> bloqueia o contrabando e a nota fria<br>
+            2. <strong>Base de contribuintes</strong> cresce +25% a +35%<br>
+            3. <strong>Governo reduz a alíquota</strong> do setor produtivo e do consumidor<br>
+            4. <strong>Formalização cresce</strong> ainda mais com imposto mais baixo
+          </div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Mais arrecadação com menor alíquota individual</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 08: SEGURANÇA DOS PRODUTOS PARA OS BRASILEIROS ==================== -->
+  <section class="slide" id="slide-8">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">PROTEÇÃO AO CONSUMIDOR E SAÚDE PÚBLICA · CIDADANIA ATIVA</div>
+        <h2 class="slide-title">Segurança dos Produtos para os Brasileiros</h2>
+        <p class="slide-subtitle">A pirataria não rouba apenas impostos — ela ameaça a vida, a saúde e o patrimônio das famílias brasileiras todos os dias nas gôndolas, postos e farmácias.</p>
+
+        <div class="grid-2x2">
+          <div class="card">
+            <div>
+              <div style="font-size:28px;margin-bottom:8px;">🍷 <strong>Bebidas, Alimentos e Água</strong></div>
+              <p>Elimina o risco de cegueira e morte por bebidas adulteradas com metanol e produtos falsificados em garrafas reaproveitadas. O selo autodestrutivo garante origem de fábrica.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#059669;margin-top:10px;">✔ Garantia sanitária da linha de envase ao copo</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="font-size:28px;margin-bottom:8px;">💊 <strong>Medicamentos, Perfumes e Cosméticos</strong></div>
+              <p>Impede a entrada de medicamentos sem princípio ativo, hospitalares roubados (fora da cadeia de frio) ou cosméticos clandestinos com metais pesados e substâncias tóxicas.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#059669;margin-top:10px;">✔ Rastreabilidade unitária de lote e validade</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="font-size:28px;margin-bottom:8px;">⛽ <strong>Combustíveis, Lubrificantes e Autopeças</strong></div>
+              <p>Protege o veículo e a vida do trabalhador contra os <strong>13 bilhões de litros de combustível batizado</strong> (com nafta/metanol) e contra pastilhas de freio e componentes elétricos falsos.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#059669;margin-top:10px;">✔ Lacre eletrônico do caminhão-tanque à bomba</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="font-size:28px;margin-bottom:8px;">🌾 <strong>Defensivos Agrícolas e Sementes</strong></div>
+              <p>Combate os <strong>25% de agrotóxicos ilegais</strong> que contaminam o solo, enganam o produtor rural e deixam resíduos proibidos nos alimentos que chegam à mesa do brasileiro.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#059669;margin-top:10px;">✔ Segurança alimentar do campo ao supermercado</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Defesa do Consumidor · Cada cidadão brasileiro transformado em auditor da autenticidade nacional.</span>
+        <span>08 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">AUDITORIA PELO CELULAR</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:18px;">Verificação Instantânea via NFC pelo Cidadão</h3>
+        <div style="background:#071120;border:3px solid #eab308;border-radius:28px;padding:24px 20px;text-align:center;margin-bottom:18px;box-shadow:0 15px 35px rgba(0,0,0,0.5);">
+          <div style="width:60px;height:6px;background:#334155;border-radius:3px;margin:0 auto 16px;"></div>
+          <div style="width:74px;height:74px;border-radius:50%;background:#10b981;color:#fff;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;">✓</div>
+          <div style="font-size:20px;font-weight:900;color:#6ee7b7;margin-bottom:6px;">PRODUTO AUTÊNTICO</div>
+          <div style="font-size:14px;color:#cbd5e1;margin-bottom:14px;">Certificado pela Casa da Moeda do Brasil</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:left;font-size:13.5px;color:#e2e8f0;line-height:1.5;">
+            • <strong>Selo NFC:</strong> #CMB-99482-BR<br>
+            • <strong>Origem:</strong> Indústria Nacional Regular<br>
+            • <strong>NF-e Vinculada:</strong> Confirmada<br>
+            • <strong>Status Sanitário:</strong> Lote Íntegro
+          </div>
+        </div>
+        <p style="font-size:16px;color:#e2e8f0;line-height:1.45;text-align:center;">
+          <strong>Sem precisar baixar aplicativo:</strong> basta encostar qualquer smartphone no Selo Eletrônico NFC da embalagem.
+        </p>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Criptografia ICP-Brasil / Casa da Moeda</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 09: NEOINDUSTRIALIZAÇÃO E CEITEC ==================== -->
+  <section class="slide" id="slide-9">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">POLÍTICA INDUSTRIAL · NOVA INDÚSTRIA BRASIL (NIB) E SOBERANIA TECNOLÓGICA</div>
+        <h2 class="slide-title">Controle Logístico como Motor da Neoindustrialização</h2>
+        <p class="slide-subtitle">Reindustrializar o Brasil exige duas frentes simultâneas: proteger o mercado interno contra o contrabando e usar o poder de compra do Estado para tracionar a microeletrônica nacional.</p>
+
+        <div class="item-list">
+          <div class="item-row gold">
+            <div class="icon-circle gold">🔌</div>
+            <div class="item-text">
+              <h3>Cliente Âncora para a Ceitec e a Indústria Nacional de Semicondutores</h3>
+              <p>O Controle Logístico Nacional demandará de <strong>15 a 30 bilhões de chips RFID/NFC por ano</strong>. Essa encomenda pública firme garante escala imediata e viabilidade econômica para a <strong>Ceitec (Porto Alegre)</strong> e encapsuladoras nacionais.</p>
+            </div>
+          </div>
+          <div class="item-row emerald">
+            <div class="icon-circle emerald">🏭</div>
+            <div class="item-text">
+              <h3>Fomento à Cadeia de Inlays, Antenas, Leitores Ópticos e IoT no Brasil</h3>
+              <p>Puxa toda uma indústria de alta tecnologia no país: fabricação de antenas condutivas, sensores de caminhão/contêiner, portais <em>free-flow</em> rodoviários e coletores ópticos para forças policiais e fiscais.</p>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="icon-circle">🧠</div>
+            <div class="item-text">
+              <h3>Engenharia e Inteligência Artificial 100% Brasileiras (COPPE/UFRJ, PUC-Rio e INT)</h3>
+              <p>Desenvolvimento de algoritmos soberanos de detecção de anomalia fiscal, visão computacional portuária e criptografia pós-quântica em parceria com as universidades e centros de pesquisa nacionais.</p>
+            </div>
+          </div>
+          <div class="item-row gold">
+            <div class="icon-circle gold">🌍</div>
+            <div class="item-text">
+              <h3>Passaporte Digital de Exportação para os Produtos Brasileiros</h3>
+              <p>A União Europeia exigirá o <strong>Passaporte Digital de Produto (DPP) em 2026/2027</strong>. Com a certificação da CMB, a indústria e o agro brasileiros já saem de fábrica prontos para exportar sem pagar pedágio tecnológico externo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Neoindustrialização · Do chip nacional na Ceitec à proteção competitiva da manufatura brasileira.</span>
+        <span>09 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">ESCALA INDUSTRIAL SOBERANA</div>
+        <h3 style="font-size:27px;font-weight:800;margin-bottom:20px;">O Hardware da Confiança Nacional</h3>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">15–30 Bi</div>
+          <div class="kpi-label">de <strong>chips e etiquetas RFID/NFC por ano</strong> demandados no mercado brasileiro</div>
+        </div>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">2026/27</div>
+          <div class="kpi-label">Início da exigência do <strong>Passaporte Digital de Produto (DPP)</strong> na União Europeia</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-num">100%</div>
+          <div class="kpi-label">de soberania sobre os dados industriais e comerciais que circulam no território nacional</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Sinergia direta: CMB + Ceitec + BNDES + Finep</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 10: COMPARATIVO INTERNACIONAL I (CHINA E EUROPA) ==================== -->
+  <section class="slide" id="slide-10">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">BENCHMARKING INTERNACIONAL (PARTE I) · CHINA, HONG KONG E UNIÃO EUROPEIA</div>
+        <h2 class="slide-title">Como as Grandes Potências Fazem: China e Europa</h2>
+        <p class="slide-subtitle">O uso de Selos Eletrônicos Fiscais e Lacres Eletrônicos Aduaneiros já é realidade consolidada nas maiores economias industriais e comerciais do planeta.</p>
+
+        <div class="grid-2x2" style="margin-bottom:20px;">
+          <div class="card gold">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:22px;font-weight:900;color:#0a192f;">🇨🇳 🇭🇰 CHINA &amp; HONG KONG — Single E-lock Scheme</span>
+                <span class="badge-yes">LACRE ELETRÔNICO ATIVO</span>
+              </div>
+              <p>Sistema de <strong>Lacre Eletrônico Único com GPS</strong> acreditado simultaneamente pelas aduanas da China Continental e de Hong Kong em <strong>93 postos de controle</strong> e <strong>mais de 1.000 rotas</strong> (cobrindo 80% da carga intermodal). O tempo de desembaraço aduaneiro caiu de <strong>2 horas para poucos minutos (-95%)</strong> sem abrir o caminhão.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#b45309;margin-top:10px;">⚡ Golden Tax Phase IV: cruza nota eletrônica (e-fapiao), selo eletrônico corporativo e logística em tempo real</div>
+          </div>
+
+          <div class="card emerald">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:22px;font-weight:900;color:#0a192f;">🇪🇺 UNIÃO EUROPEIA — Passaporte Digital (DPP) e eIDAS 2</span>
+                <span class="badge-yes">SELO NFC/RFID + TRACK &amp; TRACE</span>
+              </div>
+              <p>O <strong>Passaporte Digital de Produto (Regulamento ESPR 2024/1781)</strong> entra em operação em <strong>julho de 2026</strong> e torna-se obrigatório em <strong>fevereiro de 2027</strong> (baterias, têxteis, aço, pneus, eletrônicos) via NFC/RFID/QR. No tabaco (TPD), a UE já rastreia <strong>27 bilhões de maços/ano</strong> (150 bilhões de eventos fiscais).</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#065f46;margin-top:10px;">🔐 Regulamento eIDAS 2: institui o Selo Eletrônico Qualificado de Estado em todo o bloco europeu</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:22px;font-weight:900;color:#eab308;">🇩🇪 ALEMANHA — Estatal Bundesdruckerei</span>
+                <span class="badge-gold">€ 1,11 BILHÃO / ANO</span>
+              </div>
+              <p>A Casa da Moeda/Gráfica Estatal alemã (100% pública) adotou a missão de <strong>"Soberania Digital"</strong>. Faturou <strong>€ 1,11 bilhão (~R$ 6,8 bi)</strong> com lucro operacional (EBIT) de <strong>€ 238 milhões (margem de 21,4%)</strong>. Hoje, <strong>92% a 95,8% de sua receita vem de fora das cédulas de Euro</strong> (criptografia, identidade e rastreabilidade).</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#6ee7b7;margin-top:10px;">📈 Multiplicou seu lucro por 7× em quatro anos migrando para certificação digital</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:22px;font-weight:900;color:#eab308;">🇫🇷 FRANÇA — Estatal IN Groupe (Imprimerie Nationale)</span>
+                <span class="badge-gold">MARGEM DE 24%</span>
+              </div>
+              <p>Estatal 100% pública do governo francês. Reinventou-se como líder global em identidade digital, selos fiscais e rastreamento eletrônico de cargas perigosas/logística. Comprou a gigante <strong>IDEMIA Smart Identity por € 1 bilhão</strong>, atingindo receita superior a <strong>€ 1 bilhão/ano</strong>.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#6ee7b7;margin-top:10px;">🏛️ Prova de que estatais soberanas lideram o mercado mundial de confiança</div>
+          </div>
+        </div>
+
+        <div class="bottom-callout">
+          <span>🌍 <strong>Tendência Mundial Inequívoca:</strong> Tanto na China quanto na Europa, a resposta para a queda do uso de papel-moeda foi transformar as estatais de segurança na âncora digital da logística e da tributação.</span>
+          <span style="white-space:nowrap;margin-left:20px;"><strong>Soberania Digital</strong></span>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Fontes: Hong Kong Customs (Single E-lock), Comissão Europeia (ESPR/DPP 2026), Relatórios Anuais Bundesdruckerei e IN Groupe.</span>
+        <span>10 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 11: COMPARATIVO INTERNACIONAL II (ÁFRICA, EUA, UK, ÁSIA) ==================== -->
+  <section class="slide" id="slide-11">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">BENCHMARKING INTERNACIONAL (PARTE II) · ÁFRICA, EUA, REINO UNIDO, ÁSIA E EURÁSIA</div>
+        <h2 class="slide-title">Quadro Comparativo Mundial: África, EUA, Reino Unido e Ásia</h2>
+        <p class="slide-subtitle">A África Oriental protagonizou um dos casos de maior sucesso mundial em lacres eletrônicos aduaneiros, enquanto EUA, Reino Unido, Coreia e Filipinas colhem bilhões em arrecadação.</p>
+
+        <table class="exec-table" style="margin-bottom:20px;">
+          <thead>
+            <tr>
+              <th style="width:18%;">País / Bloco</th>
+              <th style="width:14%;">Selo / Lacre?</th>
+              <th style="width:23%;">Sistema e Operador</th>
+              <th style="width:45%;">Resultados Comprovados e Lições para o Brasil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🌍 África Oriental</strong><br><span style="font-size:14px;color:#64748b;">Quênia, Uganda, Ruanda, Tanzânia, Moçambique</span></td>
+              <td><span class="badge-yes">SIM (Lacre + Selo)</span></td>
+              <td><strong>RECTS</strong> (Corredor Norte 12.707 km) + <strong>ETS / EGMS</strong> (Selos Fiscais Digitais)</td>
+              <td><strong>RECTS:</strong> Custo de apenas US$ 4,4 mi; trânsito caiu de <strong>6 dias para 1,5 dia (-75%)</strong>; desvios caíram <strong>-76%</strong>; eliminou pedágio privado de <strong>US$ 1.200/caminhão</strong> (hoje gratuito). <strong>Tanzânia (ETS):</strong> arrecadação subiu <strong>+34% no 1º ano</strong> e contribuintes saltaram de 40 para 1.201. <strong>Uganda:</strong> +30%. <strong>Moçambique:</strong> lacre eletrônico por modal (contêiner, baú e tanque).</td>
+            </tr>
+            <tr>
+              <td><strong>🇺🇸 Estados Unidos</strong><br><span style="font-size:14px;color:#64748b;">Federal + Califórnia, MA, MI</span></td>
+              <td><span class="badge-yes">SIM (Selo + E-Seal)</span></td>
+              <td>Selos Criptografados Estaduais + <strong>FDA (DSCSA)</strong> + Portos (CBP) + <strong>Crane NXT</strong></td>
+              <td><strong>Califórnia:</strong> selo fiscal criptografado gerou <strong>+US$ 133 milhões/ano</strong> em tributos e reduziu falsificação em <strong>-33%</strong>. <strong>DSCSA:</strong> rastreio unitário obrigatório de medicamentos. <strong>Portos (433 MHz e-seals):</strong> reduziu tempo de inspeção de contêineres em <strong>-50%</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>🇬🇧 Reino Unido</strong><br><span style="font-size:14px;color:#64748b;">HMRC (Receita Britânica)</span></td>
+              <td><span class="badge-yes">SIM (Físico-Digital)</span></td>
+              <td><strong>HMRC Track &amp; Trace</strong> + Novo <strong>Selo Físico-Digital (fev/2026)</strong> + <strong>DPR</strong></td>
+              <td>Rastreia 1,7 bi de embalagens/ano. Em <strong>fev/2026</strong> contratou novo <strong>Selo Fiscal Físico-Digital Obrigatório</strong> (com código digital e segurança física). Lança o <em>Digital Product Records (DPR)</em> e campanha para repatriar produção de passaportes (2029).</td>
+            </tr>
+            <tr>
+              <td><strong>🇰🇷 Coreia do Sul</strong><br><span style="font-size:14px;color:#64748b;">Casa da Moeda Estatal</span></td>
+              <td><span class="badge-yes">SIM (Selo + ID)</span></td>
+              <td><strong>KOMSCO</strong> (Estatal Coreana de Moeda e Segurança)</td>
+              <td>Receita recorde de <strong>₩ 639,5 bilhões (~US$ 480 mi, +26%)</strong>: <strong>mais de 80% do faturamento vem de fora da moeda</strong> (identidade móvel em blockchain, selos de autenticidade e ouro).</td>
+            </tr>
+            <tr>
+              <td><strong>🇵🇭 Filipinas &amp; 🌐 Eurásia</strong><br><span style="font-size:14px;color:#64748b;">APO Estatal / Bloco EAEU</span></td>
+              <td><span class="badge-yes">SIM (Selo + Lacre)</span></td>
+              <td><strong>APO Production Unit</strong> (Filipinas) / Tratado <strong>EAEU (5 países)</strong></td>
+              <td><strong>Filipinas:</strong> estatal APO emitiu <strong>31,2 bi de selos</strong>, arrecadando <strong>US$ 1,3 bi/ano</strong> (devolve 50% do lucro ao Tesouro) e marcou 89,3 bi L de combustível. <strong>Eurásia:</strong> 5 países exigem lacre eletrônico único GLONASS/GPS em rodovias e ferrovias.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="bottom-callout">
+          <span>🏆 <strong>Lição da África e da Ásia para o Brasil:</strong> Quando o Estado assume a âncora da certificação (como no RECTS africano e na APO filipina), o custo para o transportador despenca e a arrecadação dispara mais de 30% no primeiro ano.</span>
+          <span style="white-space:nowrap;margin-left:20px;"><strong>Retorno Imediato</strong></span>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Fontes: WCO (Organização Mundial das Alfândegas), URA/KRA/TRA (África), HMRC (Reino Unido, 2026), California BOE, KOMSCO e APO.</span>
+        <span>11 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 12: CASA DA MOEDA - PRODUTOS TRADICIONAIS INTOCÁVEIS ==================== -->
+  <section class="slide" id="slide-12">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">SOBERANIA INSTITUCIONAL · 330 ANOS DE FÉ PÚBLICA (FUNDADA EM 1694)</div>
+        <h2 class="slide-title">Casa da Moeda do Brasil: Produtos Tradicionais Continuam Intocáveis</h2>
+        <p class="slide-subtitle">As linhas clássicas da Casa da Moeda possuem demanda cativa de Estado, não exigem nenhuma defesa especial e seguem em plena operação enquanto a empresa expande para o Controle Logístico.</p>
+
+        <div class="grid-2x2">
+          <div class="card gold">
+            <div>
+              <div style="font-size:30px;margin-bottom:8px;">💵 <strong>1. Meio Circulante (Cédulas e Moedas do Real)</strong></div>
+              <p>Produção soberana exclusiva para o <strong>Banco Central do Brasil</strong> (~1,3 bilhão de cédulas e 775 milhões de moedas metálicas/ano, gerando cerca de R$ 1 bilhão/ano em receita garantida).</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#b45309;margin-top:10px;">🔒 Continuidade 100% assegurada — Soberania Monetária</div>
+          </div>
+
+          <div class="card emerald">
+            <div>
+              <div style="font-size:30px;margin-bottom:8px;">🛂 <strong>2. Passaportes e Documentos de Segurança</strong></div>
+              <p>Produção dos passaportes eletrônicos brasileiros com chip criptográfico ICAO para a <strong>Polícia Federal e o Itamaraty</strong>, carteiras funcionais e documentos de Estado.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#059669;margin-top:10px;">🔒 Continuidade 100% assegurada — Soberania de Fronteira</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="font-size:30px;margin-bottom:8px;">🗳️ <strong>3. Lacres das Urnas Eletrônicas (TSE)</strong></div>
+              <p>Fabricação dos lacres físicos especiais de segurança que garantem a inviolabilidade das urnas eletrônicas da <strong>Justiça Eleitoral (TSE)</strong> em todas as eleições brasileiras.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#1e40af;margin-top:10px;">🔒 Continuidade 100% assegurada — Soberania Democrática</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="font-size:30px;margin-bottom:8px;">🚀 <strong>4. A Nova Fronteira: Controle Logístico Nacional</strong></div>
+              <p>Sem mexer em nenhum produto tradicional, a CMB usa sua capacidade ociosa em Santa Cruz para produzir o <strong>Selo Eletrônico Fiscal (RFID/NFC)</strong> e operar o <strong>Lacre Eletrônico Aduaneiro/Rodoviário</strong>.</p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#6ee7b7;margin-top:10px;">✨ Multiplica a receita da CMB por 4× a 6×</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Lei Federal nº 5.895/1973 · Empresa Pública vinculada ao Ministério da Fazenda com fé pública constitucional.</span>
+        <span>12 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">EXPERIÊNCIA COMPROVADA</div>
+        <h3 style="font-size:27px;font-weight:800;margin-bottom:20px;">A CMB Já Liderou Esse Mercado</h3>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">332 Anos</div>
+          <div class="kpi-label">de reputação inabalável a serviço do Estado brasileiro (desde 1694)</div>
+        </div>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">R$ 1,65 Bi</div>
+          <div class="kpi-usd">≈ US$ 287 Milhões / ano</div>
+          <div class="kpi-label">Receita anual que a CMB já gerava quando operava o <strong>Sicobe e o Scorpios</strong></div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-num">30%</div>
+          <div class="kpi-label">do mercado mundial de rastreabilidade fiscal já chegou a ser operado no Brasil pela CMB</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Neutralidade competitiva: só o Estado guarda as chaves</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 13: INFRAESTRUTURA SANTA CRUZ (DATA CENTER + USINA SOLAR) ==================== -->
+  <section class="slide slide-dark" id="slide-13">
+    <div class="dot-grid" style="top:50px;right:70px;"></div>
+    <div style="width:100%;padding:56px 72px 50px 72px;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;">
+      <div>
+        <div class="kicker">INFRAESTRUTURA ESPETACULAR · DISTRITO INDUSTRIAL DE SANTA CRUZ (RIO DE JANEIRO)</div>
+        <h2 class="slide-title" style="font-size:44px;color:#ffffff;">O Complexo de Santa Cruz: Data Center Soberano e Usina Solar</h2>
+        <p class="slide-subtitle" style="color:#cbd5e1;margin-bottom:22px;">
+          A Casa da Moeda possui um complexo industrial próprio de <strong>500.000 m² a 570.000 m²</strong> (~110.000 m² construídos), com segurança máxima, subestações elétricas e a 20 km do Porto de Itaguaí — pronto para receber 4 novas infraestruturas estratégicas:
+        </p>
+
+        <div style="background:rgba(15,23,42,0.75);border:2px solid #eab308;border-radius:20px;padding:26px;margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(234,179,8,0.35);padding-bottom:12px;margin-bottom:20px;">
+            <span style="font-size:20px;font-weight:900;color:#eab308;">🏛️ PLANTA ESTRATÉGICA — COMPLEXO INDUSTRIAL DA CASA DA MOEDA EM SANTA CRUZ (RJ)</span>
+            <span style="background:#eab308;color:#0a192f;font-weight:900;padding:5px 14px;border-radius:999px;font-size:14px;">ÁREA TOTAL: 500.000 m² a 570.000 m² · ÁREA CONSTRUÍDA: 110.000 m²</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+            <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.5);border-radius:16px;padding:22px;">
+              <div style="font-size:36px;margin-bottom:10px;">☀️</div>
+              <div style="font-size:21px;font-weight:900;color:#eab308;margin-bottom:8px;">1. Usina de Energia Solar Fotovoltaica</div>
+              <p style="font-size:16px;color:#e2e8f0;line-height:1.45;margin-bottom:12px;">Aproveitamento dos <strong>100.000+ m² de coberturas industriais e terrenos livres</strong> do complexo para instalar uma fazenda solar de <strong>15 MWp a 30 MWp</strong>.</p>
+              <div style="font-size:14px;font-weight:800;color:#6ee7b7;">⚡ Energia limpa e gratuita para o Data Center e as linhas fabris 24/7</div>
+            </div>
+
+            <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.5);border-radius:16px;padding:22px;">
+              <div style="font-size:36px;margin-bottom:10px;">🖥️</div>
+              <div style="font-size:21px;font-weight:900;color:#6ee7b7;margin-bottom:8px;">2. Data Center Soberano Tier III / IV</div>
+              <p style="font-size:16px;color:#e2e8f0;line-height:1.45;margin-bottom:12px;">Construído dentro do perímetro militarizado da CMB em Santa Cruz. Guarda os <strong>módulos criptográficos (HSMs)</strong> e processa trilhões de leituras logísticas e fiscais.</p>
+              <div style="font-size:14px;font-weight:800;color:#eab308;">🔒 Imune a espionagem externa; integrado ao Serpro e à Receita Federal</div>
+            </div>
+
+            <div style="background:rgba(59,130,246,0.12);border:1px solid rgba(96,165,250,0.5);border-radius:16px;padding:22px;">
+              <div style="font-size:36px;margin-bottom:10px;">🏷️</div>
+              <div style="font-size:21px;font-weight:900;color:#93c5fd;margin-bottom:8px;">3. Produção do Selo Eletrônico (RFID/NFC)</div>
+              <p style="font-size:16px;color:#e2e8f0;line-height:1.45;margin-bottom:12px;">Linhas de alta velocidade que unem a <strong>impressão gráfica de segurança da CMB</strong> à inserção de <strong>chips RFID/NFC</strong> (em parceria com a Ceitec) para produtos nacionais.</p>
+              <div style="font-size:14px;font-weight:800;color:#6ee7b7;">🏭 Capacidade para bilhões de selos/ano (bebidas, remédios, agro, têxtil)</div>
+            </div>
+
+            <div style="background:rgba(245,158,11,0.12);border:1px solid rgba(251,191,36,0.5);border-radius:16px;padding:22px;">
+              <div style="font-size:36px;margin-bottom:10px;">🚛</div>
+              <div style="font-size:21px;font-weight:900;color:#fcd34d;margin-bottom:8px;">4. Central de Lacres Eletrônicos (e-Seals)</div>
+              <p style="font-size:16px;color:#e2e8f0;line-height:1.45;margin-bottom:12px;">Certificação, gravação de chaves criptográficas e monitoramento nacional dos <strong>Lacres Eletrônicos de Contêineres e Caminhões</strong> que entram pelos portos e fronteiras.</p>
+              <div style="font-size:14px;font-weight:800;color:#6ee7b7;">⚓ A 20 km do Porto de Itaguaí e junto ao Arco Metropolitano do Rio</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.06);border-left:6px solid #10b981;border-radius:12px;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;font-size:18px;color:#f8fafc;">
+          <span>🏛️ <strong>Setor Tradicional Preservado no Mesmo Complexo:</strong> Os pavilhões de impressão de Cédulas do Real, cunhagem de Moedas, Passaportes e Lacres do TSE permanecem operando normalmente ao lado do novo Hub Tecnológico.</span>
+          <span style="color:#eab308;font-weight:900;white-space:nowrap;margin-left:20px;">CAPEX OTIMIZADO</span>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Complexo Industrial de Santa Cruz (RJ) · Patrimônio estratégico da União pronto para a economia digital.</span>
+        <span style="color:#eab308;font-weight:800;">13 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 14: SELO ELETRÔNICO FISCAL (RFID + NFC) ==================== -->
+  <section class="slide" id="slide-14">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">ARQUITETURA TECNOLÓGICA (I) · PRODUTOS NACIONAIS INDUSTRIALIZADOS</div>
+        <h2 class="slide-title">O Selo Eletrônico Fiscal (RFID + NFC) para Produtos Nacionais</h2>
+        <p class="slide-subtitle">Substitui o antigo selo de papel por um dispositivo físico-digital inviolável que acompanha cada produto fabricado no Brasil desde a linha de produção até o consumidor.</p>
+
+        <div class="item-list">
+          <div class="item-row gold">
+            <div class="icon-circle gold">1</div>
+            <div class="item-text">
+              <h3>Camada Física Gráfica Autodestrutiva (Know-How Exclusivo CMB)</h3>
+              <p>Impressão com tintas opticamente variáveis, microletras, guilhoches e <strong>substrato com cortes de segurança</strong>: qualquer tentativa de remover o selo para reutilizá-lo em produto falso rompe a antena metálica e inutiliza o chip na hora.</p>
+            </div>
+          </div>
+          <div class="item-row emerald">
+            <div class="icon-circle emerald">2</div>
+            <div class="item-text">
+              <h3>Antena RFID UHF (Leitura Logística em Massa e em Movimento)</h3>
+              <p>Permite que portais leitores na expedição da fábrica, nos centros de distribuição e nos postos fiscais auditem <strong>1.000 a 2.000 produtos por segundo dentro de caixas e paletes fechados</strong>, sem abrir embalagens.</p>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="icon-circle">3</div>
+            <div class="item-text">
+              <h3>Chip NFC Criptográfico (Leitura Unitária pelo Cidadão e pela Fiscalização)</h3>
+              <p>Na ponta do varejo, o fiscal da Receita/SEFAZ ou o próprio consumidor encosta o smartphone (NFC) na embalagem e valida a assinatura digital gravada pela Casa da Moeda.</p>
+            </div>
+          </div>
+          <div class="item-row gold">
+            <div class="icon-circle gold">4</div>
+            <div class="item-text">
+              <h3>Gêmeo Digital Vinculado à Nota Fiscal Eletrônica (NF-e)</h3>
+              <p>Cada item físico recebe um <strong>UID Criptográfico Único</strong> amarrado ao lote de produção e à NF-e, tornando impossível o uso de "nota fiscal carrossel" ou esquentamento de carga roubada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Selo Eletrônico Fiscal CMB · Autenticidade unitária para bebidas, medicamentos, agroquímicos, cigarros, vestuário e eletrônicos.</span>
+        <span>14 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">ANATOMIA DO SELO CMB</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:18px;">Dupla Frequência (UHF + NFC)</h3>
+        <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:3px solid #d4af37;border-radius:18px;padding:22px;color:#0a192f;margin-bottom:20px;box-shadow:0 12px 30px rgba(0,0,0,0.4);">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px dashed #b45309;padding-bottom:10px;margin-bottom:12px;">
+            <span style="font-weight:900;font-size:16px;">🇧🇷 CASA DA MOEDA DO BRASIL</span>
+            <span style="background:#0a192f;color:#eab308;font-weight:900;font-size:12px;padding:3px 8px;border-radius:4px;">UID CRIPTO</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center;margin-bottom:12px;">
+            <div style="background:#0a192f;color:#fff;padding:12px;border-radius:10px;">
+              <div style="font-size:22px;font-weight:900;color:#eab308;">RFID UHF</div>
+              <div style="font-size:12.5px;color:#cbd5e1;">Alcance: até 12 m<br>(Palete / Caminhão)</div>
+            </div>
+            <div style="background:#065f46;color:#fff;padding:12px;border-radius:10px;">
+              <div style="font-size:22px;font-weight:900;color:#6ee7b7;">NFC 13.56MHz</div>
+              <div style="font-size:12.5px;color:#d1fae5;">Toque do Celular<br>(Consumidor / Fiscal)</div>
+            </div>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:#78350f;text-align:center;">
+            Substrato Frágil Autodestrutivo + Holografia CMB + Assinatura ICP-Brasil
+          </div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-num">2.000/s</div>
+          <div class="kpi-label">Produtos lidos simultaneamente em segundos sem abrir as caixas</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Tecnologia aberta e multifornecedor certificada pela CMB</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 15: LACRE ELETRÔNICO (E-SEAL) PARA IMPORTADOS E CAMINHÕES ==================== -->
+  <section class="slide" id="slide-15">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">ARQUITETURA TECNOLÓGICA (II) · PORTOS, FRONTEIRAS, CONTÊINERES E CAMINHÕES</div>
+        <h2 class="slide-title">O Lacre Eletrônico (e-Seal) para Importados e Cargas em Trânsito</h2>
+        <p class="slide-subtitle">Todo produto que chega de fora nos portos e fronteiras e é transportado em contêiner ou caminhão — além das cargas nacionais de alto risco — recebe o Lacre Eletrônico Soberano.</p>
+
+        <div class="item-list">
+          <div class="item-row gold">
+            <div class="icon-circle gold">⚓</div>
+            <div class="item-text">
+              <h3>1. Aplicação na Atracação Portuária ou na Fronteira Terrestre</h3>
+              <p>Ao sair do navio ou cruzar a fronteira seca, o contêiner, baú ou caminhão-tanque é trancado com o <strong>Lacre Eletrônico Certificado pela CMB</strong>, vinculado eletronicamente à <strong>DUIMP (Importação), à NF-e e ao MDF-e</strong>.</p>
+            </div>
+          </div>
+          <div class="item-row emerald">
+            <div class="icon-circle emerald">🛰️</div>
+            <div class="item-text">
+              <h3>2. Telemetria Contínua (GPS/Satélite/4G + Sensores de Violação)</h3>
+              <p>Monitora em tempo real no Data Center de Santa Cruz: <strong>geolocalização, cerca eletrônica de rota (geofencing), paradas suspeitas, corte do cabo de aço, abertura de porta, entrada de luz no contêiner e temperatura/volume</strong>.</p>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="icon-circle">🛣️</div>
+            <div class="item-text">
+              <h3>3. Canal Verde nas Estradas (Leitura Free-Flow a 100 km/h)</h3>
+              <p>Ao passar pelos pórticos das BRs e postos da <strong>PRF, ANTT e SEFAZ</strong>, o caminhão com lacre íntegro e rota autorizada recebe <strong>Sinal Verde automático sem precisar parar na barreira</strong>.</p>
+            </div>
+          </div>
+          <div class="item-row crimson">
+            <div class="icon-circle crimson">🚨</div>
+            <div class="item-text">
+              <h3>4. Alerta Instantâneo de Fraude ou Roubo em Menos de 3 Segundos</h3>
+              <p>Se o contêiner for aberto fora do destino ou desviar para um galpão clandestino, o lacre transmite alerta imediato à <strong>Receita Federal, PRF, SEFAZ e Seguradora</strong>, travando a baixa fiscal da carga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Projeto Lacre Logístico CMB · Fim do contrabando de contêineres, da descarga fantasma e do roubo de cargas nas BRs.</span>
+        <span>15 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">IMPACTO OPERACIONAL</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:18px;">Do Porto ao Destino Final sem Ponto Cego</h3>
+        <div class="kpi-box" style="margin-bottom:16px;">
+          <div class="kpi-num">12 Mil/dia</div>
+          <div class="kpi-label">Contêineres movimentados só no Porto de Santos (hoje fiscalizados por amostragem)</div>
+        </div>
+        <div class="kpi-box" style="margin-bottom:16px;">
+          <div class="kpi-num">-75% a -95%</div>
+          <div class="kpi-label">Queda no tempo de liberação em barreiras (comprovado no <strong>Single E-lock China</strong> e <strong>RECTS África</strong>)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-num">&lt; 3 seg</div>
+          <div class="kpi-label">Tempo de resposta para alerta de rompimento de lacre ou desvio de rota para a PRF</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Lacre reutilizável em comodato para transportadores</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 16: ECOSSISTEMA INTEGRADO MOEDALOG ==================== -->
+  <section class="slide" id="slide-16">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">INTEGRAÇÃO DE ESTADO · ARQUITETURA NACIONAL EM TEMPO REAL</div>
+        <h2 class="slide-title">O Ecossistema Integrado: O "Sinal Verde Soberano"</h2>
+        <p class="slide-subtitle">A Casa da Moeda atua como a Autoridade Certificadora Raiz que conecta os documentos fiscais eletrônicos aos eventos físicos nas fábricas, portos, rodovias e varejo.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:24px;">
+          <div style="background:#ffffff;border:2px solid #0a192f;border-radius:16px;padding:22px;position:relative;">
+            <div style="background:#0a192f;color:#eab308;font-weight:900;font-size:14px;padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:10px;">ELO 1 · ORIGEM</div>
+            <h3 style="font-size:21px;font-weight:800;color:#0a192f;margin-bottom:8px;">🏭 Fábricas Nacionais &amp; ⚓ Portos/Fronteiras</h3>
+            <p style="font-size:16px;color:#334155;line-height:1.42;">• Produtos nacionais recebem o <strong>Selo Eletrônico RFID/NFC</strong> na linha.<br>• Contêineres e caminhões importados recebem o <strong>Lacre Eletrônico (e-Seal)</strong> na alfândega.</p>
+          </div>
+
+          <div style="background:linear-gradient(145deg,#0a192f,#0d3b38);border:2px solid #eab308;border-radius:16px;padding:22px;color:#ffffff;">
+            <div style="background:#eab308;color:#0a192f;font-weight:900;font-size:14px;padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:10px;">ELO 2 · NÚCLEO SOBERANO</div>
+            <h3 style="font-size:21px;font-weight:800;color:#eab308;margin-bottom:8px;">🖥️ Data Center CMB Santa Cruz (+ Usina Solar)</h3>
+            <p style="font-size:16px;color:#e2e8f0;line-height:1.42;">• Gera as chaves criptográficas.<br>• Amarra o Selo/Lacre à <strong>NF-e, CT-e, MDF-e e DUIMP</strong>.<br>• IA (COPPE/UFRJ) cruza peso, rota, tempo e nota fiscal.</p>
+          </div>
+
+          <div style="background:#ffffff;border:2px solid #059669;border-radius:16px;padding:22px;">
+            <div style="background:#059669;color:#ffffff;font-weight:900;font-size:14px;padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:10px;">ELO 3 · CIRCULAÇÃO</div>
+            <h3 style="font-size:21px;font-weight:800;color:#0a192f;margin-bottom:8px;">🛣️ Corredores Logísticos (PRF, ANTT, SEFAZ)</h3>
+            <p style="font-size:16px;color:#334155;line-height:1.42;">• Pórticos rodoviários leem o lacre e a carga em movimento.<br>• <strong>Canal Verde</strong> para quem está regular.<br>• Foco policial 100% cirúrgico nos infratores.</p>
+          </div>
+
+          <div style="background:#ffffff;border:2px solid #d4af37;border-radius:16px;padding:22px;">
+            <div style="background:#d4af37;color:#0a192f;font-weight:900;font-size:14px;padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:10px;">ELO 4 · PONTA FINAL</div>
+            <h3 style="font-size:21px;font-weight:800;color:#0a192f;margin-bottom:8px;">📱 Consumidor Brasileiro, Varejo e Seguradoras</h3>
+            <p style="font-size:16px;color:#334155;line-height:1.42;">• Baixa automática da viagem na entrega.<br>• Queda drástica do prêmio de seguro.<br>• Cidadão valida o produto no celular via NFC.</p>
+          </div>
+        </div>
+
+        <div class="grid-3" style="max-height:165px;">
+          <div class="card" style="padding:16px 22px;">
+            <h3 style="font-size:18px;margin-bottom:4px;">🏛️ Receita Federal, SEFAZ e Serpro</h3>
+            <p style="font-size:15.5px;">Recebem o batimento físico-digital em tempo real para validação de NF-e, DUIMP e créditos de IBS/CBS.</p>
+          </div>
+          <div class="card" style="padding:16px 22px;">
+            <h3 style="font-size:18px;margin-bottom:4px;">🚓 PRF, Polícia Federal e ANTT</h3>
+            <p style="font-size:15.5px;">Painel de inteligência em tempo real sobre contêineres e caminhões suspeitos nas rodovias federais e portos.</p>
+          </div>
+          <div class="card" style="padding:16px 22px;">
+            <h3 style="font-size:18px;margin-bottom:4px;">🔬 Inmetro e Anatel</h3>
+            <p style="font-size:15.5px;">Inmetro acredita laboratórios de ensaio mecânico e Anatel homologa frequências de rádio em harmonia com a CMB.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Governança Federativa · A Casa da Moeda provê a âncora criptográfica e física em harmonia com todos os órgãos de Estado.</span>
+        <span>16 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 17: SINERGIA COM A REFORMA TRIBUTÁRIA ==================== -->
+  <section class="slide" id="slide-17">
+    <div class="slide-main">
+      <div>
+        <div class="kicker">MARCO REGULATÓRIO · EC 132/2023 E PLP 68/2024 (IBS, CBS E IMPOSTO SELETIVO)</div>
+        <h2 class="slide-title">O Elo Físico Indispensável da Reforma Tributária</h2>
+        <p class="slide-subtitle">A Reforma Tributária moderniza as regras do imposto, mas cria três desafios práticos que só o Controle Logístico Físico-Digital da Casa da Moeda consegue resolver:</p>
+
+        <div class="item-list">
+          <div class="item-row crimson">
+            <div class="icon-circle crimson">1</div>
+            <div class="item-text">
+              <h3>Blindagem do Novo Imposto Seletivo (Bebidas, Cigarros, Combustíveis e Minerais)</h3>
+              <p>O Imposto Seletivo eleva a tributação sobre produtos específicos. Sem o <strong>Selo Eletrônico RFID/NFC e o Lacre da CMB</strong>, alíquotas maiores aumentariam o incentivo ao contrabando (que já domina 41% dos cigarros e 36% dos destilados).</p>
+            </div>
+          </div>
+          <div class="item-row gold">
+            <div class="icon-circle gold">2</div>
+            <div class="item-text">
+              <h3>Tributação no Destino (IBS e CBS): Fim do "Passeio de Nota Fiscal"</h3>
+              <p>Com o imposto passando a pertencer ao estado/município de destino da mercadoria, torna-se obrigatório <strong>provar fisicamente onde o caminhão ou contêiner descarregou</strong>, impedindo simulações interestaduais.</p>
+            </div>
+          </div>
+          <div class="item-row emerald">
+            <div class="icon-circle emerald">3</div>
+            <div class="item-text">
+              <h3>Segurança contra Créditos Fictícios no Split Payment e no Cashback</h3>
+              <p>A não-cumulatividade plena do IBS/CBS exige certeza de que a mercadoria física existiu e circulou. O Selo da CMB impede que "empresas noteiras" gerem créditos tributários falsos contra o Tesouro.</p>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="icon-circle">4</div>
+            <div class="item-text">
+              <h3>Base Legal Já em Avanço: A Lei de Rastreabilidade do Ouro</h3>
+              <p>O projeto aprovado na Câmara dos Deputados já atribui textualmente à <strong>Casa da Moeda do Brasil</strong> a certificação físico-digital exclusiva do ouro (setor com R$ 18,2 bi de ilegalidade), servindo de piloto jurídico imediato.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Reforma Tributária + Controle Logístico · A garantia de que a alíquota de referência do IVA (IBS/CBS) possa cair para todos.</span>
+        <span>17 / 20</span>
+      </div>
+    </div>
+    <div class="slide-side">
+      <div>
+        <div class="kicker" style="color:#eab308;">IMPACTO NA ALÍQUOTA DO IVA</div>
+        <h3 style="font-size:26px;font-weight:800;margin-bottom:18px;">Como Baixar a Alíquota do IBS/CBS</h3>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(234,179,8,0.4);border-radius:16px;padding:22px;margin-bottom:18px;">
+          <div style="font-size:18px;font-weight:800;color:#eab308;margin-bottom:8px;">A Equação da Reforma:</div>
+          <p style="font-size:16px;color:#e2e8f0;line-height:1.45;">
+            A alíquota-padrão do novo IVA brasileiro depende diretamente do <strong>hiato de conformidade (sonegação)</strong>. Cada redução de 5 pontos percentuais na evasão fiscal permite <strong>reduzir a alíquota geral paga por toda a indústria e população</strong>.
+          </p>
+        </div>
+        <div class="kpi-box" style="margin-bottom:18px;">
+          <div class="kpi-num">-2 a -3 p.p.</div>
+          <div class="kpi-label">Potencial de queda na alíquota-padrão do IBS/CBS com o fechamento do ralo físico de sonegação</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-num">100%</div>
+          <div class="kpi-label">Rastreabilidade física no destino para partilha federativa justa entre Estados e Municípios</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#94a3b8;text-align:center;">Justiça federativa para União, Estados e Municípios</div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 18: MODELO DE NEGÓCIOS E AUTOFINANCIAMENTO ==================== -->
+  <section class="slide" id="slide-18">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">VIABILIDADE ECONÔMICO-FINANCEIRA · MODELO SELF-FUNDING (ZERO ÔNUS AO TESOURO)</div>
+        <h2 class="slide-title">Modelo Econômico Autofinanciável e Retorno Bilionário</h2>
+        <p class="slide-subtitle">O sistema se paga integralmente por microtarifas de certificação infinitamente menores que o custo atual de pirataria, seguro e burocracia, gerando lucro para a CMB e centenas de bilhões para o país.</p>
+
+        <div class="grid-4" style="margin-bottom:24px;">
+          <div class="card gold">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#b45309;margin-bottom:6px;">CAPEX INICIAL (FASE 1 — 36 MESES)</div>
+              <div style="font-size:38px;font-weight:900;color:#0a192f;line-height:1.1;">R$ 0,8 a 1,2 Bi</div>
+              <div style="font-size:15.5px;font-weight:800;color:#059669;margin:6px 0 12px;">≈ US$ 140 a US$ 210 Milhões</div>
+              <p>Inclui a <strong>Usina Solar Fotovoltaica</strong>, o <strong>Data Center Soberano</strong> no galpão existente de Santa Cruz e as linhas de produção/personalização de Selos RFID/NFC e Lacres Eletrônicos.</p>
+            </div>
+            <div style="font-size:13.5px;font-weight:800;color:#92400e;margin-top:10px;">Financiável via BNDES Mais Inovação / Finep</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#1e40af;margin-bottom:6px;">CUSTO UNITÁRIO MÍNIMO</div>
+              <div style="font-size:38px;font-weight:900;color:#0a192f;line-height:1.1;">R$ 0,03–0,15</div>
+              <div style="font-size:15.5px;font-weight:800;color:#059669;margin:6px 0 12px;">Por Selo Eletrônico em Escala</div>
+              <p>Fração ínfima do valor de uma bebida, medicamento, vestuário ou galão de agroquímico. Nos contêineres/caminhões, o <strong>Lacre Eletrônico é reutilizável</strong> em comodato.</p>
+            </div>
+            <div style="font-size:13.5px;font-weight:800;color:#1e40af;margin-top:10px;">Mais barato que o seguro e a escolta atuais</div>
+          </div>
+
+          <div class="card emerald">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#059669;margin-bottom:6px;">NOVA RECEITA DA CASA DA MOEDA</div>
+              <div style="font-size:38px;font-weight:900;color:#0a192f;line-height:1.1;">R$ 3,5 a 6,0 Bi</div>
+              <div style="font-size:15.5px;font-weight:800;color:#059669;margin:6px 0 12px;">≈ US$ 0,6 a US$ 1,05 Bilhão / ano</div>
+              <p>Coloca a CMB no mesmo patamar de faturamento e rentabilidade da <strong>Bundesdruckerei alemã (€ 1,11 bi)</strong> e da <strong>IN Groupe francesa (€ 1 bi+)</strong>, gerando dividendos à União.</p>
+            </div>
+            <div style="font-size:13.5px;font-weight:800;color:#065f46;margin-top:10px;">Perenidade financeira da estatal por décadas</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="font-size:15px;font-weight:800;color:#eab308;margin-bottom:6px;">RECUPERAÇÃO FISCAL PARA O BRASIL</div>
+              <div style="font-size:38px;font-weight:900;color:#eab308;line-height:1.1;">R$ 90 a 150 Bi</div>
+              <div style="font-size:15.5px;font-weight:800;color:#6ee7b7;margin:6px 0 12px;">≈ US$ 15,6 a US$ 26,0 Bilhões / ano</div>
+              <p>Retorno superior a <strong>100 reais para cada 1 real investido</strong> já nos primeiros 36 meses, financiando diretamente a <strong>redução da carga tributária nacional</strong>.</p>
+            </div>
+            <div style="font-size:13.5px;font-weight:800;color:#6ee7b7;margin-top:10px;">ROI de Estado sem precedentes</div>
+          </div>
+        </div>
+
+        <div class="bottom-callout">
+          <span>💡 <strong>Cláusula de Soberania (Modelo Quênia/Filipinas):</strong> Toda parceria tecnológica com fornecedores privados de hardware inclui transferência obrigatória de tecnologia e controle exclusivo das chaves criptográficas pela CMB.</span>
+          <span style="white-space:nowrap;margin-left:20px;"><strong>Payback &lt; 4 Meses</strong></span>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Análise de Viabilidade CLEC-CMB · Autofinanciamento operacional com ganho líquido para a indústria, o Fisco e o consumidor.</span>
+        <span>18 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 19: CRONOGRAMA DE IMPLANTAÇÃO (36 MESES) ==================== -->
+  <section class="slide" id="slide-19">
+    <div class="slide-full">
+      <div>
+        <div class="kicker">ROTEIRO EXECUTIVO DE IMPLANTAÇÃO · HORIZONTE DE 36 MESES</div>
+        <h2 class="slide-title">Cronograma Faseado de Implantação Nacional</h2>
+        <p class="slide-subtitle">Execução modular começando pelas cadeias de maior evasão fiscal e risco sanitário (ouro, combustíveis, bebidas e portos) até a cobertura industrial plena.</p>
+
+        <div class="grid-4" style="margin-bottom:24px;">
+          <div class="card gold">
+            <div>
+              <div style="background:#fef3c7;color:#92400e;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:12px;">FASE 1 · MESES 1 A 6</div>
+              <h3>Marco Legal, Usina Solar e Data Center CMB</h3>
+              <p style="margin-top:10px;">
+                • Decreto/Portaria MF-RFB instituindo a CMB como Autoridade Certificadora Logística.<br><br>
+                • Início imediato da <strong>Usina Solar Fotovoltaica</strong> e do <strong>Data Center Soberano</strong> em Santa Cruz.<br><br>
+                • Piloto operacional da <strong>Lei do Ouro</strong> e laboratório com COPPE/UFRJ.
+              </p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#b45309;margin-top:12px;">🎯 Fundação Jurídica e Energética</div>
+          </div>
+
+          <div class="card emerald">
+            <div>
+              <div style="background:#d1fae5;color:#065f46;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:12px;">FASE 2 · MESES 7 A 12</div>
+              <h3>Portos, Combustíveis e Bebidas Alcoólicas</h3>
+              <p style="margin-top:10px;">
+                • Implantação do <strong>Lacre Eletrônico (e-Seal)</strong> nos contêineres dos Portos do Rio, Itaguaí (a 20 km da CMB) e Santos.<br><br>
+                • Lacre eletrônico em caminhões-tanque de <strong>combustíveis e lubrificantes</strong>.<br><br>
+                • Retomada soberana do <strong>Selo Eletrônico NFC/RFID em bebidas</strong>.
+              </p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#059669;margin-top:12px;">🎯 Ataque a R$ 260+ bi de fraudes</div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div style="background:#dbeafe;color:#1e40af;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:12px;">FASE 3 · MESES 13 A 24</div>
+              <h3>Medicamentos, Agro, Tabaco e Escala Ceitec</h3>
+              <p style="margin-top:10px;">
+                • Expansão do Selo Eletrônico para <strong>medicamentos, defensivos agrícolas (agro), cigarros e cosméticos</strong>.<br><br>
+                • Escalonamento da produção nacional de chips RFID/NFC com a <strong>Ceitec</strong>.<br><br>
+                • Integração com pórticos <em>free-flow</em> nas rodovias federais (PRF/ANTT).
+              </p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#1e40af;margin-top:12px;">🎯 Escala Microeletrônica Nacional</div>
+          </div>
+
+          <div class="card navy-fill">
+            <div>
+              <div style="background:#eab308;color:#0a192f;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:12px;">FASE 4 · MESES 25 A 36</div>
+              <h3>Cobertura Industrial Plena e Redução de Impostos</h3>
+              <p style="margin-top:10px;">
+                • Inclusão de vestuário, calçados, autopeças e eletrônicos.<br><br>
+                • Interoperabilidade com o <strong>Passaporte Digital Europeu (DPP)</strong> e corredores sul-americanos.<br><br>
+                • <strong>Redução efetiva das alíquotas tributárias</strong> com o dividendo da formalização.
+              </p>
+            </div>
+            <div style="font-size:14px;font-weight:800;color:#6ee7b7;margin-top:12px;">🎯 Justiça Fiscal e Soberania Plena</div>
+          </div>
+        </div>
+
+        <div class="bottom-callout">
+          <span>🚀 <strong>Prontidão Imediata:</strong> Como a Casa da Moeda já possui o terreno de 500 mil m², os galpões construídos, o corpo técnico e a fé pública legal, a Fase 1 pode ser iniciada imediatamente por ato do Poder Executivo.</span>
+          <span style="white-space:nowrap;margin-left:20px;"><strong>Execução Imediata</strong></span>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Plano Diretor CLEC-CMB · Governança interministerial: Ministério da Fazenda, MDIC, Transportes, Portos e Justiça/PRF.</span>
+        <span>19 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 20: CONCLUSÃO ==================== -->
+  <section class="slide slide-dark" id="slide-20">
+    <div class="dot-grid" style="top:56px;left:72px;"></div>
+    <div style="width:100%;padding:68px 88px 54px 88px;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;">
+      <div>
+        <div class="kicker">CONCLUSÃO · DECISÃO ESTRATÉGICA DE ESTADO</div>
+        <h1 class="hero-title" style="font-size:56px;margin-bottom:14px;">
+          Um Brasil Soberano, Industrializado,
+          <span>Com Menos Impostos e Produtos Mais Seguros</span>
+        </h1>
+        <p class="slide-subtitle" style="font-size:22px;color:#cbd5e1;max-width:1450px;margin-bottom:28px;">
+          O Controle Logístico Nacional operado pela Casa da Moeda do Brasil une desenvolvimento industrial, combate implacável ao crime organizado, alívio tributário para quem produz e proteção direta à família brasileira.
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;">
+          <div style="background:rgba(255,255,255,0.06);border-left:6px solid #eab308;border-radius:16px;padding:24px 28px;">
+            <div style="font-size:22px;font-weight:900;color:#eab308;margin-bottom:8px;">1. Estanca a Sangria e Baixa a Carga Tributária</div>
+            <p style="font-size:17.5px;color:#e2e8f0;line-height:1.45;">Enfrenta o rombo de <strong>R$ 500 bi/ano (US$ 87 bi) da pirataria</strong> e de <strong>R$ 627 bi/ano (US$ 109 bi) da sonegação</strong>, permitindo cobrar dos sonegadores para <strong>reduzir impostos do setor produtivo e do povo</strong>.</p>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.06);border-left:6px solid #10b981;border-radius:16px;padding:24px 28px;">
+            <div style="font-size:22px;font-weight:900;color:#6ee7b7;margin-bottom:8px;">2. Protege a Saúde e a Segurança dos Brasileiros</div>
+            <p style="font-size:17.5px;color:#e2e8f0;line-height:1.45;">Garante que cada bebida, medicamento, combustível e alimento tenha autenticidade verificável no <strong>celular via NFC</strong>, e que cada contêiner importado viaje sob <strong>Lacre Eletrônico</strong>.</p>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.06);border-left:6px solid #60a5fa;border-radius:16px;padding:24px 28px;">
+            <div style="font-size:22px;font-weight:900;color:#93c5fd;margin-bottom:8px;">3. Impulsiona a Neoindustrialização e a Ceitec</div>
+            <p style="font-size:17.5px;color:#e2e8f0;line-height:1.45;">Cria demanda soberana para <strong>15 a 30 bilhões de chips nacionais por ano</strong>, financiando a microeletrônica brasileira (Ceitec), a IA nacional (COPPE/UFRJ) e o Passaporte Digital de Exportação.</p>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.06);border-left:6px solid #eab308;border-radius:16px;padding:24px 28px;">
+            <div style="font-size:22px;font-weight:900;color:#eab308;margin-bottom:8px;">4. Pereniza a Casa da Moeda em Santa Cruz (RJ)</div>
+            <p style="font-size:17.5px;color:#e2e8f0;line-height:1.45;">Mantém intocáveis o papel-moeda, os passaportes e os lacres do TSE, enquanto instala no complexo de <strong>500 mil m²</strong> uma <strong>Usina Solar</strong>, um <strong>Data Center Soberano</strong> e a fábrica de <strong>Selos e Lacres Eletrônicos</strong>.</p>
+          </div>
+        </div>
+
+        <div style="border-top:2px solid rgba(234,179,8,0.45);padding-top:20px;text-align:center;">
+          <p style="font-size:26px;font-style:italic;font-weight:700;color:#eab308;">
+            "A Casa da Moeda do Brasil já garante a fé pública do nosso dinheiro, do nosso passaporte e do nosso voto.<br>Agora, garantirá a fé pública, a segurança e a justiça fiscal de tudo o que o Brasil produz e transporta."
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>CASA DA MOEDA DO BRASIL (CMB) · INFRAESTRUTURA NACIONAL DE CONTROLE LOGÍSTICO E CERTIFICAÇÃO SOBERANA</span>
+        <span style="color:#eab308;font-weight:800;">PÁGINA 20 / 20</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const select = document.getElementById("slideSelect");
+  const counter = document.getElementById("slideCounter");
+  const progressBar = document.getElementById("progressBar");
+  const deck = document.getElementById("deck");
+  const modeBtn = document.getElementById("modeBtn");
+
+  document.body.classList.add("present-mode");
+
+  slides.forEach((s, idx) => {
+    const opt = document.createElement("option");
+    opt.value = idx;
+    const titleEl = s.querySelector(".slide-title, .hero-title");
+    const titleTxt = titleEl ? titleEl.innerText.replace(/\s+/g, " ").trim().substring(0, 46) : ("Slide " + (idx+1));
+    opt.innerText = `Página ${String(idx+1).padStart(2,"0")}/20 — ${titleTxt}`;
+    select.appendChild(opt);
+  });
+
+  let currentSlide = 0;
+  let isPresentMode = true;
+
+  function fitDeckToScreen() {
+    if (!isPresentMode) {
+      deck.style.transform = "none";
+      return;
+    }
+    const vw = window.innerWidth;
+    const vh = window.innerHeight - 54;
+    const scale = Math.min(vw / 1960, vh / 1110);
+    deck.style.transform = `scale(${scale})`;
+  }
+
+  function updateSlides() {
+    slides.forEach((s, idx) => {
+      if (idx === currentSlide) s.classList.add("active-slide");
+      else s.classList.remove("active-slide");
+    });
+    select.value = currentSlide;
+    counter.innerText = `${String(currentSlide + 1).padStart(2, "0")} / ${slides.length}`;
+    progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+    if (!isPresentMode) {
+      slides[currentSlide].scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  function goToSlide(idx) {
+    currentSlide = Math.max(0, Math.min(slides.length - 1, parseInt(idx)));
+    updateSlides();
+  }
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+
+  function toggleMode() {
+    isPresentMode = !isPresentMode;
+    if (isPresentMode) {
+      document.body.classList.add("present-mode");
+      modeBtn.innerText = "📜 Modo Rolagem";
+      fitDeckToScreen();
+      updateSlides();
+    } else {
+      document.body.classList.remove("present-mode");
+      modeBtn.innerText = "🎬 Modo Apresentação";
+      fitDeckToScreen();
+      slides[currentSlide].scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  window.addEventListener("resize", fitDeckToScreen);
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); nextSlide(); }
+    if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); prevSlide(); }
+    if (e.key === "Home") { e.preventDefault(); goToSlide(0); }
+    if (e.key === "End") { e.preventDefault(); goToSlide(slides.length - 1); }
+    if (e.key === "f" || e.key === "F") { e.preventDefault(); toggleFullscreen(); }
+  });
+
+  fitDeckToScreen();
+  updateSlides();
+</script>
+</body>
+</html>

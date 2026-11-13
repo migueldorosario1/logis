@@ -34,9 +34,81 @@ const ILUSTRAS: Record<string, string> = {
 };
 
 const T = {
-  pt: { ler: 'Ler a reportagem completa', por: 'Por', noticiasK: 'Atualizado semanalmente', noticiasT: 'Últimas notícias', revKicker: 'Revista Logis · Edição nº 1 · prévia', revTitulo: 'Dossiê: corredores de escoamento e controle logístico', revTexto: 'Chancay, a ferrovia bioceânica e o desafio das fronteiras abertas. A capa e o sumário da primeira edição já estão prontos para baixar — conteúdo real, nada demonstrativo.', revLer: 'Ler a prévia da edição', revVer: 'Conhecer a revista', editorialK: 'Editorial semanal', rssTitulo: 'Do mundo da logística — fontes', rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.', emBreve: 'tradução automática em construção' },
-  en: { ler: 'Read the full story', por: 'By', noticiasK: 'Updated weekly', noticiasT: 'Latest news', revKicker: 'Logis Journal · Issue No. 1 · preview', revTitulo: 'Dossier: export corridors and logistics control', revTexto: 'Chancay, the bioceanic railway and the challenge of open borders. The first issue’s cover and contents are ready to download — real content, nothing dummy.', revLer: 'Read the issue preview', revVer: 'About the journal', editorialK: 'Weekly editorial', rssTitulo: 'From the world of logistics — sources', rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.', emBreve: 'automatic translation under construction' },
-  es: { ler: 'Leer la reportaje completa', por: 'Por', noticiasK: 'Actualizado semanalmente', noticiasT: 'Últimas noticias', revKicker: 'Revista Logis · Edición nº 1 · avance', revTitulo: 'Dossier: corredores de escoamiento y control logístico', revTexto: 'Chancay, el ferrocarril bioceánico y el desafío de las fronteras abiertas. La portada y el sumario de la primera edición ya están listos para descargar — contenido real, nada demostrativo.', revLer: 'Leer el avance de la edición', revVer: 'Conocer la revista', editorialK: 'Editorial semanal', rssTitulo: 'Del mundo de la logística — fuentes', rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.', emBreve: 'traducción automática en construcción' },
+  pt: {
+    ler: 'Ler a reportagem completa',
+    por: 'Por',
+    noticiasK: 'Atualizado semanalmente',
+    noticiasT: 'Últimas notícias',
+    apresKicker: 'Apresentação executiva interativa · 20 lâminas widescreen (16:9)',
+    apresTitulo: 'Controle logístico nacional: neoindustrialização, justiça fiscal e a Casa da Moeda do Brasil',
+    apresTexto: 'Estudo estratégico de 20 páginas sobre a sangria anual de R$ 468 bilhões com pirataria e ilegalidade, o comparativo internacional (China, União Europeia, EUA, Reino Unido e África), a redução da carga tributária para quem produz no Brasil e a nova infraestrutura soberana da CMB em Santa Cruz (Data Center, Usina Solar, Selo Fiscal RFID/NFC e Lacre Eletrônico de Contêineres).',
+    apresTag1: 'R$ 468 bi mapeados (FNCP)',
+    apresTag2: '500 mil m² · Santa Cruz (CMB + Ceitec)',
+    apresTag3: 'Navegação slide a slide + Tela cheia',
+    apresBadgeImg: '▶ 20 SLIDES · INTERATIVO',
+    apresBtnHtml: 'Abrir apresentação dinâmica (HTML)',
+    apresBtnPdf: 'Baixar PDF (20 pág.)',
+    apresBtnPptx: 'Baixar PowerPoint (.PPTX)',
+    revKicker: 'Revista Logis · Edição nº 1 · prévia',
+    revTitulo: 'Dossiê: corredores de escoamento e controle logístico',
+    revTexto: 'Chancay, a ferrovia bioceânica e o desafio das fronteiras abertas. A capa e o sumário da primeira edição já estão prontos para baixar — conteúdo real, nada demonstrativo.',
+    revLer: 'Ler a prévia da edição',
+    revVer: 'Conhecer a revista',
+    editorialK: 'Editorial semanal',
+    rssTitulo: 'Do mundo da logística — fontes',
+    rssTexto: 'Os portais que o LOGIS acompanha toda semana. Próxima etapa: tradução automática dos feeds para a língua do site.',
+    emBreve: 'tradução automática em construção',
+  },
+  en: {
+    ler: 'Read the full story',
+    por: 'By',
+    noticiasK: 'Updated weekly',
+    noticiasT: 'Latest news',
+    apresKicker: 'Interactive executive presentation · 20 widescreen slides (16:9)',
+    apresTitulo: 'National logistics control: neo-industrialization, tax justice and the Brazilian Mint',
+    apresTexto: 'Comprehensive 20-page strategic study on the R$ 468 billion annual drain from piracy and informality, international benchmarks (China, EU, USA, UK, Africa), tax relief for national producers, and the Brazilian Mint’s sovereign infrastructure in Santa Cruz (Data Center, Solar Plant, RFID/NFC Tax Stamp, and Container Electronic Seal).',
+    apresTag1: 'R$ 468B mapped (FNCP)',
+    apresTag2: '500k m² · Santa Cruz (CMB + Ceitec)',
+    apresTag3: 'Slide-by-slide + Fullscreen mode',
+    apresBadgeImg: '▶ 20 SLIDES · INTERACTIVE',
+    apresBtnHtml: 'Open dynamic presentation (HTML)',
+    apresBtnPdf: 'Download PDF (20 pp.)',
+    apresBtnPptx: 'Download PowerPoint (.PPTX)',
+    revKicker: 'Logis Journal · Issue No. 1 · preview',
+    revTitulo: 'Dossier: export corridors and logistics control',
+    revTexto: 'Chancay, the bioceanic railway and the challenge of open borders. The first issue’s cover and contents are ready to download — real content, nothing dummy.',
+    revLer: 'Read the issue preview',
+    revVer: 'About the journal',
+    editorialK: 'Weekly editorial',
+    rssTitulo: 'From the world of logistics — sources',
+    rssTexto: 'The outlets LOGIS follows every week. Next step: automatic feed translation into the site’s languages.',
+    emBreve: 'automatic translation under construction',
+  },
+  es: {
+    ler: 'Leer la reportaje completa',
+    por: 'Por',
+    noticiasK: 'Actualizado semanalmente',
+    noticiasT: 'Últimas noticias',
+    apresKicker: 'Presentación ejecutiva interactiva · 20 láminas widescreen (16:9)',
+    apresTitulo: 'Control logístico nacional: neoindustrialización, justicia fiscal y la Casa de la Moneda de Brasil',
+    apresTexto: 'Estudio estratégico de 20 páginas sobre el drenaje anual de R$ 468 mil millones por piratería e informalidad, comparativa internacional (China, UE, EE. UU., Reino Unido y África), alivio tributario para la producción nacional y la infraestructura soberana de la CMB en Santa Cruz (Centro de Datos, Planta Solar, Sello Fiscal RFID/NFC y Precinto Electrónico).',
+    apresTag1: 'R$ 468 mil M mapeados (FNCP)',
+    apresTag2: '500 mil m² · Santa Cruz (CMB + Ceitec)',
+    apresTag3: 'Navegación lámina a lámina + Pantalla completa',
+    apresBadgeImg: '▶ 20 LÁMINAS · INTERACTIVO',
+    apresBtnHtml: 'Abrir presentación dinámica (HTML)',
+    apresBtnPdf: 'Descargar PDF (20 págs.)',
+    apresBtnPptx: 'Descargar PowerPoint (.PPTX)',
+    revKicker: 'Revista Logis · Edición nº 1 · avance',
+    revTitulo: 'Dossier: corredores de escoamiento y control logístico',
+    revTexto: 'Chancay, el ferrocarril bioceánico y el desafío de las fronteras abiertas. La portada y el sumario de la primera edición ya están listos para descargar — contenido real, nada demostrativo.',
+    revLer: 'Leer el avance de la edición',
+    revVer: 'Conocer la revista',
+    editorialK: 'Editorial semanal',
+    rssTitulo: 'Del mundo de la logística — fuentes',
+    rssTexto: 'Los portales que LOGIS sigue cada semana. Próximo paso: traducción automática de los feeds al idioma del sitio.',
+    emBreve: 'traducción automática en construcción',
+  },
 }[lang];
 
 const REVISTA_PDF = {
@@ -75,6 +147,40 @@ const REVISTA_PDF = {
         <span class="faixa-titulo">{e.hero.title}</span>
         <span class="faixa-seta">→</span>
       </a>
+    </div>
+  </section>
+
+  <section class="block apresentacao-destaque">
+    <div class="container">
+      <div class="apresentacao-card">
+        <a class="apresentacao-preview" href="/apresentacoes/controle-logistico-cmb-20-paginas.html" target="_blank" rel="noopener">
+          <img src="/imagens/apresentacao-controle-logistico-cmb-capa.png" alt={T.apresTitulo} loading="eager" />
+          <span class="apresentacao-preview-badge">{T.apresBadgeImg}</span>
+        </a>
+        <div class="apresentacao-info">
+          <span class="apresentacao-kicker">{T.apresKicker}</span>
+          <h2 class="apresentacao-titulo">
+            <a href="/apresentacoes/controle-logistico-cmb-20-paginas.html" target="_blank" rel="noopener">{T.apresTitulo}</a>
+          </h2>
+          <p class="apresentacao-texto">{T.apresTexto}</p>
+          <div class="apresentacao-tags">
+            <span class="apresentacao-tag">{T.apresTag1}</span>
+            <span class="apresentacao-tag">{T.apresTag2}</span>
+            <span class="apresentacao-tag">{T.apresTag3}</span>
+          </div>
+          <div class="apresentacao-botoes">
+            <a class="btn primary apresentacao-btn-main" href="/apresentacoes/controle-logistico-cmb-20-paginas.html" target="_blank" rel="noopener">
+              🎬 {T.apresBtnHtml} →
+            </a>
+            <a class="btn ghost apresentacao-btn-sec" href="/downloads/APRESENTACAO_20_PAGINAS_CONTROLE_LOGISTICO_CMB_20261113.pdf" target="_blank" rel="noopener">
+              📄 {T.apresBtnPdf}
+            </a>
+            <a class="btn ghost apresentacao-btn-sec" href="/downloads/APRESENTACAO_20_PAGINAS_CONTROLE_LOGISTICO_CMB_20261113.pptx" download>
+              📊 {T.apresBtnPptx}
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
